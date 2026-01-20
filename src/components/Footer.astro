@@ -25,10 +25,10 @@ const services = [
         <!-- Brand Column -->
         <div class="footer__brand">
           <a href="/" class="footer__logo">
-            <img src="/logo-light.svg" alt="Revivelle Ink" />
+            <img src="/Logo.svg" alt="Revivelle Ink" />
           </a>
           <p class="footer__tagline">
-            Precision <span class="footer__dot">✦</span> Restoration <span class="footer__dot">✦</span> Confidence
+            Precision <span class="footer__dot"></span> Restoration <span class="footer__dot"></span> Confidence
           </p>
           <p class="footer__description">
             Boutique paramedical tattoo studio specializing in stretch mark and scar camouflage in Sparks, Nevada.
@@ -139,15 +139,16 @@ const services = [
   }
 
   .footer__logo img {
-    height: 65px;
+    height: 210px;
     width: auto;
     margin-bottom: var(--spacing-lg);
-    filter: brightness(1.1);
+    border-radius: var(--radius-sm);
     transition: all var(--transition-medium);
   }
 
   .footer__logo:hover img {
-    filter: brightness(1.2) drop-shadow(0 4px 15px rgba(201, 168, 108, 0.4));
+    filter: brightness(1.1) drop-shadow(0 4px 15px rgba(201, 168, 108, 0.4));
+    transform: scale(1.02);
   }
 
   .footer__tagline {
@@ -163,9 +164,12 @@ const services = [
   }
 
   .footer__dot {
-    color: var(--color-gold);
-    font-style: normal;
-    font-size: 0.6rem;
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background: var(--color-gold);
+    border-radius: 50%;
+    vertical-align: middle;
   }
 
   .footer__description {

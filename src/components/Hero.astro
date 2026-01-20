@@ -25,21 +25,38 @@ const {
     <div class="hero__decoration-line hero__decoration-line--right"></div>
   </div>
   
-  {dark && (
-    <div class="hero__particles">
-      {Array.from({ length: 8 }).map((_, i) => (
-        <div 
-          class="hero__particle" 
-          style={`left: ${10 + Math.random() * 80}%; animation-delay: ${Math.random() * 5}s;`}
-        />
-      ))}
-    </div>
-  )}
+  <!-- Gold shimmer particles on all hero sections -->
+  <div class="hero__particles">
+    <div class="hero__particle" style="left: 8%; animation-delay: 0s; animation-duration: 19s;"></div>
+    <div class="hero__particle" style="left: 73%; animation-delay: 2.3s; animation-duration: 22s;"></div>
+    <div class="hero__particle" style="left: 31%; animation-delay: 5.1s; animation-duration: 17s;"></div>
+    <div class="hero__particle" style="left: 89%; animation-delay: 1.7s; animation-duration: 24s;"></div>
+    <div class="hero__particle" style="left: 52%; animation-delay: 8.4s; animation-duration: 20s;"></div>
+    <div class="hero__particle" style="left: 17%; animation-delay: 3.9s; animation-duration: 18s;"></div>
+    <div class="hero__particle" style="left: 64%; animation-delay: 11.2s; animation-duration: 21s;"></div>
+    <div class="hero__particle" style="left: 41%; animation-delay: 6.8s; animation-duration: 16s;"></div>
+    <div class="hero__particle" style="left: 95%; animation-delay: 14.5s; animation-duration: 23s;"></div>
+    <div class="hero__particle" style="left: 3%; animation-delay: 9.1s; animation-duration: 19s;"></div>
+    <div class="hero__particle" style="left: 78%; animation-delay: 4.2s; animation-duration: 25s;"></div>
+    <div class="hero__particle" style="left: 26%; animation-delay: 12.7s; animation-duration: 18s;"></div>
+    <div class="hero__particle" style="left: 58%; animation-delay: 7.3s; animation-duration: 22s;"></div>
+    <div class="hero__particle" style="left: 85%; animation-delay: 15.8s; animation-duration: 17s;"></div>
+    <div class="hero__particle" style="left: 12%; animation-delay: 10.4s; animation-duration: 21s;"></div>
+    <div class="hero__particle" style="left: 47%; animation-delay: 0.6s; animation-duration: 24s;"></div>
+    <div class="hero__particle" style="left: 69%; animation-delay: 13.1s; animation-duration: 19s;"></div>
+    <div class="hero__particle" style="left: 35%; animation-delay: 16.9s; animation-duration: 20s;"></div>
+    <div class="hero__particle" style="left: 91%; animation-delay: 8.7s; animation-duration: 16s;"></div>
+    <div class="hero__particle" style="left: 22%; animation-delay: 18.2s; animation-duration: 23s;"></div>
+  </div>
   
   <div class="container">
     <div class="hero__content">
       <h1 class="hero__title">
-        <span class="hero__title-text">{title}</span>
+        <span class="hero__title-wrapper">
+          <span class="hero__title-text">{title}</span>
+          <span class="hero__title-highlight" aria-hidden="true">{title}</span>
+          <span class="hero__title-line"></span>
+        </span>
         {goldAccent && <span class="hero__title-underline"></span>}
       </h1>
       {subtitle && <p class="hero__subtitle">{subtitle}</p>}
@@ -119,29 +136,67 @@ const {
 
   .hero__particle {
     position: absolute;
-    bottom: 0;
-    width: 4px;
-    height: 4px;
-    background: var(--color-gold);
+    bottom: -10px;
+    width: 2px;
+    height: 2px;
+    background: #ffffff;
     border-radius: 50%;
-    opacity: 0;
-    animation: heroParticle 10s ease-in-out infinite;
+    animation: 
+      heroFloat 18s linear infinite,
+      heroTwinkle 0.4s ease-in-out infinite;
   }
 
-  @keyframes heroParticle {
-    0%, 100% {
+  .hero__particle:nth-child(odd) {
+    width: 3px;
+    height: 3px;
+    animation: 
+      heroFloat 18s linear infinite,
+      heroTwinkle 0.5s ease-in-out infinite 0.1s;
+  }
+
+  .hero__particle:nth-child(3n) {
+    width: 2px;
+    height: 2px;
+    animation: 
+      heroFloat 18s linear infinite,
+      heroTwinkle 0.35s ease-in-out infinite 0.2s;
+  }
+  
+  .hero__particle:nth-child(4n) {
+    width: 1px;
+    height: 1px;
+    animation: 
+      heroFloat 18s linear infinite,
+      heroTwinkle 0.6s ease-in-out infinite;
+  }
+
+  /* Continuous linear upward float - never stops */
+  @keyframes heroFloat {
+    0% {
+      transform: translateY(0);
       opacity: 0;
-      transform: translateY(0) scale(0);
     }
-    10% {
-      opacity: 0.5;
-      transform: scale(1);
+    2% {
+      opacity: 1;
     }
-    90% {
-      opacity: 0.2;
+    95% {
+      opacity: 1;
     }
     100% {
-      transform: translateY(-50vh) scale(0.5);
+      transform: translateY(-75vh);
+      opacity: 0;
+    }
+  }
+
+  /* Rapid twinkle effect - independent of movement */
+  @keyframes heroTwinkle {
+    0%, 100% {
+      box-shadow: 0 0 2px #C9A86C;
+      background: #d4bc8a;
+    }
+    50% {
+      box-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #C9A86C;
+      background: #ffffff;
     }
   }
 
@@ -190,8 +245,76 @@ const {
     font-size: clamp(3rem, 7vw, 5rem);
   }
 
+  .hero__title-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Base text - starts as the normal color */
   .hero__title-text {
+    position: relative;
     display: inline;
+  }
+
+  /* Gold overlay that sweeps across the letters */
+  .hero__title-highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #C9A86C 0%, #e8d5a8 40%, #C9A86C 80%, #d4bc8a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    clip-path: inset(0 100% 0 0);
+    animation: titleGoldReveal 1.2s ease-out 0.3s forwards;
+    pointer-events: none;
+  }
+
+  @keyframes titleGoldReveal {
+    0% {
+      clip-path: inset(0 100% 0 0);
+    }
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  /* Animated line below the text - starts AFTER text turns gold */
+  .hero__title-line {
+    position: absolute;
+    bottom: -0.15em;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #C9A86C 0%, #e8d5a8 50%, #C9A86C 100%);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: lineReveal 1.8s ease-out 1.5s forwards;
+  }
+
+  @keyframes lineReveal {
+    0% {
+      transform: scaleX(0);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .hero__title-highlight {
+      animation: none;
+      clip-path: inset(0 0 0 0);
+    }
+    
+    .hero__title-line {
+      animation: none;
+      transform: scaleX(1);
+    }
   }
 
   .hero__title-underline {
@@ -209,9 +332,13 @@ const {
   }
 
   .hero__title-underline::before {
-    content: '✦';
+    content: '';
     position: absolute;
     top: 50%;
+    width: 8px;
+    height: 8px;
+    background: var(--color-gold);
+    border-radius: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--color-gold);

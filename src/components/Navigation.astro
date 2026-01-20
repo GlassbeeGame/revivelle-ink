@@ -14,7 +14,7 @@ const navLinks = [
 <header class="header">
   <nav class="nav container">
     <a href="/" class="nav__logo" aria-label="Revivelle Ink Home">
-      <img src="/logo-light.svg" alt="Revivelle Ink" class="nav__logo-img" />
+      <img src="/Logo.svg" alt="Revivelle Ink" class="nav__logo-img" />
     </a>
     
     <!-- Mobile Menu Button -->
@@ -32,14 +32,14 @@ const navLinks = [
             href={link.href} 
             class={`nav__link ${currentPath === link.href ? 'nav__link--active' : ''}`}
           >
-            {link.label}
+            <span class="nav__link-text">{link.label}</span>
             <span class="nav__link-underline"></span>
           </a>
         </li>
       ))}
       <li class="nav__item nav__item--cta">
         <a href="/contact" class="nav__cta">
-          <span>Book Now</span>
+          <span class="nav__cta-text">Book Now</span>
         </a>
       </li>
     </ul>
@@ -53,23 +53,23 @@ const navLinks = [
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(251, 248, 244, 0.9);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(201, 168, 108, 0.1);
+    background: rgba(26, 26, 26, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(201, 168, 108, 0.12);
     transition: all var(--transition-medium);
   }
 
   .header--scrolled {
-    background: rgba(251, 248, 244, 0.98);
-    box-shadow: 0 4px 30px rgba(201, 168, 108, 0.1);
+    background: rgba(26, 26, 26, 0.75);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
   }
 
   .nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 90px;
+    height: 140px;
   }
 
   .nav__logo {
@@ -78,16 +78,16 @@ const navLinks = [
     z-index: 1001;
   }
 
+  /* Logo - balanced size for readability */
   .nav__logo-img {
-    height: 55px;
+    height: 130px;
     width: auto;
     transition: all var(--transition-medium);
-    filter: drop-shadow(0 2px 8px rgba(201, 168, 108, 0.2));
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
   }
 
   .nav__logo:hover .nav__logo-img {
     transform: scale(1.03);
-    filter: drop-shadow(0 4px 15px rgba(201, 168, 108, 0.35));
   }
 
   .nav__menu {
@@ -97,38 +97,50 @@ const navLinks = [
     list-style: none;
   }
 
+  /* Clean nav link - text only, no box effects */
   .nav__link {
     position: relative;
+    display: inline-block;
     font-family: var(--font-body);
     font-size: 0.85rem;
     font-weight: 500;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--color-brown);
+    color: var(--color-cream);
     transition: color var(--transition-fast);
-    padding: 0.5rem 0;
+    padding: 0.75rem 0;
   }
 
+  .nav__link-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Gold underline only - no box background */
   .nav__link-underline {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 0;
+    width: 100%;
     height: 2px;
     background: var(--gradient-gold);
-    transition: width var(--transition-medium);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-medium);
   }
 
+  /* Hover: text turns gold + underline appears */
   .nav__link:hover,
   .nav__link--active {
-    color: var(--color-gold-deep);
+    color: var(--color-gold);
   }
 
   .nav__link:hover .nav__link-underline,
   .nav__link--active .nav__link-underline {
-    width: 100%;
+    transform: scaleX(1);
   }
 
+  /* CTA Button */
   .nav__cta {
     position: relative;
     display: inline-flex;
@@ -137,37 +149,19 @@ const navLinks = [
     font-family: var(--font-body);
     font-size: 0.8rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--color-charcoal);
     background: var(--gradient-gold);
-    background-size: 200% auto;
     border-radius: var(--radius-sm);
-    overflow: hidden;
     transition: all var(--transition-medium);
-    box-shadow: 0 4px 15px rgba(201, 168, 108, 0.3);
-  }
-
-  .nav__cta::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: left 0.5s ease;
+    box-shadow: 0 4px 20px rgba(201, 168, 108, 0.3);
   }
 
   .nav__cta:hover {
-    background-position: right center;
     transform: translateY(-2px);
-    box-shadow: var(--shadow-gold-intense);
+    box-shadow: 0 6px 25px rgba(201, 168, 108, 0.5);
     color: var(--color-charcoal);
-  }
-
-  .nav__cta:hover::before {
-    left: 100%;
   }
 
   /* Mobile Toggle */
@@ -189,7 +183,7 @@ const navLinks = [
     display: block;
     width: 100%;
     height: 2px;
-    background: var(--color-charcoal);
+    background: var(--color-cream);
     transition: all var(--transition-fast);
     transform-origin: center;
     border-radius: 2px;
@@ -210,7 +204,7 @@ const navLinks = [
       flex-direction: column;
       justify-content: center;
       gap: var(--spacing-lg);
-      background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-warm) 100%);
+      background: linear-gradient(180deg, var(--color-charcoal) 0%, var(--color-charcoal-deep) 100%);
       transition: right var(--transition-medium);
     }
 

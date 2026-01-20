@@ -8,19 +8,16 @@ const services = [
   {
     title: 'Stretch Mark Camouflage',
     description: 'A pigment-based tattoo that blends stretch marks into your natural skin tone for a smoother, more even appearance. Ideal for white or light stretch marks.',
-    icon: '✨',
     href: '/services'
   },
   {
     title: 'Inkless Scar Revision',
     description: 'A pigment-free treatment using custom serums and controlled needling to stimulate collagen and soften stretch mark and scar texture naturally.',
-    icon: '🌸',
     href: '/services'
   },
   {
     title: 'Scar Camouflage',
     description: 'Improves the appearance of surgical scars, injury scars, and texture irregularities through specialized paramedical tattooing techniques.',
-    icon: '💫',
     href: '/services'
   }
 ];
@@ -49,26 +46,20 @@ const serviceAreas = [
   title="Stretch Mark & Scar Camouflage Tattoo in Sparks, NV | Revivelle Ink"
   description="Transform stretch marks and scars with inkless camouflage tattooing at Revivelle Ink in Sparks, NV. Safe, natural, long-lasting results for all skin tones. Book your consultation today."
 >
-  <!-- Hero Section with Animated Logo -->
+  <!-- Hero Section - Clean Dark Theme -->
   <section class="hero-home">
-    <!-- Elegant background with warm gradient -->
+    <!-- Clean dark background -->
     <div class="hero-home__background">
       <div class="hero-home__gradient"></div>
-      <div class="hero-home__texture"></div>
     </div>
+    
     
     <div class="hero-home__content">
       <ShimmerLogo />
+      
       <div class="hero-home__cta">
         <Button href="/contact" variant="gold-glow" size="large">Book Consultation</Button>
         <Button href="/services" variant="outline" size="large">Explore Services</Button>
-      </div>
-    </div>
-    
-    <div class="hero-home__scroll">
-      <span>Discover More</span>
-      <div class="hero-home__scroll-indicator">
-        <div class="hero-home__scroll-dot"></div>
       </div>
     </div>
   </section>
@@ -89,7 +80,7 @@ const serviceAreas = [
         </p>
         <div class="intro__divider">
           <span class="intro__divider-line"></span>
-          <span class="intro__divider-icon">✦</span>
+          <span class="intro__divider-icon"></span>
           <span class="intro__divider-line"></span>
         </div>
       </div>
@@ -97,7 +88,7 @@ const serviceAreas = [
   </section>
 
   <!-- Services Preview Section -->
-  <section class="section section--gold-tint services-preview">
+  <section class="section section--cream services-preview">
     <div class="container">
       <div class="section-header text-center">
         <span class="section-eyebrow">Our Expertise</span>
@@ -108,11 +99,10 @@ const serviceAreas = [
       </div>
       <div class="services-grid">
         {services.map((service, i) => (
-          <div class="services-grid__item" style={`animation-delay: ${i * 0.15}s`}>
+          <div class="services-grid__item">
             <ServiceCard 
               title={service.title}
               description={service.description}
-              icon={service.icon}
               href={service.href}
             />
           </div>
@@ -135,10 +125,12 @@ const serviceAreas = [
             Your treatment is not just cosmetic — it's emotional, empowering, and transformative.
           </p>
           <ul class="why-choose__list">
-            {benefits.map((benefit, i) => (
-              <li class="why-choose__item" style={`animation-delay: ${i * 0.1}s`}>
+            {benefits.map((benefit) => (
+              <li class="why-choose__item">
                 <span class="why-choose__icon">
-                  <span class="why-choose__icon-check">✓</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
                 </span>
                 <span>{benefit}</span>
               </li>
@@ -161,14 +153,6 @@ const serviceAreas = [
 
   <!-- Service Areas Section -->
   <section class="section section--dark service-areas">
-    <div class="service-areas__particles">
-      {Array.from({ length: 12 }).map((_, i) => (
-        <div 
-          class="service-areas__particle" 
-          style={`left: ${5 + Math.random() * 90}%; animation-delay: ${Math.random() * 8}s;`}
-        />
-      ))}
-    </div>
     <div class="container">
       <div class="service-areas__content text-center">
         <span class="section-eyebrow section-eyebrow--light">Our Reach</span>
@@ -180,7 +164,7 @@ const serviceAreas = [
           {serviceAreas.map((area, index) => (
             <span class="service-areas__item">
               {area}
-              {index < serviceAreas.length - 1 && <span class="service-areas__dot">✦</span>}
+              {index < serviceAreas.length - 1 && <span class="service-areas__dot"></span>}
             </span>
           ))}
         </div>
@@ -192,7 +176,6 @@ const serviceAreas = [
   <section class="section cta-section">
     <div class="container container--narrow">
       <div class="cta-box">
-        <div class="cta-box__glow"></div>
         <div class="cta-box__content">
           <span class="section-eyebrow section-eyebrow--light">Begin Your Journey</span>
           <h2>Ready for Your Transformation?</h2>
@@ -210,7 +193,7 @@ const serviceAreas = [
 </Layout>
 
 <style>
-  /* Hero Home Section */
+  /* Hero Home Section - Clean Dark Theme */
   .hero-home {
     position: relative;
     min-height: 100vh;
@@ -232,30 +215,38 @@ const serviceAreas = [
     inset: 0;
     background: linear-gradient(
       180deg,
-      var(--color-cream) 0%,
-      var(--color-cream-warm) 30%,
-      var(--color-gold-pale) 60%,
-      var(--color-cream-warm) 80%,
-      var(--color-cream) 100%
+      var(--color-charcoal-deep) 0%,
+      var(--color-charcoal) 50%,
+      #2a2520 100%
     );
   }
 
-  .hero-home__texture {
+  /* Subtle radial gold accent - static */
+  .hero-home__gradient::before {
+    content: '';
     position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle at 20% 80%, rgba(201, 168, 108, 0.08) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 20%, rgba(232, 196, 188, 0.08) 0%, transparent 50%),
-                      radial-gradient(circle at 50% 50%, rgba(201, 168, 108, 0.05) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+      ellipse at center,
+      rgba(201, 168, 108, 0.05) 0%,
+      transparent 50%
+    );
   }
 
   .hero-home__content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-xl);
     padding: var(--spacing-xl);
+    width: 100%;
+    max-width: 1000px;
   }
 
   .hero-home__cta {
@@ -264,68 +255,18 @@ const serviceAreas = [
     flex-wrap: wrap;
     justify-content: center;
     opacity: 0;
-    animation: fadeInUp 0.8s ease 2.2s forwards;
-  }
-
-  .hero-home__scroll {
-    position: absolute;
-    bottom: var(--spacing-xl);
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-sm);
-    opacity: 0;
-    animation: fadeIn 1s ease 2.8s forwards;
-  }
-
-  .hero-home__scroll span {
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--color-taupe);
-  }
-
-  .hero-home__scroll-indicator {
-    width: 24px;
-    height: 40px;
-    border: 2px solid var(--color-gold);
-    border-radius: 12px;
-    position: relative;
-    opacity: 0.6;
-  }
-
-  .hero-home__scroll-dot {
-    position: absolute;
-    top: 6px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 8px;
-    background: var(--color-gold);
-    border-radius: 2px;
-    animation: scrollDot 2s ease-in-out infinite;
-  }
-
-  @keyframes scrollDot {
-    0%, 100% { top: 6px; opacity: 1; }
-    50% { top: 22px; opacity: 0.3; }
+    animation: fadeInUp 0.8s ease 1.2s forwards;
   }
 
   @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
 
   /* Section Eyebrow */
   .section-eyebrow {
-    display: inline-block;
+    display: block;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.2em;
@@ -361,7 +302,7 @@ const serviceAreas = [
   .intro__text {
     font-size: 1.1rem;
     color: var(--color-brown-light);
-    line-height: 2;
+    line-height: 1.9;
   }
 
   .intro__divider {
@@ -379,20 +320,33 @@ const serviceAreas = [
   }
 
   .intro__divider-icon {
-    color: var(--color-gold);
-    font-size: 0.875rem;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--color-gold);
+    border-radius: 50%;
   }
 
   /* Services Preview */
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-xl);
   }
 
-  .services-grid__item {
-    opacity: 0;
-    animation: fadeInUp 0.6s ease forwards;
+  @media (max-width: 1100px) {
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-lg);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+      margin: 0 auto;
+    }
   }
 
   /* Why Choose Section */
@@ -432,12 +386,15 @@ const serviceAreas = [
     gap: var(--spacing-md);
     padding: var(--spacing-md) 0;
     border-bottom: 1px solid rgba(201, 168, 108, 0.15);
-    opacity: 0;
-    animation: fadeInUp 0.5s ease forwards;
+    transition: padding-left var(--transition-fast);
   }
 
   .why-choose__item:last-child {
     border-bottom: none;
+  }
+
+  .why-choose__item:hover {
+    padding-left: var(--spacing-sm);
   }
 
   .why-choose__icon {
@@ -449,18 +406,15 @@ const serviceAreas = [
     justify-content: center;
     background: var(--gradient-gold);
     border-radius: var(--radius-full);
-    transition: all var(--transition-medium);
+    transition: transform var(--transition-medium);
   }
 
   .why-choose__item:hover .why-choose__icon {
     transform: scale(1.1);
-    box-shadow: var(--shadow-gold);
   }
 
-  .why-choose__icon-check {
+  .why-choose__icon svg {
     color: var(--color-charcoal);
-    font-size: 0.75rem;
-    font-weight: 700;
   }
 
   .why-choose__cta {
@@ -475,14 +429,7 @@ const serviceAreas = [
     position: relative;
     padding: 3px;
     border-radius: var(--radius-xl);
-    background: var(--gradient-gold-border);
-    background-size: 300% 300%;
-    animation: borderShimmer 6s ease infinite;
-  }
-
-  @keyframes borderShimmer {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    background: var(--gradient-gold);
   }
 
   .why-choose__image-placeholder {
@@ -499,35 +446,6 @@ const serviceAreas = [
   }
 
   /* Service Areas */
-  .service-areas {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .service-areas__particles {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-
-  .service-areas__particle {
-    position: absolute;
-    bottom: -10px;
-    width: 4px;
-    height: 4px;
-    background: var(--color-gold);
-    border-radius: 50%;
-    opacity: 0;
-    animation: particleRise 12s ease-in-out infinite;
-  }
-
-  @keyframes particleRise {
-    0%, 100% { opacity: 0; transform: translateY(0); }
-    10% { opacity: 0.4; }
-    90% { opacity: 0.1; }
-    100% { transform: translateY(-100vh); }
-  }
-
   .service-areas__subtitle {
     font-size: 1.15rem;
     color: var(--color-taupe);
@@ -551,8 +469,12 @@ const serviceAreas = [
   }
 
   .service-areas__dot {
-    color: var(--color-gold);
-    font-size: 0.6rem;
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: var(--color-gold);
+    border-radius: 50%;
+    vertical-align: middle;
   }
 
   /* CTA Section */
@@ -564,22 +486,7 @@ const serviceAreas = [
     text-align: center;
     color: var(--color-cream);
     overflow: hidden;
-  }
-
-  .cta-box__glow {
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center, rgba(201, 168, 108, 0.1) 0%, transparent 50%);
-    animation: glowRotate 20s linear infinite;
-    pointer-events: none;
-  }
-
-  @keyframes glowRotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    border: 1px solid rgba(201, 168, 108, 0.15);
   }
 
   .cta-box__content {
@@ -617,29 +524,5 @@ const serviceAreas = [
       width: 100%;
       padding: 0 var(--spacing-md);
     }
-
-    .services-grid {
-      grid-template-columns: 1fr;
-    }
   }
 </style>
-
-<script>
-  // Simple scroll reveal animation
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('.reveal').forEach(el => {
-    observer.observe(el);
-  });
-</script>

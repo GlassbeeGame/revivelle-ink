@@ -57,7 +57,9 @@ const expectations = [
         <div class="location-card">
           <div class="location-card__gold-accent"></div>
           <div class="location-card__header">
-            <div class="location-card__icon">📍</div>
+            <div class="location-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
             <h2>Sparks, Nevada</h2>
           </div>
           
@@ -82,7 +84,9 @@ const expectations = [
           </div>
 
           <div class="location-card__note">
-            <span class="location-card__note-icon">🔒</span>
+            <span class="location-card__note-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </span>
             <p>
               <strong>Private Studio:</strong> For your comfort and privacy, the full studio address will be provided when you book your appointment.
             </p>
@@ -191,7 +195,7 @@ const expectations = [
 
 <style>
   .section-eyebrow {
-    display: inline-block;
+    display: block;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.2em;
@@ -221,17 +225,24 @@ const expectations = [
   /* Location Card */
   .location-card {
     position: relative;
-    background: var(--color-cream);
-    border: 1px solid rgba(201, 168, 108, 0.2);
+    background: linear-gradient(180deg, var(--color-cream) 0%, #faf8f5 100%);
+    border: 1px solid rgba(201, 168, 108, 0.15);
     border-radius: var(--radius-xl);
     padding: var(--spacing-xl);
+    padding-top: calc(var(--spacing-xl) + 4px);
     overflow: hidden;
-    transition: all var(--transition-medium);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.02),
+      0 10px 20px rgba(0, 0, 0, 0.02);
   }
 
   .location-card:hover {
-    box-shadow: var(--shadow-gold);
-    border-color: var(--color-gold);
+    transform: translateY(-8px);
+    box-shadow: 
+      0 20px 40px rgba(201, 168, 108, 0.15),
+      0 10px 20px rgba(0, 0, 0, 0.05);
+    border-color: rgba(201, 168, 108, 0.3);
   }
 
   .location-card__gold-accent {
@@ -241,6 +252,13 @@ const expectations = [
     right: 0;
     height: 4px;
     background: var(--gradient-gold);
+    transform: scaleX(0.3);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+  }
+
+  .location-card:hover .location-card__gold-accent {
+    transform: scaleX(1);
   }
 
   .location-card__header {
@@ -406,14 +424,34 @@ const expectations = [
   }
 
   .area-card {
-    background: var(--color-cream);
+    position: relative;
+    background: linear-gradient(180deg, var(--color-cream) 0%, #faf8f5 100%);
     padding: var(--spacing-lg);
+    padding-top: calc(var(--spacing-lg) + 3px);
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(201, 168, 108, 0.15);
+    border: 1px solid rgba(201, 168, 108, 0.12);
     text-align: center;
-    transition: all var(--transition-medium);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     opacity: 0;
     animation: fadeInUp 0.5s ease forwards;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  }
+
+  .area-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-gold);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
+
+  .area-card:hover::before {
+    transform: scaleX(1);
   }
 
   @keyframes fadeInUp {
@@ -422,14 +460,20 @@ const expectations = [
   }
 
   .area-card:hover {
-    border-color: var(--color-gold);
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-gold);
+    border-color: rgba(201, 168, 108, 0.25);
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 
+      0 15px 30px rgba(201, 168, 108, 0.12),
+      0 5px 15px rgba(0, 0, 0, 0.04);
   }
 
   .area-card--highlight {
-    border-color: var(--color-gold);
-    background: linear-gradient(135deg, rgba(201, 168, 108, 0.08) 0%, var(--color-cream) 100%);
+    border-color: rgba(201, 168, 108, 0.3);
+    background: linear-gradient(180deg, rgba(201, 168, 108, 0.06) 0%, var(--color-cream) 100%);
+  }
+
+  .area-card--highlight::before {
+    transform: scaleX(0.5);
   }
 
   .area-card__name {
@@ -475,30 +519,46 @@ const expectations = [
   .expect-item {
     display: flex;
     gap: var(--spacing-lg);
-    padding: var(--spacing-xl) 0;
-    border-bottom: 1px solid rgba(201, 168, 108, 0.15);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(180deg, var(--color-cream) 0%, #faf8f5 100%);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(201, 168, 108, 0.1);
     opacity: 0;
     animation: fadeInUp 0.5s ease forwards;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   .expect-item:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .expect-item:hover {
+    transform: translateX(8px);
+    border-color: rgba(201, 168, 108, 0.25);
+    box-shadow: 0 10px 30px rgba(201, 168, 108, 0.1);
   }
 
   .expect-number {
     flex-shrink: 0;
-    width: 50px;
-    height: 50px;
+    width: 54px;
+    height: 54px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 300;
+    font-size: 1.15rem;
+    font-weight: 500;
     color: var(--color-charcoal);
     background: var(--gradient-gold);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-gold);
+    box-shadow: 0 4px 15px rgba(201, 168, 108, 0.3);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .expect-item:hover .expect-number {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 20px rgba(201, 168, 108, 0.4);
   }
 
   .expect-content h3 {
@@ -562,6 +622,9 @@ const expectations = [
   }
 
   .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: var(--spacing-2xl);
   }
 

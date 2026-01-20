@@ -13,27 +13,22 @@ const credentials = [
 
 const approachPoints = [
   {
-    icon: '💜',
     title: 'Gentle, Trauma-Informed Touch',
     description: 'I understand the emotional weight that can come with skin concerns. My approach is always gentle, patient, and supportive.'
   },
   {
-    icon: '✨',
     title: 'Deep Respect for Your Story',
     description: "Your stretch marks and scars are part of your journey. I'm here to help you feel confident, not to erase who you are."
   },
   {
-    icon: '🎨',
     title: 'Detailed Customization',
     description: 'Every treatment is tailored to your unique skin tone, texture, and goals. No one-size-fits-all solutions here.'
   },
   {
-    icon: '🛡️',
     title: 'Safety & Sanitation First',
     description: 'Advanced sanitation protocols, sterile single-use equipment, and full Washoe County health compliance.'
   },
   {
-    icon: '💖',
     title: 'Heart for Helping Women',
     description: "I'm passionate about helping women reclaim their confidence and feel beautiful in their own skin."
   }
@@ -93,8 +88,10 @@ const approachPoints = [
       <div class="approach-grid">
         {approachPoints.map((point, i) => (
           <div class="approach-card" style={`animation-delay: ${i * 0.1}s`}>
-            <div class="approach-card__icon-wrap">
-              <span class="approach-card__icon">{point.icon}</span>
+            <div class="approach-card__accent"></div>
+            <div class="approach-card__charcoal-line"></div>
+            <div class="approach-card__number">
+              <span>{String(i + 1).padStart(2, '0')}</span>
             </div>
             <h3 class="approach-card__title">{point.title}</h3>
             <p class="approach-card__description">{point.description}</p>
@@ -118,7 +115,9 @@ const approachPoints = [
             {credentials.map((credential, i) => (
               <li style={`animation-delay: ${i * 0.08}s`}>
                 <span class="credential-icon">
-                  <span>✓</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
                 </span>
                 {credential}
               </li>
@@ -190,7 +189,7 @@ const approachPoints = [
 
 <style>
   .section-eyebrow {
-    display: inline-block;
+    display: block;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.2em;
@@ -287,19 +286,25 @@ const approachPoints = [
   /* Approach Section */
   .approach-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-lg);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
   }
 
   .approach-card {
-    background: var(--color-cream);
+    position: relative;
+    background: linear-gradient(180deg, var(--color-cream) 0%, #faf8f5 100%);
     padding: var(--spacing-xl);
+    padding-top: calc(var(--spacing-xl) + 4px);
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(201, 168, 108, 0.15);
-    text-align: center;
-    transition: all var(--transition-medium);
+    border: 1px solid rgba(26, 26, 26, 0.06);
+    text-align: left;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     opacity: 0;
     animation: fadeInUp 0.5s ease forwards;
+    overflow: hidden;
+    box-shadow: 
+      0 4px 6px rgba(26, 26, 26, 0.04),
+      0 10px 20px rgba(26, 26, 26, 0.03);
   }
 
   @keyframes fadeInUp {
@@ -308,45 +313,96 @@ const approachPoints = [
   }
 
   .approach-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-gold);
-    border-color: var(--color-gold);
+    transform: translateY(-10px);
+    box-shadow: 
+      0 20px 40px rgba(26, 26, 26, 0.1),
+      0 10px 20px rgba(201, 168, 108, 0.08);
+    border-color: rgba(201, 168, 108, 0.25);
   }
 
-  .approach-card__icon-wrap {
-    width: 70px;
-    height: 70px;
-    display: flex;
+  /* Top accent bar */
+  .approach-card__accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-gold);
+    transform: scaleX(0.2);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .approach-card:hover .approach-card__accent {
+    transform: scaleX(1);
+  }
+
+  /* Number badge */
+  .approach-card__number {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--color-gold-pale) 0%, var(--color-cream) 100%);
-    border: 1px solid rgba(201, 168, 108, 0.3);
-    border-radius: var(--radius-lg);
-    margin: 0 auto var(--spacing-md);
-    transition: all var(--transition-medium);
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, rgba(201, 168, 108, 0.1) 0%, rgba(201, 168, 108, 0.05) 100%);
+    border: 1px solid rgba(201, 168, 108, 0.25);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
-  .approach-card:hover .approach-card__icon-wrap {
+  .approach-card__number span {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    transition: color 0.3s ease;
+  }
+
+  .approach-card:hover .approach-card__number {
     background: var(--gradient-gold);
-    box-shadow: var(--shadow-gold);
-    transform: scale(1.1);
+    border-color: var(--color-gold);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 20px rgba(201, 168, 108, 0.35);
   }
 
-  .approach-card__icon {
-    font-size: 1.75rem;
+  .approach-card:hover .approach-card__number span {
+    color: var(--color-charcoal);
+  }
+
+  /* Charcoal accent line */
+  .approach-card__charcoal-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--color-charcoal) 50%, transparent 100%);
+    opacity: 0.1;
+    transition: opacity 0.4s ease;
+  }
+
+  .approach-card:hover .approach-card__charcoal-line {
+    opacity: 0.25;
   }
 
   .approach-card__title {
-    font-family: var(--font-heading);
-    font-size: 1.15rem;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
     font-weight: 500;
     color: var(--color-charcoal);
     margin-bottom: var(--spacing-sm);
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease;
+  }
+
+  .approach-card:hover .approach-card__title {
+    color: var(--color-gold-deep);
   }
 
   .approach-card__description {
     font-size: 0.95rem;
-    color: var(--color-brown-light);
+    color: var(--color-brown);
     line-height: 1.8;
     margin: 0;
   }
@@ -524,6 +580,9 @@ const approachPoints = [
   }
 
   .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: var(--spacing-2xl);
   }
 

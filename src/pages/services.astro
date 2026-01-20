@@ -9,7 +9,6 @@ const services = [
     title: 'Stretch Mark Camouflage Tattoo',
     price: '$250 per section per session',
     description: 'A pigment-based tattoo that blends stretch marks into your natural skin tone for a smoother, more even appearance. Ideal for white/light stretch marks that have fully healed.',
-    icon: '✨',
     details: [
       'Custom pigment matching to your skin tone',
       'Ideal for white, silver, or light stretch marks',
@@ -21,7 +20,6 @@ const services = [
     title: 'Inkless Stretch Mark Revision',
     price: '$250 per section per session',
     description: 'A pigment-free treatment using custom serums and controlled needling to stimulate collagen and soften stretch mark texture. Perfect for those who prefer a natural healing approach.',
-    icon: '🌸',
     details: [
       'No pigment or ink used',
       'Stimulates natural collagen production',
@@ -33,7 +31,6 @@ const services = [
     title: 'Scar Camouflage / Scar Revision',
     price: '$250 per section per session',
     description: 'Improves the appearance of surgical scars, injury scars, and texture irregularities through specialized paramedical tattooing techniques.',
-    icon: '💫',
     details: [
       'Treats C-section, tummy tuck, and surgical scars',
       'Addresses injury and trauma scars',
@@ -139,7 +136,7 @@ const faqs = [
             <ul class="service-detail__list">
               {service.details.map((detail) => (
                 <li>
-                  <span class="service-detail__check">✓</span>
+                  <svg class="service-detail__check" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   {detail}
                 </li>
               ))}
@@ -198,7 +195,7 @@ const faqs = [
           <ul class="candidate-list">
             {candidateChecks.map((check, i) => (
               <li style={`animation-delay: ${i * 0.08}s`}>
-                <span class="candidate-icon">✓</span>
+                <svg class="candidate-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 {check}
               </li>
             ))}
@@ -268,7 +265,7 @@ const faqs = [
 
 <style>
   .section-eyebrow {
-    display: inline-block;
+    display: block;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.2em;
@@ -630,6 +627,9 @@ const faqs = [
   }
 
   .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: var(--spacing-2xl);
   }
 
