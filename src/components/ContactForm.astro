@@ -25,6 +25,7 @@ const services = [
         class="contact-form__input"
         placeholder="Your name"
       />
+      <span class="contact-form__focus-border"></span>
     </div>
   </div>
 
@@ -39,6 +40,7 @@ const services = [
         class="contact-form__input"
         placeholder="your@email.com"
       />
+      <span class="contact-form__focus-border"></span>
     </div>
     <div class="contact-form__field">
       <label for="phone" class="contact-form__label">Phone</label>
@@ -49,6 +51,7 @@ const services = [
         class="contact-form__input"
         placeholder="(555) 123-4567"
       />
+      <span class="contact-form__focus-border"></span>
     </div>
   </div>
 
@@ -62,6 +65,7 @@ const services = [
             <option value={service}>{service}</option>
           ))}
         </select>
+        <span class="contact-form__focus-border"></span>
       </div>
     </div>
   )}
@@ -77,16 +81,20 @@ const services = [
         class="contact-form__textarea"
         placeholder="Tell me about your goals or ask any questions..."
       ></textarea>
+      <span class="contact-form__focus-border"></span>
     </div>
   </div>
 
   <div class="contact-form__actions">
     <button type="submit" class="contact-form__submit">
-      Send Message
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="22" y1="2" x2="11" y2="13"></line>
-        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-      </svg>
+      <span class="contact-form__submit-text">Send Message</span>
+      <span class="contact-form__submit-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </span>
+      <span class="contact-form__submit-shimmer"></span>
     </button>
   </div>
 </form>
@@ -95,7 +103,7 @@ const services = [
   .contact-form {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
   }
 
   .contact-form__row {
@@ -105,7 +113,7 @@ const services = [
   .contact-form__row--half {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
   }
 
   @media (max-width: 600px) {
@@ -115,16 +123,17 @@ const services = [
   }
 
   .contact-form__field {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   }
 
   .contact-form__label {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
     color: var(--color-brown);
   }
 
@@ -132,14 +141,20 @@ const services = [
   .contact-form__select,
   .contact-form__textarea {
     width: 100%;
-    padding: 0.875rem 1rem;
+    padding: 1rem 1.25rem;
     font-family: var(--font-body);
     font-size: 1rem;
     color: var(--color-charcoal);
     background: var(--color-cream);
-    border: 1px solid rgba(139, 129, 120, 0.3);
+    border: 2px solid rgba(201, 168, 108, 0.2);
     border-radius: var(--radius-md);
-    transition: all var(--transition-fast);
+    transition: all var(--transition-medium);
+  }
+
+  .contact-form__input:hover,
+  .contact-form__select:hover,
+  .contact-form__textarea:hover {
+    border-color: rgba(201, 168, 108, 0.4);
   }
 
   .contact-form__input:focus,
@@ -147,25 +162,45 @@ const services = [
   .contact-form__textarea:focus {
     outline: none;
     border-color: var(--color-gold);
-    box-shadow: 0 0 0 3px rgba(201, 168, 108, 0.15);
+    box-shadow: 0 0 0 4px rgba(201, 168, 108, 0.15), var(--shadow-gold);
+    background: var(--color-cream);
   }
 
   .contact-form__input::placeholder,
   .contact-form__textarea::placeholder {
-    color: var(--color-taupe);
+    color: var(--color-taupe-light);
   }
 
   .contact-form__select {
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238B8178' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23C9A86C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 1rem center;
-    padding-right: 2.5rem;
+    background-position: right 1.25rem center;
+    padding-right: 3rem;
+    cursor: pointer;
   }
 
   .contact-form__textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 140px;
+  }
+
+  /* Focus border animation */
+  .contact-form__focus-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-gold);
+    transition: width var(--transition-medium);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+  }
+
+  .contact-form__input:focus ~ .contact-form__focus-border,
+  .contact-form__select:focus ~ .contact-form__focus-border,
+  .contact-form__textarea:focus ~ .contact-form__focus-border {
+    width: 100%;
   }
 
   .contact-form__actions {
@@ -173,40 +208,64 @@ const services = [
   }
 
   .contact-form__submit {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    padding: 1rem 2rem;
+    gap: 0.75rem;
+    padding: 1.125rem 2.5rem;
     font-family: var(--font-body);
     font-size: 0.9rem;
     font-weight: 600;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--color-charcoal);
-    background: var(--color-gold);
-    border: 2px solid var(--color-gold);
+    background: var(--gradient-gold);
+    background-size: 200% auto;
+    border: none;
     border-radius: var(--radius-sm);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    overflow: hidden;
+    transition: all var(--transition-medium);
+    box-shadow: 0 4px 20px rgba(201, 168, 108, 0.35);
   }
 
   .contact-form__submit:hover {
-    background: var(--color-gold-light);
-    border-color: var(--color-gold-light);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-gold);
+    background-position: right center;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-gold-intense);
   }
 
   .contact-form__submit:active {
-    transform: translateY(0);
+    transform: translateY(-1px);
   }
 
-  .contact-form__submit svg {
+  .contact-form__submit-text,
+  .contact-form__submit-icon {
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-form__submit-icon {
+    display: flex;
     transition: transform var(--transition-fast);
   }
 
-  .contact-form__submit:hover svg {
-    transform: translate(2px, -2px);
+  .contact-form__submit:hover .contact-form__submit-icon {
+    transform: translate(3px, -3px);
+  }
+
+  .contact-form__submit-shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .contact-form__submit:hover .contact-form__submit-shimmer {
+    left: 100%;
   }
 </style>

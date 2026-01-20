@@ -4,7 +4,6 @@ import Hero from '../components/Hero.astro';
 import GalleryCard from '../components/GalleryCard.astro';
 import Button from '../components/Button.astro';
 
-// Placeholder gallery items - these will be replaced with real before/after photos
 const galleryItems = [
   { category: 'Stretch Mark Camouflage', title: 'Abdomen Treatment' },
   { category: 'Inkless Revision', title: 'Hip Area Results' },
@@ -45,27 +44,36 @@ const categories = ['All', 'Stretch Mark Camouflage', 'Inkless Revision', 'Scar 
 
       <!-- Coming Soon Notice -->
       <div class="gallery-notice">
-        <div class="gallery-notice__icon">📸</div>
-        <h3>Results Gallery Coming Soon</h3>
-        <p>
-          I'm currently building my portfolio of before and after photos. 
-          Check back soon to see real transformations, or reach out to see examples during your consultation.
-        </p>
+        <div class="gallery-notice__glow"></div>
+        <div class="gallery-notice__content">
+          <div class="gallery-notice__icon">
+            <span>📸</span>
+          </div>
+          <h3>Results Gallery Coming Soon</h3>
+          <p>
+            I'm currently building my portfolio of before and after photos. 
+            Check back soon to see real transformations, or reach out to see examples during your consultation.
+          </p>
+          <Button href="/contact" variant="primary">Request Examples</Button>
+        </div>
       </div>
 
       <!-- Gallery Grid (Placeholders) -->
       <div class="gallery-grid">
-        {galleryItems.map((item) => (
-          <GalleryCard 
-            title={item.title}
-            category={item.category}
-            placeholder={true}
-          />
+        {galleryItems.map((item, i) => (
+          <div class="gallery-grid__item" style={`animation-delay: ${i * 0.1}s`}>
+            <GalleryCard 
+              title={item.title}
+              category={item.category}
+              placeholder={true}
+            />
+          </div>
         ))}
       </div>
 
       <!-- Disclaimer -->
       <div class="gallery-disclaimer">
+        <span class="gallery-disclaimer__icon">ℹ️</span>
         <p>
           <strong>Please Note:</strong> Individual results may vary. The images shown represent typical outcomes, 
           but your results will depend on factors such as skin type, age of stretch marks/scars, 
@@ -76,14 +84,15 @@ const categories = ['All', 'Stretch Mark Camouflage', 'Inkless Revision', 'Scar 
   </section>
 
   <!-- CTA Section -->
-  <section class="section section--cream cta-gallery">
+  <section class="section section--gold-tint cta-gallery">
     <div class="container container--narrow text-center">
-      <h2>Ready for Your Transformation?</h2>
+      <span class="section-eyebrow">Your Transformation</span>
+      <h2>Ready to See <span class="text-gradient-gold">Your</span> Results?</h2>
       <p class="cta-text">
         Every journey begins with a conversation. Let's discuss your goals and create a personalized plan for beautiful, natural results.
       </p>
       <div class="cta-buttons">
-        <Button href="/contact" variant="primary" size="large">Book Consultation</Button>
+        <Button href="/contact" variant="gold-glow" size="large">Book Consultation</Button>
         <Button href="/services" variant="outline" size="large">Learn About Services</Button>
       </div>
     </div>
@@ -91,6 +100,16 @@ const categories = ['All', 'Stretch Mark Camouflage', 'Inkless Revision', 'Scar 
 </Layout>
 
 <style>
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-sm);
+  }
+
   /* Gallery Filters */
   .gallery-filters {
     display: flex;
@@ -101,90 +120,138 @@ const categories = ['All', 'Stretch Mark Camouflage', 'Inkless Revision', 'Scar 
   }
 
   .filter-btn {
-    padding: 0.75rem 1.5rem;
+    padding: 0.875rem 1.75rem;
     font-family: var(--font-body);
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--color-brown);
     background: transparent;
-    border: 1px solid rgba(139, 129, 120, 0.3);
+    border: 2px solid rgba(201, 168, 108, 0.3);
     border-radius: var(--radius-full);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: all var(--transition-medium);
   }
 
   .filter-btn:hover {
     border-color: var(--color-gold);
     color: var(--color-gold);
+    transform: translateY(-2px);
   }
 
   .filter-btn--active {
-    background: var(--color-gold);
+    background: var(--gradient-gold);
     border-color: var(--color-gold);
     color: var(--color-charcoal);
+    box-shadow: var(--shadow-gold);
   }
 
   /* Gallery Notice */
   .gallery-notice {
+    position: relative;
     text-align: center;
     padding: var(--spacing-3xl);
-    background: var(--color-cream-dark);
-    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-gold-pale) 50%, var(--color-cream-dark) 100%);
+    border-radius: var(--radius-xl);
     margin-bottom: var(--spacing-2xl);
+    border: 1px solid rgba(201, 168, 108, 0.2);
+    overflow: hidden;
+  }
+
+  .gallery-notice__glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(201, 168, 108, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .gallery-notice__content {
+    position: relative;
+    z-index: 1;
   }
 
   .gallery-notice__icon {
-    font-size: 3rem;
-    margin-bottom: var(--spacing-md);
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-lg);
+    margin: 0 auto var(--spacing-lg);
+    font-size: 2rem;
+    box-shadow: var(--shadow-gold);
   }
 
   .gallery-notice h3 {
     font-family: var(--font-heading);
-    font-size: 1.75rem;
+    font-size: 1.85rem;
     color: var(--color-charcoal);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
   }
 
   .gallery-notice p {
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--color-brown-light);
     max-width: 500px;
-    margin: 0 auto;
+    margin: 0 auto var(--spacing-xl);
     line-height: 1.8;
   }
 
   /* Gallery Grid */
   .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: var(--spacing-lg);
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: var(--spacing-xl);
     margin-bottom: var(--spacing-2xl);
+  }
+
+  .gallery-grid__item {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   /* Gallery Disclaimer */
   .gallery-disclaimer {
-    text-align: center;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    text-align: left;
     padding: var(--spacing-lg);
-    background: rgba(201, 168, 108, 0.1);
-    border-radius: var(--radius-md);
-    border-left: 4px solid var(--color-gold);
+    background: linear-gradient(135deg, rgba(201, 168, 108, 0.08) 0%, transparent 100%);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(201, 168, 108, 0.15);
+  }
+
+  .gallery-disclaimer__icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
   }
 
   .gallery-disclaimer p {
     font-size: 0.9rem;
     color: var(--color-brown-light);
     margin: 0;
-    line-height: 1.7;
+    line-height: 1.8;
   }
 
   /* CTA Section */
   .cta-text {
     font-size: 1.1rem;
     color: var(--color-brown-light);
-    max-width: 500px;
+    max-width: 550px;
     margin: 0 auto var(--spacing-xl);
+    line-height: 1.8;
   }
 
   .cta-buttons {
@@ -192,5 +259,11 @@ const categories = ['All', 'Stretch Mark Camouflage', 'Inkless Revision', 'Scar 
     gap: var(--spacing-md);
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  @media (max-width: 600px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

@@ -1,7 +1,7 @@
 ---
 interface Props {
   href?: string;
-  variant?: 'primary' | 'secondary' | 'outline' | 'dark';
+  variant?: 'primary' | 'secondary' | 'outline' | 'dark' | 'gold-glow';
   size?: 'small' | 'medium' | 'large';
   fullWidth?: boolean;
   type?: 'button' | 'submit';
@@ -26,95 +26,188 @@ const classes = `btn btn--${variant} btn--${size} ${fullWidth ? 'btn--full' : ''
   type={!href ? type : undefined}
   class={classes}
 >
-  <slot />
+  <span class="btn__text"><slot /></span>
+  <span class="btn__shimmer"></span>
 </Tag>
 
 <style>
   .btn {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     font-family: var(--font-body);
     font-weight: 600;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     text-decoration: none;
     border: 2px solid transparent;
     border-radius: var(--radius-sm);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    overflow: hidden;
+    transition: all var(--transition-medium);
+  }
+
+  .btn__text {
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn__shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 100%
+    );
+    transition: left 0.5s ease;
+    pointer-events: none;
+  }
+
+  .btn:hover .btn__shimmer {
+    left: 100%;
   }
 
   .btn:focus-visible {
     outline: 2px solid var(--color-gold);
-    outline-offset: 2px;
+    outline-offset: 3px;
+  }
+
+  .btn:active {
+    transform: translateY(1px);
   }
 
   /* Sizes */
   .btn--small {
-    padding: 0.5rem 1rem;
+    padding: 0.625rem 1.25rem;
     font-size: 0.75rem;
   }
 
   .btn--medium {
-    padding: 0.875rem 1.75rem;
+    padding: 1rem 2rem;
     font-size: 0.85rem;
   }
 
   .btn--large {
-    padding: 1rem 2.5rem;
+    padding: 1.25rem 3rem;
     font-size: 0.9rem;
   }
 
-  /* Variants */
+  /* Primary - Gold gradient with shimmer */
   .btn--primary {
-    background: var(--color-gold);
+    background: var(--gradient-gold);
+    background-size: 200% auto;
     color: var(--color-charcoal);
     border-color: var(--color-gold);
+    box-shadow: 0 4px 15px rgba(201, 168, 108, 0.3);
   }
 
   .btn--primary:hover {
-    background: var(--color-gold-light);
-    border-color: var(--color-gold-light);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-gold);
+    background-position: right center;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-gold-intense);
   }
 
+  /* Gold Glow - More dramatic */
+  .btn--gold-glow {
+    background: var(--gradient-gold);
+    background-size: 200% auto;
+    color: var(--color-charcoal);
+    border-color: var(--color-gold);
+    box-shadow: var(--shadow-gold);
+    animation: buttonGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes buttonGlow {
+    0%, 100% { box-shadow: var(--shadow-gold); }
+    50% { box-shadow: var(--shadow-gold-intense); }
+  }
+
+  .btn--gold-glow:hover {
+    background-position: right center;
+    transform: translateY(-3px) scale(1.02);
+    animation: none;
+    box-shadow: var(--shadow-gold-intense);
+  }
+
+  /* Secondary - Blush with gold accent */
   .btn--secondary {
-    background: var(--color-blush);
+    background: linear-gradient(135deg, var(--color-blush) 0%, var(--color-blush-light) 100%);
     color: var(--color-charcoal);
     border-color: var(--color-blush);
+    box-shadow: 0 4px 15px rgba(232, 196, 188, 0.3);
   }
 
   .btn--secondary:hover {
-    background: var(--color-blush-light);
-    border-color: var(--color-blush-light);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(232, 196, 188, 0.4);
+    border-color: var(--color-gold);
   }
 
+  /* Outline - Gold border with fill on hover */
   .btn--outline {
     background: transparent;
     color: var(--color-gold);
     border-color: var(--color-gold);
+    position: relative;
+  }
+
+  .btn--outline::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-gold);
+    opacity: 0;
+    transition: opacity var(--transition-medium);
+    z-index: 0;
   }
 
   .btn--outline:hover {
-    background: var(--color-gold);
     color: var(--color-charcoal);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-gold);
   }
 
+  .btn--outline:hover::before {
+    opacity: 1;
+  }
+
+  .btn--outline .btn__shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(201, 168, 108, 0.3) 50%,
+      transparent 100%
+    );
+  }
+
+  /* Dark - Elegant charcoal with gold accent */
   .btn--dark {
-    background: var(--color-charcoal);
+    background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-charcoal-soft) 100%);
     color: var(--color-cream);
     border-color: var(--color-charcoal);
+    box-shadow: 0 4px 15px rgba(45, 45, 45, 0.3);
   }
 
   .btn--dark:hover {
-    background: var(--color-brown);
-    border-color: var(--color-brown);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(45, 45, 45, 0.4);
+    border-color: var(--color-gold);
+  }
+
+  .btn--dark .btn__shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(201, 168, 108, 0.3) 50%,
+      transparent 100%
+    );
   }
 
   /* Full Width */

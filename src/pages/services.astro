@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import ServiceCard from '../components/ServiceCard.astro';
 import FAQItem from '../components/FAQItem.astro';
 import Button from '../components/Button.astro';
 
@@ -58,7 +57,7 @@ const processSteps = [
   {
     number: '03',
     title: 'Treatment Session',
-    description: 'Using a sterile, single-use cartridge, I perform controlled needling to stimulate collagen and revise texture. Inkless uses serums only; pigment camouflage uses carefully matched pigments.'
+    description: 'Using a sterile, single-use cartridge, I perform controlled needling to stimulate collagen and revise texture.'
   },
   {
     number: '04',
@@ -68,7 +67,7 @@ const processSteps = [
   {
     number: '05',
     title: 'Post-Care',
-    description: 'A soothing aftercare serum is applied, and I review your healing instructions. Most clients notice improvements over the following weeks.'
+    description: 'A soothing aftercare serum is applied, and I review your healing instructions for best results.'
   }
 ];
 
@@ -81,14 +80,8 @@ const candidateChecks = [
 ];
 
 const treatedAreas = [
-  'Abdomen',
-  'Hips',
-  'Thighs',
-  'Buttocks',
-  'Breasts',
-  'Arms',
-  'C-section scars',
-  'Tummy tuck scars'
+  'Abdomen', 'Hips', 'Thighs', 'Buttocks',
+  'Breasts', 'Arms', 'C-section scars', 'Tummy tuck scars'
 ];
 
 const faqs = [
@@ -113,16 +106,8 @@ const faqs = [
     answer: 'Inkless results are long-lasting because they rely on collagen remodeling. Pigment camouflage typically lasts 3–7 years depending on your lifestyle and skin type.'
   },
   {
-    question: 'Can you treat all scars?',
-    answer: 'Scars must be fully healed, at least 12–18 months old, not keloid-forming, and free from redness or inflammation. If you\'re unsure, send me photos — I\'ll evaluate for free.'
-  },
-  {
     question: 'Will my stretch marks be completely gone?',
     answer: 'No treatment can fully erase stretch marks, but camouflage can drastically soften their appearance and help them blend beautifully into the surrounding skin.'
-  },
-  {
-    question: 'Is there downtime?',
-    answer: 'No major downtime. Mild redness for 1–2 days is normal. Stretch marks may temporarily look slightly darker before they lighten and soften as the skin repairs.'
   }
 ];
 ---
@@ -142,8 +127,9 @@ const faqs = [
   <section class="section services-section">
     <div class="container">
       <div class="services-detail-grid">
-        {services.map((service) => (
-          <article class="service-detail">
+        {services.map((service, i) => (
+          <article class="service-detail" style={`animation-delay: ${i * 0.1}s`}>
+            <div class="service-detail__gold-accent"></div>
             <div class="service-detail__header">
               <span class="service-detail__icon">{service.icon}</span>
               <h2 class="service-detail__title">{service.title}</h2>
@@ -163,29 +149,36 @@ const faqs = [
       </div>
 
       <div class="booking-note">
-        <h4>Booking Information</h4>
-        <ul>
-          <li>A non-refundable deposit is required to secure appointments</li>
-          <li>All clients must complete a consultation form and health history</li>
-          <li>Pricing may vary depending on size, depth, and complexity of the area</li>
-        </ul>
+        <div class="booking-note__icon">💡</div>
+        <div class="booking-note__content">
+          <h4>Booking Information</h4>
+          <ul>
+            <li>A non-refundable deposit is required to secure appointments</li>
+            <li>All clients must complete a consultation form and health history</li>
+            <li>Pricing may vary depending on size, depth, and complexity of the area</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- How It Works Section -->
-  <section class="section section--cream process-section">
+  <section class="section section--gold-tint process-section">
     <div class="container">
       <div class="section-header text-center">
+        <span class="section-eyebrow">The Process</span>
         <h2>How the Treatment Works</h2>
         <p class="section-subtitle">A step-by-step look at your transformation journey</p>
       </div>
-      <div class="process-grid">
-        {processSteps.map((step) => (
-          <div class="process-step">
-            <span class="process-step__number">{step.number}</span>
-            <h3 class="process-step__title">{step.title}</h3>
-            <p class="process-step__description">{step.description}</p>
+      <div class="process-timeline">
+        {processSteps.map((step, i) => (
+          <div class="process-step" style={`animation-delay: ${i * 0.1}s`}>
+            <div class="process-step__connector"></div>
+            <div class="process-step__number">{step.number}</div>
+            <div class="process-step__content">
+              <h3 class="process-step__title">{step.title}</h3>
+              <p class="process-step__description">{step.description}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -197,13 +190,14 @@ const faqs = [
     <div class="container">
       <div class="candidate-grid">
         <div class="candidate-content">
+          <span class="section-eyebrow">Eligibility</span>
           <h2>Who Is a Good Candidate?</h2>
           <p class="candidate-intro">
             You may benefit from camouflage tattooing if:
           </p>
           <ul class="candidate-list">
-            {candidateChecks.map((check) => (
-              <li>
+            {candidateChecks.map((check, i) => (
+              <li style={`animation-delay: ${i * 0.08}s`}>
                 <span class="candidate-icon">✓</span>
                 {check}
               </li>
@@ -232,6 +226,7 @@ const faqs = [
   <section class="section section--cream faq-section">
     <div class="container container--narrow">
       <div class="section-header text-center">
+        <span class="section-eyebrow">Common Questions</span>
         <h2>Frequently Asked Questions</h2>
         <p class="section-subtitle">Everything you need to know about camouflage tattooing</p>
       </div>
@@ -249,13 +244,22 @@ const faqs = [
 
   <!-- CTA Section -->
   <section class="section section--dark cta-services">
+    <div class="cta-services__particles">
+      {Array.from({ length: 10 }).map((_, i) => (
+        <div 
+          class="cta-particle" 
+          style={`left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 6}s;`}
+        />
+      ))}
+    </div>
     <div class="container text-center">
+      <span class="section-eyebrow section-eyebrow--light">Take the First Step</span>
       <h2>Ready to Begin Your Transformation?</h2>
       <p class="cta-text">
         If you're ready for smoother, more confident skin, I'd love to help you feel at home in your body again.
       </p>
       <div class="cta-buttons">
-        <Button href="/contact" variant="primary" size="large">Book Consultation</Button>
+        <Button href="/contact" variant="gold-glow" size="large">Book Consultation</Button>
         <Button href="/gallery" variant="outline" size="large">View Results</Button>
       </div>
     </div>
@@ -263,6 +267,20 @@ const faqs = [
 </Layout>
 
 <style>
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .section-eyebrow--light {
+    color: var(--color-blush);
+  }
+
   /* Services Detail Grid */
   .services-detail-grid {
     display: grid;
@@ -271,62 +289,91 @@ const faqs = [
   }
 
   .service-detail {
+    position: relative;
     background: var(--color-cream);
-    border: 1px solid rgba(139, 129, 120, 0.15);
+    border: 1px solid rgba(201, 168, 108, 0.2);
     border-radius: var(--radius-lg);
     padding: var(--spacing-xl);
     transition: all var(--transition-medium);
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .service-detail__gold-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gradient-gold);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform var(--transition-medium);
+  }
+
+  .service-detail:hover .service-detail__gold-accent {
+    transform: scaleY(1);
   }
 
   .service-detail:hover {
-    box-shadow: var(--shadow-medium);
+    box-shadow: var(--shadow-gold);
     border-color: var(--color-gold);
   }
 
   .service-detail__header {
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
   }
 
   .service-detail__icon {
-    font-size: 2rem;
+    font-size: 2.5rem;
     display: block;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
   }
 
   .service-detail__title {
     font-family: var(--font-heading);
-    font-size: 1.75rem;
-    font-weight: 500;
+    font-size: 1.85rem;
+    font-weight: 400;
     color: var(--color-charcoal);
     margin-bottom: var(--spacing-xs);
   }
 
   .service-detail__price {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 600;
-    color: var(--color-gold);
+    background: var(--gradient-gold-text);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin: 0;
   }
 
   .service-detail__description {
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--color-brown-light);
-    line-height: 1.8;
-    margin-bottom: var(--spacing-md);
+    line-height: 1.9;
+    margin-bottom: var(--spacing-lg);
   }
 
   .service-detail__list {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: var(--spacing-sm);
   }
 
   .service-detail__list li {
     display: flex;
     align-items: flex-start;
-    gap: var(--spacing-xs);
+    gap: var(--spacing-sm);
     font-size: 0.95rem;
     color: var(--color-brown);
   }
@@ -334,19 +381,28 @@ const faqs = [
   .service-detail__check {
     color: var(--color-gold);
     font-weight: 700;
+    flex-shrink: 0;
   }
 
   /* Booking Note */
   .booking-note {
-    background: var(--color-cream-dark);
+    display: flex;
+    gap: var(--spacing-lg);
+    background: linear-gradient(135deg, rgba(201, 168, 108, 0.08) 0%, rgba(201, 168, 108, 0.02) 100%);
+    border: 1px solid rgba(201, 168, 108, 0.2);
     border-left: 4px solid var(--color-gold);
-    padding: var(--spacing-lg);
-    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: var(--spacing-xl);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  }
+
+  .booking-note__icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
   }
 
   .booking-note h4 {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--color-charcoal);
     margin-bottom: var(--spacing-sm);
   }
@@ -368,25 +424,36 @@ const faqs = [
     margin-right: var(--spacing-xs);
   }
 
-  /* Process Section */
-  .process-grid {
+  /* Process Timeline */
+  .process-timeline {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: var(--spacing-lg);
+    position: relative;
   }
 
   .process-step {
+    position: relative;
     text-align: center;
     padding: var(--spacing-lg);
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
   }
 
   .process-step__number {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 300;
-    color: var(--color-gold);
-    margin-bottom: var(--spacing-sm);
+    color: var(--color-charcoal);
+    background: var(--gradient-gold);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--spacing-md);
+    box-shadow: var(--shadow-gold);
   }
 
   .process-step__title {
@@ -400,14 +467,14 @@ const faqs = [
   .process-step__description {
     font-size: 0.95rem;
     color: var(--color-brown-light);
-    line-height: 1.7;
+    line-height: 1.8;
     margin: 0;
   }
 
   /* Candidate Section */
   .candidate-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1.3fr 1fr;
     gap: var(--spacing-3xl);
     align-items: start;
   }
@@ -415,7 +482,7 @@ const faqs = [
   @media (max-width: 900px) {
     .candidate-grid {
       grid-template-columns: 1fr;
-      gap: var(--spacing-xl);
+      gap: var(--spacing-2xl);
     }
   }
 
@@ -437,9 +504,11 @@ const faqs = [
   .candidate-list li {
     display: flex;
     align-items: flex-start;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-sm) 0;
-    border-bottom: 1px solid rgba(139, 129, 120, 0.15);
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid rgba(201, 168, 108, 0.15);
+    opacity: 0;
+    animation: fadeInUp 0.4s ease forwards;
   }
 
   .candidate-list li:last-child {
@@ -448,12 +517,12 @@ const faqs = [
 
   .candidate-icon {
     flex-shrink: 0;
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--color-gold);
+    background: var(--gradient-gold);
     color: var(--color-charcoal);
     border-radius: var(--radius-full);
     font-size: 0.75rem;
@@ -466,29 +535,44 @@ const faqs = [
     font-style: italic;
   }
 
+  .areas-content {
+    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-gold-pale) 100%);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(201, 168, 108, 0.2);
+  }
+
   .areas-content h3 {
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
   }
 
   .areas-grid {
     display: flex;
     flex-wrap: wrap;
     gap: var(--spacing-xs);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
   }
 
   .area-tag {
-    padding: 0.5rem 1rem;
-    background: var(--color-cream-dark);
-    border: 1px solid rgba(139, 129, 120, 0.2);
+    padding: 0.6rem 1.25rem;
+    background: var(--color-cream);
+    border: 1px solid rgba(201, 168, 108, 0.3);
     border-radius: var(--radius-full);
     font-size: 0.85rem;
     color: var(--color-brown);
+    transition: all var(--transition-fast);
+  }
+
+  .area-tag:hover {
+    background: var(--gradient-gold);
+    color: var(--color-charcoal);
+    border-color: var(--color-gold);
   }
 
   .areas-note {
     font-size: 0.9rem;
     color: var(--color-taupe);
+    margin: 0;
   }
 
   /* FAQ Section */
@@ -496,15 +580,46 @@ const faqs = [
     background: var(--color-cream);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
-    border: 1px solid rgba(139, 129, 120, 0.15);
+    border: 1px solid rgba(201, 168, 108, 0.15);
+    box-shadow: var(--shadow-soft);
   }
 
   /* CTA Section */
+  .cta-services {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-services__particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .cta-particle {
+    position: absolute;
+    bottom: -10px;
+    width: 4px;
+    height: 4px;
+    background: var(--color-gold);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleRise 10s ease-in-out infinite;
+  }
+
+  @keyframes particleRise {
+    0%, 100% { opacity: 0; transform: translateY(0); }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.1; }
+    100% { transform: translateY(-100vh); }
+  }
+
   .cta-text {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--color-taupe);
-    max-width: 500px;
+    max-width: 550px;
     margin: 0 auto var(--spacing-xl);
+    line-height: 1.8;
   }
 
   .cta-buttons {

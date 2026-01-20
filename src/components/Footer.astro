@@ -16,6 +16,9 @@ const services = [
 ---
 
 <footer class="footer">
+  <!-- Gold accent line -->
+  <div class="footer__accent"></div>
+  
   <div class="footer__main">
     <div class="container">
       <div class="footer__grid">
@@ -25,7 +28,7 @@ const services = [
             <img src="/logo-light.svg" alt="Revivelle Ink" />
           </a>
           <p class="footer__tagline">
-            Precision • Restoration • Confidence
+            Precision <span class="footer__dot">✦</span> Restoration <span class="footer__dot">✦</span> Confidence
           </p>
           <p class="footer__description">
             Boutique paramedical tattoo studio specializing in stretch mark and scar camouflage in Sparks, Nevada.
@@ -38,7 +41,10 @@ const services = [
           <ul class="footer__list">
             {quickLinks.map((link) => (
               <li>
-                <a href={link.href} class="footer__link">{link.label}</a>
+                <a href={link.href} class="footer__link">
+                  <span class="footer__link-arrow">→</span>
+                  {link.label}
+                </a>
               </li>
             ))}
           </ul>
@@ -49,7 +55,10 @@ const services = [
           <h4 class="footer__heading">Services</h4>
           <ul class="footer__list">
             {services.map((service) => (
-              <li class="footer__service">{service}</li>
+              <li class="footer__service">
+                <span class="footer__service-dot"></span>
+                {service}
+              </li>
             ))}
           </ul>
         </div>
@@ -67,7 +76,10 @@ const services = [
               <span>Sparks, Reno & Washoe County</span>
             </li>
             <li>
-              <a href="/contact" class="footer__link">Get in Touch →</a>
+              <a href="/contact" class="footer__link footer__link--cta">
+                Get in Touch
+                <span class="footer__link-arrow">→</span>
+              </a>
             </li>
           </ul>
           
@@ -98,8 +110,18 @@ const services = [
 
 <style>
   .footer {
-    background: var(--color-charcoal);
+    background: linear-gradient(180deg, var(--color-charcoal) 0%, var(--color-charcoal-deep) 100%);
     color: var(--color-cream);
+    position: relative;
+  }
+
+  .footer__accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-gold);
   }
 
   .footer__main {
@@ -109,45 +131,69 @@ const services = [
   .footer__grid {
     display: grid;
     grid-template-columns: 1.5fr repeat(3, 1fr);
-    gap: var(--spacing-xl);
+    gap: var(--spacing-2xl);
   }
 
   .footer__brand {
-    padding-right: var(--spacing-lg);
+    padding-right: var(--spacing-xl);
   }
 
   .footer__logo img {
-    height: 60px;
+    height: 65px;
     width: auto;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    filter: brightness(1.1);
+    transition: all var(--transition-medium);
+  }
+
+  .footer__logo:hover img {
+    filter: brightness(1.2) drop-shadow(0 4px 15px rgba(201, 168, 108, 0.4));
   }
 
   .footer__tagline {
     font-family: var(--font-heading);
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-style: italic;
+    color: var(--color-blush);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .footer__dot {
     color: var(--color-gold);
-    margin-bottom: var(--spacing-sm);
+    font-style: normal;
+    font-size: 0.6rem;
   }
 
   .footer__description {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--color-taupe);
-    line-height: 1.7;
+    line-height: 1.8;
     margin-bottom: 0;
-  }
-
-  .footer__column {
-    /* Column styles */
   }
 
   .footer__heading {
     font-family: var(--font-heading);
     font-size: 1.1rem;
     font-weight: 500;
-    color: var(--color-blush);
-    margin-bottom: var(--spacing-md);
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-lg);
     letter-spacing: 0.02em;
+    position: relative;
+    display: inline-block;
+  }
+
+  .footer__heading::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 30px;
+    height: 1px;
+    background: var(--gradient-gold);
   }
 
   .footer__list {
@@ -155,76 +201,119 @@ const services = [
   }
 
   .footer__list li {
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
   }
 
   .footer__link {
-    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
     color: var(--color-cream);
-    transition: color var(--transition-fast);
+    transition: all var(--transition-fast);
+  }
+
+  .footer__link-arrow {
+    color: var(--color-gold);
+    opacity: 0;
+    transform: translateX(-5px);
+    transition: all var(--transition-fast);
   }
 
   .footer__link:hover {
     color: var(--color-gold);
+    transform: translateX(5px);
+  }
+
+  .footer__link:hover .footer__link-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .footer__link--cta {
+    margin-top: var(--spacing-sm);
+    font-weight: 600;
+  }
+
+  .footer__link--cta .footer__link-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .footer__link--cta:hover .footer__link-arrow {
+    transform: translateX(5px);
   }
 
   .footer__service {
-    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
     color: var(--color-taupe);
+  }
+
+  .footer__service-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--color-gold);
+    border-radius: 50%;
+    flex-shrink: 0;
   }
 
   .footer__contact li {
     display: flex;
     flex-direction: column;
-    gap: 2px;
-    margin-bottom: var(--spacing-sm);
+    gap: 4px;
+    margin-bottom: var(--spacing-md);
   }
 
   .footer__label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-taupe);
+    letter-spacing: 0.15em;
+    color: var(--color-gold);
   }
 
   .footer__social {
     display: flex;
     gap: var(--spacing-sm);
-    margin-top: var(--spacing-md);
+    margin-top: var(--spacing-lg);
   }
 
   .footer__social-link {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--color-taupe);
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(201, 168, 108, 0.4);
     border-radius: var(--radius-full);
     color: var(--color-cream);
-    transition: all var(--transition-fast);
+    transition: all var(--transition-medium);
   }
 
   .footer__social-link:hover {
-    background: var(--color-gold);
+    background: var(--gradient-gold);
     border-color: var(--color-gold);
     color: var(--color-charcoal);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-gold);
   }
 
   .footer__bottom {
-    padding: var(--spacing-md) 0;
-    border-top: 1px solid rgba(139, 129, 120, 0.2);
+    padding: var(--spacing-lg) 0;
+    border-top: 1px solid rgba(201, 168, 108, 0.15);
   }
 
   .footer__copyright {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--color-taupe);
     text-align: center;
     margin: 0;
   }
 
   /* Responsive */
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     .footer__grid {
       grid-template-columns: repeat(2, 1fr);
       gap: var(--spacing-xl) var(--spacing-lg);
@@ -236,8 +325,12 @@ const services = [
       text-align: center;
     }
 
+    .footer__tagline {
+      justify-content: center;
+    }
+
     .footer__logo img {
-      margin: 0 auto var(--spacing-md);
+      margin: 0 auto var(--spacing-lg);
     }
   }
 
@@ -247,8 +340,21 @@ const services = [
       text-align: center;
     }
 
+    .footer__heading::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .footer__service {
+      justify-content: center;
+    }
+
     .footer__social {
       justify-content: center;
+    }
+
+    .footer__contact li {
+      align-items: center;
     }
   }
 </style>

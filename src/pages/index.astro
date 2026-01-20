@@ -51,17 +51,25 @@ const serviceAreas = [
 >
   <!-- Hero Section with Animated Logo -->
   <section class="hero-home">
-    <div class="hero-home__background"></div>
+    <!-- Elegant background with warm gradient -->
+    <div class="hero-home__background">
+      <div class="hero-home__gradient"></div>
+      <div class="hero-home__texture"></div>
+    </div>
+    
     <div class="hero-home__content">
       <ShimmerLogo />
       <div class="hero-home__cta">
-        <Button href="/contact" variant="primary" size="large">Book Consultation</Button>
+        <Button href="/contact" variant="gold-glow" size="large">Book Consultation</Button>
         <Button href="/services" variant="outline" size="large">Explore Services</Button>
       </div>
     </div>
+    
     <div class="hero-home__scroll">
-      <span>Scroll to discover</span>
-      <div class="hero-home__scroll-line"></div>
+      <span>Discover More</span>
+      <div class="hero-home__scroll-indicator">
+        <div class="hero-home__scroll-dot"></div>
+      </div>
     </div>
   </section>
 
@@ -69,8 +77,9 @@ const serviceAreas = [
   <section class="section intro">
     <div class="container container--narrow">
       <div class="intro__content">
+        <span class="intro__eyebrow">Welcome to Revivelle Ink</span>
         <h2 class="intro__heading">
-          Natural, Beautiful <span class="text-gold">Skin Revision</span>
+          Natural, Beautiful <span class="text-gradient-gold">Skin Revision</span>
         </h2>
         <p class="intro__text">
           Revivelle Ink is a boutique paramedical and cosmetic tattoo studio located in Sparks, Nevada, specializing in stretch mark camouflage and inkless scar revision services designed to restore confidence and enhance your natural beauty.
@@ -79,32 +88,37 @@ const serviceAreas = [
           My approach is rooted in precision, softness, and artistry. Whether you're looking to blend stretch marks, soften scars, or restore your skin's appearance, Revivelle Ink provides a safe, private, and welcoming environment where you can feel truly seen and cared for.
         </p>
         <div class="intro__divider">
-          <span>✦</span>
+          <span class="intro__divider-line"></span>
+          <span class="intro__divider-icon">✦</span>
+          <span class="intro__divider-line"></span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Services Preview Section -->
-  <section class="section section--cream services-preview">
+  <section class="section section--gold-tint services-preview">
     <div class="container">
       <div class="section-header text-center">
+        <span class="section-eyebrow">Our Expertise</span>
         <h2>What I Specialize In</h2>
         <p class="section-subtitle">
           Every service is tailored to your skin type, tone, texture, and personal goals — no one-size-fits-all here.
         </p>
       </div>
       <div class="services-grid">
-        {services.map((service) => (
-          <ServiceCard 
-            title={service.title}
-            description={service.description}
-            icon={service.icon}
-            href={service.href}
-          />
+        {services.map((service, i) => (
+          <div class="services-grid__item" style={`animation-delay: ${i * 0.15}s`}>
+            <ServiceCard 
+              title={service.title}
+              description={service.description}
+              icon={service.icon}
+              href={service.href}
+            />
+          </div>
         ))}
       </div>
-      <div class="text-center mt-xl">
+      <div class="text-center mt-2xl">
         <Button href="/services" variant="dark">View All Services</Button>
       </div>
     </div>
@@ -115,23 +129,30 @@ const serviceAreas = [
     <div class="container">
       <div class="why-choose__grid">
         <div class="why-choose__content">
-          <h2>Why Choose <span class="text-blush">Revivelle Ink</span>?</h2>
+          <span class="section-eyebrow">The Revivelle Difference</span>
+          <h2>Why Choose <span class="text-gradient-gold">Revivelle Ink</span>?</h2>
           <p class="why-choose__intro">
             Your treatment is not just cosmetic — it's emotional, empowering, and transformative.
           </p>
           <ul class="why-choose__list">
-            {benefits.map((benefit) => (
-              <li class="why-choose__item">
-                <span class="why-choose__icon">✓</span>
+            {benefits.map((benefit, i) => (
+              <li class="why-choose__item" style={`animation-delay: ${i * 0.1}s`}>
+                <span class="why-choose__icon">
+                  <span class="why-choose__icon-check">✓</span>
+                </span>
                 <span>{benefit}</span>
               </li>
             ))}
           </ul>
-          <Button href="/about" variant="outline">Meet Your Artist</Button>
+          <div class="why-choose__cta">
+            <Button href="/about" variant="outline">Meet Your Artist</Button>
+          </div>
         </div>
         <div class="why-choose__image">
-          <div class="why-choose__image-placeholder">
-            <span>Studio Photo</span>
+          <div class="why-choose__image-frame">
+            <div class="why-choose__image-placeholder">
+              <span>Studio Photo</span>
+            </div>
           </div>
         </div>
       </div>
@@ -140,8 +161,17 @@ const serviceAreas = [
 
   <!-- Service Areas Section -->
   <section class="section section--dark service-areas">
+    <div class="service-areas__particles">
+      {Array.from({ length: 12 }).map((_, i) => (
+        <div 
+          class="service-areas__particle" 
+          style={`left: ${5 + Math.random() * 90}%; animation-delay: ${Math.random() * 8}s;`}
+        />
+      ))}
+    </div>
     <div class="container">
       <div class="service-areas__content text-center">
+        <span class="section-eyebrow section-eyebrow--light">Our Reach</span>
         <h2>Serving Sparks, Reno & All of Washoe County</h2>
         <p class="service-areas__subtitle">
           Revivelle Ink proudly provides camouflage tattooing and inkless scar revision to clients throughout Northern Nevada.
@@ -150,7 +180,7 @@ const serviceAreas = [
           {serviceAreas.map((area, index) => (
             <span class="service-areas__item">
               {area}
-              {index < serviceAreas.length - 1 && <span class="service-areas__dot">•</span>}
+              {index < serviceAreas.length - 1 && <span class="service-areas__dot">✦</span>}
             </span>
           ))}
         </div>
@@ -162,13 +192,17 @@ const serviceAreas = [
   <section class="section cta-section">
     <div class="container container--narrow">
       <div class="cta-box">
-        <h2>Ready for Your Transformation?</h2>
-        <p>
-          You deserve to feel beautiful in your skin. Whether you're ready to revise stretch marks, blend scars, or simply learn more, your journey starts here.
-        </p>
-        <div class="cta-box__buttons">
-          <Button href="/contact" variant="primary" size="large">Book Consultation</Button>
-          <Button href="/gallery" variant="outline" size="large">View Results</Button>
+        <div class="cta-box__glow"></div>
+        <div class="cta-box__content">
+          <span class="section-eyebrow section-eyebrow--light">Begin Your Journey</span>
+          <h2>Ready for Your Transformation?</h2>
+          <p>
+            You deserve to feel beautiful in your skin. Whether you're ready to revise stretch marks, blend scars, or simply learn more, your journey starts here.
+          </p>
+          <div class="cta-box__buttons">
+            <Button href="/contact" variant="gold-glow" size="large">Book Consultation</Button>
+            <Button href="/gallery" variant="outline" size="large">View Results</Button>
+          </div>
         </div>
       </div>
     </div>
@@ -190,37 +224,28 @@ const serviceAreas = [
   .hero-home__background {
     position: absolute;
     inset: 0;
-    background: var(--color-charcoal);
     z-index: 0;
   }
 
-  /* Subtle gold shimmer gradient in background */
-  .hero-home__background::before {
-    content: '';
+  .hero-home__gradient {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 150%;
-    height: 150%;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(
-      ellipse at center,
-      rgba(201, 168, 108, 0.08) 0%,
-      rgba(201, 168, 108, 0.03) 30%,
-      transparent 70%
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      var(--color-cream) 0%,
+      var(--color-cream-warm) 30%,
+      var(--color-gold-pale) 60%,
+      var(--color-cream-warm) 80%,
+      var(--color-cream) 100%
     );
-    animation: backgroundPulse 8s ease-in-out infinite;
   }
 
-  @keyframes backgroundPulse {
-    0%, 100% {
-      opacity: 0.5;
-      transform: translate(-50%, -50%) scale(1);
-    }
-    50% {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1.1);
-    }
+  .hero-home__texture {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 20% 80%, rgba(201, 168, 108, 0.08) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, rgba(232, 196, 188, 0.08) 0%, transparent 50%),
+                      radial-gradient(circle at 50% 50%, rgba(201, 168, 108, 0.05) 0%, transparent 70%);
   }
 
   .hero-home__content {
@@ -239,7 +264,7 @@ const serviceAreas = [
     flex-wrap: wrap;
     justify-content: center;
     opacity: 0;
-    animation: fadeInUp 0.8s ease 2s forwards;
+    animation: fadeInUp 0.8s ease 2.2s forwards;
   }
 
   .hero-home__scroll {
@@ -252,43 +277,45 @@ const serviceAreas = [
     align-items: center;
     gap: var(--spacing-sm);
     opacity: 0;
-    animation: fadeIn 1s ease 2.5s forwards;
+    animation: fadeIn 1s ease 2.8s forwards;
   }
 
   .hero-home__scroll span {
     font-size: 0.75rem;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--color-taupe);
   }
 
-  .hero-home__scroll-line {
-    width: 1px;
+  .hero-home__scroll-indicator {
+    width: 24px;
     height: 40px;
-    background: linear-gradient(to bottom, var(--color-gold), transparent);
-    animation: scrollLine 2s ease infinite;
+    border: 2px solid var(--color-gold);
+    border-radius: 12px;
+    position: relative;
+    opacity: 0.6;
   }
 
-  @keyframes scrollLine {
-    0%, 100% {
-      opacity: 0.3;
-      transform: scaleY(0.5);
-    }
-    50% {
-      opacity: 1;
-      transform: scaleY(1);
-    }
+  .hero-home__scroll-dot {
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 8px;
+    background: var(--color-gold);
+    border-radius: 2px;
+    animation: scrollDot 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollDot {
+    0%, 100% { top: 6px; opacity: 1; }
+    50% { top: 22px; opacity: 0.3; }
   }
 
   @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes fadeIn {
@@ -296,48 +323,76 @@ const serviceAreas = [
     to { opacity: 1; }
   }
 
+  /* Section Eyebrow */
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .section-eyebrow--light {
+    color: var(--color-blush);
+  }
+
   /* Intro Section */
   .intro__content {
     text-align: center;
   }
 
+  .intro__eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-sm);
+  }
+
   .intro__heading {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: var(--spacing-lg);
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    margin-bottom: var(--spacing-xl);
   }
 
   .intro__text {
     font-size: 1.1rem;
     color: var(--color-brown-light);
-    line-height: 1.9;
+    line-height: 2;
   }
 
   .intro__divider {
-    margin-top: var(--spacing-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-2xl);
+  }
+
+  .intro__divider-line {
+    width: 60px;
+    height: 1px;
+    background: var(--gradient-gold);
+  }
+
+  .intro__divider-icon {
     color: var(--color-gold);
-    font-size: 1.25rem;
+    font-size: 0.875rem;
   }
 
   /* Services Preview */
-  .section-header {
-    margin-bottom: var(--spacing-2xl);
-  }
-
-  .section-header h2 {
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .section-subtitle {
-    font-size: 1.1rem;
-    color: var(--color-taupe);
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--spacing-lg);
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: var(--spacing-xl);
+  }
+
+  .services-grid__item {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
   }
 
   /* Why Choose Section */
@@ -348,10 +403,10 @@ const serviceAreas = [
     align-items: center;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     .why-choose__grid {
       grid-template-columns: 1fr;
-      gap: var(--spacing-xl);
+      gap: var(--spacing-2xl);
     }
   }
 
@@ -360,9 +415,10 @@ const serviceAreas = [
   }
 
   .why-choose__intro {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--color-brown-light);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.8;
   }
 
   .why-choose__list {
@@ -373,9 +429,11 @@ const serviceAreas = [
   .why-choose__item {
     display: flex;
     align-items: flex-start;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-sm) 0;
-    border-bottom: 1px solid rgba(139, 129, 120, 0.15);
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid rgba(201, 168, 108, 0.15);
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
   }
 
   .why-choose__item:last-child {
@@ -384,22 +442,53 @@ const serviceAreas = [
 
   .why-choose__icon {
     flex-shrink: 0;
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--color-gold);
-    color: var(--color-charcoal);
+    background: var(--gradient-gold);
     border-radius: var(--radius-full);
+    transition: all var(--transition-medium);
+  }
+
+  .why-choose__item:hover .why-choose__icon {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-gold);
+  }
+
+  .why-choose__icon-check {
+    color: var(--color-charcoal);
     font-size: 0.75rem;
     font-weight: 700;
   }
 
+  .why-choose__cta {
+    margin-top: var(--spacing-md);
+  }
+
+  .why-choose__image {
+    position: relative;
+  }
+
+  .why-choose__image-frame {
+    position: relative;
+    padding: 3px;
+    border-radius: var(--radius-xl);
+    background: var(--gradient-gold-border);
+    background-size: 300% 300%;
+    animation: borderShimmer 6s ease infinite;
+  }
+
+  @keyframes borderShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
   .why-choose__image-placeholder {
     aspect-ratio: 4/5;
-    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-cream) 100%);
-    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-gold-pale) 50%, var(--color-cream-dark) 100%);
+    border-radius: calc(var(--radius-xl) - 3px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -407,14 +496,42 @@ const serviceAreas = [
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    border: 1px solid rgba(139, 129, 120, 0.15);
   }
 
   /* Service Areas */
+  .service-areas {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-areas__particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .service-areas__particle {
+    position: absolute;
+    bottom: -10px;
+    width: 4px;
+    height: 4px;
+    background: var(--color-gold);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleRise 12s ease-in-out infinite;
+  }
+
+  @keyframes particleRise {
+    0%, 100% { opacity: 0; transform: translateY(0); }
+    10% { opacity: 0.4; }
+    90% { opacity: 0.1; }
+    100% { transform: translateY(-100vh); }
+  }
+
   .service-areas__subtitle {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--color-taupe);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
   }
 
   .service-areas__list {
@@ -423,7 +540,7 @@ const serviceAreas = [
     justify-content: center;
     gap: var(--spacing-sm);
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--color-blush);
   }
 
@@ -435,15 +552,39 @@ const serviceAreas = [
 
   .service-areas__dot {
     color: var(--color-gold);
+    font-size: 0.6rem;
   }
 
   /* CTA Section */
   .cta-box {
+    position: relative;
     background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-charcoal-deep) 100%);
     padding: var(--spacing-3xl);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     text-align: center;
     color: var(--color-cream);
+    overflow: hidden;
+  }
+
+  .cta-box__glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(201, 168, 108, 0.1) 0%, transparent 50%);
+    animation: glowRotate 20s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes glowRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .cta-box__content {
+    position: relative;
+    z-index: 1;
   }
 
   .cta-box h2 {
@@ -454,8 +595,9 @@ const serviceAreas = [
   .cta-box p {
     font-size: 1.1rem;
     color: var(--color-taupe);
-    max-width: 500px;
+    max-width: 550px;
     margin: 0 auto var(--spacing-xl);
+    line-height: 1.8;
   }
 
   .cta-box__buttons {
@@ -467,7 +609,7 @@ const serviceAreas = [
 
   @media (max-width: 600px) {
     .cta-box {
-      padding: var(--spacing-xl);
+      padding: var(--spacing-2xl) var(--spacing-lg);
     }
 
     .hero-home__cta {
@@ -475,5 +617,29 @@ const serviceAreas = [
       width: 100%;
       padding: 0 var(--spacing-md);
     }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
+
+<script>
+  // Simple scroll reveal animation
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal').forEach(el => {
+    observer.observe(el);
+  });
+</script>

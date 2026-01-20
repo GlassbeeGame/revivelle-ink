@@ -13,6 +13,29 @@ const serviceAreas = [
   { name: 'Fernley', highlight: false },
   { name: 'Washoe County', highlight: true },
 ];
+
+const expectations = [
+  {
+    number: '01',
+    title: 'Arrival',
+    description: "You'll receive the full studio address via email/text when you book. Free parking is available, and the studio is easily accessible."
+  },
+  {
+    number: '02',
+    title: 'Private Environment',
+    description: "The studio is a private suite designed for your comfort. You'll have my full attention throughout your appointment."
+  },
+  {
+    number: '03',
+    title: 'Relaxed Atmosphere',
+    description: 'Expect a peaceful, feminine space where you can relax and feel cared for. Many clients describe it as grounding and confidence-restoring.'
+  },
+  {
+    number: '04',
+    title: 'Professional Care',
+    description: 'The studio meets all Washoe County health requirements. Sterile, single-use equipment ensures your safety.'
+  }
+];
 ---
 
 <Layout 
@@ -32,8 +55,9 @@ const serviceAreas = [
       <div class="location-grid">
         <!-- Location Card -->
         <div class="location-card">
+          <div class="location-card__gold-accent"></div>
           <div class="location-card__header">
-            <span class="location-card__icon">📍</span>
+            <div class="location-card__icon">📍</div>
             <h2>Sparks, Nevada</h2>
           </div>
           
@@ -58,23 +82,27 @@ const serviceAreas = [
           </div>
 
           <div class="location-card__note">
+            <span class="location-card__note-icon">🔒</span>
             <p>
               <strong>Private Studio:</strong> For your comfort and privacy, the full studio address will be provided when you book your appointment.
             </p>
           </div>
 
-          <Button href="/contact" variant="primary" fullWidth>Book Your Visit</Button>
+          <Button href="/contact" variant="gold-glow" fullWidth>Book Your Visit</Button>
         </div>
 
         <!-- Map Placeholder -->
         <div class="map-container">
           <div class="map-placeholder">
+            <div class="map-placeholder__glow"></div>
             <div class="map-placeholder__content">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <span>Sparks, Nevada</span>
+              <div class="map-placeholder__pin">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <h3>Sparks, Nevada</h3>
               <p>Located in the heart of Sparks, easily accessible from Reno and surrounding areas.</p>
             </div>
           </div>
@@ -84,9 +112,10 @@ const serviceAreas = [
   </section>
 
   <!-- Service Areas Section -->
-  <section class="section section--cream service-areas-section">
+  <section class="section section--gold-tint service-areas-section">
     <div class="container">
       <div class="section-header text-center">
+        <span class="section-eyebrow">Our Reach</span>
         <h2>Serving Northern Nevada</h2>
         <p class="section-subtitle">
           Revivelle Ink proudly provides camouflage tattooing and inkless scar revision to clients throughout the region.
@@ -94,8 +123,11 @@ const serviceAreas = [
       </div>
 
       <div class="areas-grid">
-        {serviceAreas.map((area) => (
-          <div class={`area-card ${area.highlight ? 'area-card--highlight' : ''}`}>
+        {serviceAreas.map((area, i) => (
+          <div 
+            class={`area-card ${area.highlight ? 'area-card--highlight' : ''}`}
+            style={`animation-delay: ${i * 0.08}s`}
+          >
             <span class="area-card__name">{area.name}</span>
             {area.highlight && <span class="area-card__badge">Primary</span>}
           </div>
@@ -114,65 +146,43 @@ const serviceAreas = [
   <!-- What to Expect Section -->
   <section class="section expect-section">
     <div class="container container--narrow">
-      <h2 class="text-center">What to Expect When You Visit</h2>
+      <div class="section-header text-center">
+        <span class="section-eyebrow">Your Experience</span>
+        <h2>What to Expect When You Visit</h2>
+      </div>
       
       <div class="expect-list">
-        <div class="expect-item">
-          <span class="expect-number">01</span>
-          <div class="expect-content">
-            <h3>Arrival</h3>
-            <p>
-              You'll receive the full studio address via email/text when you book. Free parking is available, 
-              and the studio is easily accessible.
-            </p>
+        {expectations.map((item, i) => (
+          <div class="expect-item" style={`animation-delay: ${i * 0.1}s`}>
+            <div class="expect-number">{item.number}</div>
+            <div class="expect-content">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
           </div>
-        </div>
-
-        <div class="expect-item">
-          <span class="expect-number">02</span>
-          <div class="expect-content">
-            <h3>Private Environment</h3>
-            <p>
-              The studio is a private suite designed for your comfort. You'll have my full attention 
-              throughout your appointment — no waiting rooms or interruptions.
-            </p>
-          </div>
-        </div>
-
-        <div class="expect-item">
-          <span class="expect-number">03</span>
-          <div class="expect-content">
-            <h3>Relaxed Atmosphere</h3>
-            <p>
-              Expect a peaceful, feminine space where you can relax and feel cared for. 
-              Many clients describe the experience as grounding and confidence-restoring.
-            </p>
-          </div>
-        </div>
-
-        <div class="expect-item">
-          <span class="expect-number">04</span>
-          <div class="expect-content">
-            <h3>Professional Care</h3>
-            <p>
-              The studio meets all Washoe County health requirements. Sterile, single-use equipment 
-              and advanced sanitation protocols ensure your safety.
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
   <section class="section section--dark cta-location">
+    <div class="cta-location__particles">
+      {Array.from({ length: 10 }).map((_, i) => (
+        <div 
+          class="cta-particle" 
+          style={`left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 6}s;`}
+        />
+      ))}
+    </div>
     <div class="container text-center">
+      <span class="section-eyebrow section-eyebrow--light">Start Your Journey</span>
       <h2>Ready to Visit?</h2>
       <p class="cta-text">
         Book your consultation today and take the first step toward feeling confident in your skin.
       </p>
       <div class="cta-buttons">
-        <Button href="/contact" variant="primary" size="large">Book Consultation</Button>
+        <Button href="/contact" variant="gold-glow" size="large">Book Consultation</Button>
         <Button href="/services" variant="outline" size="large">View Services</Button>
       </div>
     </div>
@@ -180,6 +190,20 @@ const serviceAreas = [
 </Layout>
 
 <style>
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .section-eyebrow--light {
+    color: var(--color-blush);
+  }
+
   /* Location Grid */
   .location-grid {
     display: grid;
@@ -196,26 +220,51 @@ const serviceAreas = [
 
   /* Location Card */
   .location-card {
+    position: relative;
     background: var(--color-cream);
-    border: 1px solid rgba(139, 129, 120, 0.15);
-    border-radius: var(--radius-lg);
+    border: 1px solid rgba(201, 168, 108, 0.2);
+    border-radius: var(--radius-xl);
     padding: var(--spacing-xl);
+    overflow: hidden;
+    transition: all var(--transition-medium);
+  }
+
+  .location-card:hover {
+    box-shadow: var(--shadow-gold);
+    border-color: var(--color-gold);
+  }
+
+  .location-card__gold-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-gold);
   }
 
   .location-card__header {
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-lg);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
   }
 
   .location-card__icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-lg);
     font-size: 1.5rem;
+    box-shadow: var(--shadow-gold);
   }
 
   .location-card__header h2 {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin: 0;
   }
 
@@ -224,8 +273,8 @@ const serviceAreas = [
   }
 
   .location-detail {
-    padding: var(--spacing-sm) 0;
-    border-bottom: 1px solid rgba(139, 129, 120, 0.15);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid rgba(201, 168, 108, 0.15);
   }
 
   .location-detail:last-child {
@@ -234,11 +283,11 @@ const serviceAreas = [
 
   .location-detail__label {
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-taupe);
+    letter-spacing: 0.15em;
+    color: var(--color-gold);
     margin-bottom: 0.25rem;
   }
 
@@ -253,10 +302,17 @@ const serviceAreas = [
   }
 
   .location-card__note {
-    background: var(--color-cream-dark);
+    display: flex;
+    gap: var(--spacing-sm);
+    background: linear-gradient(135deg, rgba(201, 168, 108, 0.08) 0%, transparent 100%);
     padding: var(--spacing-md);
     border-radius: var(--radius-md);
     margin-bottom: var(--spacing-lg);
+    border: 1px solid rgba(201, 168, 108, 0.1);
+  }
+
+  .location-card__note-icon {
+    flex-shrink: 0;
   }
 
   .location-card__note p {
@@ -268,44 +324,77 @@ const serviceAreas = [
   /* Map Placeholder */
   .map-container {
     height: 100%;
-    min-height: 400px;
+    min-height: 450px;
   }
 
   .map-placeholder {
+    position: relative;
     width: 100%;
     height: 100%;
-    min-height: 400px;
-    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-cream) 100%);
-    border-radius: var(--radius-lg);
-    border: 1px solid rgba(139, 129, 120, 0.15);
+    min-height: 450px;
+    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-gold-pale) 50%, var(--color-cream-dark) 100%);
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(201, 168, 108, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+  }
+
+  .map-placeholder__glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(201, 168, 108, 0.2) 0%, transparent 70%);
+    animation: glowPulse 4s ease-in-out infinite;
+  }
+
+  @keyframes glowPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
   }
 
   .map-placeholder__content {
+    position: relative;
     text-align: center;
     color: var(--color-taupe);
     padding: var(--spacing-xl);
   }
 
-  .map-placeholder__content svg {
-    margin-bottom: var(--spacing-md);
-    opacity: 0.5;
+  .map-placeholder__pin {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-lg);
+    margin: 0 auto var(--spacing-lg);
+    color: var(--color-charcoal);
+    box-shadow: var(--shadow-gold);
+    animation: float 4s ease-in-out infinite;
   }
 
-  .map-placeholder__content span {
-    display: block;
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .map-placeholder__content h3 {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     color: var(--color-charcoal);
     margin-bottom: var(--spacing-sm);
   }
 
   .map-placeholder__content p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     max-width: 300px;
     margin: 0;
+    line-height: 1.7;
   }
 
   /* Service Areas */
@@ -313,31 +402,39 @@ const serviceAreas = [
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: var(--spacing-md);
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
   }
 
   .area-card {
     background: var(--color-cream);
-    padding: var(--spacing-md);
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(139, 129, 120, 0.15);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(201, 168, 108, 0.15);
     text-align: center;
-    transition: all var(--transition-fast);
+    transition: all var(--transition-medium);
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .area-card:hover {
     border-color: var(--color-gold);
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-gold);
   }
 
   .area-card--highlight {
     border-color: var(--color-gold);
-    background: linear-gradient(135deg, rgba(201, 168, 108, 0.1) 0%, var(--color-cream) 100%);
+    background: linear-gradient(135deg, rgba(201, 168, 108, 0.08) 0%, var(--color-cream) 100%);
   }
 
   .area-card__name {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--color-charcoal);
     display: block;
   }
@@ -345,23 +442,23 @@ const serviceAreas = [
   .area-card__badge {
     display: inline-block;
     margin-top: var(--spacing-xs);
-    padding: 0.25rem 0.5rem;
-    font-size: 0.7rem;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.65rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    background: var(--color-gold);
+    letter-spacing: 0.08em;
+    background: var(--gradient-gold);
     color: var(--color-charcoal);
     border-radius: var(--radius-sm);
   }
 
   .areas-note {
-    max-width: 500px;
+    max-width: 550px;
     margin: 0 auto;
   }
 
   .areas-note p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--color-brown-light);
   }
 
@@ -372,14 +469,16 @@ const serviceAreas = [
 
   /* What to Expect */
   .expect-list {
-    margin-top: var(--spacing-2xl);
+    margin-top: var(--spacing-xl);
   }
 
   .expect-item {
     display: flex;
     gap: var(--spacing-lg);
-    padding: var(--spacing-lg) 0;
-    border-bottom: 1px solid rgba(139, 129, 120, 0.15);
+    padding: var(--spacing-xl) 0;
+    border-bottom: 1px solid rgba(201, 168, 108, 0.15);
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
   }
 
   .expect-item:last-child {
@@ -388,34 +487,71 @@ const serviceAreas = [
 
   .expect-number {
     flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 1.25rem;
     font-weight: 300;
-    color: var(--color-gold);
-    line-height: 1;
+    color: var(--color-charcoal);
+    background: var(--gradient-gold);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-gold);
   }
 
   .expect-content h3 {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     font-weight: 500;
     color: var(--color-charcoal);
     margin-bottom: var(--spacing-xs);
   }
 
   .expect-content p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--color-brown-light);
-    line-height: 1.7;
+    line-height: 1.8;
     margin: 0;
   }
 
   /* CTA */
+  .cta-location {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-location__particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .cta-particle {
+    position: absolute;
+    bottom: -10px;
+    width: 4px;
+    height: 4px;
+    background: var(--color-gold);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleRise 10s ease-in-out infinite;
+  }
+
+  @keyframes particleRise {
+    0%, 100% { opacity: 0; transform: translateY(0); }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.1; }
+    100% { transform: translateY(-100vh); }
+  }
+
   .cta-text {
     font-size: 1.1rem;
     color: var(--color-taupe);
-    max-width: 500px;
+    max-width: 550px;
     margin: 0 auto var(--spacing-xl);
+    line-height: 1.8;
   }
 
   .cta-buttons {

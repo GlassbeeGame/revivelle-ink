@@ -1,61 +1,182 @@
 ---
-// ShimmerLogo - Animated logo with gold sweep effect
-// Creates a stunning entrance animation when the homepage loads
+// ShimmerLogo - Premium animated logo with gold sweep effect
+// Elegant entrance animation for homepage hero
 ---
 
-<div class="shimmer-logo">
-  <div class="shimmer-logo__container">
-    <!-- Logo Image -->
-    <div class="shimmer-logo__image-wrapper">
-      <img 
-        src="/logo-dark.svg" 
-        alt="Revivelle Ink" 
-        class="shimmer-logo__image"
+<div class="shimmer-hero">
+  <!-- Floating gold particles -->
+  <div class="shimmer-hero__particles">
+    {Array.from({ length: 20 }).map((_, i) => (
+      <div 
+        class="particle" 
+        style={`left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 8}s; animation-duration: ${6 + Math.random() * 4}s;`}
       />
-      <!-- Gold Shimmer Overlay -->
-      <div class="shimmer-logo__shimmer"></div>
+    ))}
+  </div>
+
+  <!-- Ambient gold glow -->
+  <div class="shimmer-hero__glow"></div>
+
+  <!-- Logo Container -->
+  <div class="shimmer-hero__logo-container">
+    <div class="shimmer-hero__logo-wrapper">
+      <!-- The actual logo - will use light version -->
+      <img 
+        src="/logo-light.svg" 
+        alt="Revivelle Ink" 
+        class="shimmer-hero__logo"
+      />
+      <!-- Gold shimmer sweep overlay -->
+      <div class="shimmer-hero__sweep"></div>
     </div>
     
     <!-- Tagline -->
-    <p class="shimmer-logo__tagline">
-      Precision • Restoration • Confidence
+    <p class="shimmer-hero__tagline">
+      <span>Precision</span>
+      <span class="shimmer-hero__dot">✦</span>
+      <span>Restoration</span>
+      <span class="shimmer-hero__dot">✦</span>
+      <span>Confidence</span>
     </p>
   </div>
 </div>
 
 <style>
-  .shimmer-logo {
+  .shimmer-hero {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: var(--spacing-lg) 0;
+    min-height: 60vh;
+    padding: var(--spacing-3xl) var(--spacing-lg);
   }
 
-  .shimmer-logo__container {
+  /* Floating particles */
+  .shimmer-hero__particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    bottom: -20px;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, var(--color-gold) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleFloat 8s ease-in-out infinite;
+  }
+
+  .particle:nth-child(odd) {
+    width: 4px;
+    height: 4px;
+  }
+
+  .particle:nth-child(3n) {
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, var(--color-gold-shimmer) 0%, transparent 70%);
+  }
+
+  @keyframes particleFloat {
+    0% {
+      opacity: 0;
+      transform: translateY(0) scale(0);
+    }
+    10% {
+      opacity: 0.7;
+      transform: scale(1);
+    }
+    90% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-100vh) scale(0.5);
+    }
+  }
+
+  /* Ambient glow */
+  .shimmer-hero__glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+      ellipse at center,
+      rgba(201, 168, 108, 0.15) 0%,
+      rgba(201, 168, 108, 0.08) 30%,
+      rgba(232, 213, 168, 0.03) 50%,
+      transparent 70%
+    );
+    animation: glowPulse 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes glowPulse {
+    0%, 100% {
+      opacity: 0.6;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.15);
+    }
+  }
+
+  /* Logo container */
+  .shimmer-hero__logo-container {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-xl);
     opacity: 0;
-    animation: logoFadeIn 0.8s ease 0.2s forwards;
+    animation: logoReveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
   }
 
-  .shimmer-logo__image-wrapper {
+  @keyframes logoReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Logo wrapper with shimmer */
+  .shimmer-hero__logo-wrapper {
     position: relative;
     display: inline-block;
     overflow: hidden;
+    padding: var(--spacing-md);
   }
 
-  .shimmer-logo__image {
+  .shimmer-hero__logo {
     display: block;
     width: auto;
-    height: clamp(120px, 20vw, 200px);
+    height: clamp(140px, 25vw, 220px);
     max-width: 90vw;
+    filter: drop-shadow(0 4px 20px rgba(201, 168, 108, 0.2));
+    transition: filter var(--transition-medium), transform var(--transition-medium);
   }
 
-  /* The Gold Shimmer Effect */
-  .shimmer-logo__shimmer {
+  .shimmer-hero__logo-wrapper:hover .shimmer-hero__logo {
+    filter: drop-shadow(0 8px 40px rgba(201, 168, 108, 0.35));
+    transform: scale(1.02);
+  }
+
+  /* Gold shimmer sweep effect */
+  .shimmer-hero__sweep {
     position: absolute;
     top: 0;
     left: -100%;
@@ -64,45 +185,20 @@
     background: linear-gradient(
       90deg,
       transparent 0%,
-      transparent 25%,
-      rgba(201, 168, 108, 0) 35%,
-      rgba(201, 168, 108, 0.4) 45%,
-      rgba(232, 213, 168, 0.6) 50%,
-      rgba(201, 168, 108, 0.4) 55%,
-      rgba(201, 168, 108, 0) 65%,
-      transparent 75%,
+      transparent 20%,
+      rgba(201, 168, 108, 0) 30%,
+      rgba(201, 168, 108, 0.3) 45%,
+      rgba(232, 213, 168, 0.5) 50%,
+      rgba(201, 168, 108, 0.3) 55%,
+      rgba(201, 168, 108, 0) 70%,
+      transparent 80%,
       transparent 100%
     );
-    animation: goldSweep 2s ease 0.8s forwards;
+    animation: goldSweepPremium 2.5s cubic-bezier(0.4, 0, 0.2, 1) 1s forwards;
     pointer-events: none;
   }
 
-  .shimmer-logo__tagline {
-    font-family: var(--font-heading);
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
-    font-weight: 400;
-    font-style: italic;
-    letter-spacing: 0.15em;
-    color: var(--color-blush);
-    text-align: center;
-    opacity: 0;
-    animation: taglineFadeIn 1s ease 1.5s forwards;
-    margin: 0;
-  }
-
-  /* Animations */
-  @keyframes logoFadeIn {
-    from {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  @keyframes goldSweep {
+  @keyframes goldSweepPremium {
     0% {
       left: -100%;
       opacity: 0;
@@ -119,38 +215,87 @@
     }
   }
 
-  @keyframes taglineFadeIn {
+  /* Second subtle sweep after delay */
+  .shimmer-hero__logo-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(232, 213, 168, 0.2) 50%,
+      transparent 100%
+    );
+    animation: goldSweepSubtle 3s ease 5s;
+    pointer-events: none;
+  }
+
+  @keyframes goldSweepSubtle {
+    0% { left: -100%; opacity: 0; }
+    20% { opacity: 0.6; }
+    80% { opacity: 0.6; }
+    100% { left: 100%; opacity: 0; }
+  }
+
+  /* Tagline */
+  .shimmer-hero__tagline {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-family: var(--font-heading);
+    font-size: clamp(0.9rem, 2vw, 1.15rem);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 0.2em;
+    color: var(--color-taupe);
+    opacity: 0;
+    animation: taglineReveal 1s ease 1.8s forwards;
+    margin: 0;
+  }
+
+  @keyframes taglineReveal {
     from {
       opacity: 0;
-      transform: translateY(10px);
+      transform: translateY(15px);
+      letter-spacing: 0.3em;
     }
     to {
       opacity: 1;
       transform: translateY(0);
+      letter-spacing: 0.2em;
     }
   }
 
-  /* Subtle continuous shimmer after initial animation (optional, plays once more) */
-  .shimmer-logo__shimmer {
-    animation: 
-      goldSweep 2s ease 0.8s forwards,
-      goldSweepSubtle 4s ease 4s;
+  .shimmer-hero__dot {
+    color: var(--color-gold);
+    font-style: normal;
+    font-size: 0.7em;
+    animation: dotPulse 3s ease-in-out infinite;
   }
 
-  @keyframes goldSweepSubtle {
-    0% {
-      left: -100%;
-      opacity: 0;
+  .shimmer-hero__dot:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+
+  @keyframes dotPulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .shimmer-hero {
+      min-height: 50vh;
+      padding: var(--spacing-2xl) var(--spacing-md);
     }
-    10% {
-      opacity: 0.5;
-    }
-    90% {
-      opacity: 0.5;
-    }
-    100% {
-      left: 100%;
-      opacity: 0;
+
+    .shimmer-hero__tagline {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--spacing-xs);
     }
   }
 </style>

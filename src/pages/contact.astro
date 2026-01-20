@@ -51,6 +51,7 @@ const policies = [
       <div class="contact-grid">
         <!-- Contact Form -->
         <div class="contact-form-container">
+          <span class="section-eyebrow">Get in Touch</span>
           <h2>Send a Message</h2>
           <p class="form-intro">
             Have questions about a treatment? Want to know if you're a good candidate? 
@@ -62,10 +63,11 @@ const policies = [
         <!-- Contact Info -->
         <div class="contact-info">
           <div class="contact-info__card">
-            <h3>Get in Touch</h3>
+            <div class="contact-info__card-glow"></div>
+            <h3>Contact Information</h3>
             
             <div class="contact-method">
-              <span class="contact-method__icon">📍</span>
+              <div class="contact-method__icon">📍</div>
               <div class="contact-method__content">
                 <span class="contact-method__label">Location</span>
                 <span class="contact-method__value">Sparks, Nevada</span>
@@ -74,7 +76,7 @@ const policies = [
             </div>
 
             <div class="contact-method">
-              <span class="contact-method__icon">📱</span>
+              <div class="contact-method__icon">📱</div>
               <div class="contact-method__content">
                 <span class="contact-method__label">Phone</span>
                 <span class="contact-method__value">Contact for number</span>
@@ -82,7 +84,7 @@ const policies = [
             </div>
 
             <div class="contact-method">
-              <span class="contact-method__icon">📧</span>
+              <div class="contact-method__icon">📧</div>
               <div class="contact-method__content">
                 <span class="contact-method__label">Email</span>
                 <span class="contact-method__value">Contact for email</span>
@@ -90,7 +92,7 @@ const policies = [
             </div>
 
             <div class="contact-method">
-              <span class="contact-method__icon">📸</span>
+              <div class="contact-method__icon">📸</div>
               <div class="contact-method__content">
                 <span class="contact-method__label">Instagram</span>
                 <a href="https://instagram.com/revivelle.ink" target="_blank" rel="noopener noreferrer" class="contact-method__link">
@@ -110,13 +112,15 @@ const policies = [
           </div>
 
           <div class="contact-info__photo">
+            <div class="photo-cta__icon">📷</div>
             <h3>Free Photo Assessment</h3>
             <p>
               Not sure if you're a good candidate? Send photos of your stretch marks or scars 
               via email or Instagram DM for a free virtual assessment.
             </p>
             <a href="https://instagram.com/revivelle.ink" target="_blank" rel="noopener noreferrer" class="photo-cta">
-              Send Photos on Instagram →
+              Send Photos on Instagram
+              <span>→</span>
             </a>
           </div>
         </div>
@@ -125,9 +129,10 @@ const policies = [
   </section>
 
   <!-- Policies Section -->
-  <section class="section section--cream policies-section">
+  <section class="section section--gold-tint policies-section">
     <div class="container">
       <div class="section-header text-center">
+        <span class="section-eyebrow">Important Information</span>
         <h2>Studio Policies</h2>
         <p class="section-subtitle">
           These policies ensure a safe, professional, and comfortable experience for every client.
@@ -135,12 +140,15 @@ const policies = [
       </div>
 
       <div class="policies-grid">
-        {policies.map((policy) => (
-          <div class="policy-card">
+        {policies.map((policy, i) => (
+          <div class="policy-card" style={`animation-delay: ${i * 0.1}s`}>
             <h3>{policy.title}</h3>
             <ul>
               {policy.items.map((item) => (
-                <li>{item}</li>
+                <li>
+                  <span class="policy-check">•</span>
+                  {item}
+                </li>
               ))}
             </ul>
           </div>
@@ -148,6 +156,7 @@ const policies = [
       </div>
 
       <div class="policies-footer text-center">
+        <div class="policies-footer__icon">ℹ️</div>
         <p>
           <strong>Refund Policy:</strong> Because these services require time, material, and labor, 
           all services and deposits are non-refundable.
@@ -158,32 +167,55 @@ const policies = [
 
   <!-- Final CTA -->
   <section class="section section--dark final-cta">
+    <div class="final-cta__particles">
+      {Array.from({ length: 10 }).map((_, i) => (
+        <div 
+          class="cta-particle" 
+          style={`left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 6}s;`}
+        />
+      ))}
+    </div>
     <div class="container container--narrow text-center">
+      <span class="section-eyebrow section-eyebrow--light">Begin Today</span>
       <h2>Your Transformation Awaits</h2>
       <p class="cta-text">
         You deserve to feel beautiful in your skin. Whether you're ready to book or just have questions, 
         I'm here to support you every step of the way.
       </p>
       <p class="cta-tagline">
-        Revivelle Ink — Precision • Restoration • Confidence
+        Revivelle Ink — <span class="text-gradient-gold">Precision • Restoration • Confidence</span>
       </p>
     </div>
   </section>
 </Layout>
 
 <style>
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .section-eyebrow--light {
+    color: var(--color-blush);
+  }
+
   /* Contact Grid */
   .contact-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1.3fr 1fr;
     gap: var(--spacing-3xl);
     align-items: start;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     .contact-grid {
       grid-template-columns: 1fr;
-      gap: var(--spacing-xl);
+      gap: var(--spacing-2xl);
     }
   }
 
@@ -193,9 +225,10 @@ const policies = [
   }
 
   .form-intro {
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--color-brown-light);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.8;
   }
 
   /* Contact Info */
@@ -208,9 +241,22 @@ const policies = [
   .contact-info__card,
   .contact-info__hours,
   .contact-info__photo {
-    background: var(--color-cream-dark);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-lg);
+    position: relative;
+    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-gold-pale) 100%);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(201, 168, 108, 0.2);
+    overflow: hidden;
+  }
+
+  .contact-info__card-glow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(201, 168, 108, 0.15) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .contact-info h3 {
@@ -218,14 +264,15 @@ const policies = [
     font-size: 1.25rem;
     font-weight: 500;
     color: var(--color-charcoal);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    position: relative;
   }
 
   .contact-method {
     display: flex;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-sm) 0;
-    border-bottom: 1px solid rgba(139, 129, 120, 0.15);
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid rgba(201, 168, 108, 0.15);
   }
 
   .contact-method:last-child {
@@ -233,7 +280,14 @@ const policies = [
   }
 
   .contact-method__icon {
-    font-size: 1.25rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-md);
+    font-size: 1.1rem;
     flex-shrink: 0;
   }
 
@@ -243,11 +297,11 @@ const policies = [
   }
 
   .contact-method__label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-taupe);
+    letter-spacing: 0.15em;
+    color: var(--color-gold);
   }
 
   .contact-method__value {
@@ -263,43 +317,62 @@ const policies = [
   .contact-method__link {
     font-size: 1rem;
     color: var(--color-gold);
-    font-weight: 500;
+    font-weight: 600;
+    transition: color var(--transition-fast);
   }
 
   .contact-method__link:hover {
-    color: var(--color-blush);
+    color: var(--color-gold-deep);
   }
 
   .hours-note {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-style: italic;
     color: var(--color-gold);
     margin-bottom: var(--spacing-sm);
   }
 
   .hours-detail {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--color-brown-light);
     margin: 0;
+    line-height: 1.7;
+  }
+
+  .photo-cta__icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-lg);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    box-shadow: var(--shadow-gold);
   }
 
   .contact-info__photo p {
     font-size: 0.95rem;
     color: var(--color-brown-light);
     margin-bottom: var(--spacing-md);
+    line-height: 1.7;
   }
 
   .photo-cta {
-    display: inline-block;
-    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--color-gold);
-    transition: color var(--transition-fast);
+    transition: all var(--transition-fast);
   }
 
   .photo-cta:hover {
-    color: var(--color-blush);
+    color: var(--color-gold-deep);
+    gap: 0.75rem;
   }
 
   /* Policies Section */
@@ -307,19 +380,32 @@ const policies = [
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
   }
 
   .policy-card {
     background: var(--color-cream);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-lg);
-    border: 1px solid rgba(139, 129, 120, 0.15);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(201, 168, 108, 0.15);
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+    transition: all var(--transition-medium);
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .policy-card:hover {
+    box-shadow: var(--shadow-gold);
+    border-color: var(--color-gold);
   }
 
   .policy-card h3 {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 500;
     color: var(--color-charcoal);
     margin-bottom: var(--spacing-md);
@@ -333,44 +419,85 @@ const policies = [
   }
 
   .policy-card li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
     font-size: 0.9rem;
     color: var(--color-brown-light);
     padding: var(--spacing-xs) 0;
-    padding-left: 1.25rem;
-    position: relative;
+    line-height: 1.6;
   }
 
-  .policy-card li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
+  .policy-check {
     color: var(--color-gold);
+    font-weight: 700;
+    flex-shrink: 0;
   }
 
   .policies-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
     max-width: 600px;
     margin: 0 auto;
-    padding: var(--spacing-lg);
-    background: rgba(201, 168, 108, 0.1);
-    border-radius: var(--radius-md);
+    padding: var(--spacing-xl);
+    background: linear-gradient(135deg, rgba(201, 168, 108, 0.08) 0%, transparent 100%);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(201, 168, 108, 0.15);
+  }
+
+  .policies-footer__icon {
+    font-size: 1.5rem;
   }
 
   .policies-footer p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--color-brown);
     margin: 0;
+    line-height: 1.7;
   }
 
   /* Final CTA */
+  .final-cta {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-cta__particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .cta-particle {
+    position: absolute;
+    bottom: -10px;
+    width: 4px;
+    height: 4px;
+    background: var(--color-gold);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleRise 10s ease-in-out infinite;
+  }
+
+  @keyframes particleRise {
+    0%, 100% { opacity: 0; transform: translateY(0); }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.1; }
+    100% { transform: translateY(-100vh); }
+  }
+
   .cta-text {
     font-size: 1.1rem;
     color: var(--color-taupe);
     margin-bottom: var(--spacing-lg);
+    line-height: 1.8;
   }
 
   .cta-tagline {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-style: italic;
     color: var(--color-blush);
     margin: 0;

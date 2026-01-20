@@ -56,14 +56,16 @@ const approachPoints = [
     <div class="container">
       <div class="about-grid">
         <div class="about-image">
-          <div class="about-image__placeholder">
-            <span>Photo of Sammi</span>
+          <div class="about-image__frame">
+            <div class="about-image__placeholder">
+              <span>Photo of Sammi</span>
+            </div>
           </div>
           <div class="about-image__decoration"></div>
         </div>
         <div class="about-content">
           <p class="about-greeting">Hi love, I'm Sammi</p>
-          <h2>The Artist & Heart Behind Revivelle Ink</h2>
+          <h2>The Artist & Heart Behind <span class="text-gradient-gold">Revivelle Ink</span></h2>
           <p class="about-text">
             I specialize in paramedical tattooing, stretch mark and scar camouflage, and soft permanent makeup that enhances your natural beauty while honoring your comfort, confidence, and individuality.
           </p>
@@ -79,18 +81,21 @@ const approachPoints = [
   </section>
 
   <!-- My Approach Section -->
-  <section class="section section--cream approach-section">
+  <section class="section section--gold-tint approach-section">
     <div class="container">
       <div class="section-header text-center">
+        <span class="section-eyebrow">My Philosophy</span>
         <h2>My Approach</h2>
         <p class="section-subtitle">
           I blend artistry with technical precision to create soft, natural, restorative results.
         </p>
       </div>
       <div class="approach-grid">
-        {approachPoints.map((point) => (
-          <div class="approach-card">
-            <span class="approach-card__icon">{point.icon}</span>
+        {approachPoints.map((point, i) => (
+          <div class="approach-card" style={`animation-delay: ${i * 0.1}s`}>
+            <div class="approach-card__icon-wrap">
+              <span class="approach-card__icon">{point.icon}</span>
+            </div>
             <h3 class="approach-card__title">{point.title}</h3>
             <p class="approach-card__description">{point.description}</p>
           </div>
@@ -104,22 +109,26 @@ const approachPoints = [
     <div class="container">
       <div class="training-grid">
         <div class="training-content">
-          <h2>Training & Expertise</h2>
+          <span class="section-eyebrow">Expertise</span>
+          <h2>Training & Credentials</h2>
           <p class="training-intro">
             I continuously invest in new education, techniques, and tools to give my clients the very best results possible.
           </p>
           <ul class="credentials-list">
-            {credentials.map((credential) => (
-              <li>
-                <span class="credential-icon">✓</span>
+            {credentials.map((credential, i) => (
+              <li style={`animation-delay: ${i * 0.08}s`}>
+                <span class="credential-icon">
+                  <span>✓</span>
+                </span>
                 {credential}
               </li>
             ))}
           </ul>
         </div>
         <div class="training-quote">
+          <div class="training-quote__mark">"</div>
           <blockquote>
-            "Whether I'm blending stretch marks, revising scars, or enhancing natural features, I take time to understand your goals and create a plan that feels right for you."
+            Whether I'm blending stretch marks, revising scars, or enhancing natural features, I take time to understand your goals and create a plan that feels right for you.
           </blockquote>
           <cite>— Sammi</cite>
         </div>
@@ -129,7 +138,16 @@ const approachPoints = [
 
   <!-- Studio Section -->
   <section class="section section--dark studio-section">
+    <div class="studio-section__particles">
+      {Array.from({ length: 10 }).map((_, i) => (
+        <div 
+          class="studio-particle" 
+          style={`left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 8}s;`}
+        />
+      ))}
+    </div>
     <div class="container container--narrow text-center">
+      <span class="section-eyebrow section-eyebrow--light">The Space</span>
       <h2>A Space Made Just for You</h2>
       <p class="studio-text">
         Revivelle Ink is a private, feminine, peaceful studio in Sparks where you can relax, unwind, and feel completely cared for.
@@ -138,11 +156,18 @@ const approachPoints = [
         My clients often say the experience feels <em>grounding, safe, and confidence-restoring</em> — and that means everything to me.
       </p>
       <div class="studio-features">
-        <span class="studio-feature">Private Suite</span>
-        <span class="studio-divider">•</span>
-        <span class="studio-feature">Peaceful Atmosphere</span>
-        <span class="studio-divider">•</span>
-        <span class="studio-feature">Welcoming Environment</span>
+        <span class="studio-feature">
+          <span class="studio-feature__dot"></span>
+          Private Suite
+        </span>
+        <span class="studio-feature">
+          <span class="studio-feature__dot"></span>
+          Peaceful Atmosphere
+        </span>
+        <span class="studio-feature">
+          <span class="studio-feature__dot"></span>
+          Welcoming Environment
+        </span>
       </div>
     </div>
   </section>
@@ -150,12 +175,13 @@ const approachPoints = [
   <!-- CTA Section -->
   <section class="section cta-about">
     <div class="container container--narrow text-center">
+      <span class="section-eyebrow">Let's Connect</span>
       <h2>I Can't Wait to Meet You</h2>
       <p class="cta-text">
         If you're ready to transform your skin or simply want to learn more about what's possible, I'm here for you every step of the way.
       </p>
       <div class="cta-buttons">
-        <Button href="/contact" variant="primary" size="large">Book Consultation</Button>
+        <Button href="/contact" variant="gold-glow" size="large">Book Consultation</Button>
         <Button href="/services" variant="outline" size="large">Explore Services</Button>
       </div>
     </div>
@@ -163,18 +189,32 @@ const approachPoints = [
 </Layout>
 
 <style>
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .section-eyebrow--light {
+    color: var(--color-blush);
+  }
+
   /* About Intro */
   .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 1.3fr;
     gap: var(--spacing-3xl);
     align-items: center;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     .about-grid {
       grid-template-columns: 1fr;
-      gap: var(--spacing-xl);
+      gap: var(--spacing-2xl);
     }
   }
 
@@ -182,10 +222,24 @@ const approachPoints = [
     position: relative;
   }
 
+  .about-image__frame {
+    position: relative;
+    padding: 3px;
+    border-radius: var(--radius-xl);
+    background: var(--gradient-gold-border);
+    background-size: 300% 300%;
+    animation: borderShimmer 6s ease infinite;
+  }
+
+  @keyframes borderShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
   .about-image__placeholder {
     aspect-ratio: 4/5;
-    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-cream) 100%);
-    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-gold-pale) 50%, var(--color-cream-dark) 100%);
+    border-radius: calc(var(--radius-xl) - 3px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -193,37 +247,36 @@ const approachPoints = [
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    border: 1px solid rgba(139, 129, 120, 0.15);
   }
 
   .about-image__decoration {
     position: absolute;
-    bottom: -20px;
-    right: -20px;
+    bottom: -30px;
+    right: -30px;
     width: 60%;
     height: 60%;
-    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-blush) 100%);
-    border-radius: var(--radius-lg);
-    opacity: 0.2;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-xl);
+    opacity: 0.15;
     z-index: -1;
   }
 
   .about-greeting {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     font-style: italic;
     color: var(--color-gold);
     margin-bottom: var(--spacing-sm);
   }
 
   .about-content h2 {
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
   }
 
   .about-text {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: var(--color-brown-light);
-    line-height: 1.9;
+    line-height: 2;
   }
 
   .about-text em {
@@ -240,36 +293,61 @@ const approachPoints = [
 
   .approach-card {
     background: var(--color-cream);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-xl);
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(139, 129, 120, 0.15);
+    border: 1px solid rgba(201, 168, 108, 0.15);
     text-align: center;
     transition: all var(--transition-medium);
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .approach-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-soft);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-gold);
+    border-color: var(--color-gold);
+  }
+
+  .approach-card__icon-wrap {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-gold-pale) 0%, var(--color-cream) 100%);
+    border: 1px solid rgba(201, 168, 108, 0.3);
+    border-radius: var(--radius-lg);
+    margin: 0 auto var(--spacing-md);
+    transition: all var(--transition-medium);
+  }
+
+  .approach-card:hover .approach-card__icon-wrap {
+    background: var(--gradient-gold);
+    box-shadow: var(--shadow-gold);
+    transform: scale(1.1);
   }
 
   .approach-card__icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: var(--spacing-sm);
+    font-size: 1.75rem;
   }
 
   .approach-card__title {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 500;
     color: var(--color-charcoal);
     margin-bottom: var(--spacing-sm);
   }
 
   .approach-card__description {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--color-brown-light);
-    line-height: 1.7;
+    line-height: 1.8;
     margin: 0;
   }
 
@@ -284,7 +362,7 @@ const approachPoints = [
   @media (max-width: 900px) {
     .training-grid {
       grid-template-columns: 1fr;
-      gap: var(--spacing-xl);
+      gap: var(--spacing-2xl);
     }
   }
 
@@ -293,9 +371,9 @@ const approachPoints = [
   }
 
   .training-intro {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: var(--color-brown-light);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
   }
 
   .credentials-list {
@@ -305,20 +383,22 @@ const approachPoints = [
   .credentials-list li {
     display: flex;
     align-items: flex-start;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
     padding: var(--spacing-sm) 0;
     font-size: 1rem;
     color: var(--color-brown);
+    opacity: 0;
+    animation: fadeInUp 0.4s ease forwards;
   }
 
   .credential-icon {
     flex-shrink: 0;
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--color-gold);
+    background: var(--gradient-gold);
     color: var(--color-charcoal);
     border-radius: var(--radius-full);
     font-size: 0.75rem;
@@ -326,33 +406,76 @@ const approachPoints = [
   }
 
   .training-quote {
-    background: var(--color-cream-dark);
-    padding: var(--spacing-xl);
-    border-radius: var(--radius-lg);
-    border-left: 4px solid var(--color-gold);
+    position: relative;
+    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-gold-pale) 100%);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(201, 168, 108, 0.2);
+  }
+
+  .training-quote__mark {
+    position: absolute;
+    top: var(--spacing-md);
+    left: var(--spacing-lg);
+    font-family: var(--font-display);
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--color-gold);
+    opacity: 0.3;
   }
 
   .training-quote blockquote {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     font-style: italic;
     color: var(--color-charcoal);
-    line-height: 1.7;
+    line-height: 1.8;
     margin: 0 0 var(--spacing-md);
+    position: relative;
   }
 
   .training-quote cite {
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--color-gold);
     font-style: normal;
+    font-weight: 600;
   }
 
   /* Studio Section */
+  .studio-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .studio-section__particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .studio-particle {
+    position: absolute;
+    bottom: -10px;
+    width: 4px;
+    height: 4px;
+    background: var(--color-gold);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleRise 10s ease-in-out infinite;
+  }
+
+  @keyframes particleRise {
+    0%, 100% { opacity: 0; transform: translateY(0); }
+    10% { opacity: 0.4; }
+    90% { opacity: 0.1; }
+    100% { transform: translateY(-100vh); }
+  }
+
   .studio-text {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--color-taupe);
-    line-height: 1.8;
+    line-height: 1.9;
   }
 
   .studio-text em {
@@ -364,23 +487,33 @@ const approachPoints = [
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-lg);
     margin-top: var(--spacing-xl);
+  }
+
+  .studio-feature {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
     font-family: var(--font-heading);
     font-size: 1rem;
     color: var(--color-blush);
   }
 
-  .studio-divider {
-    color: var(--color-gold);
+  .studio-feature__dot {
+    width: 8px;
+    height: 8px;
+    background: var(--color-gold);
+    border-radius: 50%;
   }
 
   /* CTA Section */
   .cta-text {
     font-size: 1.1rem;
     color: var(--color-brown-light);
-    max-width: 500px;
+    max-width: 550px;
     margin: 0 auto var(--spacing-xl);
+    line-height: 1.8;
   }
 
   .cta-buttons {

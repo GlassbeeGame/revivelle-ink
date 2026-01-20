@@ -17,52 +17,97 @@ const {
 ---
 
 <article class="gallery-card">
-  {placeholder ? (
-    <div class="gallery-card__placeholder">
-      <div class="gallery-card__placeholder-inner">
-        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-          <circle cx="8.5" cy="8.5" r="1.5"></circle>
-          <polyline points="21 15 16 10 5 21"></polyline>
-        </svg>
-        <span>Before & After</span>
+  <div class="gallery-card__gold-frame"></div>
+  <div class="gallery-card__inner">
+    {placeholder ? (
+      <div class="gallery-card__placeholder">
+        <div class="gallery-card__placeholder-inner">
+          <div class="gallery-card__placeholder-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+          </div>
+          <span class="gallery-card__placeholder-text">Before & After</span>
+          <span class="gallery-card__placeholder-coming">Coming Soon</span>
+        </div>
       </div>
+    ) : (
+      <div class="gallery-card__images">
+        <div class="gallery-card__image gallery-card__image--before">
+          <img src={beforeImage} alt={`${title} - Before`} loading="lazy" />
+          <span class="gallery-card__label">Before</span>
+        </div>
+        <div class="gallery-card__image gallery-card__image--after">
+          <img src={afterImage} alt={`${title} - After`} loading="lazy" />
+          <span class="gallery-card__label">After</span>
+        </div>
+      </div>
+    )}
+    <div class="gallery-card__content">
+      {category && <span class="gallery-card__category">{category}</span>}
+      <h3 class="gallery-card__title">{title}</h3>
     </div>
-  ) : (
-    <div class="gallery-card__images">
-      <div class="gallery-card__image gallery-card__image--before">
-        <img src={beforeImage} alt={`${title} - Before`} loading="lazy" />
-        <span class="gallery-card__label">Before</span>
-      </div>
-      <div class="gallery-card__image gallery-card__image--after">
-        <img src={afterImage} alt={`${title} - After`} loading="lazy" />
-        <span class="gallery-card__label">After</span>
-      </div>
-    </div>
-  )}
-  <div class="gallery-card__content">
-    {category && <span class="gallery-card__category">{category}</span>}
-    <h3 class="gallery-card__title">{title}</h3>
   </div>
 </article>
 
 <style>
   .gallery-card {
-    background: var(--color-cream);
+    position: relative;
     border-radius: var(--radius-lg);
-    overflow: hidden;
-    border: 1px solid rgba(139, 129, 120, 0.15);
-    transition: all var(--transition-medium);
+    padding: 2px;
+    transition: transform var(--transition-medium);
+  }
+
+  .gallery-card__gold-frame {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(
+      135deg,
+      var(--color-gold) 0%,
+      var(--color-gold-shimmer) 25%,
+      var(--color-gold) 50%,
+      var(--color-gold-shimmer) 75%,
+      var(--color-gold) 100%
+    );
+    background-size: 300% 300%;
+    opacity: 0;
+    transition: opacity var(--transition-medium);
+    animation: frameRotate 6s linear infinite paused;
+  }
+
+  @keyframes frameRotate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .gallery-card:hover .gallery-card__gold-frame {
+    opacity: 1;
+    animation-play-state: running;
   }
 
   .gallery-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-medium);
+    transform: translateY(-8px);
+  }
+
+  .gallery-card__inner {
+    position: relative;
+    background: var(--color-cream);
+    border-radius: calc(var(--radius-lg) - 2px);
+    overflow: hidden;
+    transition: box-shadow var(--transition-medium);
+  }
+
+  .gallery-card:hover .gallery-card__inner {
+    box-shadow: var(--shadow-gold);
   }
 
   .gallery-card__placeholder {
     aspect-ratio: 16 / 10;
-    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-cream) 100%);
+    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-gold-pale) 50%, var(--color-cream-dark) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,15 +121,39 @@ const {
     color: var(--color-taupe);
   }
 
-  .gallery-card__placeholder-inner svg {
-    opacity: 0.5;
+  .gallery-card__placeholder-icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(201, 168, 108, 0.15);
+    border: 1px solid rgba(201, 168, 108, 0.3);
+    border-radius: var(--radius-lg);
+    color: var(--color-gold);
+    transition: all var(--transition-medium);
   }
 
-  .gallery-card__placeholder-inner span {
+  .gallery-card:hover .gallery-card__placeholder-icon {
+    background: var(--gradient-gold);
+    color: var(--color-charcoal);
+    transform: scale(1.1);
+    box-shadow: var(--shadow-gold);
+  }
+
+  .gallery-card__placeholder-text {
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    color: var(--color-brown-light);
+  }
+
+  .gallery-card__placeholder-coming {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--color-gold);
   }
 
   .gallery-card__images {
@@ -113,33 +182,35 @@ const {
     position: absolute;
     bottom: var(--spacing-xs);
     left: var(--spacing-xs);
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem 0.75rem;
     font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    background: rgba(45, 45, 45, 0.8);
+    background: linear-gradient(135deg, rgba(45, 45, 45, 0.9) 0%, rgba(45, 45, 45, 0.8) 100%);
     color: var(--color-cream);
     border-radius: var(--radius-sm);
+    border: 1px solid rgba(201, 168, 108, 0.3);
   }
 
   .gallery-card__content {
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg);
+    text-align: center;
   }
 
   .gallery-card__category {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     color: var(--color-gold);
     margin-bottom: var(--spacing-xs);
   }
 
   .gallery-card__title {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 500;
     color: var(--color-charcoal);
     margin: 0;
