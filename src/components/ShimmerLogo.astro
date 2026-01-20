@@ -38,8 +38,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-lg);
-    padding: var(--spacing-lg) var(--spacing-md);
+    gap: 0;
+    padding: var(--spacing-sm) var(--spacing-md);
   }
 
   /* Container for logo layers */
@@ -54,8 +54,8 @@
   .logo-hero__logo {
     display: block;
     width: auto;
-    height: clamp(240px, 50vw, 400px);
-    max-width: 90vw;
+    height: clamp(320px, 65vw, 550px);
+    max-width: 95vw;
     position: relative;
     z-index: 2;
     filter: drop-shadow(0 2px 20px rgba(0, 0, 0, 0.15));
@@ -80,8 +80,8 @@
     top: 0;
     left: 0;
     width: auto;
-    height: clamp(240px, 50vw, 400px);
-    max-width: 90vw;
+    height: clamp(320px, 65vw, 550px);
+    max-width: 95vw;
     z-index: 1;
     
     /* Start fully clipped (hidden) from the right side */
@@ -120,7 +120,7 @@
     }
   }
 
-  /* Tagline - pulled up to overlap logo slightly */
+  /* Tagline - right below INK */
   .logo-hero__tagline {
     display: flex;
     align-items: center;
@@ -134,7 +134,8 @@
     opacity: 0;
     animation: taglineReveal 0.8s ease 1.5s forwards;
     margin: 0;
-    margin-top: -40px;
+    margin-top: -80px;
+    margin-bottom: 0;
     position: relative;
     z-index: 3;
   }

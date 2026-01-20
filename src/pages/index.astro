@@ -200,7 +200,8 @@ const serviceAreas = [
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: clamp(60px, 12vh, 120px);
     overflow: hidden;
   }
 
@@ -243,8 +244,8 @@ const serviceAreas = [
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-xl);
-    padding: var(--spacing-xl);
+    gap: 0;
+    padding: var(--spacing-md) var(--spacing-xl);
     width: 100%;
     max-width: 1000px;
   }
@@ -256,6 +257,7 @@ const serviceAreas = [
     justify-content: center;
     opacity: 0;
     animation: fadeInUp 0.8s ease 1.2s forwards;
+    margin-top: var(--spacing-xs);
   }
 
   @keyframes fadeInUp {
@@ -519,10 +521,19 @@ const serviceAreas = [
       padding: var(--spacing-2xl) var(--spacing-lg);
     }
 
+    .hero-home__content {
+      gap: var(--spacing-lg);
+    }
+
     .hero-home__cta {
       flex-direction: column;
       width: 100%;
       padding: 0 var(--spacing-md);
+      margin-top: 0;
+    }
+
+    .logo-hero__tagline {
+      margin-top: -40px;
     }
   }
 </style>
