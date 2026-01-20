@@ -1,0 +1,108 @@
+---
+interface Props {
+  question: string;
+  answer: string;
+  open?: boolean;
+}
+
+const { question, answer, open = false } = Astro.props;
+---
+
+<details class="faq-item" open={open}>
+  <summary class="faq-item__question">
+    <span>{question}</span>
+    <span class="faq-item__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+      </svg>
+    </span>
+  </summary>
+  <div class="faq-item__answer">
+    <p>{answer}</p>
+  </div>
+</details>
+
+<style>
+  .faq-item {
+    border-bottom: 1px solid rgba(139, 129, 120, 0.2);
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+
+  .faq-item__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    transition: color var(--transition-fast);
+  }
+
+  .faq-item__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item__question:hover {
+    color: var(--color-gold);
+  }
+
+  .faq-item__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    background: var(--color-cream-dark);
+    color: var(--color-gold);
+    transition: all var(--transition-fast);
+  }
+
+  .faq-item__icon svg {
+    transition: transform var(--transition-fast);
+  }
+
+  .faq-item[open] .faq-item__icon {
+    background: var(--color-gold);
+    color: var(--color-charcoal);
+  }
+
+  .faq-item[open] .faq-item__icon svg line:first-child {
+    transform: rotate(90deg);
+    transform-origin: center;
+    opacity: 0;
+  }
+
+  .faq-item__answer {
+    padding: 0 0 var(--spacing-md);
+    animation: fadeIn 0.3s ease;
+  }
+
+  .faq-item__answer p {
+    font-size: 0.95rem;
+    color: var(--color-brown-light);
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

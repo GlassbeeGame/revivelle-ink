@@ -1,0 +1,196 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import GalleryCard from '../components/GalleryCard.astro';
+import Button from '../components/Button.astro';
+
+// Placeholder gallery items - these will be replaced with real before/after photos
+const galleryItems = [
+  { category: 'Stretch Mark Camouflage', title: 'Abdomen Treatment' },
+  { category: 'Inkless Revision', title: 'Hip Area Results' },
+  { category: 'Scar Camouflage', title: 'C-Section Scar' },
+  { category: 'Stretch Mark Camouflage', title: 'Thigh Treatment' },
+  { category: 'Inkless Revision', title: 'Breast Area Results' },
+  { category: 'Scar Camouflage', title: 'Surgical Scar' },
+];
+
+const categories = ['All', 'Stretch Mark Camouflage', 'Inkless Revision', 'Scar Camouflage'];
+---
+
+<Layout 
+  title="Before & After Gallery | Revivelle Ink - Sparks, NV"
+  description="View real results from stretch mark camouflage and scar revision treatments at Revivelle Ink in Sparks, Nevada. See the transformations."
+>
+  <Hero 
+    title="Before & After"
+    subtitle="Real results from real clients. Every transformation tells a story of restored confidence."
+    dark={true}
+    size="medium"
+  />
+
+  <!-- Gallery Section -->
+  <section class="section gallery-section">
+    <div class="container">
+      <!-- Filter Tabs -->
+      <div class="gallery-filters">
+        {categories.map((category, index) => (
+          <button 
+            class={`filter-btn ${index === 0 ? 'filter-btn--active' : ''}`}
+            data-filter={category.toLowerCase().replace(/\s+/g, '-')}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      <!-- Coming Soon Notice -->
+      <div class="gallery-notice">
+        <div class="gallery-notice__icon">📸</div>
+        <h3>Results Gallery Coming Soon</h3>
+        <p>
+          I'm currently building my portfolio of before and after photos. 
+          Check back soon to see real transformations, or reach out to see examples during your consultation.
+        </p>
+      </div>
+
+      <!-- Gallery Grid (Placeholders) -->
+      <div class="gallery-grid">
+        {galleryItems.map((item) => (
+          <GalleryCard 
+            title={item.title}
+            category={item.category}
+            placeholder={true}
+          />
+        ))}
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="gallery-disclaimer">
+        <p>
+          <strong>Please Note:</strong> Individual results may vary. The images shown represent typical outcomes, 
+          but your results will depend on factors such as skin type, age of stretch marks/scars, 
+          and adherence to aftercare instructions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section section--cream cta-gallery">
+    <div class="container container--narrow text-center">
+      <h2>Ready for Your Transformation?</h2>
+      <p class="cta-text">
+        Every journey begins with a conversation. Let's discuss your goals and create a personalized plan for beautiful, natural results.
+      </p>
+      <div class="cta-buttons">
+        <Button href="/contact" variant="primary" size="large">Book Consultation</Button>
+        <Button href="/services" variant="outline" size="large">Learn About Services</Button>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Gallery Filters */
+  .gallery-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .filter-btn {
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-brown);
+    background: transparent;
+    border: 1px solid rgba(139, 129, 120, 0.3);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .filter-btn:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+  }
+
+  .filter-btn--active {
+    background: var(--color-gold);
+    border-color: var(--color-gold);
+    color: var(--color-charcoal);
+  }
+
+  /* Gallery Notice */
+  .gallery-notice {
+    text-align: center;
+    padding: var(--spacing-3xl);
+    background: var(--color-cream-dark);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .gallery-notice__icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .gallery-notice h3 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .gallery-notice p {
+    font-size: 1rem;
+    color: var(--color-brown-light);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  /* Gallery Grid */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  /* Gallery Disclaimer */
+  .gallery-disclaimer {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: rgba(201, 168, 108, 0.1);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--color-gold);
+  }
+
+  .gallery-disclaimer p {
+    font-size: 0.9rem;
+    color: var(--color-brown-light);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  /* CTA Section */
+  .cta-text {
+    font-size: 1.1rem;
+    color: var(--color-brown-light);
+    max-width: 500px;
+    margin: 0 auto var(--spacing-xl);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+</style>

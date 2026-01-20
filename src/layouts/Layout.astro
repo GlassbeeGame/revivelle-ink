@@ -1,0 +1,72 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+}
+
+const { 
+  title, 
+  description = "Revivelle Ink is a boutique paramedical tattoo studio in Sparks, Nevada specializing in stretch mark camouflage, inkless scar revision, and cosmetic tattooing.",
+  keywords = "stretch mark camouflage Sparks NV, scar camouflage Sparks NV, inkless camouflage, paramedical tattoo, Reno NV"
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Revivelle Ink" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Revivelle Ink" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Page Title -->
+    <title>{title}</title>
+
+    <!-- Schema.org Local Business Markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Revivelle Ink",
+        "description": "Boutique paramedical tattoo studio specializing in stretch mark camouflage, inkless scar revision, and cosmetic tattooing.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Sparks",
+          "addressRegion": "NV",
+          "addressCountry": "US"
+        },
+        "areaServed": ["Sparks", "Reno", "Spanish Springs", "Sun Valley", "Washoe County"],
+        "priceRange": "$$"
+      }
+    </script>
+  </head>
+  <body>
+    <Navigation />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  /* Page transition for smooth feel */
+  main {
+    min-height: calc(100vh - 160px);
+  }
+</style>

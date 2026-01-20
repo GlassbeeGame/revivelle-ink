@@ -1,0 +1,212 @@
+---
+interface Props {
+  showServiceSelect?: boolean;
+}
+
+const { showServiceSelect = true } = Astro.props;
+
+const services = [
+  'Stretch Mark Camouflage',
+  'Inkless Scar Revision',
+  'Scar Camouflage',
+  'General Inquiry',
+];
+---
+
+<form class="contact-form" action="#" method="POST">
+  <div class="contact-form__row">
+    <div class="contact-form__field">
+      <label for="name" class="contact-form__label">Full Name *</label>
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        required 
+        class="contact-form__input"
+        placeholder="Your name"
+      />
+    </div>
+  </div>
+
+  <div class="contact-form__row contact-form__row--half">
+    <div class="contact-form__field">
+      <label for="email" class="contact-form__label">Email *</label>
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        required 
+        class="contact-form__input"
+        placeholder="your@email.com"
+      />
+    </div>
+    <div class="contact-form__field">
+      <label for="phone" class="contact-form__label">Phone</label>
+      <input 
+        type="tel" 
+        id="phone" 
+        name="phone" 
+        class="contact-form__input"
+        placeholder="(555) 123-4567"
+      />
+    </div>
+  </div>
+
+  {showServiceSelect && (
+    <div class="contact-form__row">
+      <div class="contact-form__field">
+        <label for="service" class="contact-form__label">Service of Interest</label>
+        <select id="service" name="service" class="contact-form__select">
+          <option value="">Select a service...</option>
+          {services.map((service) => (
+            <option value={service}>{service}</option>
+          ))}
+        </select>
+      </div>
+    </div>
+  )}
+
+  <div class="contact-form__row">
+    <div class="contact-form__field">
+      <label for="message" class="contact-form__label">Message *</label>
+      <textarea 
+        id="message" 
+        name="message" 
+        required 
+        rows="5"
+        class="contact-form__textarea"
+        placeholder="Tell me about your goals or ask any questions..."
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="contact-form__actions">
+    <button type="submit" class="contact-form__submit">
+      Send Message
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
+    </button>
+  </div>
+</form>
+
+<style>
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .contact-form__row {
+    width: 100%;
+  }
+
+  .contact-form__row--half {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+  }
+
+  @media (max-width: 600px) {
+    .contact-form__row--half {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .contact-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .contact-form__label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-brown);
+  }
+
+  .contact-form__input,
+  .contact-form__select,
+  .contact-form__textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-charcoal);
+    background: var(--color-cream);
+    border: 1px solid rgba(139, 129, 120, 0.3);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+  }
+
+  .contact-form__input:focus,
+  .contact-form__select:focus,
+  .contact-form__textarea:focus {
+    outline: none;
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(201, 168, 108, 0.15);
+  }
+
+  .contact-form__input::placeholder,
+  .contact-form__textarea::placeholder {
+    color: var(--color-taupe);
+  }
+
+  .contact-form__select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238B8178' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+
+  .contact-form__textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .contact-form__actions {
+    margin-top: var(--spacing-sm);
+  }
+
+  .contact-form__submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-charcoal);
+    background: var(--color-gold);
+    border: 2px solid var(--color-gold);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .contact-form__submit:hover {
+    background: var(--color-gold-light);
+    border-color: var(--color-gold-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold);
+  }
+
+  .contact-form__submit:active {
+    transform: translateY(0);
+  }
+
+  .contact-form__submit svg {
+    transition: transform var(--transition-fast);
+  }
+
+  .contact-form__submit:hover svg {
+    transform: translate(2px, -2px);
+  }
+</style>

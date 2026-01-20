@@ -1,0 +1,107 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  dark?: boolean;
+  size?: 'small' | 'medium' | 'large';
+  align?: 'left' | 'center';
+}
+
+const { 
+  title, 
+  subtitle,
+  dark = false,
+  size = 'medium',
+  align = 'center'
+} = Astro.props;
+---
+
+<section class={`hero hero--${size} ${dark ? 'hero--dark' : ''} hero--${align}`}>
+  <div class="container">
+    <div class="hero__content">
+      <h1 class="hero__title">{title}</h1>
+      {subtitle && <p class="hero__subtitle">{subtitle}</p>}
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--color-cream-dark);
+  }
+
+  .hero--dark {
+    background: var(--color-charcoal);
+  }
+
+  .hero--small {
+    padding: calc(80px + var(--spacing-xl)) 0 var(--spacing-xl);
+    min-height: auto;
+  }
+
+  .hero--medium {
+    padding: calc(80px + var(--spacing-2xl)) 0 var(--spacing-2xl);
+    min-height: 40vh;
+  }
+
+  .hero--large {
+    padding: calc(80px + var(--spacing-3xl)) 0 var(--spacing-3xl);
+    min-height: 60vh;
+  }
+
+  .hero__content {
+    max-width: 800px;
+  }
+
+  .hero--center .hero__content {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .hero--left .hero__content {
+    text-align: left;
+  }
+
+  .hero__title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-charcoal);
+  }
+
+  .hero--dark .hero__title {
+    color: var(--color-cream);
+  }
+
+  .hero--small .hero__title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+  }
+
+  .hero--medium .hero__title {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .hero--large .hero__title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .hero__subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 400;
+    color: var(--color-taupe);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .hero--dark .hero__subtitle {
+    color: var(--color-blush);
+  }
+</style>

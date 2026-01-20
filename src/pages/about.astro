@@ -1,0 +1,402 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Button from '../components/Button.astro';
+
+const credentials = [
+  'Certified in Camouflage Tattooing',
+  'Certified in Inkless Stretch Mark Revision',
+  'Certified Permanent Makeup Artist',
+  'Advanced Skin Theory & Safety Training',
+  'Washoe County Health Compliant'
+];
+
+const approachPoints = [
+  {
+    icon: '💜',
+    title: 'Gentle, Trauma-Informed Touch',
+    description: 'I understand the emotional weight that can come with skin concerns. My approach is always gentle, patient, and supportive.'
+  },
+  {
+    icon: '✨',
+    title: 'Deep Respect for Your Story',
+    description: "Your stretch marks and scars are part of your journey. I'm here to help you feel confident, not to erase who you are."
+  },
+  {
+    icon: '🎨',
+    title: 'Detailed Customization',
+    description: 'Every treatment is tailored to your unique skin tone, texture, and goals. No one-size-fits-all solutions here.'
+  },
+  {
+    icon: '🛡️',
+    title: 'Safety & Sanitation First',
+    description: 'Advanced sanitation protocols, sterile single-use equipment, and full Washoe County health compliance.'
+  },
+  {
+    icon: '💖',
+    title: 'Heart for Helping Women',
+    description: "I'm passionate about helping women reclaim their confidence and feel beautiful in their own skin."
+  }
+];
+---
+
+<Layout 
+  title="About Sammi | Revivelle Ink - Sparks, NV"
+  description="Meet Sammi, the artist and heart behind Revivelle Ink. Specializing in paramedical tattooing, stretch mark and scar camouflage in Sparks, Nevada."
+>
+  <Hero 
+    title="Meet Your Artist"
+    subtitle="The heart and artistry behind Revivelle Ink"
+    dark={true}
+    size="medium"
+  />
+
+  <!-- About Intro Section -->
+  <section class="section about-intro">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <div class="about-image__placeholder">
+            <span>Photo of Sammi</span>
+          </div>
+          <div class="about-image__decoration"></div>
+        </div>
+        <div class="about-content">
+          <p class="about-greeting">Hi love, I'm Sammi</p>
+          <h2>The Artist & Heart Behind Revivelle Ink</h2>
+          <p class="about-text">
+            I specialize in paramedical tattooing, stretch mark and scar camouflage, and soft permanent makeup that enhances your natural beauty while honoring your comfort, confidence, and individuality.
+          </p>
+          <p class="about-text">
+            My journey into paramedical tattooing began with a simple belief: <em>everyone deserves to feel at home in their skin.</em>
+          </p>
+          <p class="about-text">
+            I understand how stretch marks, scars, or skin concerns can impact how you see yourself — even when you love your body deeply. My goal is to create a safe, welcoming space where you feel seen, supported, and celebrated.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- My Approach Section -->
+  <section class="section section--cream approach-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>My Approach</h2>
+        <p class="section-subtitle">
+          I blend artistry with technical precision to create soft, natural, restorative results.
+        </p>
+      </div>
+      <div class="approach-grid">
+        {approachPoints.map((point) => (
+          <div class="approach-card">
+            <span class="approach-card__icon">{point.icon}</span>
+            <h3 class="approach-card__title">{point.title}</h3>
+            <p class="approach-card__description">{point.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Training Section -->
+  <section class="section training-section">
+    <div class="container">
+      <div class="training-grid">
+        <div class="training-content">
+          <h2>Training & Expertise</h2>
+          <p class="training-intro">
+            I continuously invest in new education, techniques, and tools to give my clients the very best results possible.
+          </p>
+          <ul class="credentials-list">
+            {credentials.map((credential) => (
+              <li>
+                <span class="credential-icon">✓</span>
+                {credential}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="training-quote">
+          <blockquote>
+            "Whether I'm blending stretch marks, revising scars, or enhancing natural features, I take time to understand your goals and create a plan that feels right for you."
+          </blockquote>
+          <cite>— Sammi</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Studio Section -->
+  <section class="section section--dark studio-section">
+    <div class="container container--narrow text-center">
+      <h2>A Space Made Just for You</h2>
+      <p class="studio-text">
+        Revivelle Ink is a private, feminine, peaceful studio in Sparks where you can relax, unwind, and feel completely cared for.
+      </p>
+      <p class="studio-text">
+        My clients often say the experience feels <em>grounding, safe, and confidence-restoring</em> — and that means everything to me.
+      </p>
+      <div class="studio-features">
+        <span class="studio-feature">Private Suite</span>
+        <span class="studio-divider">•</span>
+        <span class="studio-feature">Peaceful Atmosphere</span>
+        <span class="studio-divider">•</span>
+        <span class="studio-feature">Welcoming Environment</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section cta-about">
+    <div class="container container--narrow text-center">
+      <h2>I Can't Wait to Meet You</h2>
+      <p class="cta-text">
+        If you're ready to transform your skin or simply want to learn more about what's possible, I'm here for you every step of the way.
+      </p>
+      <div class="cta-buttons">
+        <Button href="/contact" variant="primary" size="large">Book Consultation</Button>
+        <Button href="/services" variant="outline" size="large">Explore Services</Button>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* About Intro */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+  }
+
+  @media (max-width: 900px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-xl);
+    }
+  }
+
+  .about-image {
+    position: relative;
+  }
+
+  .about-image__placeholder {
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-cream) 100%);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-taupe);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: 1px solid rgba(139, 129, 120, 0.15);
+  }
+
+  .about-image__decoration {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 60%;
+    height: 60%;
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-blush) 100%);
+    border-radius: var(--radius-lg);
+    opacity: 0.2;
+    z-index: -1;
+  }
+
+  .about-greeting {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .about-content h2 {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .about-text {
+    font-size: 1.05rem;
+    color: var(--color-brown-light);
+    line-height: 1.9;
+  }
+
+  .about-text em {
+    color: var(--color-charcoal);
+    font-style: italic;
+  }
+
+  /* Approach Section */
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .approach-card {
+    background: var(--color-cream);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(139, 129, 120, 0.15);
+    text-align: center;
+    transition: all var(--transition-medium);
+  }
+
+  .approach-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .approach-card__icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .approach-card__title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .approach-card__description {
+    font-size: 0.9rem;
+    color: var(--color-brown-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* Training Section */
+  .training-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+  }
+
+  @media (max-width: 900px) {
+    .training-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-xl);
+    }
+  }
+
+  .training-content h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .training-intro {
+    font-size: 1.05rem;
+    color: var(--color-brown-light);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .credentials-list {
+    list-style: none;
+  }
+
+  .credentials-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+    font-size: 1rem;
+    color: var(--color-brown);
+  }
+
+  .credential-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-gold);
+    color: var(--color-charcoal);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .training-quote {
+    background: var(--color-cream-dark);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--color-gold);
+  }
+
+  .training-quote blockquote {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--color-charcoal);
+    line-height: 1.7;
+    margin: 0 0 var(--spacing-md);
+  }
+
+  .training-quote cite {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--color-gold);
+    font-style: normal;
+  }
+
+  /* Studio Section */
+  .studio-text {
+    font-size: 1.1rem;
+    color: var(--color-taupe);
+    line-height: 1.8;
+  }
+
+  .studio-text em {
+    color: var(--color-blush);
+    font-style: italic;
+  }
+
+  .studio-features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-xl);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--color-blush);
+  }
+
+  .studio-divider {
+    color: var(--color-gold);
+  }
+
+  /* CTA Section */
+  .cta-text {
+    font-size: 1.1rem;
+    color: var(--color-brown-light);
+    max-width: 500px;
+    margin: 0 auto var(--spacing-xl);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .section-header {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-taupe);
+    margin-top: var(--spacing-sm);
+  }
+</style>

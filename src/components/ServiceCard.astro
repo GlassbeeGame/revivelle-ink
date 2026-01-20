@@ -1,0 +1,122 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  price?: string;
+  icon?: string;
+  href?: string;
+}
+
+const { title, description, price, icon, href } = Astro.props;
+---
+
+<article class="service-card">
+  {icon && (
+    <div class="service-card__icon">
+      <span>{icon}</span>
+    </div>
+  )}
+  <div class="service-card__content">
+    <h3 class="service-card__title">{title}</h3>
+    <p class="service-card__description">{description}</p>
+    {price && (
+      <p class="service-card__price">{price}</p>
+    )}
+    {href && (
+      <a href={href} class="service-card__link">
+        Learn More
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    )}
+  </div>
+</article>
+
+<style>
+  .service-card {
+    background: var(--color-cream);
+    border: 1px solid rgba(139, 129, 120, 0.15);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    transition: all var(--transition-medium);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--color-gold);
+  }
+
+  .service-card__icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-blush) 100%);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.5rem;
+  }
+
+  .service-card__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card__title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .service-card__description {
+    font-size: 0.95rem;
+    color: var(--color-brown-light);
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .service-card__price {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .service-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: auto;
+    transition: gap var(--transition-fast);
+  }
+
+  .service-card__link:hover {
+    color: var(--color-blush);
+    gap: 0.75rem;
+  }
+
+  .service-card__link svg {
+    transition: transform var(--transition-fast);
+  }
+
+  .service-card__link:hover svg {
+    transform: translateX(4px);
+  }
+</style>

@@ -1,0 +1,147 @@
+---
+interface Props {
+  title?: string;
+  category?: string;
+  beforeImage?: string;
+  afterImage?: string;
+  placeholder?: boolean;
+}
+
+const { 
+  title = "Results Coming Soon",
+  category,
+  beforeImage,
+  afterImage,
+  placeholder = true
+} = Astro.props;
+---
+
+<article class="gallery-card">
+  {placeholder ? (
+    <div class="gallery-card__placeholder">
+      <div class="gallery-card__placeholder-inner">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <circle cx="8.5" cy="8.5" r="1.5"></circle>
+          <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <span>Before & After</span>
+      </div>
+    </div>
+  ) : (
+    <div class="gallery-card__images">
+      <div class="gallery-card__image gallery-card__image--before">
+        <img src={beforeImage} alt={`${title} - Before`} loading="lazy" />
+        <span class="gallery-card__label">Before</span>
+      </div>
+      <div class="gallery-card__image gallery-card__image--after">
+        <img src={afterImage} alt={`${title} - After`} loading="lazy" />
+        <span class="gallery-card__label">After</span>
+      </div>
+    </div>
+  )}
+  <div class="gallery-card__content">
+    {category && <span class="gallery-card__category">{category}</span>}
+    <h3 class="gallery-card__title">{title}</h3>
+  </div>
+</article>
+
+<style>
+  .gallery-card {
+    background: var(--color-cream);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(139, 129, 120, 0.15);
+    transition: all var(--transition-medium);
+  }
+
+  .gallery-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+  }
+
+  .gallery-card__placeholder {
+    aspect-ratio: 16 / 10;
+    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-cream) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gallery-card__placeholder-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--color-taupe);
+  }
+
+  .gallery-card__placeholder-inner svg {
+    opacity: 0.5;
+  }
+
+  .gallery-card__placeholder-inner span {
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .gallery-card__images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery-card__image {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+
+  .gallery-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-medium);
+  }
+
+  .gallery-card:hover .gallery-card__image img {
+    transform: scale(1.05);
+  }
+
+  .gallery-card__label {
+    position: absolute;
+    bottom: var(--spacing-xs);
+    left: var(--spacing-xs);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: rgba(45, 45, 45, 0.8);
+    color: var(--color-cream);
+    border-radius: var(--radius-sm);
+  }
+
+  .gallery-card__content {
+    padding: var(--spacing-md);
+  }
+
+  .gallery-card__category {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .gallery-card__title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    margin: 0;
+  }
+</style>

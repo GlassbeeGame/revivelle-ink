@@ -1,0 +1,156 @@
+---
+// ShimmerLogo - Animated logo with gold sweep effect
+// Creates a stunning entrance animation when the homepage loads
+---
+
+<div class="shimmer-logo">
+  <div class="shimmer-logo__container">
+    <!-- Logo Image -->
+    <div class="shimmer-logo__image-wrapper">
+      <img 
+        src="/logo-dark.svg" 
+        alt="Revivelle Ink" 
+        class="shimmer-logo__image"
+      />
+      <!-- Gold Shimmer Overlay -->
+      <div class="shimmer-logo__shimmer"></div>
+    </div>
+    
+    <!-- Tagline -->
+    <p class="shimmer-logo__tagline">
+      Precision • Restoration • Confidence
+    </p>
+  </div>
+</div>
+
+<style>
+  .shimmer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: var(--spacing-lg) 0;
+  }
+
+  .shimmer-logo__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+    opacity: 0;
+    animation: logoFadeIn 0.8s ease 0.2s forwards;
+  }
+
+  .shimmer-logo__image-wrapper {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  .shimmer-logo__image {
+    display: block;
+    width: auto;
+    height: clamp(120px, 20vw, 200px);
+    max-width: 90vw;
+  }
+
+  /* The Gold Shimmer Effect */
+  .shimmer-logo__shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      transparent 25%,
+      rgba(201, 168, 108, 0) 35%,
+      rgba(201, 168, 108, 0.4) 45%,
+      rgba(232, 213, 168, 0.6) 50%,
+      rgba(201, 168, 108, 0.4) 55%,
+      rgba(201, 168, 108, 0) 65%,
+      transparent 75%,
+      transparent 100%
+    );
+    animation: goldSweep 2s ease 0.8s forwards;
+    pointer-events: none;
+  }
+
+  .shimmer-logo__tagline {
+    font-family: var(--font-heading);
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 0.15em;
+    color: var(--color-blush);
+    text-align: center;
+    opacity: 0;
+    animation: taglineFadeIn 1s ease 1.5s forwards;
+    margin: 0;
+  }
+
+  /* Animations */
+  @keyframes logoFadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes goldSweep {
+    0% {
+      left: -100%;
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      left: 100%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes taglineFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Subtle continuous shimmer after initial animation (optional, plays once more) */
+  .shimmer-logo__shimmer {
+    animation: 
+      goldSweep 2s ease 0.8s forwards,
+      goldSweepSubtle 4s ease 4s;
+  }
+
+  @keyframes goldSweepSubtle {
+    0% {
+      left: -100%;
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.5;
+    }
+    90% {
+      opacity: 0.5;
+    }
+    100% {
+      left: 100%;
+      opacity: 0;
+    }
+  }
+</style>

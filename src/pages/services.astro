@@ -1,0 +1,526 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import FAQItem from '../components/FAQItem.astro';
+import Button from '../components/Button.astro';
+
+const services = [
+  {
+    title: 'Stretch Mark Camouflage Tattoo',
+    price: '$250 per section per session',
+    description: 'A pigment-based tattoo that blends stretch marks into your natural skin tone for a smoother, more even appearance. Ideal for white/light stretch marks that have fully healed.',
+    icon: '✨',
+    details: [
+      'Custom pigment matching to your skin tone',
+      'Ideal for white, silver, or light stretch marks',
+      'Long-lasting results (3-7 years)',
+      '1-3 sessions typically needed'
+    ]
+  },
+  {
+    title: 'Inkless Stretch Mark Revision',
+    price: '$250 per section per session',
+    description: 'A pigment-free treatment using custom serums and controlled needling to stimulate collagen and soften stretch mark texture. Perfect for those who prefer a natural healing approach.',
+    icon: '🌸',
+    details: [
+      'No pigment or ink used',
+      'Stimulates natural collagen production',
+      'Improves texture, tone, and appearance',
+      '3-6 sessions typically needed, spaced 6-8 weeks apart'
+    ]
+  },
+  {
+    title: 'Scar Camouflage / Scar Revision',
+    price: '$250 per section per session',
+    description: 'Improves the appearance of surgical scars, injury scars, and texture irregularities through specialized paramedical tattooing techniques.',
+    icon: '💫',
+    details: [
+      'Treats C-section, tummy tuck, and surgical scars',
+      'Addresses injury and trauma scars',
+      'Not suitable for keloid-prone skin',
+      'Scars must be fully healed (12-18 months old)'
+    ]
+  }
+];
+
+const processSteps = [
+  {
+    number: '01',
+    title: 'Consultation & Skin Analysis',
+    description: 'I examine your stretch marks or scars and create a personalized treatment plan tailored to your unique skin and goals.'
+  },
+  {
+    number: '02',
+    title: 'Skin Preparation',
+    description: 'The area is cleansed, disinfected, and numbing may be applied if needed for your comfort.'
+  },
+  {
+    number: '03',
+    title: 'Treatment Session',
+    description: 'Using a sterile, single-use cartridge, I perform controlled needling to stimulate collagen and revise texture. Inkless uses serums only; pigment camouflage uses carefully matched pigments.'
+  },
+  {
+    number: '04',
+    title: 'Serum Infusion',
+    description: 'Healing serums are gently infused into the micro-channels to support regeneration and optimal results.'
+  },
+  {
+    number: '05',
+    title: 'Post-Care',
+    description: 'A soothing aftercare serum is applied, and I review your healing instructions. Most clients notice improvements over the following weeks.'
+  }
+];
+
+const candidateChecks = [
+  'Your stretch marks are light, white, or silver',
+  'Your scars are fully healed and at least 12–18 months old',
+  'Your skin tone is stable (no recent tanning)',
+  'You want improvement in texture, tone, and overall appearance',
+  'You prefer a natural, low-maintenance solution'
+];
+
+const treatedAreas = [
+  'Abdomen',
+  'Hips',
+  'Thighs',
+  'Buttocks',
+  'Breasts',
+  'Arms',
+  'C-section scars',
+  'Tummy tuck scars'
+];
+
+const faqs = [
+  {
+    question: 'What is camouflage tattooing?',
+    answer: 'Camouflage tattooing is a paramedical technique that blends stretch marks or scars into the surrounding skin using pigment or inkless collagen-stimulating serums. It is designed to soften texture, reduce visibility, and create a more even appearance.'
+  },
+  {
+    question: "What's the difference between inkless and pigment camouflage?",
+    answer: 'Inkless camouflage uses serums only — no tattoo pigment. It stimulates collagen to improve texture and color naturally. Pigment camouflage uses custom skin-tone pigments to blend stretch marks or scars visually.'
+  },
+  {
+    question: 'Does camouflage tattooing hurt?',
+    answer: 'Most clients describe the feeling as mild scratching or vibration. A topical numbing agent is available for your comfort.'
+  },
+  {
+    question: 'How many sessions will I need?',
+    answer: 'Most clients need 3–6 sessions for inkless treatments, and 1–3 sessions for pigment camouflage. Sessions are spaced 6–8 weeks apart to allow for proper healing.'
+  },
+  {
+    question: 'How long do results last?',
+    answer: 'Inkless results are long-lasting because they rely on collagen remodeling. Pigment camouflage typically lasts 3–7 years depending on your lifestyle and skin type.'
+  },
+  {
+    question: 'Can you treat all scars?',
+    answer: 'Scars must be fully healed, at least 12–18 months old, not keloid-forming, and free from redness or inflammation. If you\'re unsure, send me photos — I\'ll evaluate for free.'
+  },
+  {
+    question: 'Will my stretch marks be completely gone?',
+    answer: 'No treatment can fully erase stretch marks, but camouflage can drastically soften their appearance and help them blend beautifully into the surrounding skin.'
+  },
+  {
+    question: 'Is there downtime?',
+    answer: 'No major downtime. Mild redness for 1–2 days is normal. Stretch marks may temporarily look slightly darker before they lighten and soften as the skin repairs.'
+  }
+];
+---
+
+<Layout 
+  title="Stretch Mark & Scar Camouflage Services | Revivelle Ink - Sparks, NV"
+  description="Professional stretch mark camouflage, inkless scar revision, and paramedical tattooing services in Sparks, Nevada. Natural, long-lasting results for all skin tones."
+>
+  <Hero 
+    title="Services & Pricing"
+    subtitle="Every service is tailored to your skin type, tone, texture, and personal goals."
+    dark={true}
+    size="medium"
+  />
+
+  <!-- Services Section -->
+  <section class="section services-section">
+    <div class="container">
+      <div class="services-detail-grid">
+        {services.map((service) => (
+          <article class="service-detail">
+            <div class="service-detail__header">
+              <span class="service-detail__icon">{service.icon}</span>
+              <h2 class="service-detail__title">{service.title}</h2>
+              <p class="service-detail__price">{service.price}</p>
+            </div>
+            <p class="service-detail__description">{service.description}</p>
+            <ul class="service-detail__list">
+              {service.details.map((detail) => (
+                <li>
+                  <span class="service-detail__check">✓</span>
+                  {detail}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+
+      <div class="booking-note">
+        <h4>Booking Information</h4>
+        <ul>
+          <li>A non-refundable deposit is required to secure appointments</li>
+          <li>All clients must complete a consultation form and health history</li>
+          <li>Pricing may vary depending on size, depth, and complexity of the area</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="section section--cream process-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>How the Treatment Works</h2>
+        <p class="section-subtitle">A step-by-step look at your transformation journey</p>
+      </div>
+      <div class="process-grid">
+        {processSteps.map((step) => (
+          <div class="process-step">
+            <span class="process-step__number">{step.number}</span>
+            <h3 class="process-step__title">{step.title}</h3>
+            <p class="process-step__description">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Candidate Section -->
+  <section class="section candidate-section">
+    <div class="container">
+      <div class="candidate-grid">
+        <div class="candidate-content">
+          <h2>Who Is a Good Candidate?</h2>
+          <p class="candidate-intro">
+            You may benefit from camouflage tattooing if:
+          </p>
+          <ul class="candidate-list">
+            {candidateChecks.map((check) => (
+              <li>
+                <span class="candidate-icon">✓</span>
+                {check}
+              </li>
+            ))}
+          </ul>
+          <p class="candidate-note">
+            This treatment is safe for <strong>all skin tones</strong>, and I customize every session to your unique skin type and goals.
+          </p>
+        </div>
+        <div class="areas-content">
+          <h3>Areas Commonly Treated</h3>
+          <div class="areas-grid">
+            {treatedAreas.map((area) => (
+              <span class="area-tag">{area}</span>
+            ))}
+          </div>
+          <p class="areas-note">
+            If you're unsure whether your marks are treatable, I offer easy consultations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section section--cream faq-section">
+    <div class="container container--narrow">
+      <div class="section-header text-center">
+        <h2>Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything you need to know about camouflage tattooing</p>
+      </div>
+      <div class="faq-list">
+        {faqs.map((faq, index) => (
+          <FAQItem 
+            question={faq.question}
+            answer={faq.answer}
+            open={index === 0}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section section--dark cta-services">
+    <div class="container text-center">
+      <h2>Ready to Begin Your Transformation?</h2>
+      <p class="cta-text">
+        If you're ready for smoother, more confident skin, I'd love to help you feel at home in your body again.
+      </p>
+      <div class="cta-buttons">
+        <Button href="/contact" variant="primary" size="large">Book Consultation</Button>
+        <Button href="/gallery" variant="outline" size="large">View Results</Button>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Services Detail Grid */
+  .services-detail-grid {
+    display: grid;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .service-detail {
+    background: var(--color-cream);
+    border: 1px solid rgba(139, 129, 120, 0.15);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    transition: all var(--transition-medium);
+  }
+
+  .service-detail:hover {
+    box-shadow: var(--shadow-medium);
+    border-color: var(--color-gold);
+  }
+
+  .service-detail__header {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .service-detail__icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .service-detail__title {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .service-detail__price {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    margin: 0;
+  }
+
+  .service-detail__description {
+    font-size: 1rem;
+    color: var(--color-brown-light);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .service-detail__list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-sm);
+  }
+
+  .service-detail__list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+    font-size: 0.95rem;
+    color: var(--color-brown);
+  }
+
+  .service-detail__check {
+    color: var(--color-gold);
+    font-weight: 700;
+  }
+
+  /* Booking Note */
+  .booking-note {
+    background: var(--color-cream-dark);
+    border-left: 4px solid var(--color-gold);
+    padding: var(--spacing-lg);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  .booking-note h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .booking-note ul {
+    list-style: none;
+    margin: 0;
+  }
+
+  .booking-note li {
+    font-size: 0.95rem;
+    color: var(--color-brown-light);
+    padding: var(--spacing-xs) 0;
+  }
+
+  .booking-note li::before {
+    content: '•';
+    color: var(--color-gold);
+    margin-right: var(--spacing-xs);
+  }
+
+  /* Process Section */
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .process-step {
+    text-align: center;
+    padding: var(--spacing-lg);
+  }
+
+  .process-step__number {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .process-step__title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .process-step__description {
+    font-size: 0.95rem;
+    color: var(--color-brown-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* Candidate Section */
+  .candidate-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: start;
+  }
+
+  @media (max-width: 900px) {
+    .candidate-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-xl);
+    }
+  }
+
+  .candidate-content h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .candidate-intro {
+    font-size: 1.1rem;
+    color: var(--color-brown-light);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .candidate-list {
+    list-style: none;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .candidate-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid rgba(139, 129, 120, 0.15);
+  }
+
+  .candidate-list li:last-child {
+    border-bottom: none;
+  }
+
+  .candidate-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-gold);
+    color: var(--color-charcoal);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .candidate-note {
+    font-size: 0.95rem;
+    color: var(--color-brown-light);
+    font-style: italic;
+  }
+
+  .areas-content h3 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .areas-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .area-tag {
+    padding: 0.5rem 1rem;
+    background: var(--color-cream-dark);
+    border: 1px solid rgba(139, 129, 120, 0.2);
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    color: var(--color-brown);
+  }
+
+  .areas-note {
+    font-size: 0.9rem;
+    color: var(--color-taupe);
+  }
+
+  /* FAQ Section */
+  .faq-list {
+    background: var(--color-cream);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    border: 1px solid rgba(139, 129, 120, 0.15);
+  }
+
+  /* CTA Section */
+  .cta-text {
+    font-size: 1.1rem;
+    color: var(--color-taupe);
+    max-width: 500px;
+    margin: 0 auto var(--spacing-xl);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .section-header {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-taupe);
+    margin-top: var(--spacing-sm);
+  }
+</style>

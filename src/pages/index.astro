@@ -1,0 +1,479 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ShimmerLogo from '../components/ShimmerLogo.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import Button from '../components/Button.astro';
+
+const services = [
+  {
+    title: 'Stretch Mark Camouflage',
+    description: 'A pigment-based tattoo that blends stretch marks into your natural skin tone for a smoother, more even appearance. Ideal for white or light stretch marks.',
+    icon: '✨',
+    href: '/services'
+  },
+  {
+    title: 'Inkless Scar Revision',
+    description: 'A pigment-free treatment using custom serums and controlled needling to stimulate collagen and soften stretch mark and scar texture naturally.',
+    icon: '🌸',
+    href: '/services'
+  },
+  {
+    title: 'Scar Camouflage',
+    description: 'Improves the appearance of surgical scars, injury scars, and texture irregularities through specialized paramedical tattooing techniques.',
+    icon: '💫',
+    href: '/services'
+  }
+];
+
+const benefits = [
+  'Certified in paramedical tattooing & PMU',
+  'Specializing in stretch mark & scar camouflage',
+  'Soft, natural results for all skin tones',
+  'High sanitation standards (Washoe County compliant)',
+  'Comfortable private suite in Sparks',
+  'Warm, judgment-free care rooted in compassion'
+];
+
+const serviceAreas = [
+  'Sparks',
+  'Reno', 
+  'Spanish Springs',
+  'Sun Valley',
+  'South Reno',
+  'North Valleys',
+  'Washoe County'
+];
+---
+
+<Layout 
+  title="Stretch Mark & Scar Camouflage Tattoo in Sparks, NV | Revivelle Ink"
+  description="Transform stretch marks and scars with inkless camouflage tattooing at Revivelle Ink in Sparks, NV. Safe, natural, long-lasting results for all skin tones. Book your consultation today."
+>
+  <!-- Hero Section with Animated Logo -->
+  <section class="hero-home">
+    <div class="hero-home__background"></div>
+    <div class="hero-home__content">
+      <ShimmerLogo />
+      <div class="hero-home__cta">
+        <Button href="/contact" variant="primary" size="large">Book Consultation</Button>
+        <Button href="/services" variant="outline" size="large">Explore Services</Button>
+      </div>
+    </div>
+    <div class="hero-home__scroll">
+      <span>Scroll to discover</span>
+      <div class="hero-home__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="section intro">
+    <div class="container container--narrow">
+      <div class="intro__content">
+        <h2 class="intro__heading">
+          Natural, Beautiful <span class="text-gold">Skin Revision</span>
+        </h2>
+        <p class="intro__text">
+          Revivelle Ink is a boutique paramedical and cosmetic tattoo studio located in Sparks, Nevada, specializing in stretch mark camouflage and inkless scar revision services designed to restore confidence and enhance your natural beauty.
+        </p>
+        <p class="intro__text">
+          My approach is rooted in precision, softness, and artistry. Whether you're looking to blend stretch marks, soften scars, or restore your skin's appearance, Revivelle Ink provides a safe, private, and welcoming environment where you can feel truly seen and cared for.
+        </p>
+        <div class="intro__divider">
+          <span>✦</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Preview Section -->
+  <section class="section section--cream services-preview">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>What I Specialize In</h2>
+        <p class="section-subtitle">
+          Every service is tailored to your skin type, tone, texture, and personal goals — no one-size-fits-all here.
+        </p>
+      </div>
+      <div class="services-grid">
+        {services.map((service) => (
+          <ServiceCard 
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+            href={service.href}
+          />
+        ))}
+      </div>
+      <div class="text-center mt-xl">
+        <Button href="/services" variant="dark">View All Services</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Section -->
+  <section class="section why-choose">
+    <div class="container">
+      <div class="why-choose__grid">
+        <div class="why-choose__content">
+          <h2>Why Choose <span class="text-blush">Revivelle Ink</span>?</h2>
+          <p class="why-choose__intro">
+            Your treatment is not just cosmetic — it's emotional, empowering, and transformative.
+          </p>
+          <ul class="why-choose__list">
+            {benefits.map((benefit) => (
+              <li class="why-choose__item">
+                <span class="why-choose__icon">✓</span>
+                <span>{benefit}</span>
+              </li>
+            ))}
+          </ul>
+          <Button href="/about" variant="outline">Meet Your Artist</Button>
+        </div>
+        <div class="why-choose__image">
+          <div class="why-choose__image-placeholder">
+            <span>Studio Photo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Areas Section -->
+  <section class="section section--dark service-areas">
+    <div class="container">
+      <div class="service-areas__content text-center">
+        <h2>Serving Sparks, Reno & All of Washoe County</h2>
+        <p class="service-areas__subtitle">
+          Revivelle Ink proudly provides camouflage tattooing and inkless scar revision to clients throughout Northern Nevada.
+        </p>
+        <div class="service-areas__list">
+          {serviceAreas.map((area, index) => (
+            <span class="service-areas__item">
+              {area}
+              {index < serviceAreas.length - 1 && <span class="service-areas__dot">•</span>}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section cta-section">
+    <div class="container container--narrow">
+      <div class="cta-box">
+        <h2>Ready for Your Transformation?</h2>
+        <p>
+          You deserve to feel beautiful in your skin. Whether you're ready to revise stretch marks, blend scars, or simply learn more, your journey starts here.
+        </p>
+        <div class="cta-box__buttons">
+          <Button href="/contact" variant="primary" size="large">Book Consultation</Button>
+          <Button href="/gallery" variant="outline" size="large">View Results</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero Home Section */
+  .hero-home {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-home__background {
+    position: absolute;
+    inset: 0;
+    background: var(--color-charcoal);
+    z-index: 0;
+  }
+
+  /* Subtle gold shimmer gradient in background */
+  .hero-home__background::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+      ellipse at center,
+      rgba(201, 168, 108, 0.08) 0%,
+      rgba(201, 168, 108, 0.03) 30%,
+      transparent 70%
+    );
+    animation: backgroundPulse 8s ease-in-out infinite;
+  }
+
+  @keyframes backgroundPulse {
+    0%, 100% {
+      opacity: 0.5;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+
+  .hero-home__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-xl);
+  }
+
+  .hero-home__cta {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 2s forwards;
+  }
+
+  .hero-home__scroll {
+    position: absolute;
+    bottom: var(--spacing-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    opacity: 0;
+    animation: fadeIn 1s ease 2.5s forwards;
+  }
+
+  .hero-home__scroll span {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-taupe);
+  }
+
+  .hero-home__scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--color-gold), transparent);
+    animation: scrollLine 2s ease infinite;
+  }
+
+  @keyframes scrollLine {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scaleY(0.5);
+    }
+    50% {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Intro Section */
+  .intro__content {
+    text-align: center;
+  }
+
+  .intro__heading {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .intro__text {
+    font-size: 1.1rem;
+    color: var(--color-brown-light);
+    line-height: 1.9;
+  }
+
+  .intro__divider {
+    margin-top: var(--spacing-xl);
+    color: var(--color-gold);
+    font-size: 1.25rem;
+  }
+
+  /* Services Preview */
+  .section-header {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .section-header h2 {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-taupe);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  /* Why Choose Section */
+  .why-choose__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+  }
+
+  @media (max-width: 900px) {
+    .why-choose__grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-xl);
+    }
+  }
+
+  .why-choose__content h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .why-choose__intro {
+    font-size: 1.1rem;
+    color: var(--color-brown-light);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .why-choose__list {
+    list-style: none;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .why-choose__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid rgba(139, 129, 120, 0.15);
+  }
+
+  .why-choose__item:last-child {
+    border-bottom: none;
+  }
+
+  .why-choose__icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-gold);
+    color: var(--color-charcoal);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .why-choose__image-placeholder {
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-cream) 100%);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-taupe);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: 1px solid rgba(139, 129, 120, 0.15);
+  }
+
+  /* Service Areas */
+  .service-areas__subtitle {
+    font-size: 1.1rem;
+    color: var(--color-taupe);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .service-areas__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--color-blush);
+  }
+
+  .service-areas__item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .service-areas__dot {
+    color: var(--color-gold);
+  }
+
+  /* CTA Section */
+  .cta-box {
+    background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-charcoal-deep) 100%);
+    padding: var(--spacing-3xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    color: var(--color-cream);
+  }
+
+  .cta-box h2 {
+    color: var(--color-cream);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .cta-box p {
+    font-size: 1.1rem;
+    color: var(--color-taupe);
+    max-width: 500px;
+    margin: 0 auto var(--spacing-xl);
+  }
+
+  .cta-box__buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 600px) {
+    .cta-box {
+      padding: var(--spacing-xl);
+    }
+
+    .hero-home__cta {
+      flex-direction: column;
+      width: 100%;
+      padding: 0 var(--spacing-md);
+    }
+  }
+</style>

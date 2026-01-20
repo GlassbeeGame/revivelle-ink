@@ -1,0 +1,124 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'outline' | 'dark';
+  size?: 'small' | 'medium' | 'large';
+  fullWidth?: boolean;
+  type?: 'button' | 'submit';
+  class?: string;
+}
+
+const { 
+  href, 
+  variant = 'primary', 
+  size = 'medium',
+  fullWidth = false,
+  type = 'button',
+  class: className = ''
+} = Astro.props;
+
+const Tag = href ? 'a' : 'button';
+const classes = `btn btn--${variant} btn--${size} ${fullWidth ? 'btn--full' : ''} ${className}`.trim();
+---
+
+<Tag 
+  href={href}
+  type={!href ? type : undefined}
+  class={classes}
+>
+  <slot />
+</Tag>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .btn:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+
+  /* Sizes */
+  .btn--small {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .btn--medium {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.85rem;
+  }
+
+  .btn--large {
+    padding: 1rem 2.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* Variants */
+  .btn--primary {
+    background: var(--color-gold);
+    color: var(--color-charcoal);
+    border-color: var(--color-gold);
+  }
+
+  .btn--primary:hover {
+    background: var(--color-gold-light);
+    border-color: var(--color-gold-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold);
+  }
+
+  .btn--secondary {
+    background: var(--color-blush);
+    color: var(--color-charcoal);
+    border-color: var(--color-blush);
+  }
+
+  .btn--secondary:hover {
+    background: var(--color-blush-light);
+    border-color: var(--color-blush-light);
+    transform: translateY(-2px);
+  }
+
+  .btn--outline {
+    background: transparent;
+    color: var(--color-gold);
+    border-color: var(--color-gold);
+  }
+
+  .btn--outline:hover {
+    background: var(--color-gold);
+    color: var(--color-charcoal);
+    transform: translateY(-2px);
+  }
+
+  .btn--dark {
+    background: var(--color-charcoal);
+    color: var(--color-cream);
+    border-color: var(--color-charcoal);
+  }
+
+  .btn--dark:hover {
+    background: var(--color-brown);
+    border-color: var(--color-brown);
+    transform: translateY(-2px);
+  }
+
+  /* Full Width */
+  .btn--full {
+    width: 100%;
+  }
+</style>
