@@ -55,7 +55,8 @@ const policies = [
           <h2>Send a Message</h2>
           <p class="form-intro">
             Have questions about a treatment? Want to know if you're a good candidate? 
-            Fill out the form below and I'll get back to you within 24-48 hours.
+            Fill out the form below and I'll get back to you within 24-48 hours. 
+            <strong>Or call (707) 660-0921 for immediate assistance</strong> — calling is part of the consultation process!
           </p>
           <ContactForm />
         </div>
@@ -72,7 +73,7 @@ const policies = [
               </div>
               <div class="contact-method__content">
                 <span class="contact-method__label">Location</span>
-                <span class="contact-method__value">Sparks, Nevada</span>
+                <span class="contact-method__value">2165 Green Vista Dr 206B<br/>Sparks, NV 89431</span>
                 <span class="contact-method__note">Serving Sparks, Reno & Washoe County</span>
               </div>
             </div>
@@ -83,7 +84,8 @@ const policies = [
               </div>
               <div class="contact-method__content">
                 <span class="contact-method__label">Phone</span>
-                <span class="contact-method__value">Contact for number</span>
+                <a href="tel:17076600921" class="contact-method__value contact-method__link">(707) 660-0921</a>
+                <span class="contact-method__note">Call for your free consultation</span>
               </div>
             </div>
 
@@ -93,7 +95,7 @@ const policies = [
               </div>
               <div class="contact-method__content">
                 <span class="contact-method__label">Email</span>
-                <span class="contact-method__value">Contact for email</span>
+                <a href="mailto:Revivelleink@gmail.com" class="contact-method__value contact-method__link">Revivelleink@gmail.com</a>
               </div>
             </div>
 
@@ -108,6 +110,17 @@ const policies = [
                 </a>
               </div>
             </div>
+          </div>
+
+          <div class="contact-info__call-cta">
+            <div class="call-cta__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <h3>Free Consultation</h3>
+            <p class="call-cta__text">
+              Calling is an important part of the consultation process. Let's discuss your goals and answer your questions together.
+            </p>
+            <Button href="tel:17076600921" variant="gold-glow" fullWidth>Call (707) 660-0921</Button>
           </div>
 
           <div class="contact-info__hours">
@@ -194,6 +207,9 @@ const policies = [
         You deserve to feel beautiful in your skin. Whether you're ready to book or just have questions, 
         I'm here to support you every step of the way.
       </p>
+      <div class="final-cta__buttons">
+        <Button href="tel:17076600921" variant="gold-glow" size="large">Free Consult</Button>
+      </div>
       <p class="cta-tagline">
         Revivelle Ink — <span class="text-gradient-gold">Precision • Restoration • Confidence</span>
       </p>
@@ -252,7 +268,8 @@ const policies = [
 
   .contact-info__card,
   .contact-info__hours,
-  .contact-info__photo {
+  .contact-info__photo,
+  .contact-info__call-cta {
     position: relative;
     background: linear-gradient(180deg, var(--color-cream) 0%, #faf8f5 100%);
     padding: var(--spacing-xl);
@@ -267,7 +284,8 @@ const policies = [
 
   .contact-info__card:hover,
   .contact-info__hours:hover,
-  .contact-info__photo:hover {
+  .contact-info__photo:hover,
+  .contact-info__call-cta:hover {
     transform: translateY(-6px);
     box-shadow: 
       0 20px 40px rgba(201, 168, 108, 0.12),
@@ -277,7 +295,8 @@ const policies = [
 
   .contact-info__card::before,
   .contact-info__hours::before,
-  .contact-info__photo::before {
+  .contact-info__photo::before,
+  .contact-info__call-cta::before {
     content: '';
     position: absolute;
     top: 0;
@@ -292,7 +311,8 @@ const policies = [
 
   .contact-info__card:hover::before,
   .contact-info__hours:hover::before,
-  .contact-info__photo:hover::before {
+  .contact-info__photo:hover::before,
+  .contact-info__call-cta:hover::before {
     transform: scaleX(1);
   }
 
@@ -420,6 +440,28 @@ const policies = [
   .photo-cta:hover {
     color: var(--color-gold-deep);
     gap: 0.75rem;
+  }
+
+  /* Call CTA */
+  .call-cta__icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-lg);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    box-shadow: var(--shadow-gold);
+    color: var(--color-charcoal);
+  }
+
+  .call-cta__text {
+    font-size: 0.95rem;
+    color: var(--color-brown-light);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.7;
   }
 
   /* Policies Section */
@@ -571,6 +613,13 @@ const policies = [
     color: var(--color-taupe);
     margin-bottom: var(--spacing-lg);
     line-height: 1.8;
+  }
+
+  .final-cta__buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
   }
 
   .cta-tagline {

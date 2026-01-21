@@ -58,7 +58,7 @@ const serviceAreas = [
       <ShimmerLogo />
       
       <div class="hero-home__cta">
-        <Button href="/contact" variant="gold-glow" size="large">Book Consultation</Button>
+        <Button href="tel:17076600921" variant="gold-glow" size="large">Free Consult</Button>
         <Button href="/services" variant="outline" size="large">Explore Services</Button>
       </div>
     </div>
@@ -180,10 +180,10 @@ const serviceAreas = [
           <span class="section-eyebrow section-eyebrow--light">Begin Your Journey</span>
           <h2>Ready for Your Transformation?</h2>
           <p>
-            You deserve to feel beautiful in your skin. Whether you're ready to revise stretch marks, blend scars, or simply learn more, your journey starts here.
+            You deserve to feel beautiful in your skin. Whether you're ready to revise stretch marks, blend scars, or simply learn more, your journey starts with a call. Calling is part of the consultation process — let's discuss your goals together.
           </p>
           <div class="cta-box__buttons">
-            <Button href="/contact" variant="gold-glow" size="large">Book Consultation</Button>
+            <Button href="tel:17076600921" variant="gold-glow" size="large">Free Consult</Button>
             <Button href="/gallery" variant="outline" size="large">View Results</Button>
           </div>
         </div>
@@ -256,13 +256,22 @@ const serviceAreas = [
     flex-wrap: wrap;
     justify-content: center;
     opacity: 0;
-    animation: fadeInUp 0.8s ease 1.2s forwards;
+    animation: fadeInUp 0.8s ease 0.8s forwards;
     margin-top: var(--spacing-xs);
+    will-change: opacity, transform;
   }
 
   @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Fallback for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-home__cta {
+      opacity: 1;
+      animation: none;
+    }
   }
 
 
@@ -537,3 +546,20 @@ const serviceAreas = [
     }
   }
 </style>
+
+<script>
+  // Ensure buttons are always visible - fallback if animation doesn't trigger
+  document.addEventListener('DOMContentLoaded', () => {
+    const ctaButtons = document.querySelector('.hero-home__cta');
+    if (ctaButtons) {
+      // Set a timeout to ensure visibility even if animation fails
+      setTimeout(() => {
+        const computedStyle = window.getComputedStyle(ctaButtons);
+        if (computedStyle.opacity === '0' || parseFloat(computedStyle.opacity) < 0.1) {
+          ctaButtons.style.opacity = '1';
+          ctaButtons.style.transform = 'translateY(0)';
+        }
+      }, 2000); // After animation should have completed (0.8s delay + 0.8s duration + buffer)
+    }
+  });
+</script>

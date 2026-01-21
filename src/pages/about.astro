@@ -177,10 +177,10 @@ const approachPoints = [
       <span class="section-eyebrow">Let's Connect</span>
       <h2>I Can't Wait to Meet You</h2>
       <p class="cta-text">
-        If you're ready to transform your skin or simply want to learn more about what's possible, I'm here for you every step of the way.
+        If you're ready to transform your skin or simply want to learn more about what's possible, I'm here for you every step of the way. Calling is part of the consultation process — let's start the conversation.
       </p>
       <div class="cta-buttons">
-        <Button href="/contact" variant="gold-glow" size="large">Book Consultation</Button>
+        <Button href="tel:17076600921" variant="gold-glow" size="large">Free Consult</Button>
         <Button href="/services" variant="outline" size="large">Explore Services</Button>
       </div>
     </div>
@@ -286,8 +286,46 @@ const approachPoints = [
   /* Approach Section */
   .approach-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(6, 1fr);
     gap: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* First 3 cards - each spans 2 columns */
+  .approach-grid .approach-card:nth-child(1),
+  .approach-grid .approach-card:nth-child(2),
+  .approach-grid .approach-card:nth-child(3) {
+    grid-column: span 2;
+  }
+
+  /* Last 2 cards - centered with gap on sides */
+  .approach-grid .approach-card:nth-child(4) {
+    grid-column: 2 / 4;
+  }
+
+  .approach-grid .approach-card:nth-child(5) {
+    grid-column: 4 / 6;
+  }
+
+  @media (max-width: 1100px) {
+    .approach-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .approach-grid .approach-card:nth-child(1),
+    .approach-grid .approach-card:nth-child(2),
+    .approach-grid .approach-card:nth-child(3),
+    .approach-grid .approach-card:nth-child(4),
+    .approach-grid .approach-card:nth-child(5) {
+      grid-column: span 1;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .approach-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   .approach-card {

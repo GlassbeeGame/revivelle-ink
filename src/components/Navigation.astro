@@ -38,8 +38,8 @@ const navLinks = [
         </li>
       ))}
       <li class="nav__item nav__item--cta">
-        <a href="/contact" class="nav__cta">
-          <span class="nav__cta-text">Book Now</span>
+        <a href="tel:17076600921" class="nav__cta">
+          <span class="nav__cta-text">Call Now</span>
         </a>
       </li>
     </ul>
@@ -259,6 +259,14 @@ const navLinks = [
       menu?.classList.remove('nav__menu--open');
       document.body.style.overflow = '';
     });
+  });
+
+  // Close menu when clicking the CTA button (but allow call to proceed)
+  const navCta = document.querySelector('.nav__cta');
+  navCta?.addEventListener('click', () => {
+    toggle?.classList.remove('nav__toggle--open');
+    menu?.classList.remove('nav__menu--open');
+    document.body.style.overflow = '';
   });
 
   // Header scroll effect
