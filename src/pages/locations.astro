@@ -33,79 +33,14 @@ const expectations = [
   title="Location - Sparks, NV | Revivelle Ink"
   description="Visit Revivelle Ink in Sparks, Nevada. Serving clients from Sparks, Reno, Spanish Springs, and all of Washoe County for stretch mark and scar camouflage."
 >
-  <Hero 
+  <Hero
     title="Visit Revivelle Ink"
     subtitle="Conveniently located in Sparks, Nevada — serving the greater Reno area"
     dark={true}
     size="medium"
   />
 
-  <!-- Location Section -->
-  <section class="section location-section">
-    <div class="container">
-      <div class="location-grid">
-        <!-- Location Card -->
-        <div class="location-card">
-          <div class="location-card__gold-accent"></div>
-          <div class="location-card__header">
-            <div class="location-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            </div>
-            <h2>Sparks, Nevada</h2>
-          </div>
-          
-          <div class="location-card__details">
-            <div class="location-detail">
-              <span class="location-detail__label">Address</span>
-              <span class="location-detail__value">
-                2165 Green Vista Dr 206B<br/>Sparks, NV 89431
-              </span>
-            </div>
-            
-            <div class="location-detail">
-              <span class="location-detail__label">Studio Type</span>
-              <span class="location-detail__value">Private Suite</span>
-            </div>
-            
-            <div class="location-detail">
-              <span class="location-detail__label">Parking</span>
-              <span class="location-detail__value">Free parking available</span>
-            </div>
-          </div>
-
-          <div class="location-card__note">
-            <span class="location-card__note-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-            </span>
-            <p>
-              <strong>Private Studio:</strong> A comfortable, private suite designed for your comfort and privacy.
-            </p>
-          </div>
-
-          <Button href="tel:17076600921" variant="gold-glow" fullWidth>Free Consult</Button>
-        </div>
-
-        <!-- Map Placeholder -->
-        <div class="map-container">
-          <div class="map-placeholder">
-            <div class="map-placeholder__glow"></div>
-            <div class="map-placeholder__content">
-              <div class="map-placeholder__pin">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-              </div>
-              <h3>Sparks, Nevada</h3>
-              <p>Located in the heart of Sparks, easily accessible from Reno and surrounding areas.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Service Areas Section -->
+  <!-- Service Areas Section (Moved Up) -->
   <section class="section section--gold-tint service-areas-section">
     <div class="container">
       <div class="section-header text-center">
@@ -137,6 +72,79 @@ const expectations = [
           Don't see your area listed? If you're within reasonable driving distance, I'd still love to help you.
           <a href="/contact">Reach out</a> and let's chat!
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Studio Location Section (Moved Down) -->
+  <section class="section location-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-eyebrow">Our Studio</span>
+        <h2>Where We're Located</h2>
+        <p class="section-subtitle">
+          Visit our private suite in Sparks for your consultation and treatment.
+        </p>
+      </div>
+
+      <div class="location-grid">
+        <!-- Location Card -->
+        <div class="studio-location-card">
+          <div class="studio-location-card__gold-accent"></div>
+          <div class="studio-location-card__header">
+            <div class="studio-location-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <h3>Sparks, Nevada</h3>
+          </div>
+
+          <div class="studio-location-card__details">
+            <div class="location-detail">
+              <span class="location-detail__label">Address</span>
+              <span class="location-detail__value">
+                2165 Green Vista Dr 206B<br/>Sparks, NV 89431
+              </span>
+            </div>
+
+            <div class="location-detail">
+              <span class="location-detail__label">Studio Type</span>
+              <span class="location-detail__value">Private Suite</span>
+            </div>
+
+            <div class="location-detail">
+              <span class="location-detail__label">Parking</span>
+              <span class="location-detail__value">Free parking available</span>
+            </div>
+          </div>
+
+          <div class="studio-location-card__note">
+            <span class="studio-location-card__note-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </span>
+            <p>
+              <strong>Private Studio:</strong> A comfortable, private suite designed for your comfort and privacy.
+            </p>
+          </div>
+
+          <Button href="tel:17076600921" variant="gold-glow" fullWidth>Free Consult</Button>
+        </div>
+
+        <!-- Map Placeholder -->
+        <div class="map-container">
+          <div class="map-placeholder">
+            <div class="map-placeholder__glow"></div>
+            <div class="map-placeholder__content">
+              <div class="map-placeholder__pin">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <h3>Sparks, Nevada</h3>
+              <p>Located in the heart of Sparks, easily accessible from Reno and surrounding areas.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -216,8 +224,8 @@ const expectations = [
     }
   }
 
-  /* Location Card */
-  .location-card {
+  /* Studio Location Card */
+  .studio-location-card {
     position: relative;
     background: linear-gradient(180deg, var(--color-cream) 0%, #faf8f5 100%);
     border: 1px solid rgba(201, 168, 108, 0.15);
@@ -226,20 +234,20 @@ const expectations = [
     padding-top: calc(var(--spacing-xl) + 4px);
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow: 
+    box-shadow:
       0 4px 6px rgba(0, 0, 0, 0.02),
       0 10px 20px rgba(0, 0, 0, 0.02);
   }
 
-  .location-card:hover {
+  .studio-location-card:hover {
     transform: translateY(-8px);
-    box-shadow: 
+    box-shadow:
       0 20px 40px rgba(201, 168, 108, 0.15),
       0 10px 20px rgba(0, 0, 0, 0.05);
     border-color: rgba(201, 168, 108, 0.3);
   }
 
-  .location-card__gold-accent {
+  .studio-location-card__gold-accent {
     position: absolute;
     top: 0;
     left: 0;
@@ -251,18 +259,18 @@ const expectations = [
     transition: transform 0.5s ease;
   }
 
-  .location-card:hover .location-card__gold-accent {
+  .studio-location-card:hover .studio-location-card__gold-accent {
     transform: scaleX(1);
   }
 
-  .location-card__header {
+  .studio-location-card__header {
     display: flex;
     align-items: center;
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-xl);
   }
 
-  .location-card__icon {
+  .studio-location-card__icon {
     width: 50px;
     height: 50px;
     display: flex;
@@ -274,13 +282,13 @@ const expectations = [
     box-shadow: var(--shadow-gold);
   }
 
-  .location-card__header h2 {
+  .studio-location-card__header h3 {
     font-family: var(--font-heading);
     font-size: 1.6rem;
     margin: 0;
   }
 
-  .location-card__details {
+  .studio-location-card__details {
     margin-bottom: var(--spacing-lg);
   }
 
@@ -313,7 +321,7 @@ const expectations = [
     color: var(--color-taupe);
   }
 
-  .location-card__note {
+  .studio-location-card__note {
     display: flex;
     gap: var(--spacing-sm);
     background: linear-gradient(135deg, rgba(201, 168, 108, 0.08) 0%, transparent 100%);
@@ -323,11 +331,11 @@ const expectations = [
     border: 1px solid rgba(201, 168, 108, 0.1);
   }
 
-  .location-card__note-icon {
+  .studio-location-card__note-icon {
     flex-shrink: 0;
   }
 
-  .location-card__note p {
+  .studio-location-card__note p {
     font-size: 0.9rem;
     color: var(--color-brown-light);
     margin: 0;
@@ -409,22 +417,15 @@ const expectations = [
     line-height: 1.7;
   }
 
-  /* Location Cards Grid */
+  /* Location Cards Grid - 2 columns on desktop */
   .location-cards-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-xl);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
     margin-bottom: var(--spacing-2xl);
   }
 
-  @media (max-width: 1000px) {
-    .location-cards-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--spacing-lg);
-    }
-  }
-
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     .location-cards-grid {
       grid-template-columns: 1fr;
       gap: var(--spacing-md);

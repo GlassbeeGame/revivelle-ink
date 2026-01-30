@@ -15,41 +15,38 @@ const { name, fullName, tagline, driveTime, distance, slug, featured = false } =
 <a href={`/locations/${slug}`} class={`location-card ${featured ? 'location-card--featured' : ''}`}>
   <div class="location-card__accent"></div>
 
-  <div class="location-card__header">
+  <div class="location-card__inner">
+    <!-- Left: Icon -->
     <div class="location-card__icon">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
         <circle cx="12" cy="10" r="3"></circle>
       </svg>
     </div>
-    {featured && <span class="location-card__badge">Popular</span>}
-  </div>
 
-  <div class="location-card__content">
-    <h3 class="location-card__title">{fullName}</h3>
-    <p class="location-card__tagline">{tagline}</p>
+    <!-- Middle: Content -->
+    <div class="location-card__content">
+      <h3 class="location-card__title">{fullName}</h3>
+      <p class="location-card__tagline">{tagline}</p>
+    </div>
 
-    <div class="location-card__meta">
-      <span class="location-card__meta-item">
+    <!-- Right: Meta & Badge -->
+    <div class="location-card__right">
+      <div class="location-card__meta">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        {driveTime}
-      </span>
-      <span class="location-card__meta-divider">•</span>
-      <span class="location-card__meta-item">{distance}</span>
+        <span>{driveTime} • {distance}</span>
+      </div>
+      {featured && <span class="location-card__badge">Popular</span>}
+      <div class="location-card__arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </div>
     </div>
-  </div>
-
-  <div class="location-card__footer">
-    <span class="location-card__link">
-      Learn More
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="5" y1="12" x2="19" y2="12"></line>
-        <polyline points="12 5 19 12 12 19"></polyline>
-      </svg>
-    </span>
   </div>
 </a>
 
@@ -57,25 +54,23 @@ const { name, fullName, tagline, driveTime, distance, slug, featured = false } =
   .location-card {
     position: relative;
     display: block;
-    background: linear-gradient(180deg, var(--color-cream) 0%, #faf8f5 100%);
+    background: linear-gradient(135deg, var(--color-cream) 0%, #faf8f5 100%);
     border: 1px solid rgba(201, 168, 108, 0.15);
-    border-radius: var(--radius-xl);
-    padding: var(--spacing-xl);
-    padding-top: calc(var(--spacing-xl) + 4px);
+    border-radius: var(--radius-lg);
     overflow: hidden;
     text-decoration: none;
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     box-shadow:
-      0 4px 6px rgba(0, 0, 0, 0.02),
-      0 10px 20px rgba(0, 0, 0, 0.02);
+      0 2px 8px rgba(0, 0, 0, 0.03),
+      0 4px 12px rgba(0, 0, 0, 0.02);
   }
 
   .location-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-4px);
     border-color: var(--color-gold);
     box-shadow:
-      0 20px 40px rgba(201, 168, 108, 0.2),
-      0 10px 20px rgba(0, 0, 0, 0.08);
+      0 12px 30px rgba(201, 168, 108, 0.15),
+      0 8px 16px rgba(0, 0, 0, 0.06);
   }
 
   /* Gold accent bar */
@@ -84,9 +79,9 @@ const { name, fullName, tagline, driveTime, distance, slug, featured = false } =
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 3px;
     background: var(--gradient-gold);
-    transform: scaleX(0.3);
+    transform: scaleX(0.4);
     transform-origin: left;
     transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   }
@@ -96,58 +91,57 @@ const { name, fullName, tagline, driveTime, distance, slug, featured = false } =
   }
 
   .location-card--featured .location-card__accent {
-    transform: scaleX(0.6);
+    transform: scaleX(0.7);
   }
 
-  /* Header */
-  .location-card__header {
+  /* Horizontal inner layout */
+  .location-card__inner {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: var(--spacing-lg);
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    padding-top: calc(var(--spacing-lg) + 3px);
   }
 
+  @media (max-width: 600px) {
+    .location-card__inner {
+      padding: var(--spacing-md) var(--spacing-lg);
+      padding-top: calc(var(--spacing-md) + 3px);
+    }
+  }
+
+  /* Icon */
   .location-card__icon {
-    width: 48px;
-    height: 48px;
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--gradient-gold);
     border-radius: var(--radius-md);
     color: var(--color-charcoal);
-    box-shadow: 0 4px 15px rgba(201, 168, 108, 0.3);
+    box-shadow: 0 4px 12px rgba(201, 168, 108, 0.3);
     transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   .location-card:hover .location-card__icon {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 6px 20px rgba(201, 168, 108, 0.5);
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(201, 168, 108, 0.45);
   }
 
-  .location-card__badge {
-    padding: 0.4rem 0.85rem;
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    background: var(--gradient-gold);
-    color: var(--color-charcoal);
-    border-radius: var(--radius-sm);
-    box-shadow: 0 2px 8px rgba(201, 168, 108, 0.3);
-  }
-
-  /* Content */
+  /* Content - flexible middle section */
   .location-card__content {
-    margin-bottom: var(--spacing-lg);
+    flex: 1;
+    min-width: 0; /* Allow text to truncate if needed */
   }
 
   .location-card__title {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 500;
     color: var(--color-charcoal);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 0.25rem;
     transition: color 0.3s ease;
   }
 
@@ -156,71 +150,98 @@ const { name, fullName, tagline, driveTime, distance, slug, featured = false } =
   }
 
   .location-card__tagline {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--color-brown-light);
-    line-height: 1.6;
-    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Right side - meta, badge, arrow */
+  .location-card__right {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--spacing-xs);
   }
 
   .location-card__meta {
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
+    gap: 6px;
     font-size: 0.85rem;
     color: var(--color-taupe);
+    font-weight: 500;
   }
 
-  .location-card__meta-item {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .location-card__meta-item svg {
+  .location-card__meta svg {
     color: var(--color-gold);
+    flex-shrink: 0;
   }
 
-  .location-card__meta-divider {
-    color: var(--color-gold);
-  }
-
-  /* Footer */
-  .location-card__footer {
-    padding-top: var(--spacing-md);
-    border-top: 1px solid rgba(201, 168, 108, 0.15);
-  }
-
-  .location-card__link {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-    font-size: 0.85rem;
+  .location-card__badge {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.65rem;
     font-weight: 600;
-    color: var(--color-gold);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    transition: gap 0.3s ease;
+    background: var(--gradient-gold);
+    color: var(--color-charcoal);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 2px 6px rgba(201, 168, 108, 0.3);
   }
 
-  .location-card:hover .location-card__link {
-    gap: var(--spacing-sm);
-  }
-
-  .location-card__link svg {
+  .location-card__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-gold);
     transition: transform 0.3s ease;
   }
 
-  .location-card:hover .location-card__link svg {
+  .location-card:hover .location-card__arrow {
     transform: translateX(4px);
   }
 
   /* Featured card styling */
   .location-card--featured {
     border-color: rgba(201, 168, 108, 0.25);
-    background: linear-gradient(180deg, rgba(201, 168, 108, 0.06) 0%, var(--color-cream) 100%);
+    background: linear-gradient(135deg, rgba(201, 168, 108, 0.05) 0%, var(--color-cream) 100%);
   }
 
   .location-card--featured:hover {
     border-color: var(--color-gold-deep);
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 600px) {
+    .location-card__inner {
+      gap: var(--spacing-md);
+    }
+
+    .location-card__icon {
+      width: 42px;
+      height: 42px;
+    }
+
+    .location-card__title {
+      font-size: 1.15rem;
+    }
+
+    .location-card__tagline {
+      font-size: 0.85rem;
+    }
+
+    .location-card__right {
+      align-items: flex-end;
+    }
+
+    .location-card__meta {
+      font-size: 0.75rem;
+    }
+
+    .location-card__arrow {
+      display: none; /* Hide arrow on mobile for cleaner look */
+    }
   }
 </style>
