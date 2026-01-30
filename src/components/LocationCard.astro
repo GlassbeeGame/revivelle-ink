@@ -1,0 +1,226 @@
+---
+interface Props {
+  name: string;
+  fullName: string;
+  tagline: string;
+  driveTime: string;
+  distance: string;
+  slug: string;
+  featured?: boolean;
+}
+
+const { name, fullName, tagline, driveTime, distance, slug, featured = false } = Astro.props;
+---
+
+<a href={`/locations/${slug}`} class={`location-card ${featured ? 'location-card--featured' : ''}`}>
+  <div class="location-card__accent"></div>
+
+  <div class="location-card__header">
+    <div class="location-card__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+      </svg>
+    </div>
+    {featured && <span class="location-card__badge">Popular</span>}
+  </div>
+
+  <div class="location-card__content">
+    <h3 class="location-card__title">{fullName}</h3>
+    <p class="location-card__tagline">{tagline}</p>
+
+    <div class="location-card__meta">
+      <span class="location-card__meta-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        {driveTime}
+      </span>
+      <span class="location-card__meta-divider">•</span>
+      <span class="location-card__meta-item">{distance}</span>
+    </div>
+  </div>
+
+  <div class="location-card__footer">
+    <span class="location-card__link">
+      Learn More
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </span>
+  </div>
+</a>
+
+<style>
+  .location-card {
+    position: relative;
+    display: block;
+    background: linear-gradient(180deg, var(--color-cream) 0%, #faf8f5 100%);
+    border: 1px solid rgba(201, 168, 108, 0.15);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    padding-top: calc(var(--spacing-xl) + 4px);
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow:
+      0 4px 6px rgba(0, 0, 0, 0.02),
+      0 10px 20px rgba(0, 0, 0, 0.02);
+  }
+
+  .location-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-gold);
+    box-shadow:
+      0 20px 40px rgba(201, 168, 108, 0.2),
+      0 10px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Gold accent bar */
+  .location-card__accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-gold);
+    transform: scaleX(0.3);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .location-card:hover .location-card__accent {
+    transform: scaleX(1);
+  }
+
+  .location-card--featured .location-card__accent {
+    transform: scaleX(0.6);
+  }
+
+  /* Header */
+  .location-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .location-card__icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-md);
+    color: var(--color-charcoal);
+    box-shadow: 0 4px 15px rgba(201, 168, 108, 0.3);
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .location-card:hover .location-card__icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 20px rgba(201, 168, 108, 0.5);
+  }
+
+  .location-card__badge {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: var(--gradient-gold);
+    color: var(--color-charcoal);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 2px 8px rgba(201, 168, 108, 0.3);
+  }
+
+  /* Content */
+  .location-card__content {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .location-card__title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-sm);
+    transition: color 0.3s ease;
+  }
+
+  .location-card:hover .location-card__title {
+    color: var(--color-gold-deep);
+  }
+
+  .location-card__tagline {
+    font-size: 0.95rem;
+    color: var(--color-brown-light);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .location-card__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.85rem;
+    color: var(--color-taupe);
+  }
+
+  .location-card__meta-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .location-card__meta-item svg {
+    color: var(--color-gold);
+  }
+
+  .location-card__meta-divider {
+    color: var(--color-gold);
+  }
+
+  /* Footer */
+  .location-card__footer {
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(201, 168, 108, 0.15);
+  }
+
+  .location-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: gap 0.3s ease;
+  }
+
+  .location-card:hover .location-card__link {
+    gap: var(--spacing-sm);
+  }
+
+  .location-card__link svg {
+    transition: transform 0.3s ease;
+  }
+
+  .location-card:hover .location-card__link svg {
+    transform: translateX(4px);
+  }
+
+  /* Featured card styling */
+  .location-card--featured {
+    border-color: rgba(201, 168, 108, 0.25);
+    background: linear-gradient(180deg, rgba(201, 168, 108, 0.06) 0%, var(--color-cream) 100%);
+  }
+
+  .location-card--featured:hover {
+    border-color: var(--color-gold-deep);
+  }
+</style>

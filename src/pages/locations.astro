@@ -2,17 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Button from '../components/Button.astro';
-
-const serviceAreas = [
-  { name: 'Sparks', highlight: true },
-  { name: 'Reno', highlight: true },
-  { name: 'Spanish Springs', highlight: false },
-  { name: 'Sun Valley', highlight: false },
-  { name: 'South Reno', highlight: false },
-  { name: 'North Valleys', highlight: false },
-  { name: 'Fernley', highlight: false },
-  { name: 'Washoe County', highlight: true },
-];
+import LocationCard from '../components/LocationCard.astro';
+import { locations } from '../data/locations.js';
 
 const expectations = [
   {
@@ -118,28 +109,32 @@ const expectations = [
   <section class="section section--gold-tint service-areas-section">
     <div class="container">
       <div class="section-header text-center">
-        <span class="section-eyebrow">Our Reach</span>
-        <h2>Serving Northern Nevada</h2>
+        <span class="section-eyebrow">Explore Service Areas</span>
+        <h2>Serving Communities Across Northern Nevada</h2>
         <p class="section-subtitle">
-          Revivelle Ink proudly provides camouflage tattooing and inkless scar revision to clients throughout the region.
+          Click a location to learn more about how we serve your community and what to expect when you visit from your area.
         </p>
       </div>
 
-      <div class="areas-grid">
-        {serviceAreas.map((area, i) => (
-          <div 
-            class={`area-card ${area.highlight ? 'area-card--highlight' : ''}`}
-            style={`animation-delay: ${i * 0.08}s`}
-          >
-            <span class="area-card__name">{area.name}</span>
-            {area.highlight && <span class="area-card__badge">Primary</span>}
+      <div class="location-cards-grid">
+        {locations.map((location, i) => (
+          <div class="location-cards-grid__item" style={`animation-delay: ${i * 0.08}s`}>
+            <LocationCard
+              name={location.name}
+              fullName={location.fullName}
+              tagline={location.tagline}
+              driveTime={location.driveTime}
+              distance={location.distance}
+              slug={location.slug}
+              featured={location.featured}
+            />
           </div>
         ))}
       </div>
 
       <div class="areas-note text-center">
         <p>
-          Don't see your area listed? If you're within reasonable driving distance, I'd still love to help you. 
+          Don't see your area listed? If you're within reasonable driving distance, I'd still love to help you.
           <a href="/contact">Reach out</a> and let's chat!
         </p>
       </div>
@@ -414,85 +409,36 @@ const expectations = [
     line-height: 1.7;
   }
 
-  /* Service Areas */
-  .areas-grid {
+  /* Location Cards Grid */
+  .location-cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: var(--spacing-md);
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
     margin-bottom: var(--spacing-2xl);
   }
 
-  .area-card {
-    position: relative;
-    background: linear-gradient(180deg, var(--color-cream) 0%, #faf8f5 100%);
-    padding: var(--spacing-lg);
-    padding-top: calc(var(--spacing-lg) + 3px);
-    border-radius: var(--radius-lg);
-    border: 1px solid rgba(201, 168, 108, 0.12);
-    text-align: center;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  @media (max-width: 1000px) {
+    .location-cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-lg);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .location-cards-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+  }
+
+  .location-cards-grid__item {
     opacity: 0;
-    animation: fadeInUp 0.5s ease forwards;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-  }
-
-  .area-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--gradient-gold);
-    transform: scaleX(0);
-    transition: transform 0.4s ease;
-  }
-
-  .area-card:hover::before {
-    transform: scaleX(1);
+    animation: fadeInUp 0.6s ease forwards;
   }
 
   @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
-  }
-
-  .area-card:hover {
-    border-color: rgba(201, 168, 108, 0.25);
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 
-      0 15px 30px rgba(201, 168, 108, 0.12),
-      0 5px 15px rgba(0, 0, 0, 0.04);
-  }
-
-  .area-card--highlight {
-    border-color: rgba(201, 168, 108, 0.3);
-    background: linear-gradient(180deg, rgba(201, 168, 108, 0.06) 0%, var(--color-cream) 100%);
-  }
-
-  .area-card--highlight::before {
-    transform: scaleX(0.5);
-  }
-
-  .area-card__name {
-    font-family: var(--font-heading);
-    font-size: 1.15rem;
-    color: var(--color-charcoal);
-    display: block;
-  }
-
-  .area-card__badge {
-    display: inline-block;
-    margin-top: var(--spacing-xs);
-    padding: 0.3rem 0.75rem;
-    font-size: 0.65rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    background: var(--gradient-gold);
-    color: var(--color-charcoal);
-    border-radius: var(--radius-sm);
   }
 
   .areas-note {
