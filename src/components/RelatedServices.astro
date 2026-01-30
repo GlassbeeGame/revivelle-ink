@@ -1,0 +1,169 @@
+---
+interface Service {
+  slug: string;
+  name: string;
+  shortName: string;
+  intro: {
+    description: string;
+  };
+}
+
+interface Props {
+  services: Service[];
+}
+
+const { services } = Astro.props;
+---
+
+<section class="related-services">
+  <div class="related-services__header">
+    <span class="section-eyebrow">Explore More</span>
+    <h3>Related Services</h3>
+    <p class="related-services__subtitle">
+      Discover other treatments that may complement your journey
+    </p>
+  </div>
+
+  <div class="related-services__grid">
+    {services.map((service) => (
+      <a href={`/services/${service.slug}`} class="related-service-card">
+        <div class="related-service-card__content">
+          <h4 class="related-service-card__title">{service.shortName}</h4>
+          <p class="related-service-card__description">
+            {service.intro.description.substring(0, 120)}...
+          </p>
+          <span class="related-service-card__link">
+            Learn More
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </div>
+        <div class="related-service-card__accent"></div>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .related-services {
+    margin-top: var(--spacing-3xl);
+    padding-top: var(--spacing-3xl);
+    border-top: 1px solid rgba(201, 168, 108, 0.2);
+  }
+
+  .related-services__header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .related-services__header h3 {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .related-services__subtitle {
+    font-size: 1rem;
+    color: var(--color-taupe);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .related-services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  /* Related Service Card */
+  .related-service-card {
+    position: relative;
+    display: block;
+    background: var(--color-cream);
+    border: 1px solid rgba(201, 168, 108, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    transition: all var(--transition-medium);
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+  .related-service-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-gold);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .related-service-card__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .related-service-card__title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-sm);
+    transition: color var(--transition-fast);
+  }
+
+  .related-service-card:hover .related-service-card__title {
+    color: var(--color-gold-deep);
+  }
+
+  .related-service-card__description {
+    font-size: 0.95rem;
+    color: var(--color-brown-light);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .related-service-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: gap var(--transition-fast);
+  }
+
+  .related-service-card:hover .related-service-card__link {
+    gap: var(--spacing-sm);
+  }
+
+  .related-service-card__link svg {
+    transition: transform var(--transition-fast);
+  }
+
+  .related-service-card:hover .related-service-card__link svg {
+    transform: translateX(4px);
+  }
+
+  /* Accent line */
+  .related-service-card__accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient-gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-medium);
+  }
+
+  .related-service-card:hover .related-service-card__accent {
+    transform: scaleX(1);
+  }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    .related-services__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

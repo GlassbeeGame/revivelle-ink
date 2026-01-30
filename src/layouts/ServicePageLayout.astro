@@ -1,0 +1,651 @@
+---
+import Layout from './Layout.astro';
+import ServiceStickySidebar from '../components/ServiceStickySidebar.astro';
+import RelatedServices from '../components/RelatedServices.astro';
+import FAQItem from '../components/FAQItem.astro';
+import Button from '../components/Button.astro';
+import { getRelatedServices } from '../data/services.js';
+
+interface Props {
+  service: any; // Service data from services.js
+}
+
+const { service } = Astro.props;
+const relatedServices = getRelatedServices(service.slug);
+
+// Build canonical URL
+const canonicalUrl = `${Astro.url.origin}/services/${service.slug}`;
+const siteUrl = Astro.url.origin;
+
+// Service Schema for local SEO
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": service.name,
+  "description": service.intro.description,
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Revivelle Ink",
+    "image": `${siteUrl}/images/sammi-about.png`,
+    "telephone": "+17076600921",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2165 Green Vista Dr 206B",
+      "addressLocality": "Sparks",
+      "addressRegion": "NV",
+      "postalCode": "89431",
+      "addressCountry": "US"
+    }
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Sparks"
+    },
+    {
+      "@type": "City",
+      "name": "Reno"
+    },
+    {
+      "@type": "Place",
+      "name": "Washoe County"
+    }
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "250",
+    "priceCurrency": "USD",
+    "description": service.pricing.display
+  }
+};
+
+// FAQ Schema for rich snippets
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": service.faqs.map((faq: any) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+// Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": siteUrl
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": `${siteUrl}/services`
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": service.shortName,
+      "item": canonicalUrl
+    }
+  ]
+};
+---
+
+<Layout
+  title={service.meta.title}
+  description={service.meta.description}
+  keywords={service.meta.keywords}
+>
+  <!-- Schema Markup -->
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="head" />
+
+  <!-- Hero Section -->
+  <section class="service-hero">
+    <div class="service-hero__background"></div>
+    <div class="container">
+      <!-- Breadcrumbs -->
+      <nav class="service-breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="service-breadcrumbs-separator">/</span>
+        <a href="/services">Services</a>
+        <span class="service-breadcrumbs-separator">/</span>
+        <span>{service.shortName}</span>
+      </nav>
+
+      <!-- Hero Content -->
+      <div class="service-hero__content">
+        <h1 class="service-hero__title">{service.hero.title}</h1>
+        <p class="service-hero__subtitle">{service.hero.subtitle}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Section with Sidebar -->
+  <section class="section service-main">
+    <div class="container">
+      <div class="service-page-container">
+        <!-- Main Content Column -->
+        <div class="service-content">
+
+          <!-- Introduction Section -->
+          <div class="service-content-section">
+            <span class="section-eyebrow">{service.intro.tagline}</span>
+            <h2>{service.intro.heading}</h2>
+            <p class="service-intro-text">{service.intro.description}</p>
+          </div>
+
+          <!-- Benefits Section -->
+          <div class="service-content-section">
+            <h3>Benefits & Results</h3>
+            <ul class="service-benefits-list">
+              {service.benefits.map((benefit: string) => (
+                <li class="service-benefits-item">
+                  <span class="service-benefits-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                  <span>{benefit}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Process Section -->
+          <div class="service-content-section section--gold-tint service-process-section">
+            <div class="service-process-inner">
+              <div class="section-header text-center">
+                <span class="section-eyebrow">The Process</span>
+                <h2>How It Works</h2>
+                <p class="section-subtitle">Your step-by-step journey to transformation</p>
+              </div>
+              <div class="process-timeline">
+                {service.process.map((step: any, i: number) => (
+                  <div class="process-step" style={`animation-delay: ${i * 0.1}s`}>
+                    <div class="process-step__number">{step.step}</div>
+                    <div class="process-step__content">
+                      <h4 class="process-step__title">{step.title}</h4>
+                      <p class="process-step__description">{step.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <!-- Pricing Details Section -->
+          <div class="service-content-section">
+            <h3>Pricing & Investment</h3>
+            <div class="pricing-card">
+              <div class="pricing-card__highlight">
+                <span class="pricing-card__label">Starting At</span>
+                <span class="pricing-card__amount">{service.pricing.display}</span>
+              </div>
+              <ul class="pricing-card__details">
+                {service.pricing.details.map((detail: string) => (
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+              <p class="pricing-card__note">{service.pricing.cta}</p>
+            </div>
+          </div>
+
+          <!-- Ideal Candidate Section -->
+          <div class="service-content-section">
+            <h2>{service.idealFor.heading}</h2>
+            <p class="candidate-intro">{service.idealFor.intro}</p>
+            <ul class="candidate-criteria">
+              {service.idealFor.criteria.map((criterion: string) => (
+                <li class="candidate-criterion">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  {criterion}
+                </li>
+              ))}
+            </ul>
+            <p class="candidate-note">{service.idealFor.note}</p>
+
+            <!-- Common Areas Treated -->
+            <div class="common-areas">
+              <h4>Common Areas Treated</h4>
+              <div class="areas-grid">
+                {service.commonAreas.map((area: string) => (
+                  <span class="area-tag">{area}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Section -->
+          <div class="service-content-section">
+            <div class="section-header">
+              <span class="section-eyebrow">Common Questions</span>
+              <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-list">
+              {service.faqs.map((faq: any, index: number) => (
+                <FAQItem
+                  question={faq.question}
+                  answer={faq.answer}
+                  open={index === 0}
+                />
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Services -->
+          {relatedServices.length > 0 && (
+            <RelatedServices services={relatedServices} />
+          )}
+
+        </div>
+
+        <!-- Sticky Sidebar Column -->
+        <ServiceStickySidebar
+          serviceName={service.name}
+          pricingDisplay={service.pricing.display}
+          pricingDetails={service.pricing.details}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA Section -->
+  <section class="section section--dark cta-section">
+    <div class="container container--narrow">
+      <div class="cta-box-simple">
+        <span class="section-eyebrow section-eyebrow--light">Ready to Transform Your Skin?</span>
+        <h2>Book Your Free Consultation Today</h2>
+        <p>
+          Take the first step toward smoother, more confident skin. Call now to discuss your goals and learn if {service.shortName.toLowerCase()} is right for you.
+        </p>
+        <div class="cta-buttons">
+          <Button href="tel:17076600921" variant="gold-glow" size="large">
+            Call (707) 660-0921
+          </Button>
+          <Button href="/services" variant="outline" size="large">
+            View All Services
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Service Hero */
+  .service-hero {
+    position: relative;
+    padding: var(--spacing-4xl) 0 var(--spacing-3xl);
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .service-hero__background {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      var(--color-charcoal-deep) 0%,
+      var(--color-charcoal) 50%,
+      #2a2520 100%
+    );
+    z-index: 0;
+  }
+
+  .service-hero__background::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(212, 184, 131, 0.08) 0%,
+      transparent 60%
+    );
+  }
+
+  .service-hero > .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .service-hero__content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: var(--spacing-lg);
+  }
+
+  .service-hero__title {
+    color: var(--color-cream);
+    margin-bottom: var(--spacing-md);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .service-hero__subtitle {
+    font-size: 1.25rem;
+    color: var(--color-taupe);
+    line-height: 1.8;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  /* Service Main Section */
+  .service-main {
+    padding: var(--spacing-4xl) 0;
+  }
+
+  /* Service Content Sections */
+  .service-intro-text {
+    font-size: 1.15rem;
+    color: var(--color-brown-light);
+    line-height: 1.9;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  /* Benefits List */
+  .service-benefits-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+  }
+
+  .service-benefits-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--color-cream-dark);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--color-gold);
+    transition: all var(--transition-fast);
+  }
+
+  .service-benefits-item:hover {
+    transform: translateX(4px);
+    background: var(--color-cream);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .service-benefits-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-full);
+    color: var(--color-charcoal);
+  }
+
+  /* Process Section */
+  .service-process-section {
+    margin-left: calc(-1 * var(--spacing-lg));
+    margin-right: calc(-1 * var(--spacing-lg));
+    padding: var(--spacing-3xl) var(--spacing-lg);
+    border-radius: var(--radius-xl);
+  }
+
+  .service-process-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .process-timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-xl);
+  }
+
+  .process-step {
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .process-step__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-charcoal);
+    background: var(--gradient-gold);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--spacing-md);
+    box-shadow: var(--shadow-gold);
+  }
+
+  .process-step__title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .process-step__description {
+    font-size: 0.95rem;
+    color: var(--color-brown-light);
+    line-height: 1.7;
+  }
+
+  /* Pricing Card */
+  .pricing-card {
+    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-gold-pale) 100%);
+    border: 1px solid rgba(201, 168, 108, 0.3);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
+  }
+
+  .pricing-card__highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-lg) 0;
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 1px solid rgba(201, 168, 108, 0.3);
+  }
+
+  .pricing-card__label {
+    font-size: 0.85rem;
+    color: var(--color-taupe);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .pricing-card__amount {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 600;
+    background: var(--gradient-gold-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .pricing-card__details {
+    list-style: none;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .pricing-card__details li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+    font-size: 0.95rem;
+    color: var(--color-brown);
+  }
+
+  .pricing-card__details svg {
+    flex-shrink: 0;
+    color: var(--color-gold);
+    margin-top: 3px;
+  }
+
+  .pricing-card__note {
+    font-size: 0.9rem;
+    color: var(--color-taupe);
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+  }
+
+  /* Candidate Section */
+  .candidate-intro {
+    font-size: 1.05rem;
+    color: var(--color-brown-light);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .candidate-criteria {
+    list-style: none;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .candidate-criterion {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid rgba(201, 168, 108, 0.15);
+  }
+
+  .candidate-criterion:last-child {
+    border-bottom: none;
+  }
+
+  .candidate-criterion svg {
+    flex-shrink: 0;
+    color: var(--color-gold);
+    margin-top: 2px;
+  }
+
+  .candidate-note {
+    font-size: 0.95rem;
+    color: var(--color-taupe);
+    font-style: italic;
+    padding: var(--spacing-md);
+    background: var(--color-cream-dark);
+    border-left: 3px solid var(--color-gold);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  /* Common Areas */
+  .common-areas {
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-2xl);
+    border-top: 1px solid rgba(201, 168, 108, 0.2);
+  }
+
+  .common-areas h4 {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .areas-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  .area-tag {
+    padding: 0.6rem 1.25rem;
+    background: var(--color-cream);
+    border: 1px solid rgba(201, 168, 108, 0.3);
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    color: var(--color-brown);
+    transition: all var(--transition-fast);
+  }
+
+  .area-tag:hover {
+    background: var(--gradient-gold);
+    color: var(--color-charcoal);
+    border-color: var(--color-gold);
+  }
+
+  /* FAQ Section */
+  .faq-list {
+    background: var(--color-cream);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    border: 1px solid rgba(201, 168, 108, 0.15);
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Bottom CTA */
+  .cta-box-simple {
+    text-align: center;
+    padding: var(--spacing-3xl) var(--spacing-xl);
+  }
+
+  .cta-box-simple h2 {
+    color: var(--color-cream);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .cta-box-simple p {
+    font-size: 1.15rem;
+    color: var(--color-taupe);
+    max-width: 600px;
+    margin: 0 auto var(--spacing-xl);
+    line-height: 1.8;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Responsive */
+  @media (max-width: 800px) {
+    .service-hero {
+      padding: var(--spacing-2xl) 0 var(--spacing-xl);
+      min-height: 300px;
+    }
+
+    .service-benefits-list {
+      grid-template-columns: 1fr;
+    }
+
+    .process-timeline {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+    }
+  }
+</style>

@@ -1,0 +1,257 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+  serviceName: string;
+  pricingDisplay: string;
+  pricingDetails: string[];
+}
+
+const { serviceName, pricingDisplay, pricingDetails } = Astro.props;
+---
+
+<aside class="service-sidebar">
+  <!-- Primary CTA Card -->
+  <div class="sidebar-card sidebar-card--cta">
+    <h3 class="sidebar-card__title">Ready to Get Started?</h3>
+    <p class="sidebar-card__text">
+      Call now for your free consultation and personalized quote.
+    </p>
+    <Button href="tel:17076600921" variant="gold-glow" size="medium">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+      (707) 660-0921
+    </Button>
+    <p class="sidebar-card__note">Calling is part of the consultation process</p>
+  </div>
+
+  <!-- Pricing Card -->
+  <div class="sidebar-card sidebar-card--pricing">
+    <div class="sidebar-card__header">
+      <svg class="sidebar-card__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="1" x2="12" y2="23"></line>
+        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+      </svg>
+      <h4 class="sidebar-card__title">Investment</h4>
+    </div>
+    <div class="pricing-display">
+      <span class="pricing-display__amount">{pricingDisplay}</span>
+      <span class="pricing-display__label">per session</span>
+    </div>
+    <ul class="pricing-details">
+      {pricingDetails.map((detail) => (
+        <li class="pricing-details__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          {detail}
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <!-- Quick Facts Card -->
+  <div class="sidebar-card sidebar-card--facts">
+    <div class="sidebar-card__header">
+      <svg class="sidebar-card__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="16" x2="12" y2="12"></line>
+        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+      </svg>
+      <h4 class="sidebar-card__title">Quick Facts</h4>
+    </div>
+    <ul class="quick-facts">
+      <li class="quick-fact">
+        <span class="quick-fact__label">Location</span>
+        <span class="quick-fact__value">Sparks, NV</span>
+      </li>
+      <li class="quick-fact">
+        <span class="quick-fact__label">Serving</span>
+        <span class="quick-fact__value">All of Washoe County</span>
+      </li>
+      <li class="quick-fact">
+        <span class="quick-fact__label">Free Consultation</span>
+        <span class="quick-fact__value">Call anytime</span>
+      </li>
+      <li class="quick-fact">
+        <span class="quick-fact__label">Safe For</span>
+        <span class="quick-fact__value">All skin tones</span>
+      </li>
+    </ul>
+  </div>
+</aside>
+
+<style>
+  .service-sidebar {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  @media (max-width: 1100px) {
+    .service-sidebar {
+      position: static;
+      order: -1; /* Show sidebar above content on mobile */
+    }
+  }
+
+  /* Sidebar Cards */
+  .sidebar-card {
+    background: var(--color-cream);
+    border: 1px solid rgba(201, 168, 108, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    transition: all var(--transition-medium);
+  }
+
+  .sidebar-card:hover {
+    border-color: var(--color-gold);
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* CTA Card */
+  .sidebar-card--cta {
+    background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-charcoal-deep) 100%);
+    border-color: rgba(201, 168, 108, 0.3);
+    text-align: center;
+  }
+
+  .sidebar-card--cta .sidebar-card__title {
+    color: var(--color-cream);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .sidebar-card--cta .sidebar-card__text {
+    color: var(--color-taupe);
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.7;
+  }
+
+  .sidebar-card__note {
+    font-size: 0.8rem;
+    color: var(--color-taupe);
+    margin-top: var(--spacing-md);
+    font-style: italic;
+  }
+
+  /* Card Headers */
+  .sidebar-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .sidebar-card__icon {
+    color: var(--color-gold);
+  }
+
+  .sidebar-card__title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    margin: 0;
+  }
+
+  /* Pricing Display */
+  .pricing-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-lg) 0;
+    margin-bottom: var(--spacing-lg);
+    border-top: 1px solid rgba(201, 168, 108, 0.15);
+    border-bottom: 1px solid rgba(201, 168, 108, 0.15);
+  }
+
+  .pricing-display__amount {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 600;
+    background: var(--gradient-gold-text);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .pricing-display__label {
+    font-size: 0.85rem;
+    color: var(--color-taupe);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Pricing Details List */
+  .pricing-details {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .pricing-details__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    font-size: 0.9rem;
+    color: var(--color-brown-light);
+    line-height: 1.6;
+  }
+
+  .pricing-details__item svg {
+    flex-shrink: 0;
+    color: var(--color-gold);
+    margin-top: 3px;
+  }
+
+  /* Quick Facts */
+  .quick-facts {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .quick-fact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid rgba(201, 168, 108, 0.1);
+  }
+
+  .quick-fact:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .quick-fact__label {
+    font-size: 0.85rem;
+    color: var(--color-taupe);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .quick-fact__value {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    color: var(--color-charcoal);
+    font-weight: 500;
+    text-align: right;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .sidebar-card {
+      padding: var(--spacing-lg);
+    }
+  }
+</style>

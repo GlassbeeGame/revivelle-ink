@@ -1,0 +1,12 @@
+---
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import { getServiceBySlug } from '../../data/services.js';
+
+const service = getServiceBySlug('scar-camouflage');
+
+if (!service) {
+  return Astro.redirect('/services');
+}
+---
+
+<ServicePageLayout service={service} />
