@@ -7,13 +7,40 @@ interface Props {
   title: string;
   description?: string;
   keywords?: string;
+  ogImage?: string;
 }
 
 const { 
   title, 
   description = "Revivelle Ink is a boutique paramedical tattoo studio in Sparks, Nevada specializing in stretch mark camouflage, inkless scar revision, and cosmetic tattooing.",
-  keywords = "stretch mark camouflage Sparks NV, scar camouflage Sparks NV, inkless camouflage, paramedical tattoo, Reno NV"
+  keywords = "stretch mark camouflage Sparks NV, scar camouflage Sparks NV, inkless camouflage, paramedical tattoo, Reno NV",
+  ogImage
 } = Astro.props;
+
+const canonicalUrl = Astro.url.origin + Astro.url.pathname;
+const siteUrl = Astro.url.origin;
+const defaultOgImage = '/images/sammi-about.png';
+const ogImageUrl = siteUrl + (ogImage ?? defaultOgImage);
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Revivelle Ink",
+  "description": "Boutique paramedical tattoo studio specializing in stretch mark camouflage, inkless scar revision, and cosmetic tattooing.",
+  "url": siteUrl,
+  "telephone": "+17076600921",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2165 Green Vista Dr 206B",
+    "addressLocality": "Sparks",
+    "addressRegion": "NV",
+    "postalCode": "89431",
+    "addressCountry": "US"
+  },
+  "areaServed": ["Sparks", "Reno", "Spanish Springs", "Sun Valley", "Washoe County"],
+  "priceRange": "$$",
+  "image": siteUrl + defaultOgImage
+};
 ---
 
 <!doctype html>
@@ -25,11 +52,23 @@ const {
     <meta name="keywords" content={keywords} />
     <meta name="author" content="Revivelle Ink" />
     
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalUrl} />
+    
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
     <meta property="og:site_name" content="Revivelle Ink" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -38,22 +77,7 @@ const {
     <title>{title}</title>
 
     <!-- Schema.org Local Business Markup -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Revivelle Ink",
-        "description": "Boutique paramedical tattoo studio specializing in stretch mark camouflage, inkless scar revision, and cosmetic tattooing.",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Sparks",
-          "addressRegion": "NV",
-          "addressCountry": "US"
-        },
-        "areaServed": ["Sparks", "Reno", "Spanish Springs", "Sun Valley", "Washoe County"],
-        "priceRange": "$$"
-      }
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
   </head>
   <body>
     <Navigation />

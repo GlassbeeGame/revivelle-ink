@@ -1,8 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import ShimmerLogo from '../components/ShimmerLogo.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import Button from '../components/Button.astro';
+import trustbuildingphoto from '../assets/trustbuildingphoto1.png';
 
 const services = [
   {
@@ -143,7 +145,13 @@ const serviceAreas = [
         <div class="why-choose__image">
           <div class="why-choose__image-frame">
             <div class="why-choose__image-placeholder">
-              <span>Studio Photo</span>
+              <Image 
+                src={trustbuildingphoto} 
+                alt="Revivelle Ink studio space in Sparks, Nevada" 
+                width={480}
+                height={600}
+                class="why-choose__img"
+              />
             </div>
           </div>
         </div>
@@ -445,15 +453,16 @@ const serviceAreas = [
 
   .why-choose__image-placeholder {
     aspect-ratio: 4/5;
-    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-gold-pale) 50%, var(--color-cream-dark) 100%);
     border-radius: calc(var(--radius-xl) - 3px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-taupe);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .why-choose__image-placeholder :global(.why-choose__img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   /* Service Areas */
