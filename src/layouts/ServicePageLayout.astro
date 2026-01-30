@@ -233,31 +233,9 @@ const breadcrumbSchema = {
             </div>
           </div>
 
-          <!-- FAQ Section -->
-          <div class="service-content-section">
-            <div class="section-header">
-              <span class="section-eyebrow">Common Questions</span>
-              <h2>Frequently Asked Questions</h2>
-            </div>
-            <div class="faq-list">
-              {service.faqs.map((faq: any, index: number) => (
-                <FAQItem
-                  question={faq.question}
-                  answer={faq.answer}
-                  open={index === 0}
-                />
-              ))}
-            </div>
-          </div>
-
-          <!-- Related Services -->
-          {relatedServices.length > 0 && (
-            <RelatedServices services={relatedServices} />
-          )}
-
         </div>
 
-        <!-- Sticky Sidebar Column -->
+        <!-- Sticky Sidebar Column (ends here) -->
         <ServiceStickySidebar
           serviceName={service.name}
           pricingDisplay={service.pricing.display}
@@ -266,6 +244,81 @@ const breadcrumbSchema = {
       </div>
     </div>
   </section>
+
+  <!-- Trust Signals Bar (Full Width - Sidebar stops here) -->
+  <section class="section section--dark trust-signals-bar">
+    <div class="container">
+      <div class="trust-signals">
+        <div class="trust-signal">
+          <div class="trust-signal__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+          </div>
+          <div class="trust-signal__content">
+            <span class="trust-signal__label">Certified Professional</span>
+            <span class="trust-signal__value">Licensed & Insured</span>
+          </div>
+        </div>
+        <div class="trust-signal">
+          <div class="trust-signal__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <div class="trust-signal__content">
+            <span class="trust-signal__label">All Skin Tones</span>
+            <span class="trust-signal__value">Safe For Everyone</span>
+          </div>
+        </div>
+        <div class="trust-signal">
+          <div class="trust-signal__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div class="trust-signal__content">
+            <span class="trust-signal__label">Serving Locally</span>
+            <span class="trust-signal__value">Sparks & Washoe County</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section (Full Width) -->
+  <section class="section section--cream faq-section-full">
+    <div class="container container--narrow">
+      <div class="section-header text-center">
+        <span class="section-eyebrow">Common Questions</span>
+        <h2>Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything you need to know about {service.shortName.toLowerCase()}</p>
+      </div>
+      <div class="faq-list">
+        {service.faqs.map((faq: any, index: number) => (
+          <FAQItem
+            question={faq.question}
+            answer={faq.answer}
+            open={index === 0}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services (Full Width) -->
+  {relatedServices.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <RelatedServices services={relatedServices} />
+      </div>
+    </section>
+  )}
 
   <!-- Bottom CTA Section -->
   <section class="section section--dark cta-section">
@@ -604,6 +657,80 @@ const breadcrumbSchema = {
     padding: var(--spacing-lg);
     border: 1px solid rgba(201, 168, 108, 0.15);
     box-shadow: var(--shadow-soft);
+  }
+
+  /* Trust Signals Bar */
+  .trust-signals-bar {
+    background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-charcoal-deep) 100%);
+    border-top: 1px solid rgba(201, 168, 108, 0.15);
+    border-bottom: 1px solid rgba(201, 168, 108, 0.15);
+  }
+
+  .trust-signals {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+  }
+
+  @media (max-width: 800px) {
+    .trust-signals {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+    }
+  }
+
+  .trust-signal {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: rgba(201, 168, 108, 0.05);
+    border: 1px solid rgba(201, 168, 108, 0.15);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-medium);
+  }
+
+  .trust-signal:hover {
+    background: rgba(201, 168, 108, 0.08);
+    border-color: rgba(201, 168, 108, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .trust-signal__icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-full);
+    color: var(--color-charcoal);
+  }
+
+  .trust-signal__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .trust-signal__label {
+    font-size: 0.85rem;
+    color: var(--color-taupe);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .trust-signal__value {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--color-cream);
+  }
+
+  /* FAQ Section Full Width */
+  .faq-section-full {
+    /* Section styles inherited */
   }
 
   /* Bottom CTA */
