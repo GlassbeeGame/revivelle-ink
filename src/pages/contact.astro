@@ -191,7 +191,7 @@ const policies = [
   </section>
 
   <!-- Final CTA -->
-  <section class="section section--dark final-cta">
+  <section class="section final-cta">
     <div class="final-cta__particles">
       {Array.from({ length: 10 }).map((_, i) => (
         <div 
@@ -201,7 +201,7 @@ const policies = [
       ))}
     </div>
     <div class="container container--narrow text-center">
-      <span class="section-eyebrow section-eyebrow--light">Begin Today</span>
+      <span class="section-eyebrow">Begin Today</span>
       <h2>Your Transformation Awaits</h2>
       <p class="cta-text">
         You deserve to feel beautiful in your skin. Whether you're ready to book or just have questions, 
@@ -582,6 +582,11 @@ const policies = [
   .final-cta {
     position: relative;
     overflow: hidden;
+    background: var(--color-cream);
+  }
+
+  .final-cta h2 {
+    color: var(--color-charcoal);
   }
 
   .final-cta__particles {
@@ -610,7 +615,7 @@ const policies = [
 
   .cta-text {
     font-size: 1.1rem;
-    color: var(--color-taupe);
+    color: var(--color-brown-light);
     margin-bottom: var(--spacing-lg);
     line-height: 1.8;
   }
@@ -626,7 +631,7 @@ const policies = [
     font-family: var(--font-heading);
     font-size: 1.15rem;
     font-style: italic;
-    color: var(--color-blush);
+    color: var(--color-taupe);
     margin: 0;
   }
 
