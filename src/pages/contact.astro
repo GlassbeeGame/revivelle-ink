@@ -1,213 +1,148 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
 import ContactForm from '../components/ContactForm.astro';
-import Button from '../components/Button.astro';
-
-const policies = [
-  {
-    title: 'Booking & Deposits',
-    items: [
-      'A non-refundable deposit is required to book any appointment',
-      'The deposit is applied to your total service cost',
-      'Appointments without a deposit are not confirmed'
-    ]
-  },
-  {
-    title: 'Rescheduling & Cancellations',
-    items: [
-      'Reschedule at least 48 hours in advance without losing your deposit',
-      'Less than 48 hours notice will forfeit the deposit',
-      'No-shows will be charged 50–100% of the service fee'
-    ]
-  },
-  {
-    title: 'Health & Eligibility',
-    items: [
-      'Cannot service if pregnant or breastfeeding',
-      'Not eligible if on Accutane or strong retinoids',
-      'No active eczema, infection, or irritation in the area',
-      'Not suitable for keloid-prone skin',
-      'A health history form must be completed before all services'
-    ]
-  }
-];
 ---
 
-<Layout 
+<Layout
   title="Contact & Book | Revivelle Ink - Sparks, NV"
   description="Book your stretch mark camouflage or scar revision consultation at Revivelle Ink in Sparks, Nevada. Contact Sammi today to start your transformation."
 >
-  <Hero 
-    title="Let's Connect"
-    subtitle="Ready to start your confidence journey? I'm here to help."
-    dark={true}
-    size="medium"
-  />
-
-  <!-- Contact Section -->
-  <section class="section contact-section">
-    <div class="contact-section__particles">
-      {Array.from({ length: 15 }).map((_, i) => (
+  <!-- Contact Hero Section -->
+  <section class="contact-hero">
+    <div class="contact-hero__background"></div>
+    <div class="contact-hero__particles">
+      {Array.from({ length: 20 }).map((_, i) => (
         <div
-          class="contact-particle"
-          style={`left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 8}s;`}
+          class="hero-particle"
+          style={`left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 10}s;`}
         />
       ))}
     </div>
     <div class="container">
-      <div class="contact-grid">
-        <!-- Contact Form -->
-        <div class="contact-form-container">
-          <span class="section-eyebrow">Get in Touch</span>
-          <h2>Send a Message</h2>
-          <p class="form-intro">
-            Have questions about a treatment? Want to know if you're a good candidate? 
-            Fill out the form below and I'll get back to you within 24-48 hours. 
-            <strong>Or call (707) 660-0921 for immediate assistance</strong> — calling is part of the consultation process!
+      <div class="contact-hero__grid">
+        <!-- Left Side: Heading & Business Info -->
+        <div class="contact-hero__content">
+          <h1 class="contact-hero__title">Ready to Begin Your Transformation?</h1>
+          <p class="contact-hero__subtitle">
+            Call Revivelle Ink at <a href="tel:17076600921" class="contact-hero__phone">(707) 660-0921</a> or fill out the contact form.
           </p>
+
+          <!-- Business Information Card -->
+          <div class="business-info">
+            <h2 class="business-info__title">Contact Information</h2>
+
+            <div class="business-info__item">
+              <div class="business-info__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div>
+                <span class="business-info__value">2165 Green Vista Dr 206B<br/>Sparks, NV 89431</span>
+              </div>
+            </div>
+
+            <div class="business-info__item">
+              <div class="business-info__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              <div>
+                <a href="tel:17076600921" class="business-info__value business-info__link">(707) 660-0921</a>
+              </div>
+            </div>
+
+            <div class="business-info__item">
+              <div class="business-info__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div>
+                <a href="mailto:Revivelleink@gmail.com" class="business-info__value business-info__link">Revivelleink@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="business-info__item">
+              <div class="business-info__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div>
+                <span class="business-info__value">By Appointment Only<br/><span class="business-info__note">Flexible scheduling available</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Contact Form Card -->
+        <div class="contact-form-card">
+          <h2 class="form-card__title">Get Your Free Consultation</h2>
           <ContactForm />
-        </div>
-
-        <!-- Contact Info -->
-        <div class="contact-info">
-          <div class="contact-info__card">
-            <div class="contact-info__card-glow"></div>
-            <h3>Contact Information</h3>
-            
-            <div class="contact-method">
-              <div class="contact-method__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-              </div>
-              <div class="contact-method__content">
-                <span class="contact-method__label">Location</span>
-                <span class="contact-method__value">2165 Green Vista Dr 206B<br/>Sparks, NV 89431</span>
-                <span class="contact-method__note">Serving Sparks, Reno & Washoe County</span>
-              </div>
-            </div>
-
-            <div class="contact-method">
-              <div class="contact-method__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-              </div>
-              <div class="contact-method__content">
-                <span class="contact-method__label">Phone</span>
-                <a href="tel:17076600921" class="contact-method__value contact-method__link">(707) 660-0921</a>
-                <span class="contact-method__note">Call for your free consultation</span>
-              </div>
-            </div>
-
-            <div class="contact-method">
-              <div class="contact-method__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              </div>
-              <div class="contact-method__content">
-                <span class="contact-method__label">Email</span>
-                <a href="mailto:Revivelleink@gmail.com" class="contact-method__value contact-method__link">Revivelleink@gmail.com</a>
-              </div>
-            </div>
-
-            <div class="contact-method">
-              <div class="contact-method__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-              </div>
-              <div class="contact-method__content">
-                <span class="contact-method__label">Instagram</span>
-                <a href="https://instagram.com/revivelle.ink" target="_blank" rel="noopener noreferrer" class="contact-method__link">
-                  @revivelle.ink
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="contact-info__call-cta">
-            <div class="call-cta__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-            </div>
-            <h3>Free Consultation</h3>
-            <p class="call-cta__text">
-              Calling is an important part of the consultation process. Let's discuss your goals and answer your questions together.
-            </p>
-            <Button href="tel:17076600921" variant="gold-glow" fullWidth>Call (707) 660-0921</Button>
-          </div>
-
-          <div class="contact-info__hours">
-            <h3>Hours</h3>
-            <p class="hours-note">By appointment only</p>
-            <p class="hours-detail">
-              I offer flexible scheduling to accommodate your needs. 
-              Availability will be provided when you reach out to book.
-            </p>
-          </div>
-
-          <div class="contact-info__photo">
-            <div class="photo-cta__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-            </div>
-            <h3>Free Photo Assessment</h3>
-            <p>
-              Not sure if you're a good candidate? Send photos of your stretch marks or scars 
-              via email or Instagram DM for a free virtual assessment.
-            </p>
-            <a href="https://instagram.com/revivelle.ink" target="_blank" rel="noopener noreferrer" class="photo-cta">
-              Send Photos on Instagram
-              <span>→</span>
-            </a>
-          </div>
+          <p class="form-card__note">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 6px;">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Response within 24-48 hours • 100% free consultation • Serving all of Washoe County
+          </p>
         </div>
       </div>
-    </div>
-  </section>
-
-
-  <!-- Final CTA -->
-  <section class="section section--gold-tint final-cta">
-    <div class="container container--narrow text-center">
-      <span class="section-eyebrow">Begin Today</span>
-      <h2>Your Transformation Awaits</h2>
-      <p class="cta-text">
-        You deserve to feel beautiful in your skin. Whether you're ready to book or just have questions, 
-        I'm here to support you every step of the way.
-      </p>
-      <div class="final-cta__buttons">
-        <Button href="tel:17076600921" variant="gold-glow" size="large">Free Consult</Button>
-      </div>
-      <p class="cta-tagline">
-        Revivelle Ink — <span class="text-gradient-gold">Precision • Restoration • Confidence</span>
-      </p>
     </div>
   </section>
 </Layout>
 
 <style>
-  .section-eyebrow {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--color-gold);
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .section-eyebrow--light {
-    color: var(--color-blush);
-  }
-
-  /* Contact Section */
-  .contact-section {
+  /* Contact Hero Section */
+  .contact-hero {
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: calc(var(--spacing-4xl) + 80px) 0 var(--spacing-4xl);
     overflow: hidden;
   }
 
-  .contact-section__particles {
+  .contact-hero__background {
     position: absolute;
     inset: 0;
-    pointer-events: none;
+    background: linear-gradient(
+      135deg,
+      var(--color-charcoal-deep) 0%,
+      var(--color-charcoal) 50%,
+      #2a2520 100%
+    );
     z-index: 0;
   }
 
-  .contact-particle {
+  .contact-hero__background::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at top left,
+      rgba(212, 184, 131, 0.12) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at bottom right,
+      rgba(212, 184, 131, 0.08) 0%,
+      transparent 50%
+    );
+  }
+
+  .contact-hero__particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-particle {
     position: absolute;
     bottom: -10px;
     width: 3px;
@@ -215,294 +150,173 @@ const policies = [
     background: var(--color-gold);
     border-radius: 50%;
     opacity: 0;
-    animation: particleRise 12s ease-in-out infinite;
+    animation: particleRise 15s ease-in-out infinite;
   }
 
   @keyframes particleRise {
     0%, 100% { opacity: 0; transform: translateY(0); }
-    10% { opacity: 0.3; }
-    90% { opacity: 0.05; }
+    10% { opacity: 0.4; }
+    90% { opacity: 0.1; }
     100% { transform: translateY(-100vh); }
   }
 
-  .contact-section .container {
+  .contact-hero > .container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
-  /* Contact Grid */
-  .contact-grid {
+  .contact-hero__grid {
     display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: var(--spacing-3xl);
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-4xl);
     align-items: start;
   }
 
-  @media (max-width: 1000px) {
-    .contact-grid {
+  @media (max-width: 1100px) {
+    .contact-hero__grid {
       grid-template-columns: 1fr;
-      gap: var(--spacing-2xl);
+      gap: var(--spacing-3xl);
+    }
+
+    .contact-hero {
+      min-height: auto;
+      padding: calc(var(--spacing-3xl) + 80px) 0 var(--spacing-3xl);
     }
   }
 
-  /* Contact Form Container */
-  .contact-form-container h2 {
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .form-intro {
-    font-size: 1.05rem;
-    color: var(--color-brown-light);
-    margin-bottom: var(--spacing-xl);
-    line-height: 1.8;
-  }
-
-  /* Contact Info */
-  .contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-  }
-
-  .contact-info__card,
-  .contact-info__hours,
-  .contact-info__photo,
-  .contact-info__call-cta {
-    position: relative;
-    background: linear-gradient(180deg, var(--color-cream) 0%, #faf8f5 100%);
-    padding: var(--spacing-xl);
-    border-radius: var(--radius-xl);
-    border: 1px solid rgba(201, 168, 108, 0.15);
-    overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow: 
-      0 4px 6px rgba(0, 0, 0, 0.02),
-      0 10px 20px rgba(0, 0, 0, 0.02);
-  }
-
-  .contact-info__card:hover,
-  .contact-info__hours:hover,
-  .contact-info__photo:hover,
-  .contact-info__call-cta:hover {
-    transform: translateY(-6px);
-    box-shadow: 
-      0 20px 40px rgba(201, 168, 108, 0.12),
-      0 10px 20px rgba(0, 0, 0, 0.04);
-    border-color: rgba(201, 168, 108, 0.3);
-  }
-
-  .contact-info__card::before,
-  .contact-info__hours::before,
-  .contact-info__photo::before,
-  .contact-info__call-cta::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--gradient-gold);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.5s ease;
-  }
-
-  .contact-info__card:hover::before,
-  .contact-info__hours:hover::before,
-  .contact-info__photo:hover::before,
-  .contact-info__call-cta:hover::before {
-    transform: scaleX(1);
-  }
-
-  .contact-info__card-glow {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 150px;
-    height: 150px;
-    background: radial-gradient(circle, rgba(201, 168, 108, 0.15) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .contact-info h3 {
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
+  /* Left Side Content */
+  .contact-hero__title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 500;
-    color: var(--color-charcoal);
+    color: var(--color-cream);
     margin-bottom: var(--spacing-lg);
-    position: relative;
+    line-height: 1.2;
   }
 
-  .contact-method {
+  .contact-hero__subtitle {
+    font-size: 1.25rem;
+    color: var(--color-taupe);
+    margin-bottom: var(--spacing-3xl);
+    line-height: 1.7;
+  }
+
+  .contact-hero__phone {
+    color: var(--color-gold);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    border-bottom: 2px solid var(--color-gold);
+  }
+
+  .contact-hero__phone:hover {
+    color: var(--color-blush);
+    border-color: var(--color-blush);
+  }
+
+  /* Business Info Card */
+  .business-info {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(201, 168, 108, 0.2);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-2xl);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .business-info__title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--color-cream);
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid rgba(201, 168, 108, 0.2);
+  }
+
+  .business-info__item {
     display: flex;
     gap: var(--spacing-md);
     padding: var(--spacing-md) 0;
-    border-bottom: 1px solid rgba(201, 168, 108, 0.15);
+    border-bottom: 1px solid rgba(201, 168, 108, 0.1);
   }
 
-  .contact-method:last-child {
+  .business-info__item:last-child {
     border-bottom: none;
   }
 
-  .contact-method__icon {
+  .business-info__icon {
     width: 40px;
     height: 40px;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--gradient-gold);
     border-radius: var(--radius-md);
-    font-size: 1.1rem;
-    flex-shrink: 0;
-  }
-
-  .contact-method__content {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .contact-method__label {
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--color-gold);
-  }
-
-  .contact-method__value {
-    font-size: 1rem;
     color: var(--color-charcoal);
   }
 
-  .contact-method__note {
+  .business-info__value {
+    color: var(--color-cream);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .business-info__note {
     font-size: 0.85rem;
     color: var(--color-taupe);
   }
 
-  .contact-method__link {
-    font-size: 1rem;
-    color: var(--color-gold);
+  .business-info__link {
+    color: var(--color-blush);
     font-weight: 600;
     transition: color var(--transition-fast);
   }
 
-  .contact-method__link:hover {
-    color: var(--color-gold-deep);
-  }
-
-  .hours-note {
-    font-family: var(--font-heading);
-    font-size: 1.15rem;
-    font-style: italic;
+  .business-info__link:hover {
     color: var(--color-gold);
-    margin-bottom: var(--spacing-sm);
   }
 
-  .hours-detail {
-    font-size: 0.95rem;
-    color: var(--color-brown-light);
-    margin: 0;
-    line-height: 1.7;
-  }
-
-  .photo-cta__icon {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--gradient-gold);
-    border-radius: var(--radius-lg);
-    font-size: 1.25rem;
-    margin-bottom: var(--spacing-md);
-    box-shadow: var(--shadow-gold);
-  }
-
-  .contact-info__photo p {
-    font-size: 0.95rem;
-    color: var(--color-brown-light);
-    margin-bottom: var(--spacing-md);
-    line-height: 1.7;
-  }
-
-  .photo-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--color-gold);
-    transition: all var(--transition-fast);
-  }
-
-  .photo-cta:hover {
-    color: var(--color-gold-deep);
-    gap: 0.75rem;
-  }
-
-  /* Call CTA */
-  .call-cta__icon {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--gradient-gold);
-    border-radius: var(--radius-lg);
-    font-size: 1.25rem;
-    margin-bottom: var(--spacing-md);
-    box-shadow: var(--shadow-gold);
-    color: var(--color-charcoal);
-  }
-
-  .call-cta__text {
-    font-size: 0.95rem;
-    color: var(--color-brown-light);
-    margin-bottom: var(--spacing-lg);
-    line-height: 1.7;
-  }
-
-  /* Final CTA */
-  .final-cta {
+  /* Contact Form Card */
+  .contact-form-card {
     background: var(--color-cream);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-2xl);
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.4),
+      0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(201, 168, 108, 0.3);
   }
 
-  .final-cta h2 {
-    color: var(--color-charcoal);
-  }
-
-  .cta-text {
-    font-size: 1.1rem;
-    color: var(--color-brown-light);
-    margin-bottom: var(--spacing-lg);
-    line-height: 1.8;
-  }
-
-  .final-cta__buttons {
-    display: flex;
-    gap: var(--spacing-md);
-    justify-content: center;
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .cta-tagline {
+  .form-card__title {
     font-family: var(--font-heading);
-    font-size: 1.15rem;
-    font-style: italic;
-    color: var(--color-taupe);
-    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
   }
 
-  .section-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: var(--spacing-2xl);
+  .form-card__note {
+    font-size: 0.85rem;
+    color: var(--color-taupe);
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    line-height: 1.6;
   }
 
-  .section-subtitle {
-    font-size: 1.1rem;
-    color: var(--color-taupe);
-    margin-top: var(--spacing-sm);
+  @media (max-width: 600px) {
+    .contact-hero__title {
+      font-size: 2rem;
+    }
+
+    .contact-hero__subtitle {
+      font-size: 1.1rem;
+    }
+
+    .business-info,
+    .contact-form-card {
+      padding: var(--spacing-xl);
+    }
   }
 </style>
