@@ -47,6 +47,14 @@ const policies = [
 
   <!-- Contact Section -->
   <section class="section contact-section">
+    <div class="contact-section__particles">
+      {Array.from({ length: 15 }).map((_, i) => (
+        <div
+          class="contact-particle"
+          style={`left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 8}s;`}
+        />
+      ))}
+    </div>
     <div class="container">
       <div class="contact-grid">
         <!-- Contact Form -->
@@ -151,55 +159,9 @@ const policies = [
     </div>
   </section>
 
-  <!-- Policies Section -->
-  <section class="section section--gold-tint policies-section">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="section-eyebrow">Important Information</span>
-        <h2>Studio Policies</h2>
-        <p class="section-subtitle">
-          These policies ensure a safe, professional, and comfortable experience for every client.
-        </p>
-      </div>
-
-      <div class="policies-grid">
-        {policies.map((policy, i) => (
-          <div class="policy-card" style={`animation-delay: ${i * 0.1}s`}>
-            <h3>{policy.title}</h3>
-            <ul>
-              {policy.items.map((item) => (
-                <li>
-                  <span class="policy-check">•</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-
-      <div class="policies-footer text-center">
-        <div class="policies-footer__icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-        </div>
-        <p>
-          <strong>Refund Policy:</strong> Because these services require time, material, and labor, 
-          all services and deposits are non-refundable.
-        </p>
-      </div>
-    </div>
-  </section>
 
   <!-- Final CTA -->
-  <section class="section final-cta">
-    <div class="final-cta__particles">
-      {Array.from({ length: 10 }).map((_, i) => (
-        <div 
-          class="cta-particle" 
-          style={`left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 6}s;`}
-        />
-      ))}
-    </div>
+  <section class="section section--gold-tint final-cta">
     <div class="container container--narrow text-center">
       <span class="section-eyebrow">Begin Today</span>
       <h2>Your Transformation Awaits</h2>
@@ -230,6 +192,42 @@ const policies = [
 
   .section-eyebrow--light {
     color: var(--color-blush);
+  }
+
+  /* Contact Section */
+  .contact-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-section__particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .contact-particle {
+    position: absolute;
+    bottom: -10px;
+    width: 3px;
+    height: 3px;
+    background: var(--color-gold);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleRise 12s ease-in-out infinite;
+  }
+
+  @keyframes particleRise {
+    0%, 100% { opacity: 0; transform: translateY(0); }
+    10% { opacity: 0.3; }
+    90% { opacity: 0.05; }
+    100% { transform: translateY(-100vh); }
+  }
+
+  .contact-section .container {
+    position: relative;
+    z-index: 1;
   }
 
   /* Contact Grid */
@@ -464,153 +462,13 @@ const policies = [
     line-height: 1.7;
   }
 
-  /* Policies Section */
-  .policies-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-2xl);
-  }
-
-  .policy-card {
-    position: relative;
-    background: linear-gradient(180deg, var(--color-cream) 0%, #faf8f5 100%);
-    padding: var(--spacing-xl);
-    padding-top: calc(var(--spacing-xl) + 4px);
-    border-radius: var(--radius-xl);
-    border: 1px solid rgba(201, 168, 108, 0.12);
-    opacity: 0;
-    animation: fadeInUp 0.5s ease forwards;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow: 
-      0 4px 6px rgba(0, 0, 0, 0.02),
-      0 10px 20px rgba(0, 0, 0, 0.02);
-    overflow: hidden;
-  }
-
-  .policy-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--gradient-gold);
-    transform: scaleX(0.15);
-    transform-origin: left;
-    transition: transform 0.5s ease;
-  }
-
-  .policy-card:hover::before {
-    transform: scaleX(1);
-  }
-
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .policy-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 
-      0 20px 40px rgba(201, 168, 108, 0.15),
-      0 10px 20px rgba(0, 0, 0, 0.05);
-    border-color: rgba(201, 168, 108, 0.25);
-  }
-
-  .policy-card h3 {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: var(--color-charcoal);
-    margin-bottom: var(--spacing-md);
-    padding-bottom: var(--spacing-sm);
-    border-bottom: 1px solid rgba(201, 168, 108, 0.2);
-    transition: color 0.3s ease;
-  }
-
-  .policy-card:hover h3 {
-    color: var(--color-gold-deep);
-  }
-
-  .policy-card ul {
-    list-style: none;
-    margin: 0;
-  }
-
-  .policy-card li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    font-size: 0.9rem;
-    color: var(--color-brown-light);
-    padding: var(--spacing-xs) 0;
-    line-height: 1.6;
-  }
-
-  .policy-check {
-    color: var(--color-gold);
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
-  .policies-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-sm);
-    max-width: 600px;
-    margin: 0 auto;
-    padding: var(--spacing-xl);
-    background: linear-gradient(135deg, rgba(201, 168, 108, 0.08) 0%, transparent 100%);
-    border-radius: var(--radius-lg);
-    border: 1px solid rgba(201, 168, 108, 0.15);
-  }
-
-  .policies-footer__icon {
-    font-size: 1.5rem;
-  }
-
-  .policies-footer p {
-    font-size: 0.95rem;
-    color: var(--color-brown);
-    margin: 0;
-    line-height: 1.7;
-  }
-
   /* Final CTA */
   .final-cta {
-    position: relative;
-    overflow: hidden;
     background: var(--color-cream);
   }
 
   .final-cta h2 {
     color: var(--color-charcoal);
-  }
-
-  .final-cta__particles {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-
-  .cta-particle {
-    position: absolute;
-    bottom: -10px;
-    width: 4px;
-    height: 4px;
-    background: var(--color-gold);
-    border-radius: 50%;
-    opacity: 0;
-    animation: particleRise 10s ease-in-out infinite;
-  }
-
-  @keyframes particleRise {
-    0%, 100% { opacity: 0; transform: translateY(0); }
-    10% { opacity: 0.5; }
-    90% { opacity: 0.1; }
-    100% { transform: translateY(-100vh); }
   }
 
   .cta-text {

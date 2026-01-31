@@ -1,0 +1,260 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Button from '../components/Button.astro';
+
+const policies = [
+  {
+    title: 'Booking & Deposits',
+    items: [
+      'A non-refundable deposit is required to book any appointment',
+      'The deposit is applied to your total service cost',
+      'Appointments without a deposit are not confirmed'
+    ]
+  },
+  {
+    title: 'Rescheduling & Cancellations',
+    items: [
+      'Reschedule at least 48 hours in advance without losing your deposit',
+      'Less than 48 hours notice will forfeit the deposit',
+      'No-shows will be charged 50–100% of the service fee'
+    ]
+  },
+  {
+    title: 'Health & Eligibility',
+    items: [
+      'Cannot service if pregnant or breastfeeding',
+      'Not eligible if on Accutane or strong retinoids',
+      'No active eczema, infection, or irritation in the area',
+      'Not suitable for keloid-prone skin',
+      'A health history form must be completed before all services'
+    ]
+  }
+];
+---
+
+<Layout
+  title="Studio Policies | Revivelle Ink - Sparks, NV"
+  description="Review Revivelle Ink's studio policies including booking, deposits, rescheduling, cancellations, and health eligibility requirements."
+>
+  <Hero
+    title="Studio Policies"
+    subtitle="Important information to ensure a safe and professional experience"
+    dark={true}
+    size="medium"
+  />
+
+  <!-- Policies Section -->
+  <section class="section policies-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-eyebrow">Important Information</span>
+        <h2>Please Review Before Booking</h2>
+        <p class="section-subtitle">
+          These policies ensure a safe, professional, and comfortable experience for every client.
+        </p>
+      </div>
+
+      <div class="policies-grid">
+        {policies.map((policy, i) => (
+          <div class="policy-card" style={`animation-delay: ${i * 0.1}s`}>
+            <h3>{policy.title}</h3>
+            <ul>
+              {policy.items.map((item) => (
+                <li>
+                  <span class="policy-check">•</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <div class="policies-footer text-center">
+        <div class="policies-footer__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        </div>
+        <p>
+          <strong>Refund Policy:</strong> Because these services require time, material, and labor,
+          all services and deposits are non-refundable.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section section--gold-tint cta-section">
+    <div class="container container--narrow text-center">
+      <span class="section-eyebrow">Questions About Our Policies?</span>
+      <h2>Let's Discuss Your Needs</h2>
+      <p class="cta-text">
+        Have questions or need clarification about any of our policies?
+        Call for a free consultation and we'll walk through everything together.
+      </p>
+      <div class="cta-buttons">
+        <Button href="tel:17076600921" variant="gold-glow" size="large">Call (707) 660-0921</Button>
+        <Button href="/contact" variant="outline" size="large">Contact Us</Button>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .section-eyebrow {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  /* Policies Section */
+  .policies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .policy-card {
+    position: relative;
+    background: linear-gradient(180deg, var(--color-cream) 0%, #faf8f5 100%);
+    padding: var(--spacing-xl);
+    padding-top: calc(var(--spacing-xl) + 4px);
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(201, 168, 108, 0.12);
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow:
+      0 4px 6px rgba(0, 0, 0, 0.02),
+      0 10px 20px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+  }
+
+  .policy-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-gold);
+    transform: scaleX(0.15);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+  }
+
+  .policy-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .policy-card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+      0 20px 40px rgba(201, 168, 108, 0.15),
+      0 10px 20px rgba(0, 0, 0, 0.05);
+    border-color: rgba(201, 168, 108, 0.25);
+  }
+
+  .policy-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid rgba(201, 168, 108, 0.2);
+    transition: color 0.3s ease;
+  }
+
+  .policy-card:hover h3 {
+    color: var(--color-gold-deep);
+  }
+
+  .policy-card ul {
+    list-style: none;
+    margin: 0;
+  }
+
+  .policy-card li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--color-brown-light);
+    padding: var(--spacing-xs) 0;
+    line-height: 1.6;
+  }
+
+  .policy-check {
+    color: var(--color-gold);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .policies-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+    background: linear-gradient(135deg, rgba(201, 168, 108, 0.08) 0%, transparent 100%);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(201, 168, 108, 0.15);
+  }
+
+  .policies-footer__icon {
+    font-size: 1.5rem;
+    color: var(--color-gold);
+  }
+
+  .policies-footer p {
+    font-size: 0.95rem;
+    color: var(--color-brown);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  /* CTA Section */
+  .cta-text {
+    font-size: 1.1rem;
+    color: var(--color-brown-light);
+    max-width: 550px;
+    margin: 0 auto var(--spacing-xl);
+    line-height: 1.8;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-taupe);
+    margin-top: var(--spacing-sm);
+  }
+</style>
