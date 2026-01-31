@@ -46,37 +46,32 @@ const services = [
 const processSteps = [
   {
     number: '01',
-    title: 'Consultation & Skin Analysis',
-    description: 'I examine your stretch marks or scars and create a personalized treatment plan tailored to your unique skin and goals.'
+    title: 'Free Consultation',
+    description: 'We discuss your goals, examine your skin, and create a personalized treatment plan tailored to your needs.'
   },
   {
     number: '02',
-    title: 'Skin Preparation',
-    description: 'The area is cleansed, disinfected, and numbing may be applied if needed for your comfort.'
+    title: 'Custom Treatment Plan',
+    description: 'Your treatment is customized for your skin type, tone, and goals. Numbing is available for comfort.'
   },
   {
     number: '03',
-    title: 'Treatment Session',
-    description: 'Using a sterile, single-use cartridge, I perform controlled needling to stimulate collagen and revise texture.'
+    title: 'Professional Treatment',
+    description: 'Using sterile equipment and proven techniques, I carefully perform your treatment in a safe, comfortable environment.'
   },
   {
     number: '04',
-    title: 'Serum Infusion',
-    description: 'Healing serums are gently infused into the micro-channels to support regeneration and optimal results.'
-  },
-  {
-    number: '05',
-    title: 'Post-Care',
-    description: 'A soothing aftercare serum is applied, and I review your healing instructions for best results.'
+    title: 'Healing & Results',
+    description: 'You\'ll receive detailed aftercare instructions and support throughout your healing journey for optimal results.'
   }
 ];
 
 const candidateChecks = [
-  'Your stretch marks are light, white, or silver',
-  'Your scars are fully healed and at least 12–18 months old',
-  'Your skin tone is stable (no recent tanning)',
-  'You want improvement in texture, tone, and overall appearance',
-  'You prefer a natural, low-maintenance solution'
+  'You want to reduce the appearance of stretch marks or scars',
+  'You\'re looking for long-lasting, natural-looking results',
+  'You want a treatment customized to your unique skin',
+  'You value professional care in a comfortable setting',
+  'You\'re ready to feel more confident in your skin'
 ];
 
 const treatedAreas = [
@@ -152,16 +147,17 @@ const faqs = [
         ))}
       </div>
 
-      <div class="services-cta-box">
-        <h3>Ready to Get Started?</h3>
-        <p>Call now for your free consultation and personalized quote.</p>
+      <div class="services-cta-bar">
+        <div class="services-cta-bar__content">
+          <h3>Not sure which treatment is right for you?</h3>
+          <p>Call for a free consultation and we'll help you choose the best option for your goals.</p>
+        </div>
         <Button href="tel:17076600921" variant="gold-glow" size="large">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
           </svg>
           (707) 660-0921
         </Button>
-        <p class="services-cta-note">Calling is part of the consultation process</p>
       </div>
     </div>
   </section>
@@ -194,10 +190,10 @@ const faqs = [
     <div class="container">
       <div class="candidate-grid">
         <div class="candidate-content">
-          <span class="section-eyebrow">Eligibility</span>
-          <h2>Who Is a Good Candidate?</h2>
+          <span class="section-eyebrow">Who We Help</span>
+          <h2>Is This Treatment Right for You?</h2>
           <p class="candidate-intro">
-            You may benefit from camouflage tattooing if:
+            This treatment is perfect for you if:
           </p>
           <ul class="candidate-list">
             {candidateChecks.map((check, i) => (
@@ -208,7 +204,7 @@ const faqs = [
             ))}
           </ul>
           <p class="candidate-note">
-            This treatment is safe for <strong>all skin tones</strong>, and I customize every session to your unique skin type and goals.
+            Safe for <strong>all skin tones</strong>. Every treatment is customized to your unique needs. Not sure if this is right for you? <strong>Call for a free consultation.</strong>
           </p>
         </div>
         <div class="areas-content">
@@ -219,7 +215,7 @@ const faqs = [
             ))}
           </div>
           <p class="areas-note">
-            If you're unsure whether your marks are treatable, I offer easy consultations.
+            <strong>Don't see your area listed?</strong> Many other areas can be treated. Call to discuss your specific needs.
           </p>
         </div>
       </div>
@@ -419,37 +415,43 @@ const faqs = [
     transform: translateX(4px);
   }
 
-  /* Services CTA Box */
-  .services-cta-box {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
+  /* Services CTA Bar */
+  .services-cta-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
     background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-charcoal-deep) 100%);
     border: 1px solid rgba(201, 168, 108, 0.2);
-    padding: var(--spacing-2xl) var(--spacing-xl);
+    padding: var(--spacing-xl) var(--spacing-2xl);
     border-radius: var(--radius-lg);
   }
 
-  .services-cta-box h3 {
+  @media (max-width: 800px) {
+    .services-cta-bar {
+      flex-direction: column;
+      text-align: center;
+      gap: var(--spacing-lg);
+    }
+  }
+
+  .services-cta-bar__content {
+    flex: 1;
+  }
+
+  .services-cta-bar h3 {
     font-family: var(--font-heading);
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     color: var(--color-cream);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.3;
   }
 
-  .services-cta-box p {
-    font-size: 1rem;
+  .services-cta-bar p {
+    font-size: 0.95rem;
     color: var(--color-taupe);
-    line-height: 1.7;
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .services-cta-note {
-    font-size: 0.85rem;
-    color: var(--color-taupe);
-    margin-top: var(--spacing-md);
-    margin-bottom: 0;
-    font-style: italic;
+    line-height: 1.6;
+    margin: 0;
   }
 
   /* Process Timeline */
