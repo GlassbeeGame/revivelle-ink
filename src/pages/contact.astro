@@ -1,252 +1,370 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ContactForm from '../components/ContactForm.astro';
+import Button from '../components/Button.astro';
 ---
 
 <Layout
   title="Contact & Book | Revivelle Ink - Sparks, NV"
   description="Book your stretch mark camouflage or scar revision consultation at Revivelle Ink in Sparks, Nevada. Contact Sammi today to start your transformation."
 >
-  <!-- Contact Hero Section -->
-  <section class="contact-hero">
-    <div class="contact-hero__background"></div>
-    <div class="contact-hero__particles">
-      {Array.from({ length: 20 }).map((_, i) => (
-        <div
-          class="hero-particle"
-          style={`left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 10}s;`}
-        />
-      ))}
-    </div>
-    <div class="container">
-      <div class="contact-hero__grid">
-        <!-- Left Side: Heading & Business Info -->
-        <div class="contact-hero__content">
-          <h1 class="contact-hero__title">Ready to Begin Your Transformation?</h1>
-          <p class="contact-hero__subtitle">
-            Call Revivelle Ink at <a href="tel:17076600921" class="contact-hero__phone">(707) 660-0921</a> or fill out the contact form.
-          </p>
-
-          <!-- Business Information Card -->
-          <div class="business-info">
-            <h2 class="business-info__title">Contact Information</h2>
-
-            <div class="business-info__item">
-              <div class="business-info__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-              </div>
-              <div>
-                <span class="business-info__value">2165 Green Vista Dr 206B<br/>Sparks, NV 89431</span>
-              </div>
-            </div>
-
-            <div class="business-info__item">
-              <div class="business-info__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                </svg>
-              </div>
-              <div>
-                <a href="tel:17076600921" class="business-info__value business-info__link">(707) 660-0921</a>
-              </div>
-            </div>
-
-            <div class="business-info__item">
-              <div class="business-info__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                  <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-              </div>
-              <div>
-                <a href="mailto:Revivelleink@gmail.com" class="business-info__value business-info__link">Revivelleink@gmail.com</a>
-              </div>
-            </div>
-
-            <div class="business-info__item">
-              <div class="business-info__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-              </div>
-              <div>
-                <span class="business-info__value">By Appointment Only<br/><span class="business-info__note">Flexible scheduling available</span></span>
-              </div>
-            </div>
-          </div>
+  <!-- Contact Page -->
+  <div class="contact-page">
+    <!-- Hero Section with Intro -->
+    <section class="contact-hero">
+      <div class="contact-hero__bg">
+        <div class="contact-hero__overlay"></div>
+        <div class="contact-hero__particles">
+          {Array.from({ length: 25 }).map((_, i) => (
+            <div
+              class="particle"
+              style={`left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 12}s; animation-duration: ${12 + Math.random() * 8}s;`}
+            />
+          ))}
         </div>
+      </div>
 
-        <!-- Right Side: Contact Form Card -->
-        <div class="contact-form-card">
-          <h2 class="form-card__title">Get Your Free Consultation</h2>
-          <ContactForm />
-          <p class="form-card__note">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 6px;">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            Response within 24-48 hours • 100% free consultation • Serving all of Washoe County
+      <div class="container">
+        <div class="contact-hero__content">
+          <span class="contact-hero__eyebrow">Get In Touch</span>
+          <h1 class="contact-hero__title">Let's Start Your Journey</h1>
+          <p class="contact-hero__subtitle">
+            Ready to feel confident in your skin? Reach out for a free consultation.
           </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Main Contact Section -->
+    <section class="contact-main">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Contact Methods (Left) -->
+          <div class="contact-methods">
+            <!-- Primary CTA -->
+            <div class="contact-cta-primary">
+              <div class="contact-cta-primary__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              <div class="contact-cta-primary__content">
+                <span class="contact-cta-primary__label">Fastest Response</span>
+                <h2 class="contact-cta-primary__title">Call for Free Consultation</h2>
+                <p class="contact-cta-primary__text">
+                  Calling is part of the consultation process. Let's discuss your goals and answer all your questions.
+                </p>
+                <Button href="tel:17076600921" variant="gold-glow" size="large">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                  (707) 660-0921
+                </Button>
+              </div>
+            </div>
+
+            <!-- Other Contact Options -->
+            <div class="contact-options">
+              <h3 class="contact-options__title">Other Ways to Reach Me</h3>
+
+              <a href="mailto:Revivelleink@gmail.com" class="contact-option">
+                <div class="contact-option__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="contact-option__content">
+                  <span class="contact-option__label">Email</span>
+                  <span class="contact-option__value">Revivelleink@gmail.com</span>
+                </div>
+                <div class="contact-option__arrow">→</div>
+              </a>
+
+              <a href="https://instagram.com/revivelle.ink" target="_blank" rel="noopener noreferrer" class="contact-option">
+                <div class="contact-option__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </div>
+                <div class="contact-option__content">
+                  <span class="contact-option__label">Instagram</span>
+                  <span class="contact-option__value">@revivelle.ink</span>
+                  <span class="contact-option__note">Send photos for free assessment</span>
+                </div>
+                <div class="contact-option__arrow">→</div>
+              </a>
+            </div>
+
+            <!-- Studio Info -->
+            <div class="studio-info">
+              <div class="studio-info__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>2165 Green Vista Dr 206B, Sparks, NV 89431</span>
+              </div>
+              <div class="studio-info__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>By Appointment Only</span>
+              </div>
+              <div class="studio-info__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Serving Sparks, Reno & All of Washoe County</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form (Right) -->
+          <div class="contact-form-wrapper">
+            <div class="form-header">
+              <h2 class="form-header__title">Send a Message</h2>
+              <p class="form-header__subtitle">
+                Fill out the form and I'll get back to you within 24-48 hours.
+              </p>
+            </div>
+            <ContactForm />
+            <p class="form-footer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              Your information is safe and will never be shared
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </Layout>
 
 <style>
-  /* Contact Hero Section */
+  .contact-page {
+    background: var(--color-cream);
+  }
+
+  /* Hero Section */
   .contact-hero {
     position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: calc(var(--spacing-4xl) + 80px) 0 var(--spacing-4xl);
+    padding: calc(var(--spacing-4xl) + 100px) 0 var(--spacing-4xl);
     overflow: hidden;
   }
 
-  .contact-hero__background {
+  .contact-hero__bg {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       135deg,
-      var(--color-charcoal-deep) 0%,
-      var(--color-charcoal) 50%,
-      #2a2520 100%
+      #1a1613 0%,
+      var(--color-charcoal-deep) 40%,
+      var(--color-charcoal) 100%
     );
     z-index: 0;
   }
 
-  .contact-hero__background::before {
-    content: '';
+  .contact-hero__overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(
-      ellipse at top left,
-      rgba(212, 184, 131, 0.12) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      ellipse at bottom right,
-      rgba(212, 184, 131, 0.08) 0%,
-      transparent 50%
-    );
+    background:
+      radial-gradient(ellipse at top, rgba(212, 184, 131, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at bottom left, rgba(212, 184, 131, 0.05) 0%, transparent 50%);
   }
 
   .contact-hero__particles {
     position: absolute;
     inset: 0;
-    pointer-events: none;
-    z-index: 1;
+    overflow: hidden;
   }
 
-  .hero-particle {
+  .particle {
     position: absolute;
-    bottom: -10px;
-    width: 3px;
-    height: 3px;
+    bottom: -5px;
+    width: 2px;
+    height: 2px;
     background: var(--color-gold);
     border-radius: 50%;
     opacity: 0;
-    animation: particleRise 15s ease-in-out infinite;
+    animation: float 15s ease-in-out infinite;
   }
 
-  @keyframes particleRise {
-    0%, 100% { opacity: 0; transform: translateY(0); }
-    10% { opacity: 0.4; }
+  @keyframes float {
+    0%, 100% {
+      opacity: 0;
+      transform: translateY(0) translateX(0);
+    }
+    10% { opacity: 0.6; }
+    50% {
+      opacity: 0.3;
+      transform: translateY(-50vh) translateX(20px);
+    }
     90% { opacity: 0.1; }
-    100% { transform: translateY(-100vh); }
+    100% {
+      transform: translateY(-100vh) translateX(-20px);
+    }
   }
 
-  .contact-hero > .container {
+  .contact-hero__content {
     position: relative;
-    z-index: 2;
+    z-index: 1;
+    max-width: 700px;
+    text-align: center;
+    margin: 0 auto;
   }
 
-  .contact-hero__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-4xl);
-    align-items: start;
+  .contact-hero__eyebrow {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-md);
   }
 
-  @media (max-width: 1100px) {
-    .contact-hero__grid {
-      grid-template-columns: 1fr;
-      gap: var(--spacing-3xl);
-    }
-
-    .contact-hero {
-      min-height: auto;
-      padding: calc(var(--spacing-3xl) + 80px) 0 var(--spacing-3xl);
-    }
-  }
-
-  /* Left Side Content */
   .contact-hero__title {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 500;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 400;
     color: var(--color-cream);
     margin-bottom: var(--spacing-lg);
-    line-height: 1.2;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
   }
 
   .contact-hero__subtitle {
     font-size: 1.25rem;
     color: var(--color-taupe);
-    margin-bottom: var(--spacing-3xl);
-    line-height: 1.7;
+    line-height: 1.6;
+    max-width: 550px;
+    margin: 0 auto;
   }
 
-  .contact-hero__phone {
-    color: var(--color-gold);
-    font-weight: 600;
-    text-decoration: none;
-    transition: color var(--transition-fast);
-    border-bottom: 2px solid var(--color-gold);
+  /* Main Contact Section */
+  .contact-main {
+    padding: var(--spacing-4xl) 0;
+    position: relative;
   }
 
-  .contact-hero__phone:hover {
-    color: var(--color-blush);
-    border-color: var(--color-blush);
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: var(--spacing-4xl);
+    align-items: start;
   }
 
-  /* Business Info Card */
-  .business-info {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(201, 168, 108, 0.2);
+  @media (max-width: 1100px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-3xl);
+    }
+  }
+
+  /* Contact Methods (Left Side) */
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+  }
+
+  /* Primary CTA Card */
+  .contact-cta-primary {
+    background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-charcoal-deep) 100%);
     border-radius: var(--radius-xl);
     padding: var(--spacing-2xl);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(201, 168, 108, 0.2);
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+      0 10px 40px rgba(0, 0, 0, 0.15),
+      0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
-  .business-info__title {
-    font-family: var(--font-heading);
-    font-size: 1.35rem;
+  .contact-cta-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-gold);
+  }
+
+  .contact-cta-primary__icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-gold);
+    color: var(--color-charcoal);
+  }
+
+  .contact-cta-primary__label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .contact-cta-primary__title {
+    font-size: 1.75rem;
     font-weight: 500;
     color: var(--color-cream);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.3;
+  }
+
+  .contact-cta-primary__text {
+    font-size: 1rem;
+    color: var(--color-taupe);
+    line-height: 1.7;
     margin-bottom: var(--spacing-xl);
-    padding-bottom: var(--spacing-md);
-    border-bottom: 1px solid rgba(201, 168, 108, 0.2);
   }
 
-  .business-info__item {
+  /* Contact Options */
+  .contact-options__title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .contact-option {
     display: flex;
+    align-items: center;
     gap: var(--spacing-md);
-    padding: var(--spacing-md) 0;
-    border-bottom: 1px solid rgba(201, 168, 108, 0.1);
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, var(--color-cream-dark) 0%, #faf8f5 100%);
+    border: 1px solid rgba(201, 168, 108, 0.15);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all var(--transition-medium);
+    margin-bottom: var(--spacing-md);
   }
 
-  .business-info__item:last-child {
-    border-bottom: none;
+  .contact-option:hover {
+    border-color: var(--color-gold);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-soft);
   }
 
-  .business-info__icon {
-    width: 40px;
-    height: 40px;
+  .contact-option__icon {
+    width: 44px;
+    height: 44px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -256,66 +374,134 @@ import ContactForm from '../components/ContactForm.astro';
     color: var(--color-charcoal);
   }
 
-  .business-info__value {
-    color: var(--color-cream);
-    font-size: 1rem;
-    line-height: 1.6;
+  .contact-option__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
   }
 
-  .business-info__note {
+  .contact-option__label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+  }
+
+  .contact-option__value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-charcoal);
+  }
+
+  .contact-option__note {
     font-size: 0.85rem;
     color: var(--color-taupe);
   }
 
-  .business-info__link {
-    color: var(--color-blush);
-    font-weight: 600;
-    transition: color var(--transition-fast);
-  }
-
-  .business-info__link:hover {
+  .contact-option__arrow {
+    font-size: 1.5rem;
     color: var(--color-gold);
+    transition: transform var(--transition-fast);
   }
 
-  /* Contact Form Card */
-  .contact-form-card {
-    background: var(--color-cream);
+  .contact-option:hover .contact-option__arrow {
+    transform: translateX(4px);
+  }
+
+  /* Studio Info */
+  .studio-info {
+    padding: var(--spacing-xl);
+    background: linear-gradient(135deg, rgba(201, 168, 108, 0.08) 0%, transparent 100%);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(201, 168, 108, 0.15);
+  }
+
+  .studio-info__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+    font-size: 0.9rem;
+    color: var(--color-brown);
+    line-height: 1.6;
+  }
+
+  .studio-info__item svg {
+    flex-shrink: 0;
+    color: var(--color-gold);
+    margin-top: 2px;
+  }
+
+  /* Contact Form (Right Side) */
+  .contact-form-wrapper {
+    background: white;
     border-radius: var(--radius-xl);
     padding: var(--spacing-2xl);
     box-shadow:
-      0 20px 60px rgba(0, 0, 0, 0.4),
-      0 10px 30px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(201, 168, 108, 0.3);
+      0 20px 60px rgba(0, 0, 0, 0.08),
+      0 8px 24px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(201, 168, 108, 0.1);
+    position: sticky;
+    top: 120px;
   }
 
-  .form-card__title {
-    font-family: var(--font-heading);
+  @media (max-width: 1100px) {
+    .contact-form-wrapper {
+      position: static;
+    }
+  }
+
+  .form-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid rgba(201, 168, 108, 0.15);
+  }
+
+  .form-header__title {
     font-size: 1.75rem;
     font-weight: 500;
     color: var(--color-charcoal);
-    margin-bottom: var(--spacing-xl);
-    text-align: center;
+    margin-bottom: var(--spacing-sm);
   }
 
-  .form-card__note {
+  .form-header__subtitle {
+    font-size: 0.95rem;
+    color: var(--color-taupe);
+    line-height: 1.6;
+  }
+
+  .form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
     font-size: 0.85rem;
     color: var(--color-taupe);
     text-align: center;
     margin-top: var(--spacing-lg);
-    line-height: 1.6;
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(201, 168, 108, 0.1);
+  }
+
+  .form-footer svg {
+    color: var(--color-gold);
+    flex-shrink: 0;
   }
 
   @media (max-width: 600px) {
-    .contact-hero__title {
-      font-size: 2rem;
+    .contact-hero {
+      padding: calc(var(--spacing-3xl) + 80px) 0 var(--spacing-2xl);
     }
 
-    .contact-hero__subtitle {
-      font-size: 1.1rem;
+    .contact-main {
+      padding: var(--spacing-2xl) 0;
     }
 
-    .business-info,
-    .contact-form-card {
+    .contact-cta-primary,
+    .contact-form-wrapper {
       padding: var(--spacing-xl);
     }
   }
