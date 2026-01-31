@@ -24,7 +24,13 @@ import ContactForm from '../components/ContactForm.astro';
       <div class="contact-grid">
         <!-- Left: Business Info -->
         <div class="business-info">
-          <h1 class="business-info__title">Book Your Consultation</h1>
+          <h1 class="business-info__title">
+            <span class="title-wrapper">
+              <span class="title-text">Book Your Consultation</span>
+              <span class="title-highlight" aria-hidden="true">Book Your Consultation</span>
+              <span class="title-line"></span>
+            </span>
+          </h1>
           <p class="business-info__subtitle">
             Call Revivelle Ink at <a href="tel:17076600921" class="business-info__phone">(707) 660-0921</a> or fill out the contact form.
           </p>
@@ -107,8 +113,8 @@ import ContactForm from '../components/ContactForm.astro';
     position: relative;
     min-height: 100vh;
     display: flex;
-    align-items: center;
-    padding: calc(var(--spacing-4xl) + 100px) 0 var(--spacing-4xl);
+    align-items: flex-start;
+    padding: calc(var(--spacing-3xl) + 100px) 0 var(--spacing-4xl);
     overflow: hidden;
   }
 
@@ -201,6 +207,76 @@ import ContactForm from '../components/ContactForm.astro';
     line-height: 1.1;
     text-transform: uppercase;
     letter-spacing: -0.02em;
+    position: relative;
+    display: inline-block;
+  }
+
+  .title-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  .title-text {
+    position: relative;
+    display: inline;
+  }
+
+  .title-highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #C9A86C 0%, #e8d5a8 40%, #C9A86C 80%, #d4bc8a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    clip-path: inset(0 100% 0 0);
+    animation: titleGoldReveal 1.2s ease-out 0.3s forwards;
+    pointer-events: none;
+  }
+
+  @keyframes titleGoldReveal {
+    0% {
+      clip-path: inset(0 100% 0 0);
+    }
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  .title-line {
+    position: absolute;
+    bottom: -0.15em;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #C9A86C 0%, #e8d5a8 50%, #C9A86C 100%);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: lineReveal 1.8s ease-out 1.5s forwards;
+  }
+
+  @keyframes lineReveal {
+    0% {
+      transform: scaleX(0);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .title-highlight {
+      animation: none;
+      clip-path: inset(0 0 0 0);
+    }
+
+    .title-line {
+      animation: none;
+      transform: scaleX(1);
+    }
   }
 
   .business-info__subtitle {
@@ -284,26 +360,26 @@ import ContactForm from '../components/ContactForm.astro';
 
   .contact-card__header {
     text-align: center;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
   }
 
   .contact-card__eyebrow {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 500;
     color: var(--color-charcoal);
-    margin: 0 0 var(--spacing-xs) 0;
+    margin: 0 0 0.25rem 0;
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
 
   .contact-card__title {
-    font-size: 2rem;
+    font-size: 1.85rem;
     font-weight: 700;
     color: var(--color-gold-deep);
     margin: 0;
     text-transform: uppercase;
     letter-spacing: -0.01em;
-    line-height: 1.2;
+    line-height: 1.1;
   }
 
   .contact-card__note {
