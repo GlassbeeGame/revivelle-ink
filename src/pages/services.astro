@@ -186,15 +186,12 @@ const faqs = [
   </section>
 
   <!-- Candidate Section -->
-  <section class="section candidate-section">
+  <section class="section candidate-section candidate-section--reduced-top">
     <div class="container">
       <div class="candidate-grid">
         <div class="candidate-content">
           <span class="section-eyebrow">Who We Help</span>
           <h2>You're in the Right Place If...</h2>
-          <p class="candidate-intro">
-            This treatment is perfect for you if:
-          </p>
           <ul class="candidate-list">
             {candidateChecks.map((check, i) => (
               <li style={`animation-delay: ${i * 0.08}s`}>
@@ -284,6 +281,11 @@ const faqs = [
   /* Reduce spacing after services section */
   .services-section--compact-bottom {
     padding-bottom: var(--spacing-xl);
+  }
+
+  /* Reduce spacing before candidate section */
+  .candidate-section--reduced-top {
+    padding-top: var(--spacing-2xl);
   }
 
   /* Services Grid */
