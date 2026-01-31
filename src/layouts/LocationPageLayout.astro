@@ -309,10 +309,10 @@ const breadcrumbSchema = {
   )}
 
   <!-- Bottom CTA Section -->
-  <section class="section section--dark cta-section">
+  <section class="section cta-section">
     <div class="container container--narrow">
       <div class="cta-box-simple">
-        <span class="section-eyebrow section-eyebrow--light">Ready to Transform Your Skin?</span>
+        <span class="section-eyebrow">Ready to Transform Your Skin?</span>
         <h2>Book Your Free Consultation Today</h2>
         <p>
           Serving {location.name} and the surrounding area. Call now to discuss your goals and learn how paramedical tattooing can help you feel confident in your skin.
@@ -770,19 +770,23 @@ const breadcrumbSchema = {
   }
 
   /* Bottom CTA */
+  .cta-section {
+    background: var(--color-cream);
+  }
+
   .cta-box-simple {
     text-align: center;
     padding: var(--spacing-3xl) var(--spacing-xl);
   }
 
   .cta-box-simple h2 {
-    color: var(--color-cream);
+    color: var(--color-charcoal);
     margin-bottom: var(--spacing-md);
   }
 
   .cta-box-simple p {
     font-size: 1.15rem;
-    color: var(--color-taupe);
+    color: var(--color-brown-light);
     max-width: 600px;
     margin: 0 auto var(--spacing-xl);
     line-height: 1.8;
