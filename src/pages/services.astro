@@ -119,7 +119,7 @@ const faqs = [
   />
 
   <!-- Services Section -->
-  <section class="section services-section">
+  <section class="section services-section services-section--compact-bottom">
     <div class="container">
       <div class="section-header text-center">
         <span class="section-eyebrow">Our Services</span>
@@ -191,7 +191,7 @@ const faqs = [
       <div class="candidate-grid">
         <div class="candidate-content">
           <span class="section-eyebrow">Who We Help</span>
-          <h2>Is This Treatment Right for You?</h2>
+          <h2>You're in the Right Place If...</h2>
           <p class="candidate-intro">
             This treatment is perfect for you if:
           </p>
@@ -279,6 +279,11 @@ const faqs = [
 
   .section-eyebrow--light {
     color: var(--color-blush);
+  }
+
+  /* Reduce spacing after services section */
+  .services-section--compact-bottom {
+    padding-bottom: var(--spacing-xl);
   }
 
   /* Services Grid */
