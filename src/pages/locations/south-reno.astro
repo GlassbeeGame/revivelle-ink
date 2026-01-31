@@ -1,0 +1,9 @@
+---
+import LocationPageLayout from '../../layouts/LocationPageLayout.astro';
+import { getLocationBySlug } from '../../data/locations.js';
+
+const location = getLocationBySlug('south-reno');
+if (!location) return Astro.redirect('/locations');
+---
+
+<LocationPageLayout location={location} />

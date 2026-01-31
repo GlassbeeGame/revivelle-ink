@@ -1,0 +1,813 @@
+---
+import Layout from './Layout.astro';
+import ServiceStickySidebar from '../components/ServiceStickySidebar.astro';
+import RelatedLocations from '../components/RelatedLocations.astro';
+import FAQItem from '../components/FAQItem.astro';
+import Button from '../components/Button.astro';
+import { getRelatedLocations } from '../data/locations.js';
+
+interface Props {
+  location: any; // Location data from locations.js
+}
+
+const { location } = Astro.props;
+const relatedLocations = getRelatedLocations(location.slug);
+
+// Build canonical URL
+const canonicalUrl = `${Astro.url.origin}/locations/${location.slug}`;
+const siteUrl = Astro.url.origin;
+
+// LocalBusiness Schema for local SEO
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Revivelle Ink",
+  "image": `${siteUrl}/images/sammi-about.png`,
+  "telephone": "+17076600921",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2165 Green Vista Dr 206B",
+    "addressLocality": "Sparks",
+    "addressRegion": "NV",
+    "postalCode": "89431",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "39.6006",
+    "longitude": "-119.7264"
+  },
+  "url": siteUrl,
+  "areaServed": {
+    "@type": "City",
+    "name": location.name
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-17:00",
+  "description": location.meta.description
+};
+
+// FAQ Schema for rich snippets
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": location.faqs.map((faq: any) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+// Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": siteUrl
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Locations",
+      "item": `${siteUrl}/locations`
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": location.name,
+      "item": canonicalUrl
+    }
+  ]
+};
+---
+
+<Layout
+  title={location.meta.title}
+  description={location.meta.description}
+  keywords={location.meta.keywords}
+>
+  <!-- Schema Markup -->
+  <script type="application/ld+json" set:html={JSON.stringify(businessSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="head" />
+
+  <!-- Hero Section -->
+  <section class="location-hero">
+    <div class="location-hero__background"></div>
+    <div class="container">
+      <!-- Breadcrumbs -->
+      <nav class="location-breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="location-breadcrumbs-separator">/</span>
+        <a href="/locations">Locations</a>
+        <span class="location-breadcrumbs-separator">/</span>
+        <span>{location.name}</span>
+      </nav>
+
+      <!-- Hero Content -->
+      <div class="location-hero__content">
+        <h1 class="location-hero__title">{location.hero.title}</h1>
+        <p class="location-hero__subtitle">{location.hero.subtitle}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Section with Sidebar -->
+  <section class="section location-main">
+    <div class="container">
+      <div class="location-page-container">
+        <!-- Main Content Column -->
+        <div class="location-content">
+
+          <!-- Introduction Section -->
+          <div class="location-content-section">
+            <span class="section-eyebrow">{location.intro.tagline}</span>
+            <h2>{location.intro.heading}</h2>
+            <p class="location-intro-text">{location.intro.description}</p>
+          </div>
+
+          <!-- Benefits Section -->
+          <div class="location-content-section">
+            <h3>Why Choose Us</h3>
+            <ul class="location-benefits-list">
+              {location.benefits.map((benefit: string) => (
+                <li class="location-benefits-item">
+                  <span class="location-benefits-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                  <span>{benefit}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Directions & Process Section -->
+          <div class="location-content-section section--gold-tint location-process-section">
+            <div class="location-process-inner">
+              <div class="section-header text-center">
+                <span class="section-eyebrow">Plan Your Visit</span>
+                <h2>Getting Here from {location.name}</h2>
+                <p class="section-subtitle">Everything you need to know for a smooth visit</p>
+              </div>
+              <div class="process-timeline">
+                {location.process.map((step: any, i: number) => (
+                  <div class="process-step" style={`animation-delay: ${i * 0.1}s`}>
+                    <div class="process-step__number">{step.step}</div>
+                    <div class="process-step__content">
+                      <h4 class="process-step__title">{step.title}</h4>
+                      <p class="process-step__description">{step.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <!-- Pricing Details Section -->
+          <div class="location-content-section">
+            <h3>Pricing & Investment</h3>
+            <div class="pricing-card">
+              <div class="pricing-card__highlight">
+                <span class="pricing-card__label">Starting At</span>
+                <span class="pricing-card__amount">{location.pricing.display}</span>
+              </div>
+              <ul class="pricing-card__details">
+                {location.pricing.details.map((detail: string) => (
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+              <p class="pricing-card__note">{location.pricing.cta}</p>
+            </div>
+          </div>
+
+          <!-- Why Choose Us Section -->
+          <div class="location-content-section">
+            <h2>{location.idealFor.heading}</h2>
+            <p class="candidate-intro">{location.idealFor.intro}</p>
+            <ul class="candidate-criteria">
+              {location.idealFor.criteria.map((criterion: string) => (
+                <li class="candidate-criterion">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  {criterion}
+                </li>
+              ))}
+            </ul>
+            <p class="candidate-note">{location.idealFor.note}</p>
+
+            <!-- Neighborhoods We Serve -->
+            <div class="common-areas">
+              <h4>Neighborhoods We Serve in {location.name}</h4>
+              <div class="areas-grid">
+                {location.commonAreas.map((area: string) => (
+                  <span class="area-tag">{area}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Sticky Sidebar Column (ends here) -->
+        <ServiceStickySidebar
+          serviceName={`Services for ${location.name}`}
+          pricingDisplay={location.pricing.display}
+          pricingDetails={location.pricing.details}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Signals Bar (Full Width - Sidebar stops here) -->
+  <section class="section section--dark trust-signals-bar">
+    <div class="container">
+      <div class="trust-signals">
+        <div class="trust-signal">
+          <div class="trust-signal__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+          </div>
+          <div class="trust-signal__content">
+            <span class="trust-signal__label">Certified Professional</span>
+            <span class="trust-signal__value">Licensed & Insured</span>
+          </div>
+        </div>
+        <div class="trust-signal">
+          <div class="trust-signal__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <div class="trust-signal__content">
+            <span class="trust-signal__label">All Skin Tones</span>
+            <span class="trust-signal__value">Safe For Everyone</span>
+          </div>
+        </div>
+        <div class="trust-signal">
+          <div class="trust-signal__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <div class="trust-signal__content">
+            <span class="trust-signal__label">Drive Time</span>
+            <span class="trust-signal__value">{location.driveTime} from {location.name}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section (Full Width) -->
+  <section class="section section--cream faq-section-full">
+    <div class="container container--narrow">
+      <div class="section-header text-center">
+        <span class="section-eyebrow">Common Questions</span>
+        <h2>Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything you need to know about visiting from {location.name}</p>
+      </div>
+      <div class="faq-list">
+        {location.faqs.map((faq: any, index: number) => (
+          <FAQItem
+            question={faq.question}
+            answer={faq.answer}
+            open={index === 0}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Locations (Full Width) -->
+  {relatedLocations.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <RelatedLocations locations={relatedLocations} />
+      </div>
+    </section>
+  )}
+
+  <!-- Bottom CTA Section -->
+  <section class="section section--dark cta-section">
+    <div class="container container--narrow">
+      <div class="cta-box-simple">
+        <span class="section-eyebrow section-eyebrow--light">Ready to Transform Your Skin?</span>
+        <h2>Book Your Free Consultation Today</h2>
+        <p>
+          Serving {location.name} and the surrounding area. Call now to discuss your goals and learn how paramedical tattooing can help you feel confident in your skin.
+        </p>
+        <div class="cta-buttons">
+          <Button href="tel:17076600921" variant="gold-glow" size="large">
+            Call (707) 660-0921
+          </Button>
+          <Button href="/services" variant="outline" size="large">
+            View Our Services
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Location Hero */
+  .location-hero {
+    position: relative;
+    padding: var(--spacing-4xl) 0 var(--spacing-3xl);
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .location-hero__background {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      var(--color-charcoal-deep) 0%,
+      var(--color-charcoal) 50%,
+      #2a2520 100%
+    );
+    z-index: 0;
+  }
+
+  .location-hero__background::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(212, 184, 131, 0.08) 0%,
+      transparent 60%
+    );
+  }
+
+  .location-hero > .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .location-hero__content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: var(--spacing-lg);
+  }
+
+  .location-hero__title {
+    color: var(--color-cream);
+    margin-bottom: var(--spacing-md);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .location-hero__subtitle {
+    font-size: 1.25rem;
+    color: var(--color-taupe);
+    line-height: 1.8;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  /* Breadcrumbs */
+  .location-breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .location-breadcrumbs a {
+    color: var(--color-taupe);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .location-breadcrumbs a:hover {
+    color: var(--color-gold);
+  }
+
+  .location-breadcrumbs span:last-child {
+    color: var(--color-cream);
+  }
+
+  .location-breadcrumbs-separator {
+    color: var(--color-taupe);
+  }
+
+  /* Location Main Section */
+  .location-main {
+    padding: var(--spacing-4xl) 0;
+  }
+
+  .location-page-container {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: var(--spacing-3xl);
+  }
+
+  @media (max-width: 1100px) {
+    .location-page-container {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-2xl);
+    }
+  }
+
+  /* Location Content */
+  .location-content {
+    min-width: 0;
+  }
+
+  .location-content-section {
+    margin-bottom: var(--spacing-3xl);
+  }
+
+  .location-content-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .location-intro-text {
+    font-size: 1.15rem;
+    color: var(--color-brown-light);
+    line-height: 1.9;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  /* Benefits List */
+  .location-benefits-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+  }
+
+  .location-benefits-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--color-cream-dark);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--color-gold);
+    transition: all var(--transition-fast);
+  }
+
+  .location-benefits-item:hover {
+    transform: translateX(4px);
+    background: var(--color-cream);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .location-benefits-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-full);
+    color: var(--color-charcoal);
+  }
+
+  /* Process Section */
+  .location-process-section {
+    margin-left: calc(-1 * var(--spacing-lg));
+    margin-right: calc(-1 * var(--spacing-lg));
+    padding: var(--spacing-3xl) var(--spacing-lg);
+    border-radius: var(--radius-xl);
+  }
+
+  .location-process-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .process-timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-xl);
+  }
+
+  .process-step {
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .process-step__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-charcoal);
+    background: var(--gradient-gold);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--spacing-md);
+    box-shadow: var(--shadow-gold);
+  }
+
+  .process-step__title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .process-step__description {
+    font-size: 0.95rem;
+    color: var(--color-brown-light);
+    line-height: 1.7;
+  }
+
+  /* Pricing Card (matches service pages) */
+  .pricing-card {
+    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-gold-pale) 100%);
+    border: 1px solid rgba(201, 168, 108, 0.3);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
+  }
+
+  .pricing-card__highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-lg) 0;
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 1px solid rgba(201, 168, 108, 0.3);
+  }
+
+  .pricing-card__label {
+    font-size: 0.85rem;
+    color: var(--color-taupe);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .pricing-card__amount {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 600;
+    background: var(--gradient-gold-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .pricing-card__details {
+    list-style: none;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .pricing-card__details li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+    font-size: 0.95rem;
+    color: var(--color-brown);
+  }
+
+  .pricing-card__details svg {
+    flex-shrink: 0;
+    color: var(--color-gold);
+    margin-top: 3px;
+  }
+
+  .pricing-card__note {
+    font-size: 0.9rem;
+    color: var(--color-taupe);
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+  }
+
+  /* Candidate/Criteria Section */
+  .candidate-intro {
+    font-size: 1.05rem;
+    color: var(--color-brown-light);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .candidate-criteria {
+    list-style: none;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .candidate-criterion {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid rgba(201, 168, 108, 0.15);
+  }
+
+  .candidate-criterion:last-child {
+    border-bottom: none;
+  }
+
+  .candidate-criterion svg {
+    flex-shrink: 0;
+    color: var(--color-gold);
+    margin-top: 2px;
+  }
+
+  .candidate-note {
+    font-size: 0.95rem;
+    color: var(--color-taupe);
+    font-style: italic;
+    padding: var(--spacing-md);
+    background: var(--color-cream-dark);
+    border-left: 3px solid var(--color-gold);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  /* Common Areas */
+  .common-areas {
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-2xl);
+    border-top: 1px solid rgba(201, 168, 108, 0.2);
+  }
+
+  .common-areas h4 {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .areas-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  .area-tag {
+    padding: 0.6rem 1.25rem;
+    background: var(--color-cream);
+    border: 1px solid rgba(201, 168, 108, 0.3);
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    color: var(--color-brown);
+    transition: all var(--transition-fast);
+  }
+
+  .area-tag:hover {
+    background: var(--gradient-gold);
+    color: var(--color-charcoal);
+    border-color: var(--color-gold);
+  }
+
+  /* Trust Signals Bar */
+  .trust-signals-bar {
+    background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-charcoal-deep) 100%);
+    border-top: 1px solid rgba(201, 168, 108, 0.15);
+    border-bottom: 1px solid rgba(201, 168, 108, 0.15);
+  }
+
+  .trust-signals {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+  }
+
+  @media (max-width: 800px) {
+    .trust-signals {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+    }
+  }
+
+  .trust-signal {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: rgba(201, 168, 108, 0.05);
+    border: 1px solid rgba(201, 168, 108, 0.15);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-medium);
+  }
+
+  .trust-signal:hover {
+    background: rgba(201, 168, 108, 0.08);
+    border-color: rgba(201, 168, 108, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .trust-signal__icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-full);
+    color: var(--color-charcoal);
+  }
+
+  .trust-signal__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .trust-signal__label {
+    font-size: 0.85rem;
+    color: var(--color-taupe);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .trust-signal__value {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--color-cream);
+  }
+
+  /* FAQ Section */
+  .faq-list {
+    background: var(--color-cream);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    border: 1px solid rgba(201, 168, 108, 0.15);
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Bottom CTA */
+  .cta-box-simple {
+    text-align: center;
+    padding: var(--spacing-3xl) var(--spacing-xl);
+  }
+
+  .cta-box-simple h2 {
+    color: var(--color-cream);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .cta-box-simple p {
+    font-size: 1.15rem;
+    color: var(--color-taupe);
+    max-width: 600px;
+    margin: 0 auto var(--spacing-xl);
+    line-height: 1.8;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Responsive */
+  @media (max-width: 800px) {
+    .location-hero {
+      padding: var(--spacing-2xl) 0 var(--spacing-xl);
+      min-height: 300px;
+    }
+
+    .location-benefits-list {
+      grid-template-columns: 1fr;
+    }
+
+    .process-timeline {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+    }
+  }
+</style>

@@ -1,0 +1,191 @@
+---
+interface Location {
+  slug: string;
+  name: string;
+  fullName: string;
+  tagline: string;
+  driveTime: string;
+  distance: string;
+}
+
+interface Props {
+  locations: Location[];
+}
+
+const { locations } = Astro.props;
+---
+
+<section class="related-locations">
+  <div class="related-locations__header">
+    <span class="section-eyebrow">Nearby Areas</span>
+    <h3>We Also Serve</h3>
+    <p class="related-locations__subtitle">
+      Explore other locations we proudly serve in the area
+    </p>
+  </div>
+
+  <div class="related-locations__grid">
+    {locations.map((location) => (
+      <a href={`/locations/${location.slug}`} class="related-location-card">
+        <div class="related-location-card__content">
+          <h4 class="related-location-card__title">{location.fullName}</h4>
+          <p class="related-location-card__description">
+            {location.tagline}
+          </p>
+          <div class="related-location-card__meta">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>{location.driveTime}</span>
+            <span>•</span>
+            <span>{location.distance}</span>
+          </div>
+          <span class="related-location-card__link">
+            View Location
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </div>
+        <div class="related-location-card__accent"></div>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .related-locations {
+    /* Margins handled by parent section */
+  }
+
+  .related-locations__header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .related-locations__header h3 {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .related-locations__subtitle {
+    font-size: 1rem;
+    color: var(--color-taupe);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .related-locations__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  /* Related Location Card */
+  .related-location-card {
+    position: relative;
+    display: block;
+    background: var(--color-cream);
+    border: 1px solid rgba(201, 168, 108, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    transition: all var(--transition-medium);
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+  .related-location-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-gold);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .related-location-card__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .related-location-card__title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-sm);
+    transition: color var(--transition-fast);
+  }
+
+  .related-location-card:hover .related-location-card__title {
+    color: var(--color-gold-deep);
+  }
+
+  .related-location-card__description {
+    font-size: 0.95rem;
+    color: var(--color-brown-light);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .related-location-card__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.85rem;
+    color: var(--color-taupe);
+    margin-bottom: var(--spacing-md);
+    font-weight: 500;
+  }
+
+  .related-location-card__meta svg {
+    color: var(--color-gold);
+    flex-shrink: 0;
+  }
+
+  .related-location-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: gap var(--transition-fast);
+  }
+
+  .related-location-card:hover .related-location-card__link {
+    gap: var(--spacing-sm);
+  }
+
+  .related-location-card__link svg {
+    transition: transform var(--transition-fast);
+  }
+
+  .related-location-card:hover .related-location-card__link svg {
+    transform: translateX(4px);
+  }
+
+  /* Accent line */
+  .related-location-card__accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient-gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-medium);
+  }
+
+  .related-location-card:hover .related-location-card__accent {
+    transform: scaleX(1);
+  }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    .related-locations__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
