@@ -238,11 +238,11 @@ const faqs = [
         <p class="section-subtitle">Everything you need to know about camouflage tattooing</p>
       </div>
       <div class="faq-list">
-        {faqs.map((faq, index) => (
-          <FAQItem 
+        {faqs.map((faq) => (
+          <FAQItem
             question={faq.question}
             answer={faq.answer}
-            open={index === 0}
+            open={false}
           />
         ))}
       </div>

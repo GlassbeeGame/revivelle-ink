@@ -300,11 +300,11 @@ const breadcrumbSchema = {
         <p class="section-subtitle">Everything you need to know about {service.shortName.toLowerCase()}</p>
       </div>
       <div class="faq-list">
-        {service.faqs.map((faq: any, index: number) => (
+        {service.faqs.map((faq: any) => (
           <FAQItem
             question={faq.question}
             answer={faq.answer}
-            open={index === 0}
+            open={false}
           />
         ))}
       </div>

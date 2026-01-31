@@ -288,11 +288,11 @@ const breadcrumbSchema = {
         <p class="section-subtitle">Everything you need to know about visiting from {location.name}</p>
       </div>
       <div class="faq-list">
-        {location.faqs.map((faq: any, index: number) => (
+        {location.faqs.map((faq: any) => (
           <FAQItem
             question={faq.question}
             answer={faq.answer}
-            open={index === 0}
+            open={false}
           />
         ))}
       </div>
