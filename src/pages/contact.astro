@@ -147,28 +147,72 @@ import ContactForm from '../components/ContactForm.astro';
     position: absolute;
     inset: 0;
     overflow: hidden;
+    pointer-events: none;
   }
 
   .particle {
     position: absolute;
     bottom: -10px;
-    width: 3px;
-    height: 3px;
-    background: var(--color-gold);
+    width: 2px;
+    height: 2px;
+    background: #ffffff;
     border-radius: 50%;
-    opacity: 0;
-    animation: rise 15s ease-in-out infinite;
+    animation:
+      heroFloat 18s linear infinite,
+      heroTwinkle 0.4s ease-in-out infinite;
   }
 
-  @keyframes rise {
-    0%, 100% {
-      opacity: 0;
+  .particle:nth-child(odd) {
+    width: 3px;
+    height: 3px;
+    animation:
+      heroFloat 18s linear infinite,
+      heroTwinkle 0.5s ease-in-out infinite 0.1s;
+  }
+
+  .particle:nth-child(3n) {
+    width: 2px;
+    height: 2px;
+    animation:
+      heroFloat 18s linear infinite,
+      heroTwinkle 0.35s ease-in-out infinite 0.2s;
+  }
+
+  .particle:nth-child(4n) {
+    width: 1px;
+    height: 1px;
+    animation:
+      heroFloat 18s linear infinite,
+      heroTwinkle 0.6s ease-in-out infinite;
+  }
+
+  /* Continuous linear upward float - never stops */
+  @keyframes heroFloat {
+    0% {
       transform: translateY(0);
+      opacity: 0;
     }
-    10% { opacity: 0.5; }
-    90% { opacity: 0.1; }
+    2% {
+      opacity: 1;
+    }
+    95% {
+      opacity: 1;
+    }
     100% {
-      transform: translateY(-100vh);
+      transform: translateY(-75vh);
+      opacity: 0;
+    }
+  }
+
+  /* Rapid twinkle effect - independent of movement */
+  @keyframes heroTwinkle {
+    0%, 100% {
+      box-shadow: 0 0 2px #C9A86C;
+      background: #d4bc8a;
+    }
+    50% {
+      box-shadow: 0 0 6px #fff, 0 0 12px #fff, 0 0 18px #C9A86C;
+      background: #ffffff;
     }
   }
 
