@@ -137,21 +137,9 @@ const faqs = [
           <a href={service.href} class="service-card" style={`animation-delay: ${i * 0.1}s`}>
             <div class="service-card__accent"></div>
             <div class="service-card__inner">
-              <div class="service-card__header">
-                <h3 class="service-card__title">{service.title}</h3>
-                <p class="service-card__price">{service.price}</p>
-              </div>
+              <h3 class="service-card__title">{service.title}</h3>
+              <p class="service-card__price">{service.price}</p>
               <p class="service-card__description">{service.description}</p>
-              <ul class="service-card__features">
-                {service.details.map((detail) => (
-                  <li>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <span>{detail}</span>
-                  </li>
-                ))}
-              </ul>
               <div class="service-card__cta">
                 <span>Learn More</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -300,17 +288,20 @@ const faqs = [
   /* Services Grid */
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-xl);
     margin-bottom: var(--spacing-3xl);
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 900px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
     .services-grid {
       grid-template-columns: 1fr;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
     }
   }
 
@@ -360,20 +351,16 @@ const faqs = [
   }
 
   .service-card__inner {
-    padding: var(--spacing-xl);
-    padding-top: calc(var(--spacing-xl) + 4px);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    padding-top: calc(var(--spacing-lg) + 4px);
     display: flex;
     flex-direction: column;
     height: 100%;
   }
 
-  .service-card__header {
-    margin-bottom: var(--spacing-lg);
-  }
-
   .service-card__title {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 500;
     color: var(--color-charcoal);
     margin-bottom: var(--spacing-sm);
@@ -387,44 +374,22 @@ const faqs = [
 
   .service-card__price {
     font-family: var(--font-heading);
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     background: var(--gradient-gold-text);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin: 0;
+    margin: 0 0 var(--spacing-md) 0;
   }
 
   .service-card__description {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--color-brown-light);
-    line-height: 1.7;
-    margin-bottom: var(--spacing-lg);
-    flex-grow: 0;
-  }
-
-  .service-card__features {
-    list-style: none;
+    line-height: 1.6;
     margin-bottom: var(--spacing-lg);
     flex-grow: 1;
-  }
-
-  .service-card__features li {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--spacing-sm);
-    font-size: 0.88rem;
-    color: var(--color-brown);
-    padding: var(--spacing-xs) 0;
-    line-height: 1.6;
-  }
-
-  .service-card__features svg {
-    color: var(--color-gold);
-    flex-shrink: 0;
-    margin-top: 3px;
   }
 
   .service-card__cta {
@@ -439,6 +404,7 @@ const faqs = [
     text-transform: uppercase;
     letter-spacing: 0.08em;
     transition: gap var(--transition-fast);
+    align-self: flex-start;
   }
 
   .service-card:hover .service-card__cta {
