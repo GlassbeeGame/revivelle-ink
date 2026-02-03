@@ -11,9 +11,9 @@ export const services = [
 
     // SEO & Meta
     meta: {
-      title: 'Stretch Mark Camouflage Tattoo | Sparks, NV | Revivelle Ink',
-      description: 'Professional stretch mark camouflage tattooing in Sparks, NV. Custom pigment matching for natural-looking results. Safe for all skin tones. Book your free consultation.',
-      keywords: 'stretch mark camouflage Sparks NV, stretch mark tattoo Reno, paramedical tattoo Nevada, stretch mark removal Sparks, skin camouflage tattoo Washoe County',
+      title: 'Stretch Mark Camouflage in Sparks, NV | Revivelle Ink',
+      description: 'Paramedical stretch mark camouflage tattoo for white or light stretch marks. Custom pigment matching for soft, natural-looking results. Book your free consultation in Sparks today.',
+      keywords: 'stretch mark camouflage, stretch mark camouflage tattoo, stretch mark tattoo camouflage near me, stretch mark camouflage near me, stretch mark tattoo camouflage, tattoo for stretch marks camouflage, tattoo stretch mark camouflage, camouflage tattooing for stretch marks, camouflage stretch mark, camouflage stretch marks, camouflage tattoo for stretch marks, cost of camouflage stretch marks',
     },
 
     // Page Content
@@ -23,67 +23,74 @@ export const services = [
     },
 
     intro: {
-      tagline: 'Transform Your Skin',
-      heading: 'What is Stretch Mark Camouflage Tattooing?',
-      description: 'Stretch mark camouflage is a specialized paramedical tattoo technique that uses custom-blended pigments to match your natural skin tone. By carefully tattooing pigment into white or light stretch marks, we can significantly reduce their appearance and create a smoother, more even look. This treatment is ideal for those with mature, light-colored stretch marks who want long-lasting results.',
+      tagline: 'You Deserve to Feel Beautiful in Your Skin',
+      heading: 'Soft, Seamless Coverage for White or Light Stretch Marks',
+      description: 'Stretch mark camouflage is a specialized tattooing technique that uses skin-toned pigments to blend white or silver stretch marks into the surrounding skin. Also known as stretch mark camouflage tattoo or camouflage tattooing for stretch marks, this long-lasting treatment helps restore confidence by making stretch marks significantly less visible. If you\'ve been searching for "stretch mark camouflage near me" or "tattoo for stretch marks camouflage," you\'re in the right place.',
     },
 
     benefits: [
-      'Custom pigment perfectly matched to your skin tone',
-      'Long-lasting results (3-7 years)',
+      'Custom pigment matching for your unique skin tone',
       'Safe and effective for all skin tones',
-      'Minimal downtime and fast healing',
+      'Long-lasting results (3–7 years typical)',
       'Reduces visibility of white and light stretch marks',
-      'Boost confidence and feel comfortable in your skin',
+      'Boosts confidence with natural-looking improvement',
+      'Minimal downtime and fast healing',
+      'Ideal for healed stretch marks (1+ year old)',
+      'Comfortable process with numbing available',
     ],
 
     process: [
       {
         step: '01',
         title: 'Free Consultation',
-        description: 'We discuss your goals, examine your stretch marks, and determine if you\'re a good candidate. I\'ll answer all your questions and explain what to expect.',
+        description: 'We assess your stretch marks, skin tone, and goals to determine if you\'re a good candidate for stretch mark tattoo camouflage.',
       },
       {
         step: '02',
         title: 'Custom Color Matching',
-        description: 'I create a custom pigment blend that perfectly matches your natural skin tone, ensuring seamless, natural-looking results.',
+        description: 'We create a personalized pigment blend to match your skin perfectly for seamless, natural results.',
       },
       {
         step: '03',
-        title: 'Treatment Session',
-        description: 'Using a sterile, single-use cartridge, I carefully tattoo the custom pigment into your stretch marks. Numbing is available for comfort.',
+        title: 'Camouflage Tattoo Session',
+        description: 'Using sterile equipment, pigment is gently tattooed into the stretch marks to camouflage stretch marks and blend them with your natural skin tone.',
       },
       {
         step: '04',
-        title: 'Healing & Follow-Up',
-        description: 'Your skin heals over 4-6 weeks. Most clients need 1-3 sessions total, spaced 8-12 weeks apart for optimal results.',
+        title: 'Healing & Aftercare',
+        description: 'Healing takes 4–6 weeks. The treated area initially appears darker, then gradually lightens to match your skin.',
+      },
+      {
+        step: '05',
+        title: 'Follow-Up Sessions',
+        description: 'Most clients need 1–3 sessions spaced 8–12 weeks apart for best results with their tattoo stretch mark camouflage.',
       },
     ],
 
     pricing: {
-      display: '$250 per section',
+      display: '$250+ / session',
       details: [
-        'Starting at $250 per treatment area per session',
-        'Most clients need 1-3 sessions for best results',
-        'Sessions spaced 8-12 weeks apart',
-        'Non-refundable deposit required to book',
-        'Free initial consultation (phone or in-person)',
+        'Free consultation included',
+        'Starting at $250 per treatment area',
+        'Most clients need 1–3 sessions',
+        'Sessions spaced 8–12 weeks apart',
+        'Total investment typically $500–$1,500',
       ],
-      cta: 'Pricing varies based on size and complexity of the area. Call for a personalized quote.',
+      cta: 'Book a free consultation to see if stretch mark camouflage tattoo is right for you and learn about the cost of camouflage stretch marks treatment.',
     },
 
     idealFor: {
-      heading: 'Is This Treatment Right for You?',
-      intro: 'Stretch mark camouflage tattooing works best for clients who meet these criteria:',
+      heading: 'Is Stretch Mark Camouflage Right for You?',
+      intro: 'This treatment is ideal for clients wanting a visual improvement of white or light stretch marks.',
       criteria: [
-        'You have white, silver, or light-colored stretch marks',
-        'Your stretch marks are fully healed (at least 1 year old)',
-        'Your skin tone is stable (no recent tanning or sun exposure)',
-        'You want a long-lasting, low-maintenance solution',
-        'You\'re not pregnant or nursing',
-        'You have realistic expectations about results',
+        'Your stretch marks are white, silver, or light-colored',
+        'You\'re not pregnant or breastfeeding',
+        'Your skin tone is stable (no recent sun exposure or tanning)',
+        'Stretch marks are at least 12 months old',
+        'You want a longer-lasting, low-maintenance solution',
+        'You want your skin to look more even and smooth',
       ],
-      note: 'This treatment is safe for all skin tones. I customize every session to your unique skin type and goals.',
+      note: 'Not suitable for red or purple stretch marks. These are still healing and require a different treatment approach, such as inkless revision.',
     },
 
     commonAreas: [
@@ -99,36 +106,36 @@ export const services = [
 
     faqs: [
       {
+        question: 'What is stretch mark camouflage tattoo?',
+        answer: 'Stretch mark camouflage tattoo is a cosmetic tattooing procedure that blends skin-toned pigment into white or light stretch marks, making them less visible and more even with the surrounding skin. It\'s also called camouflage tattooing for stretch marks or tattoo for stretch marks camouflage.',
+      },
+      {
+        question: 'Can stretch mark camouflage treat red or purple stretch marks?',
+        answer: 'No. Red or purple stretch marks are still healing and cannot be treated with camouflage tattoo for stretch marks. This treatment works best on white, silver, or light stretch marks that are at least 12 months old and fully healed.',
+      },
+      {
         question: 'How long does stretch mark camouflage last?',
-        answer: 'Results typically last 3-7 years, depending on your lifestyle, skin type, and sun exposure. Touch-ups may be needed over time as pigment naturally fades.',
+        answer: 'Stretch mark camouflage tattoo results typically last 3–7 years. Touch-ups may be needed depending on sun exposure, lifestyle, and skin changes over time.',
       },
       {
-        question: 'Does stretch mark camouflage tattooing hurt?',
-        answer: 'Most clients describe the sensation as mild scratching or vibration, similar to a regular tattoo. Topical numbing cream is available to maximize your comfort during the session.',
+        question: 'Is stretch mark tattoo camouflage painful?',
+        answer: 'Most clients describe the feeling as a mild vibration or scratching sensation. Numbing cream is available to reduce discomfort during the tattoo stretch mark camouflage procedure.',
       },
       {
-        question: 'How many sessions will I need?',
-        answer: 'Most clients need 1-3 sessions to achieve their desired results. The number of sessions depends on the size, depth, and color of your stretch marks. Sessions are spaced 8-12 weeks apart.',
+        question: 'What should I expect before and after treatment?',
+        answer: 'Immediately after your stretch mark camouflage tattoo, the treated area may appear slightly darker. Over 4–6 weeks, it softens and blends into your skin tone, significantly reducing the visibility of the stretch marks.',
       },
       {
-        question: 'Can you treat red or purple stretch marks?',
-        answer: 'No, this treatment is only for white, silver, or light-colored stretch marks that have fully matured. Red or purple marks are still in the healing phase and cannot be tattooed. Wait until they turn white (typically 1+ year).',
+        question: 'How many sessions do I need to camouflage stretch marks?',
+        answer: 'Most clients see best results after 1–3 sessions of stretch mark tattoo camouflage, spaced 8–12 weeks apart. The exact number depends on the size, depth, and color of your stretch marks.',
       },
       {
-        question: 'Will my stretch marks completely disappear?',
-        answer: 'While camouflage tattooing can dramatically reduce the appearance of stretch marks, it cannot make them completely disappear. The goal is to blend them into your natural skin tone for a smoother, more even look.',
+        question: 'What is the cost of camouflage stretch marks treatment?',
+        answer: 'The cost of camouflage stretch marks treatment starts at $250 per treatment area per session. Total investment typically ranges from $500–$1,500 for complete treatment, depending on the size and number of areas treated. Call for a free consultation and personalized quote.',
       },
       {
-        question: 'What is the healing process like?',
-        answer: 'Healing takes 4-6 weeks. The treated area may appear darker initially, then gradually lightens to match your skin tone. You\'ll need to avoid sun exposure, swimming, and heavy sweating during healing.',
-      },
-      {
-        question: 'Is this treatment safe for all skin tones?',
-        answer: 'Yes! I specialize in color matching for all skin tones, from very fair to very deep. I custom-blend pigments to ensure natural, seamless results regardless of your complexion.',
-      },
-      {
-        question: 'How much does stretch mark camouflage cost in Sparks, NV?',
-        answer: 'Treatment starts at $250 per section per session. The total cost depends on the size and number of areas treated. Most clients invest $500-$1,500 total for complete treatment. Call for a free consultation and personalized quote.',
+        question: 'Where can I find stretch mark camouflage near me?',
+        answer: 'Revivelle Ink offers stretch mark camouflage near Sparks, NV, serving clients throughout Reno, Spanish Springs, Carson City, and all of Washoe County. If you\'ve been searching for "stretch mark tattoo camouflage near me," we\'re here to help. Call (707) 660-0921 to schedule your free consultation.',
       },
     ],
 
@@ -145,84 +152,87 @@ export const services = [
 
     // SEO & Meta
     meta: {
-      title: 'Inkless Stretch Mark Revision | Sparks, NV | Revivelle Ink',
-      description: 'Natural inkless stretch mark revision in Sparks, NV. Pigment-free collagen stimulation treatment for smoother skin texture. Safe for all skin types. Book consultation.',
-      keywords: 'inkless stretch mark revision Sparks NV, inkless scar revision Reno, stretch mark treatment Nevada, collagen induction therapy Sparks, natural scar treatment Washoe County',
+      title: 'Inkless Stretch Mark Revision in Sparks, NV | Revivelle Ink',
+      description: 'Natural, pigment-free inkless stretch mark revision treatment to reduce stretch marks at any stage. Safe for all skin tones. Book your free consultation in Sparks, NV today.',
+      keywords: 'inkless stretch mark revision, inkless stretch mark revision painful, what is inkless stretch mark revision, inkless stretch mark revision near me, inkless stretch mark revision before and after, inkless scar revision',
     },
 
     // Page Content
     hero: {
       title: 'Inkless Stretch Mark Revision',
-      subtitle: 'Pigment-free treatment using custom serums and controlled needling to naturally improve stretch mark texture and appearance.',
+      subtitle: 'A natural, pigment-free treatment that helps reduce stretch marks at every stage.',
     },
 
     intro: {
-      tagline: 'Natural Healing',
-      heading: 'What is Inkless Stretch Mark Revision?',
-      description: 'Inkless revision is a natural, pigment-free treatment that uses controlled micro-needling and specialized healing serums to stimulate your skin\'s own collagen production. Unlike tattooing, this technique doesn\'t add any ink or pigment—instead, it works with your body\'s natural healing response to improve stretch mark texture, tone, and overall appearance. It\'s an excellent option for those who prefer a holistic approach or aren\'t ready for pigment.',
+      tagline: 'No Pigment. Just Progress.',
+      heading: 'A Gentle, Ink-Free Path to Smoother Skin',
+      description: 'Inkless stretch mark revision is a specialized microneedling treatment that stimulates your body\'s collagen response to improve the tone, texture, and visibility of stretch marks. Unlike camouflage tattooing, no pigment is used. This makes it a powerful, natural solution for red, purple, white, and silver marks alike. Many clients ask, "what is inkless stretch mark revision?"—it\'s a gentle, science-backed approach that works with your skin\'s natural healing ability to create smoother, more even results over time.',
     },
 
     benefits: [
       'No tattoo pigment or ink used',
-      'Stimulates natural collagen production',
-      'Improves texture, tone, and appearance',
+      'Reduces appearance of stretch marks at any stage',
+      'Improves skin texture and tone naturally',
+      'Boosts collagen production for long-term results',
+      'Safe for red, purple, white, or silver stretch marks',
+      'Low discomfort with optional numbing cream',
       'Safe for all skin types and tones',
-      'Can treat red, purple, white, and silver stretch marks',
-      'Natural healing process with long-lasting results',
+      'Can be combined with camouflage tattooing',
     ],
 
     process: [
       {
         step: '01',
-        title: 'Consultation & Assessment',
-        description: 'We evaluate your stretch marks and skin type, discuss your goals, and create a personalized treatment plan tailored to your needs.',
+        title: 'Free Consultation',
+        description: 'We evaluate your skin, the stretch mark type, and your goals. You\'ll learn what inkless stretch mark revision is and how it can help your unique situation.',
       },
       {
         step: '02',
-        title: 'Skin Preparation',
-        description: 'The treatment area is thoroughly cleansed and prepped. Numbing cream is applied if desired for maximum comfort.',
+        title: 'Treatment Plan & Prep',
+        description: 'A custom plan is created based on your needs. We cleanse the skin and apply numbing cream for your comfort.',
       },
       {
         step: '03',
-        title: 'Controlled Needling',
-        description: 'I perform precise micro-needling to create controlled micro-channels in the skin, triggering your body\'s natural collagen response.',
+        title: 'Microneedling Session',
+        description: 'Using precise tools, we perform controlled micro-needling and apply healing serums to the treated area to stimulate natural collagen production.',
       },
       {
         step: '04',
-        title: 'Serum Infusion',
-        description: 'Specialized healing serums are applied and gently infused into the micro-channels to support regeneration and optimal healing.',
+        title: 'Aftercare Guidance',
+        description: 'You\'ll receive detailed healing instructions. Most clients experience mild redness and sensitivity for a few days—healing is gentle and manageable.',
       },
       {
         step: '05',
-        title: 'Aftercare & Follow-Up',
-        description: 'I provide detailed aftercare instructions and schedule your next session. Most clients need 3-6 treatments spaced 6-8 weeks apart.',
+        title: 'Ongoing Results & Sessions',
+        description: 'Most clients benefit from 3–6 sessions spaced 6–8 weeks apart. Results improve gradually over several months as your skin regenerates naturally.',
       },
     ],
 
     pricing: {
-      display: '$250 per section',
+      display: '$250+ / session',
       details: [
-        'Starting at $250 per treatment area per session',
-        'Most clients need 3-6 sessions for optimal results',
-        'Sessions spaced 6-8 weeks apart',
-        'Non-refundable deposit required to book',
-        'Free initial consultation (phone or in-person)',
+        'Free consultation included',
+        'Starting at $250 per treatment area',
+        'Most clients need 3–6 sessions',
+        'Sessions spaced 6–8 weeks apart',
+        'Gradual improvement continues for months',
+        'Total investment typically $750–$1,500',
       ],
-      cta: 'Pricing varies based on size and complexity of the area. Call for a personalized quote.',
+      cta: 'Schedule a free consultation to learn if inkless stretch mark revision is right for you.',
     },
 
     idealFor: {
       heading: 'Is Inkless Revision Right for You?',
-      intro: 'Inkless stretch mark revision is ideal for clients who:',
+      intro: 'This treatment is ideal for clients seeking a pigment-free method to address stretch marks naturally.',
       criteria: [
-        'Prefer a natural, pigment-free approach',
-        'Have red, purple, white, or silver stretch marks',
-        'Want to improve texture and tone without tattoo ink',
-        'Are willing to commit to multiple sessions (3-6 treatments)',
-        'Have realistic expectations about gradual improvement',
-        'Are not pregnant or nursing',
+        'Your stretch marks are red, purple, white, or silver',
+        'You\'re not pregnant or nursing',
+        'You prefer a natural approach without ink',
+        'You want to improve texture and tone',
+        'You\'re committed to multiple sessions and gradual results',
+        'You want a safe and compassionate treatment environment',
       ],
-      note: 'This treatment works beautifully on all skin tones and can be combined with pigment camouflage for enhanced results.',
+      note: 'Inkless stretch mark revision can be used on its own or in combination with camouflage tattooing. We\'ll help guide the best choice for your skin.',
     },
 
     commonAreas: [
@@ -238,36 +248,36 @@ export const services = [
 
     faqs: [
       {
-        question: 'What\'s the difference between inkless revision and camouflage tattooing?',
-        answer: 'Inkless revision uses no pigment or ink—it relies on your body\'s natural collagen production to improve texture and tone. Camouflage tattooing uses custom-blended pigments to match your skin tone and visually blend stretch marks. Inkless is more natural, while tattooing provides more dramatic color correction.',
+        question: 'What is inkless stretch mark revision?',
+        answer: 'Inkless stretch mark revision is a microneedling treatment that improves stretch marks without using any tattoo pigment. Specialized healing serums are used to enhance skin recovery and boost natural collagen production, resulting in smoother, more even skin texture.',
       },
       {
-        question: 'How many inkless revision sessions will I need?',
-        answer: 'Most clients need 3-6 sessions for optimal results. Treatments are spaced 6-8 weeks apart to allow your skin to heal and build new collagen between sessions.',
+        question: 'Is inkless stretch mark revision painful?',
+        answer: 'Most clients report mild discomfort described as tingling or light scratching. The treatment is not painful for most people, and we offer numbing cream to keep you comfortable throughout the session.',
       },
       {
-        question: 'Does inkless stretch mark revision hurt?',
-        answer: 'Most clients describe the sensation as mild scratching or tingling. Numbing cream is available to ensure your comfort throughout the treatment.',
+        question: 'Can this treat all types of stretch marks?',
+        answer: 'Yes! Inkless stretch mark revision works on red, purple, white, or silver stretch marks—including both early-stage and mature marks. This makes it more versatile than pigment camouflage, which can only treat mature, light-colored marks.',
       },
       {
-        question: 'How long do inkless revision results last?',
-        answer: 'Results are long-lasting because the treatment stimulates your body\'s own collagen production. The improvements develop gradually over 3-6 months and can continue to improve for up to a year after your final session.',
+        question: 'What areas can be treated?',
+        answer: 'Common areas include the stomach, thighs, hips, arms, breasts, lower back, and more. We can treat one or multiple areas per session depending on your goals and treatment plan.',
       },
       {
-        question: 'Can inkless revision treat red or purple stretch marks?',
-        answer: 'Yes! Unlike pigment camouflage, inkless revision can treat stretch marks at any stage—red, purple, white, or silver. It\'s an excellent option for newer stretch marks.',
+        question: 'How many sessions will I need?',
+        answer: 'Most clients need 3–6 inkless stretch mark revision sessions spaced 6–8 weeks apart. Results develop gradually over several months as your skin produces new collagen and regenerates.',
       },
       {
-        question: 'What is the healing process like for inkless revision?',
-        answer: 'Healing takes about 1-2 weeks. You may experience mild redness and sensitivity immediately after treatment. The area will heal relatively quickly, and you\'ll see gradual improvement over the following weeks as collagen builds.',
+        question: 'What results can I expect before and after?',
+        answer: 'Inkless stretch mark revision before and after results show smoother, more even skin with reduced visibility of stretch marks. The skin feels more refined and supple, and texture improvements are noticeable. Results vary by individual, but most clients see significant improvement after completing their treatment series.',
       },
       {
-        question: 'Can I combine inkless revision with pigment camouflage?',
-        answer: 'Absolutely! Many clients start with inkless revision to improve texture, then add pigment camouflage for color correction. This combination approach often produces the best overall results.',
+        question: 'Can I combine inkless revision with camouflage tattooing?',
+        answer: 'Absolutely! Many clients start with inkless stretch mark revision to improve texture, then add pigment camouflage for color blending. This combination approach often produces the most comprehensive, natural-looking results.',
       },
       {
-        question: 'How much does inkless stretch mark revision cost in Sparks, NV?',
-        answer: 'Treatment starts at $250 per section per session. Most clients invest $750-$1,500 total for a complete series of 3-6 treatments. Call for a free consultation and personalized quote.',
+        question: 'Where can I find inkless stretch mark revision near me?',
+        answer: 'Revivelle Ink offers inkless stretch mark revision near Sparks, NV, serving clients throughout Reno, Spanish Springs, Carson City, and all of Washoe County. Call (707) 660-0921 to schedule your free consultation.',
       },
     ],
 
@@ -283,9 +293,9 @@ export const services = [
 
     // SEO & Meta
     meta: {
-      title: 'Scar Camouflage Tattoo | Sparks, NV | Revivelle Ink',
-      description: 'Professional scar camouflage tattooing in Sparks, NV. Reduce appearance of surgical scars, C-sections, and injury scars. Safe, natural results. Book consultation.',
-      keywords: 'scar camouflage Sparks NV, scar tattoo Reno, C-section scar camouflage Nevada, surgical scar treatment Sparks, paramedical tattoo Washoe County, scar revision Reno',
+      title: 'Scar Camouflage Tattoo in Sparks, NV | Revivelle Ink',
+      description: 'Reduce the visibility of scars with paramedical scar camouflage tattoo. Custom pigment matching for all skin tones. Book your free consultation today in Sparks.',
+      keywords: 'scar camouflage tattoo, scar camouflage tattoo near me, scar camouflage tattoo artist, scar tattoo camouflage, tattoo scar camouflage, camouflage tattoo for scars, scar camouflage tattoo before and after, scar camouflage tattoo cost, scar camouflage tattoo dark skin, scar camouflage tattoo price, camouflage tattoo for tummy tuck scar, cosmetic tattoo scar camouflage',
     },
 
     // Page Content
@@ -295,117 +305,128 @@ export const services = [
     },
 
     intro: {
-      tagline: 'Restore Your Confidence',
-      heading: 'What is Scar Camouflage?',
-      description: 'Scar camouflage is a specialized paramedical tattoo technique that blends scars into the surrounding skin using custom-matched pigments. Whether you have a C-section scar, tummy tuck scar, or injury scar, this treatment can significantly reduce visibility and help you feel more confident. For textured scars, we can also use inkless revision techniques to improve the scar\'s texture before adding pigment.',
+      tagline: 'Scars Tell a Story. We Help You Reframe It.',
+      heading: 'A Soft, Artistic Approach to Scar Camouflage',
+      description: 'Scar camouflage tattoo is a specialized cosmetic tattoo scar camouflage technique that blends carefully matched pigment into the scar area, making it less visible and more cohesive with the surrounding skin. This transformative service is ideal for clients with fully healed surgical or injury scars who want to reduce their visibility and reclaim confidence. If you\'ve been searching for a "scar camouflage tattoo artist" or "scar camouflage tattoo near me," Revivelle Ink offers expert camouflage tattoo for scars in Sparks, NV.',
     },
 
     benefits: [
-      'Reduces visibility of surgical and injury scars',
-      'Custom color matching for natural-looking results',
-      'Safe for all skin tones',
-      'Can treat C-section, tummy tuck, and surgical scars',
-      'Inkless options available for texture improvement',
-      'Boost confidence and reduce self-consciousness',
+      'Custom pigment matching for natural results',
+      'Safe for all skin tones including dark skin',
+      'Reduces visibility of surgical, injury, and trauma scars',
+      'Improves appearance and texture of healed scars',
+      'Works on flat, non-keloid scars',
+      'Ideal for tummy tuck, C-section, and breast surgery scars',
+      'Long-lasting results (3–7 years typical)',
+      'Minimal downtime with numbing available',
     ],
 
     process: [
       {
         step: '01',
-        title: 'Consultation & Evaluation',
-        description: 'I examine your scar, discuss your goals, and determine the best treatment approach—pigment camouflage, inkless revision, or a combination.',
+        title: 'Scar Assessment & Consultation',
+        description: 'We evaluate the scar, skin tone, and goals to determine the best treatment approach for your scar tattoo camouflage (pigment, inkless, or combination).',
       },
       {
         step: '02',
-        title: 'Treatment Planning',
-        description: 'For pigment work, I create a custom color blend. For textured scars, I may recommend starting with inkless revision to improve texture first.',
+        title: 'Color Matching & Planning',
+        description: 'We blend a custom pigment to match your skin tone perfectly and plan your tattoo scar camouflage session strategy.',
       },
       {
         step: '03',
         title: 'Treatment Session',
-        description: 'Using sterile, single-use equipment, I carefully perform the treatment. Numbing is available to ensure your comfort.',
+        description: 'Using sterile, single-use equipment, pigment is carefully deposited into the scar using specialized scar camouflage tattoo techniques.',
       },
       {
         step: '04',
-        title: 'Healing & Results',
-        description: 'Your scar heals over 4-6 weeks. Multiple sessions may be needed depending on the scar type, size, and desired results.',
+        title: 'Healing & Aftercare',
+        description: 'Healing takes 4–6 weeks. You\'ll receive detailed aftercare instructions to protect your camouflage tattoo for scars results.',
+      },
+      {
+        step: '05',
+        title: 'Ongoing Sessions as Needed',
+        description: 'Most clients need 1–3 sessions spaced 8–12 weeks apart. Inkless revision may be recommended first for textured scars before scar camouflage tattoo.',
       },
     ],
 
     pricing: {
-      display: '$250 per section',
+      display: '$250+ / session',
       details: [
-        'Starting at $250 per treatment area per session',
-        'Number of sessions varies by scar type and size',
-        'Sessions spaced 8-12 weeks apart for pigment work',
-        'Sessions spaced 6-8 weeks apart for inkless revision',
-        'Non-refundable deposit required to book',
-        'Free initial consultation (phone or in-person)',
+        'Free consultation included',
+        'Starting at $250 per scar area',
+        'Most clients need 1–3 pigment sessions',
+        'Inkless sessions may be added first for texture',
+        'Sessions spaced 8–12 weeks apart for pigment',
+        'Total investment typically $250–$1,000+',
       ],
-      cta: 'Pricing varies based on scar size, type, and treatment approach. Call for a personalized quote.',
+      cta: 'Book a free consultation to learn about scar camouflage tattoo cost and see if this treatment is right for you.',
     },
 
     idealFor: {
       heading: 'Is Scar Camouflage Right for You?',
-      intro: 'Scar camouflage works best for clients who:',
+      intro: 'Scar camouflage tattoo is ideal for clients with fully healed scars who want a long-lasting, skin-blending solution.',
       criteria: [
-        'Have fully healed scars (at least 12-18 months old)',
-        'Want to reduce the visibility of surgical or injury scars',
-        'Have realistic expectations about results',
-        'Are not keloid-prone (raised, overgrown scars)',
-        'Have stable skin tone (no recent tanning)',
-        'Are not pregnant or nursing',
+        'Your scar is fully healed (12–18 months post-procedure)',
+        'Your scar is flat (not keloid or raised)',
+        'You\'re not pregnant or breastfeeding',
+        'You want to reduce the visibility of a surgical or injury scar',
+        'You prefer a natural-looking result',
+        'You want a compassionate, private experience',
       ],
-      note: 'Not all scars are suitable for camouflage. Keloid scars, hypertrophic scars, and very recent scars may not be good candidates. Call for a free consultation to discuss your specific scar.',
+      note: 'Not all scars are suitable for scar camouflage tattoo. A consultation is required to assess your scar and determine candidacy.',
     },
 
     commonAreas: [
       'C-section scars',
       'Tummy tuck scars',
       'Breast surgery scars',
-      'Injury scars',
       'Surgical scars',
+      'Accident or injury scars',
       'Burn scars (healed)',
       'Self-harm scars',
-      'Accident scars',
+      'Arm and leg scars',
     ],
 
     faqs: [
       {
-        question: 'Can you camouflage any type of scar?',
-        answer: 'Not all scars are suitable for camouflage. The best candidates are flat, fully healed scars that are at least 12-18 months old. Keloid scars, hypertrophic (raised) scars, and very textured scars may not be good candidates. Call for a consultation to discuss your specific scar.',
+        question: 'What is scar camouflage tattooing?',
+        answer: 'Scar camouflage tattoo is a paramedical tattoo technique that blends skin-toned pigment into healed scars to reduce their visibility and create a more even skin tone. It\'s also known as cosmetic tattoo scar camouflage or tattoo scar camouflage.',
       },
       {
-        question: 'How long does scar camouflage last?',
-        answer: 'Scar camouflage typically lasts 3-7 years, depending on the scar location, your lifestyle, and sun exposure. Touch-ups may be needed as pigment naturally fades over time.',
+        question: 'Can you treat scars on dark skin?',
+        answer: 'Yes! Sammi is trained as a scar camouflage tattoo artist for all skin tones, including scar camouflage tattoo dark skin. Custom pigment blends ensure natural results, even for deeper complexions.',
       },
       {
-        question: 'Can you treat C-section scars?',
-        answer: 'Yes! C-section scars are one of the most common areas we treat. The scar must be fully healed (at least 12-18 months postpartum) and you must not be pregnant or nursing.',
+        question: 'Can this treat raised or keloid scars?',
+        answer: 'Unfortunately, no. Scar camouflage tattoo is only suitable for flat, fully healed scars. Raised or keloid scars are not good candidates for camouflage tattoo for scars.',
       },
       {
-        question: 'Does scar camouflage hurt?',
-        answer: 'Most clients describe the sensation as mild discomfort, similar to a regular tattoo. Scar tissue can sometimes be less sensitive than normal skin. Numbing cream is available for your comfort.',
+        question: 'What kinds of scars can you camouflage?',
+        answer: 'We can perform scar tattoo camouflage on C-section scars, camouflage tattoo for tummy tuck scar, breast surgery scars, surgical scars, accident scars, burn scars, and more—as long as they\'re fully healed and non-keloid.',
       },
       {
-        question: 'How many sessions will I need for scar camouflage?',
-        answer: 'It depends on the scar type, size, and color difference. Most clients need 1-3 sessions for pigment camouflage, or 3-6 sessions if starting with inkless revision for texture improvement.',
+        question: 'How many sessions will I need?',
+        answer: 'Most clients see great results in 1–3 scar camouflage tattoo sessions spaced 8–12 weeks apart. Inkless revision may be used first to soften texture before adding pigment.',
       },
       {
-        question: 'What\'s the difference between scar camouflage and inkless scar revision?',
-        answer: 'Scar camouflage uses pigment to blend the scar color into surrounding skin. Inkless revision uses micro-needling and serums to improve scar texture without adding pigment. They can be combined for optimal results.',
+        question: 'What does the healing process look like?',
+        answer: 'After your scar camouflage tattoo, the treated area may appear darker at first, then softens over 4–6 weeks. Avoid sun, sweating, or swimming during healing to protect your results.',
       },
       {
-        question: 'Will my scar completely disappear?',
-        answer: 'No treatment can make a scar completely disappear. The goal of camouflage is to reduce the scar\'s visibility by blending it into the surrounding skin tone. Results vary depending on the scar type and skin tone.',
+        question: 'What should I expect from scar camouflage tattoo before and after?',
+        answer: 'Scar camouflage tattoo before and after results show significantly reduced scar visibility with more even skin tone. The scar blends more naturally with surrounding skin, though results vary by scar type and skin tone.',
       },
       {
-        question: 'How much does scar camouflage cost in Sparks, NV?',
-        answer: 'Treatment starts at $250 per session. The total cost depends on scar size, type, and number of sessions needed. Most clients invest $250-$1,000+ for complete treatment. Call for a free consultation and personalized quote.',
+        question: 'What is the scar camouflage tattoo price?',
+        answer: 'Scar camouflage tattoo price starts at $250 per treatment area. The scar camouflage tattoo cost depends on scar size, type, and number of sessions needed. Most clients invest $250–$1,000+ total. Call for a free consultation and personalized quote.',
+      },
+      {
+        question: 'Where can I find scar camouflage tattoo near me?',
+        answer: 'If you\'re searching for "scar camouflage tattoo near me," Revivelle Ink offers expert scar camouflage tattoo services in Sparks, NV, serving clients throughout Reno, Spanish Springs, Carson City, and all of Washoe County. Call (707) 660-0921 to schedule your consultation.',
       },
     ],
 
-    relatedServices: ['stretch-mark-camouflage', 'inkless-revision'],
+    relatedServices: ['inkless-revision', 'stretch-mark-camouflage'],
   },
 ];
 
