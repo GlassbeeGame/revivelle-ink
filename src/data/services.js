@@ -409,87 +409,131 @@ export const services = [
 
     // SEO & Meta
     meta: {
-      title: 'Scar Camouflage Tattoo in Sparks, NV | Revivelle Ink',
-      description: 'Reduce the visibility of scars with paramedical scar camouflage tattoo. Custom pigment matching for all skin tones. Book your free consultation today in Sparks.',
-      keywords: 'scar camouflage tattoo, scar camouflage tattoo near me, scar camouflage tattoo artist, scar tattoo camouflage, tattoo scar camouflage, camouflage tattoo for scars, scar camouflage tattoo before and after, scar camouflage tattoo cost, scar camouflage tattoo dark skin, scar camouflage tattoo price, camouflage tattoo for tummy tuck scar, cosmetic tattoo scar camouflage',
+      title: 'Scar Camouflage Tattoo in Sparks, Reno & Washoe County NV | Revivelle Ink',
+      description: 'Specialized scar camouflage tattoo to reduce visibility of surgical and injury scars. Custom pigment matching for all skin tones. Serving Sparks, Reno & Washoe County. Free consultation. Call (707) 660-0921.',
+      keywords: 'scar camouflage tattoo, scar camouflage tattoo near me, scar camouflage tattoo artist, scar tattoo camouflage, tattoo scar camouflage, camouflage tattoo for scars, scar camouflage tattoo before and after, scar camouflage tattoo cost, scar camouflage tattoo dark skin, scar camouflage tattoo price, camouflage tattoo for tummy tuck scar, cosmetic tattoo scar camouflage, Sparks NV, Reno NV, Washoe County',
     },
 
     // Page Content
     hero: {
       title: 'Scar Camouflage & Revision',
       subtitle: 'Specialized paramedical tattooing to reduce the appearance of surgical scars, injury scars, and texture irregularities.',
+      servingArea: 'Serving Sparks, Reno & Washoe County',
+      ctaNote: 'Free consultation • Calling is part of the consultation process',
     },
 
     intro: {
       tagline: 'Scars Tell a Story. We Help You Reframe It.',
       heading: 'A Soft, Artistic Approach to Scar Camouflage',
-      description: 'Scar camouflage tattoo is a specialized cosmetic tattoo scar camouflage technique that blends carefully matched pigment into the scar area, making it less visible and more cohesive with the surrounding skin. This transformative service is ideal for clients with fully healed surgical or injury scars who want to reduce their visibility and reclaim confidence. If you\'ve been searching for a "scar camouflage tattoo artist" or "scar camouflage tattoo near me," Revivelle Ink offers expert camouflage tattoo for scars in Sparks, NV.',
+      description: 'Scar camouflage tattoo is a specialized form of cosmetic tattoo scar camouflage that blends custom-matched pigment into healed scar tissue to reduce contrast and help the scar visually integrate with the surrounding skin. This service is ideal for clients with fully healed surgical or injury scars who want to soften visibility without harsh coverage. Whether you\'re researching scar camouflage tattoo near me, looking for an experienced scar camouflage tattoo artist, or comparing scar camouflage tattoo cost, this page is designed to answer every question clearly and honestly. At Revivelle Ink, scar camouflage is approached with precision, restraint, and deep respect for the body — never rushed, never overdone.',
+    },
+
+    whatsIncluded: [
+      'Free consultation (phone or in-person) to assess scar type and candidacy',
+      'Professional scar evaluation (age, texture, depth, location, skin tone)',
+      'Custom pigment formulation tailored to your undertone and surrounding skin',
+      'Scar camouflage tattoo session using sterile, single-use equipment',
+      'Optional inkless revision recommendation for textured scars before pigment',
+      'Topical numbing available for comfort',
+      'Detailed aftercare guidance and healing support',
+      'Session planning (most scars require 1–3 sessions)',
+    ],
+
+    problemsSolved: {
+      heading: 'Common Problems We Solve',
+      subheading: 'Why Clients Choose Tattoo Scar Camouflage',
+      intro: 'Scar camouflage tattoo is especially effective for scars that feel visually distracting, even if they\'re physically healed.',
+      problems: [
+        'C-section scars that appear lighter or darker than surrounding skin',
+        'Tummy tuck scars that stand out in swimwear or fitted clothing',
+        'Breast surgery scars (augmentation, reduction, reconstruction)',
+        'Surgical scars from orthopedic or medical procedures',
+        'Accident or injury scars that healed unevenly in color',
+        'Self-harm scars where privacy, compassion, and discretion matter',
+        'Scars on dark skin where color matching requires advanced expertise',
+      ],
+      note: 'This treatment does not erase scars — but it can dramatically reduce how visible they are in everyday life.',
     },
 
     benefits: [
-      'Custom pigment matching for natural results',
-      'Safe for all skin tones including dark skin',
+      'Custom pigment matching for natural-looking results',
+      'Safe for all skin tones, including deep and melanated skin',
       'Reduces visibility of surgical, injury, and trauma scars',
-      'Improves appearance and texture of healed scars',
-      'Works on flat, non-keloid scars',
-      'Ideal for tummy tuck, C-section, and breast surgery scars',
-      'Long-lasting results (3–7 years typical)',
+      'Improves visual cohesion between scar and surrounding skin',
+      'Works best on flat, non-keloid scars',
+      'Long-lasting results (typically 3–7 years)',
       'Minimal downtime with numbing available',
+      'Designed for subtle, believable improvement',
     ],
 
     process: [
       {
         step: '01',
         title: 'Scar Assessment & Consultation',
-        description: 'We evaluate the scar, skin tone, and goals to determine the best treatment approach for your scar tattoo camouflage (pigment, inkless, or combination).',
+        description: 'We evaluate your scar\'s age, texture, and healing to determine whether pigment, inkless revision, or a combination is best.',
       },
       {
         step: '02',
         title: 'Color Matching & Planning',
-        description: 'We blend a custom pigment to match your skin tone perfectly and plan your tattoo scar camouflage session strategy.',
+        description: 'A custom pigment blend is created to match your surrounding skin tone as closely as possible.',
       },
       {
         step: '03',
-        title: 'Treatment Session',
-        description: 'Using sterile, single-use equipment, pigment is carefully deposited into the scar using specialized scar camouflage tattoo techniques.',
+        title: 'Scar Camouflage Tattoo Session',
+        description: 'Using specialized techniques, pigment is gently deposited into the scar to reduce contrast and visibility.',
       },
       {
         step: '04',
-        title: 'Healing & Aftercare',
-        description: 'Healing takes 4–6 weeks. You\'ll receive detailed aftercare instructions to protect your camouflage tattoo for scars results.',
+        title: 'Healing & Aftercare (4–6 weeks)',
+        description: 'The area may appear darker initially, then softens as it heals. You\'ll receive detailed aftercare instructions.',
       },
       {
         step: '05',
-        title: 'Ongoing Sessions as Needed',
-        description: 'Most clients need 1–3 sessions spaced 8–12 weeks apart. Inkless revision may be recommended first for textured scars before scar camouflage tattoo.',
+        title: 'Additional Sessions (If Needed)',
+        description: 'Most clients need 1–3 sessions, spaced 8–12 weeks apart. Textured scars may benefit from inkless revision before pigment.',
       },
     ],
 
     pricing: {
       display: '$250+ / session',
       details: [
-        'Free consultation included',
-        'Starting at $250 per scar area',
+        'Starting at $250+ per scar area, per session',
         'Most clients need 1–3 pigment sessions',
-        'Inkless sessions may be added first for texture',
-        'Sessions spaced 8–12 weeks apart for pigment',
-        'Total investment typically $250–$1,000+',
+        'Inkless revision may be recommended first for texture',
+        'Pigment sessions spaced 8–12 weeks apart',
+        'Typical total investment: $250–$1,000+',
       ],
-      cta: 'Book a free consultation to learn about scar camouflage tattoo cost and see if this treatment is right for you.',
+      note: 'If you\'re comparing scar camouflage tattoo price, remember that scar size, location, and complexity matter. A free consultation provides the most accurate estimate.',
+      cta: 'Call (707) 660-0921',
+    },
+
+    whyChoose: {
+      heading: 'Why Choose Revivelle Ink',
+      subheading: 'A Scar Camouflage Tattoo Artist Who Specializes — Not Dabbles',
+      intro: 'Scar camouflage requires more than tattoo skill — it requires medical awareness, color theory mastery, and emotional intelligence. Clients choose Revivelle Ink because:',
+      reasons: [
+        'Sammi specializes in paramedical tattooing, not decorative tattoos',
+        'Advanced experience with scar camouflage tattoo on dark skin',
+        'Trauma-informed, judgment-free care',
+        'Washoe County compliant sanitation standards',
+        'Custom pigment blending for every client',
+        'Private, peaceful studio in Sparks',
+        'Honest education and realistic expectations',
+      ],
     },
 
     idealFor: {
       heading: 'Is Scar Camouflage Right for You?',
-      intro: 'Scar camouflage tattoo is ideal for clients with fully healed scars who want a long-lasting, skin-blending solution.',
+      intro: 'Scar camouflage tattoo may be a good fit if:',
       criteria: [
-        'Your scar is fully healed (12–18 months post-procedure)',
-        'Your scar is flat (not keloid or raised)',
+        'Your scar is fully healed (12–18 months old)',
+        'Your scar is flat (not raised or keloid)',
         'You\'re not pregnant or breastfeeding',
-        'You want to reduce the visibility of a surgical or injury scar',
-        'You prefer a natural-looking result',
-        'You want a compassionate, private experience',
+        'You want to reduce visibility, not completely erase the scar',
+        'You prefer natural-looking results',
+        'You want a private, compassionate experience',
       ],
-      note: 'Not all scars are suitable for scar camouflage tattoo. A consultation is required to assess your scar and determine candidacy.',
+      note: 'Not all scars are suitable. A consultation is required to determine the best treatment approach.',
     },
 
     commonAreas: [
@@ -498,47 +542,66 @@ export const services = [
       'Breast surgery scars',
       'Surgical scars',
       'Accident or injury scars',
-      'Burn scars (healed)',
+      'Burn scars (fully healed)',
       'Self-harm scars',
       'Arm and leg scars',
     ],
 
+    serviceAreas: {
+      heading: 'Service Areas',
+      subheading: 'Scar Camouflage Tattoo in Sparks, Reno & Washoe County',
+      intro: 'Revivelle Ink serves clients throughout Northern Nevada, including:',
+      locations: [
+        'Sparks (primary location)',
+        'Reno',
+        'Spanish Springs',
+        'Sun Valley',
+        'South Reno',
+        'North Valleys',
+        'Carson City',
+        'Fernley',
+        'Incline Village',
+        'All of Washoe County',
+      ],
+      note: 'If you searched scar camouflage tattoo near me, and you\'re in Northern Nevada — you\'re in the right place.',
+    },
+
     faqs: [
       {
         question: 'What is scar camouflage tattooing?',
-        answer: 'Scar camouflage tattoo is a paramedical tattoo technique that blends skin-toned pigment into healed scars to reduce their visibility and create a more even skin tone. It\'s also known as cosmetic tattoo scar camouflage or tattoo scar camouflage.',
+        answer: 'It\'s a cosmetic tattoo technique that blends pigment into healed scars to reduce contrast and visibility.',
       },
       {
         question: 'Can you treat scars on dark skin?',
-        answer: 'Yes! Sammi is trained as a scar camouflage tattoo artist for all skin tones, including scar camouflage tattoo dark skin. Custom pigment blends ensure natural results, even for deeper complexions.',
+        answer: 'Yes. Custom pigment matching allows for safe, natural results on all skin tones, including dark skin.',
       },
       {
-        question: 'Can this treat raised or keloid scars?',
-        answer: 'Unfortunately, no. Scar camouflage tattoo is only suitable for flat, fully healed scars. Raised or keloid scars are not good candidates for camouflage tattoo for scars.',
+        question: 'Can you treat raised or keloid scars?',
+        answer: 'No. Raised or keloid scars are not suitable for scar camouflage tattooing.',
       },
       {
         question: 'What kinds of scars can you camouflage?',
-        answer: 'We can perform scar tattoo camouflage on C-section scars, camouflage tattoo for tummy tuck scar, breast surgery scars, surgical scars, accident scars, burn scars, and more—as long as they\'re fully healed and non-keloid.',
+        answer: 'Surgical scars, tummy tuck scars, C-section scars, injury scars, and some burn scars (fully healed).',
       },
       {
         question: 'How many sessions will I need?',
-        answer: 'Most clients see great results in 1–3 scar camouflage tattoo sessions spaced 8–12 weeks apart. Inkless revision may be used first to soften texture before adding pigment.',
+        answer: 'Most clients need 1–3 sessions, spaced 8–12 weeks apart.',
       },
       {
-        question: 'What does the healing process look like?',
-        answer: 'After your scar camouflage tattoo, the treated area may appear darker at first, then softens over 4–6 weeks. Avoid sun, sweating, or swimming during healing to protect your results.',
+        question: 'What does healing look like?',
+        answer: 'Healing takes 4–6 weeks. The area may appear darker initially, then softens as pigment settles.',
       },
       {
-        question: 'What should I expect from scar camouflage tattoo before and after?',
-        answer: 'Scar camouflage tattoo before and after results show significantly reduced scar visibility with more even skin tone. The scar blends more naturally with surrounding skin, though results vary by scar type and skin tone.',
+        question: 'What should I expect before and after scar camouflage tattoo?',
+        answer: 'Before: fully healed scar, stable skin tone. After: gradual blending and reduced contrast over weeks.',
       },
       {
         question: 'What is the scar camouflage tattoo price?',
-        answer: 'Scar camouflage tattoo price starts at $250 per treatment area. The scar camouflage tattoo cost depends on scar size, type, and number of sessions needed. Most clients invest $250–$1,000+ total. Call for a free consultation and personalized quote.',
+        answer: 'Pricing starts at $250+ per session, with total cost depending on scar size and complexity.',
       },
       {
-        question: 'Where can I find scar camouflage tattoo near me?',
-        answer: 'If you\'re searching for "scar camouflage tattoo near me," Revivelle Ink offers expert scar camouflage tattoo services in Sparks, NV, serving clients throughout Reno, Spanish Springs, Carson City, and all of Washoe County. Call (707) 660-0921 to schedule your consultation.',
+        question: 'Where can I find a scar camouflage tattoo artist near me?',
+        answer: 'Revivelle Ink offers scar camouflage tattoo in Sparks and serves Reno and Washoe County. Call (707) 660-0921 to schedule your free consultation.',
       },
     ],
 
