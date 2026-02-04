@@ -16,32 +16,52 @@ export const locations = [
 
     // SEO & Meta
     meta: {
-      title: '[Location Name] Paramedical Tattoo | Stretch Mark & Scar Camouflage | Revivelle Ink',
-      description: 'Professional paramedical tattoo services serving [Location]. Stretch mark camouflage, scar revision, inkless treatments. Licensed & insured. Book your free consultation.',
-      keywords: 'paramedical tattoo [location], stretch mark camouflage [location], scar camouflage [location], inkless revision [location], Revivelle Ink [location]',
+      title: 'Paramedical Tattoo Services in Reno, NV | Revivelle Ink',
+      description: 'Professional paramedical tattoo services serving Reno residents. Stretch mark camouflage, scar camouflage tattoo, and inkless revision. Just 5 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
+      keywords: 'paramedical tattoo Reno NV, stretch mark camouflage Reno, scar camouflage Reno, inkless revision Reno, Revivelle Ink Reno',
     },
 
     // Hero Section
     hero: {
-      title: 'Paramedical Tattoo Services in [Location Name]',
-      subtitle: 'Professional stretch mark and scar camouflage serving [location] residents. Just [X] minutes from our Sparks studio.',
+      title: 'Paramedical Tattoo Services in Reno, NV',
+      subtitle: 'Professional stretch mark and scar camouflage serving Reno residents. Just 5 minutes from our Sparks studio.',
     },
 
     // Introduction Section
     intro: {
       tagline: 'Serving Your Community',
-      heading: 'Professional Paramedical Tattoo Services for [Location] Residents',
-      description: '[Location-specific intro paragraph. Mention proximity to studio, why this area is served, any location-specific details like "convenient for [neighborhood] residents" or "easy access from [major road/landmark]"]',
+      heading: 'Professional Paramedical Tattoo Services for Reno Residents',
+      description: 'Revivelle Ink is a boutique paramedical tattoo studio located in Sparks, Nevada, serving clients throughout Reno and the surrounding Washoe County area. Many Reno residents visit us for specialized care that focuses on stretch mark camouflage, scar camouflage tattoo, and inkless revision, all performed in a private, appointment-only setting.',
     },
+
+    // Services Offered (with backlinks to service pages)
+    servicesOffered: [
+      {
+        name: 'Stretch Mark Camouflage',
+        slug: 'stretch-mark-camouflage',
+        description: 'Custom pigment-matching tattoo that blends healed stretch marks into your natural skin tone.',
+      },
+      {
+        name: 'Scar Camouflage & Revision',
+        slug: 'scar-camouflage',
+        description: 'Specialized paramedical tattooing to reduce the appearance of surgical and injury scars.',
+      },
+      {
+        name: 'Inkless Stretch Mark Revision',
+        slug: 'inkless-revision',
+        description: 'Natural, pigment-free treatment that improves texture and tone at every stage.',
+      },
+    ],
 
     // Benefits for this location
     benefits: [
-      'Just [X] minutes from [location landmark]',
-      'Easy parking and accessible studio location',
-      'Serving [location] and surrounding areas since [year]',
+      'Just 5 minutes from downtown Reno',
+      'Easy access via I-80 East',
+      'Private, appointment-only studio',
       'Free consultations available by phone or in-person',
-      'Flexible scheduling to accommodate your commute',
-      'All the same professional services as our Sparks location',
+      'Flexible scheduling to accommodate Reno commuters',
+      'All the same professional services offered at our Sparks studio',
+      'Licensed, insured, and Washoe County compliant',
     ],
 
     // Directions & What to Expect
@@ -49,22 +69,22 @@ export const locations = [
       {
         step: '01',
         title: 'Easy to Find',
-        description: '[Detailed directions from this location to the studio. Mention major roads, landmarks, highways. Example: "From downtown Reno, take I-80 east to Exit 18..."]',
+        description: 'From downtown Reno, take I-80 East toward Sparks. Exit at Vista Boulevard and follow local roads to Green Vista Drive. The studio is located in a professional building designed for privacy and easy access.',
       },
       {
         step: '02',
         title: 'Plan Your Visit',
-        description: '[Information about drive time, parking availability, traffic considerations. Example: "Allow 10-15 minutes for your drive, plus time for parking. Morning appointments typically have lighter traffic."]',
+        description: 'Most Reno residents can expect a 5–10 minute drive, depending on traffic. Morning and early afternoon appointments typically offer the lightest congestion. Parking is available near the studio.',
       },
       {
         step: '03',
         title: 'Your Appointment',
-        description: '[What to expect during the appointment. This can be similar across all locations but with location-specific touches if relevant.]',
+        description: 'Appointments are scheduled in advance to ensure focused and unrushed care. You\'ll be welcomed into a calm, comfortable studio environment focused on precision and restoration.',
       },
       {
         step: '04',
         title: 'Follow-Up Care',
-        description: '[Information about follow-up appointments, scheduling for multiple sessions, aftercare support.]',
+        description: 'If your treatment plan includes multiple sessions, follow-ups are scheduled with travel time in mind. Aftercare support is provided regardless of where you\'re visiting from.',
       },
     ],
 
@@ -73,72 +93,70 @@ export const locations = [
       display: '$250 per section',
       details: [
         'Starting at $250 per treatment area',
-        'Most clients need 1-3 sessions for best results',
+        'Pricing is the same for all service areas',
+        'Most clients need 1–3 sessions for best results',
         'Free initial consultation (phone or in-person)',
-        'Flexible scheduling for [location] residents',
-        'Same professional pricing regardless of location',
+        'Flexible scheduling for Reno residents',
+        'Personalized quotes provided after consultation',
       ],
-      cta: 'Pricing is the same for all service areas. Call for a personalized quote based on your needs.',
+      cta: 'Pricing does not change based on location. All clients receive the same professional care and transparent guidance.',
     },
 
     // Who from this area should come
     idealFor: {
-      heading: 'Why Choose Revivelle Ink from [Location]?',
-      intro: 'Residents of [location] choose Revivelle Ink because:',
+      heading: 'Why Choose Revivelle Ink from Reno?',
+      intro: 'Residents of Reno choose Revivelle Ink because:',
       criteria: [
-        '[Location-specific reason 1 - e.g., "Closest certified paramedical tattoo specialist"]',
-        '[Location-specific reason 2 - e.g., "No need to drive to California or Las Vegas"]',
-        '[Location-specific reason 3 - e.g., "Familiar with local climate and skin care needs"]',
-        '[General reason - e.g., "Licensed, insured, and experienced professional"]',
-        '[General reason - e.g., "Custom treatments for all skin tones"]',
-        '[Convenience reason - e.g., "Flexible scheduling to work with your commute"]',
+        'It\'s the closest certified paramedical tattoo studio specializing in scars and stretch marks',
+        'No need to travel to California or Las Vegas for advanced skin camouflage',
+        'Familiar with Northern Nevada\'s dry climate and skin care considerations',
+        'Licensed, insured, and experienced professional care',
+        'Custom treatments designed for all skin tones',
+        'Flexible scheduling that works with Reno commutes',
       ],
-      note: '[Optional note about serving this community, local partnerships, or commitment to the area.]',
+      note: 'Many Reno clients appreciate having access to highly specialized care just minutes away, without the pressure of high-volume cosmetic studios.',
     },
 
     // Neighborhoods/areas within this location
     commonAreas: [
-      '[Neighborhood 1]',
-      '[Neighborhood 2]',
-      '[Neighborhood 3]',
-      '[Neighborhood 4]',
-      '[Landmark area]',
-      '[District]',
+      'Downtown Reno',
+      'Midtown Reno',
+      'South Reno',
+      'Old Southwest Reno',
+      'University District',
+      'Plumas',
+      'Wells Avenue District',
     ],
 
     // Location-specific FAQs
     faqs: [
       {
-        question: 'Do you serve [location name]?',
-        answer: '[Answer explaining yes, how close the studio is, drive time, and any location-specific details]',
+        question: 'Do you serve Reno residents?',
+        answer: 'Yes. While the studio is located in Sparks, many clients visit us from Reno.',
       },
       {
-        question: 'How do I get to your studio from [location]?',
-        answer: '[Detailed directions from this location to the studio, mentioning major roads and landmarks]',
+        question: 'How do I get to your studio from Reno?',
+        answer: 'Most clients take I-80 East toward Sparks and exit near Vista Boulevard.',
       },
       {
-        question: 'How long does it take to drive from [location] to your studio?',
-        answer: '[Drive time information, traffic considerations, best times to travel]',
+        question: 'How long does it take to drive from Reno to your studio?',
+        answer: 'Typically 5–10 minutes, depending on traffic.',
       },
       {
-        question: 'Do you offer the same services to [location] residents?',
-        answer: '[Confirm that all services are available regardless of location, same quality, same pricing]',
+        question: 'Do you offer the same services to Reno residents?',
+        answer: 'Yes. All services are available regardless of where you\'re visiting from.',
       },
       {
         question: 'Is parking available near your studio?',
-        answer: '[Information about parking, accessibility, and what to expect when arriving]',
+        answer: 'Yes. Parking is available near the building.',
       },
       {
-        question: 'Can I schedule a consultation if I live in [location]?',
-        answer: '[Yes, explain consultation options - phone or in-person, free of charge, how to book]',
+        question: 'Can I schedule a consultation if I live in Reno?',
+        answer: 'Absolutely. Free consultations are available by phone or in person.',
       },
       {
-        question: 'What services do you offer to [location] residents?',
-        answer: '[List all services: stretch mark camouflage, inkless revision, scar camouflage, with brief descriptions]',
-      },
-      {
-        question: 'How much does paramedical tattooing cost for [location] residents?',
-        answer: '[Same pricing as all areas, starting at $250, mention free consultation for personalized quote]',
+        question: 'How much does paramedical tattooing cost for Reno residents?',
+        answer: 'Pricing is the same for all clients and starts at $250 per treatment area.',
       },
     ],
 

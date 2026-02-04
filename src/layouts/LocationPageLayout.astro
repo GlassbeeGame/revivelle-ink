@@ -133,6 +133,22 @@ const breadcrumbSchema = {
             <p class="location-intro-text">{location.intro.description}</p>
           </div>
 
+          <!-- Services Offered Section -->
+          {location.servicesOffered && (
+            <div class="location-content-section">
+              <h3>Services We Offer</h3>
+              <div class="services-grid">
+                {location.servicesOffered.map((service: any) => (
+                  <a href={`/services/${service.slug}`} class="service-link-card">
+                    <h4 class="service-link-title">{service.name}</h4>
+                    <p class="service-link-description">{service.description}</p>
+                    <span class="service-link-arrow">Learn More →</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
           <!-- Benefits Section -->
           <div class="location-content-section">
             <h3>Why Choose Us</h3>
@@ -454,6 +470,83 @@ const breadcrumbSchema = {
     color: var(--color-brown-light);
     line-height: 1.9;
     margin-bottom: var(--spacing-lg);
+  }
+
+  /* Services Grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+  }
+
+  .service-link-card {
+    display: block;
+    padding: var(--spacing-xl);
+    background: var(--color-cream);
+    border: 1px solid rgba(201, 168, 108, 0.2);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all var(--transition-medium);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-link-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gradient-gold);
+    transform: scaleY(0);
+    transition: transform var(--transition-medium);
+  }
+
+  .service-link-card:hover {
+    background: var(--color-cream-dark);
+    border-color: var(--color-gold);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .service-link-card:hover::before {
+    transform: scaleY(1);
+  }
+
+  .service-link-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-sm);
+    transition: color var(--transition-fast);
+  }
+
+  .service-link-card:hover .service-link-title {
+    color: var(--color-gold);
+  }
+
+  .service-link-description {
+    font-size: 0.95rem;
+    color: var(--color-brown-light);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .service-link-arrow {
+    font-size: 0.9rem;
+    color: var(--color-gold);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    transition: gap var(--transition-fast);
+  }
+
+  .service-link-card:hover .service-link-arrow {
+    gap: var(--spacing-sm);
   }
 
   /* Benefits List */
