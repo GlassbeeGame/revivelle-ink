@@ -226,14 +226,20 @@ const personSchema = {
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1.3fr;
-    gap: var(--spacing-3xl);
+    gap: var(--spacing-2xl);
     align-items: center;
   }
 
   @media (max-width: 1000px) {
     .about-grid {
       grid-template-columns: 1fr;
-      gap: var(--spacing-2xl);
+      gap: var(--spacing-xl);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .about-grid {
+      gap: var(--spacing-lg);
     }
   }
 
@@ -290,7 +296,13 @@ const personSchema = {
   }
 
   .about-content h2 {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  @media (max-width: 600px) {
+    .about-content h2 {
+      margin-bottom: var(--spacing-md);
+    }
   }
 
   .about-text {
@@ -308,9 +320,15 @@ const personSchema = {
   .approach-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
     max-width: 1200px;
     margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .approach-grid {
+      gap: var(--spacing-md);
+    }
   }
 
   /* First 3 cards - each spans 2 columns */
@@ -352,8 +370,8 @@ const personSchema = {
   .approach-card {
     position: relative;
     background: linear-gradient(180deg, var(--color-cream) 0%, #faf8f5 100%);
-    padding: var(--spacing-xl);
-    padding-top: calc(var(--spacing-xl) + 4px);
+    padding: var(--spacing-lg);
+    padding-top: calc(var(--spacing-lg) + 4px);
     border-radius: var(--radius-lg);
     border: 1px solid rgba(26, 26, 26, 0.06);
     text-align: left;
@@ -361,9 +379,16 @@ const personSchema = {
     opacity: 0;
     animation: fadeInUp 0.5s ease forwards;
     overflow: hidden;
-    box-shadow: 
+    box-shadow:
       0 4px 6px rgba(26, 26, 26, 0.04),
       0 10px 20px rgba(26, 26, 26, 0.03);
+  }
+
+  @media (max-width: 600px) {
+    .approach-card {
+      padding: var(--spacing-md);
+      padding-top: calc(var(--spacing-md) + 4px);
+    }
   }
 
   @keyframes fadeInUp {
@@ -470,14 +495,20 @@ const personSchema = {
   .training-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-3xl);
+    gap: var(--spacing-2xl);
     align-items: center;
   }
 
   @media (max-width: 900px) {
     .training-grid {
       grid-template-columns: 1fr;
-      gap: var(--spacing-2xl);
+      gap: var(--spacing-xl);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .training-grid {
+      gap: var(--spacing-lg);
     }
   }
 
@@ -488,7 +519,14 @@ const personSchema = {
   .training-intro {
     font-size: 1.1rem;
     color: var(--color-brown-light);
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  @media (max-width: 600px) {
+    .training-intro {
+      font-size: 1.05rem;
+      margin-bottom: var(--spacing-md);
+    }
   }
 
   .credentials-list {
@@ -523,9 +561,15 @@ const personSchema = {
   .training-quote {
     position: relative;
     background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-gold-pale) 100%);
-    padding: var(--spacing-2xl);
+    padding: var(--spacing-xl);
     border-radius: var(--radius-xl);
     border: 1px solid rgba(201, 168, 108, 0.2);
+  }
+
+  @media (max-width: 600px) {
+    .training-quote {
+      padding: var(--spacing-lg);
+    }
   }
 
   .training-quote__mark {
@@ -603,7 +647,14 @@ const personSchema = {
     justify-content: center;
     flex-wrap: wrap;
     gap: var(--spacing-lg);
-    margin-top: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
+  }
+
+  @media (max-width: 600px) {
+    .studio-features {
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-md);
+    }
   }
 
   .studio-feature {
@@ -638,16 +689,14 @@ const personSchema = {
     flex-wrap: wrap;
   }
 
-  .section-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: var(--spacing-2xl);
-  }
+  @media (max-width: 600px) {
+    .cta-buttons {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
 
-  .section-subtitle {
-    font-size: 1.1rem;
-    color: var(--color-taupe);
-    margin-top: var(--spacing-sm);
+    .cta-text {
+      font-size: 1.05rem;
+    }
   }
 </style>
