@@ -75,6 +75,8 @@ const navLinks = [
     display: flex;
     align-items: center;
     z-index: 1001;
+    background: transparent;
+    padding: 0;
   }
 
   /* Logo - balanced size for readability */
@@ -83,6 +85,9 @@ const navLinks = [
     width: auto;
     transition: all var(--transition-medium);
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+    /* Ensure logo colors are preserved on mobile screenshots */
+    color-scheme: light;
+    forced-color-adjust: none;
   }
 
   .nav__logo:hover .nav__logo-img {
@@ -196,6 +201,9 @@ const navLinks = [
 
     .nav__logo-img {
       height: 90px;
+      /* Additional mobile screenshot color preservation */
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
     }
 
     .nav__toggle {

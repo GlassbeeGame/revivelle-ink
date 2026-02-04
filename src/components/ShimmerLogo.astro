@@ -61,6 +61,11 @@
     filter: drop-shadow(0 2px 20px rgba(0, 0, 0, 0.15));
     opacity: 0;
     animation: logoFadeIn 0.8s ease-out 0.3s forwards;
+    /* Ensure logo colors are preserved on mobile screenshots */
+    color-scheme: light;
+    forced-color-adjust: none;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   @keyframes logoFadeIn {
@@ -180,8 +185,7 @@
 
   @media (max-width: 480px) {
     .logo-hero__tagline {
-      margin-top: -20px;
-      font-size: 0.7rem;
+      display: none;
     }
   }
 </style>

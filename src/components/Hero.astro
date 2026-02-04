@@ -369,4 +369,33 @@ const {
   .hero--dark .hero__subtitle {
     color: var(--color-blush);
   }
+
+  /* Mobile responsive padding adjustments */
+  @media (max-width: 1000px) {
+    .hero--small {
+      padding: calc(100px + var(--spacing-xl)) 0 var(--spacing-2xl);
+    }
+
+    .hero--medium {
+      padding: calc(100px + var(--spacing-2xl)) 0 var(--spacing-2xl);
+    }
+
+    .hero--large {
+      padding: calc(100px + var(--spacing-3xl)) 0 var(--spacing-3xl);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero--small {
+      padding: calc(90px + var(--spacing-lg)) 0 var(--spacing-xl);
+    }
+
+    .hero--medium {
+      padding: calc(90px + var(--spacing-xl)) 0 var(--spacing-xl);
+    }
+
+    .hero--large {
+      padding: calc(90px + var(--spacing-2xl)) 0 var(--spacing-2xl);
+    }
+  }
 </style>
