@@ -11,86 +11,126 @@ export const services = [
 
     // SEO & Meta
     meta: {
-      title: 'Stretch Mark Camouflage in Sparks, NV | Revivelle Ink',
-      description: 'Paramedical stretch mark camouflage tattoo for white or light stretch marks. Custom pigment matching for soft, natural-looking results. Book your free consultation in Sparks today.',
-      keywords: 'stretch mark camouflage, stretch mark camouflage tattoo, stretch mark tattoo camouflage near me, stretch mark camouflage near me, stretch mark tattoo camouflage, tattoo for stretch marks camouflage, tattoo stretch mark camouflage, camouflage tattooing for stretch marks, camouflage stretch mark, camouflage stretch marks, camouflage tattoo for stretch marks, cost of camouflage stretch marks',
+      title: 'Stretch Mark Camouflage Tattoo in Sparks, Reno & Washoe County NV | Revivelle Ink',
+      description: 'Custom pigment-matching stretch mark camouflage tattoo that blends healed stretch marks into natural skin tone. Serving Sparks, Reno & Washoe County. Free consultation. Call (707) 660-0921.',
+      keywords: 'stretch mark camouflage, stretch mark camouflage tattoo, stretch mark tattoo camouflage near me, stretch mark camouflage near me, stretch mark tattoo camouflage, tattoo for stretch marks camouflage, tattoo stretch mark camouflage, camouflage tattooing for stretch marks, camouflage stretch mark, camouflage stretch marks, camouflage tattoo for stretch marks, cost of camouflage stretch marks, Sparks NV, Reno NV, Washoe County',
     },
 
     // Page Content
     hero: {
       title: 'Stretch Mark Camouflage Tattoo',
-      subtitle: 'Custom pigment-matching tattoo that blends stretch marks into your natural skin tone for smoother, more confident skin.',
+      subtitle: 'Custom pigment-matching tattoo that blends healed stretch marks into your natural skin tone for softer, more even-looking skin.',
+      servingArea: 'Serving Sparks, Reno & Washoe County',
+      ctaNote: 'Free consultation • Calling is part of the consultation process',
     },
 
     intro: {
       tagline: 'You Deserve to Feel Beautiful in Your Skin',
       heading: 'Soft, Seamless Coverage for White or Light Stretch Marks',
-      description: 'Stretch mark camouflage is a specialized tattooing technique that uses skin-toned pigments to blend white or silver stretch marks into the surrounding skin. Also known as stretch mark camouflage tattoo or camouflage tattooing for stretch marks, this long-lasting treatment helps restore confidence by making stretch marks significantly less visible. If you\'ve been searching for "stretch mark camouflage near me" or "tattoo for stretch marks camouflage," you\'re in the right place.',
+      description: 'Stretch mark camouflage is a specialized paramedical tattoo technique that uses custom-blended, skin-toned pigment to reduce the contrast of white, silver, or light stretch marks. Instead of "covering" your skin with a heavy result, this technique is designed to blend — creating a more even appearance that still looks like you. If you\'ve been searching for stretch mark camouflage near me or stretch mark tattoo camouflage near me, this is the service that\'s built for natural-looking results, realistic expectations, and confidence you can actually feel.',
+    },
+
+    whatsIncluded: [
+      'Free consultation (phone or in-person) to confirm candidacy and map out a plan',
+      'Professional assessment of stretch mark age, color, texture, and skin tone stability',
+      'Custom pigment formulation created specifically for your undertone (not a "stock" pigment)',
+      'Treatment session using sterile, single-use equipment (Washoe County compliant)',
+      'Comfort-first experience with topical numbing available',
+      'Aftercare guidance + healing support so results heal evenly and predictably',
+      'Session planning (most clients need 1–3 sessions, spaced 8–12 weeks apart)',
+      'Long-term guidance on maintaining results and when touch-ups may help',
+    ],
+
+    problemsSolved: {
+      heading: 'Common Problems We Solve',
+      subheading: 'Why Clients Choose a Camouflage Tattoo for Stretch Marks',
+      intro: 'Stretch marks are normal — but they can still be emotionally heavy. This service is designed for people who feel like their stretch marks stand out visually and want a longer-lasting solution that feels low-maintenance.',
+      problems: [
+        'White or silver stretch marks that look "bright" in certain lighting',
+        'Stretch marks that photograph more visibly than they appear in person',
+        'Skin that looks uneven in tone after weight changes, pregnancy, or growth',
+        'The feeling of always noticing the same area (thighs, hips, stomach, etc.)',
+        'Wanting a solution that doesn\'t require daily products or constant covering',
+      ],
+      note: 'Important note: Stretch mark camouflage tattoo is not for red/purple stretch marks (those are still healing). If yours are red/purple, inkless revision is typically the better starting point.',
     },
 
     benefits: [
       'Custom pigment matching for your unique skin tone',
       'Safe and effective for all skin tones',
-      'Long-lasting results (3–7 years typical)',
-      'Reduces visibility of white and light stretch marks',
-      'Boosts confidence with natural-looking improvement',
-      'Minimal downtime and fast healing',
-      'Ideal for healed stretch marks (1+ year old)',
-      'Comfortable process with numbing available',
+      'Long-lasting results (typically 3–7 years)',
+      'Reduces visibility of white/light stretch marks',
+      'Minimal downtime and straightforward healing',
+      'Numbing available for comfort',
+      'Natural-looking improvement that still looks like real skin',
     ],
 
     process: [
       {
         step: '01',
         title: 'Free Consultation',
-        description: 'We assess your stretch marks, skin tone, and goals to determine if you\'re a good candidate for stretch mark tattoo camouflage.',
+        description: 'We look at your stretch marks, talk through your goals, and confirm whether you\'re a good candidate.',
       },
       {
         step: '02',
         title: 'Custom Color Matching',
-        description: 'We create a personalized pigment blend to match your skin perfectly for seamless, natural results.',
+        description: 'Sammi custom blends pigment to match your natural skin tone and undertone for seamless results.',
       },
       {
         step: '03',
         title: 'Camouflage Tattoo Session',
-        description: 'Using sterile equipment, pigment is gently tattooed into the stretch marks to camouflage stretch marks and blend them with your natural skin tone.',
+        description: 'Using sterile equipment, pigment is gently tattooed into the stretch marks to reduce contrast and help them blend.',
       },
       {
         step: '04',
-        title: 'Healing & Aftercare',
-        description: 'Healing takes 4–6 weeks. The treated area initially appears darker, then gradually lightens to match your skin.',
+        title: 'Healing & Aftercare (4–6 weeks)',
+        description: 'The area may look darker at first, then gradually softens as it heals and settles closer to your skin tone.',
       },
       {
         step: '05',
-        title: 'Follow-Up Sessions',
-        description: 'Most clients need 1–3 sessions spaced 8–12 weeks apart for best results with their tattoo stretch mark camouflage.',
+        title: 'Follow-Up Sessions (if needed)',
+        description: 'Most clients need 1–3 sessions spaced 8–12 weeks apart to build the best result safely and evenly.',
       },
     ],
 
     pricing: {
       display: '$250+ / session',
       details: [
-        'Free consultation included',
-        'Starting at $250 per treatment area',
-        'Most clients need 1–3 sessions',
-        'Sessions spaced 8–12 weeks apart',
-        'Total investment typically $500–$1,500',
+        'Starting at $250+ per treatment area, per session',
+        'Most clients: 1–3 sessions',
+        'Spacing: 8–12 weeks apart',
+        'Typical total investment: $500–$1,500',
       ],
-      cta: 'Book a free consultation to see if stretch mark camouflage tattoo is right for you and learn about the cost of camouflage stretch marks treatment.',
+      note: 'If you\'re comparing the cost of camouflage stretch marks, keep in mind that pricing depends on the size and complexity of the treatment area. The fastest way to get an accurate quote is a free phone consult.',
+      cta: 'Call (707) 660-0921 (calling is part of the consultation process)',
+    },
+
+    whyChoose: {
+      heading: 'Why Choose Revivelle Ink',
+      subheading: 'Boutique, Trauma-Informed, Precision-Based Care',
+      intro: 'Clients come to Revivelle Ink because this work is not just technical — it\'s personal. Sammi\'s approach is grounded in:',
+      reasons: [
+        'Specialization in paramedical tattooing (not general tattoo work)',
+        'Soft, natural results designed to look believable in real lighting',
+        'Trauma-informed care — patient, respectful, no pressure',
+        'Safety-first protocols (sterile, single-use equipment; Washoe County compliant)',
+        'Expert color blending for all skin tones',
+        'A private, peaceful studio in Sparks built for comfort and calm',
+      ],
     },
 
     idealFor: {
       heading: 'Is Stretch Mark Camouflage Right for You?',
-      intro: 'This treatment is ideal for clients wanting a visual improvement of white or light stretch marks.',
+      intro: 'This is ideal if:',
       criteria: [
         'Your stretch marks are white, silver, or light-colored',
+        'Your stretch marks are at least 12 months old',
         'You\'re not pregnant or breastfeeding',
-        'Your skin tone is stable (no recent sun exposure or tanning)',
-        'Stretch marks are at least 12 months old',
-        'You want a longer-lasting, low-maintenance solution',
+        'Your skin tone is stable (no recent tanning/sunburn)',
+        'You want a longer-lasting, low-maintenance visual improvement',
         'You want your skin to look more even and smooth',
       ],
-      note: 'Not suitable for red or purple stretch marks. These are still healing and require a different treatment approach, such as inkless revision.',
+      note: 'Not a fit: red/purple stretch marks. Those usually do best with inkless revision first.',
     },
 
     commonAreas: [
@@ -104,38 +144,57 @@ export const services = [
       'Calves',
     ],
 
+    serviceAreas: {
+      heading: 'Service Areas',
+      subheading: 'Stretch Mark Camouflage in Sparks, Reno & Washoe County',
+      intro: 'Revivelle Ink is located in Sparks and serves clients throughout Northern Nevada, including:',
+      locations: [
+        'Sparks (primary)',
+        'Reno',
+        'Spanish Springs',
+        'Sun Valley',
+        'South Reno',
+        'North Valleys',
+        'Carson City',
+        'Fernley',
+        'Incline Village',
+        'All of Washoe County',
+      ],
+      note: 'If you found this page by searching stretch mark camouflage near me, and you\'re anywhere in Northern Nevada, you\'re in the right place.',
+    },
+
     faqs: [
       {
         question: 'What is stretch mark camouflage tattoo?',
-        answer: 'Stretch mark camouflage tattoo is a cosmetic tattooing procedure that blends skin-toned pigment into white or light stretch marks, making them less visible and more even with the surrounding skin. It\'s also called camouflage tattooing for stretch marks or tattoo for stretch marks camouflage.',
+        answer: 'Stretch mark camouflage tattoo is a paramedical tattoo technique that uses skin-toned pigment to reduce the contrast of healed stretch marks, helping them blend into the surrounding skin.',
       },
       {
         question: 'Can stretch mark camouflage treat red or purple stretch marks?',
-        answer: 'No. Red or purple stretch marks are still healing and cannot be treated with camouflage tattoo for stretch marks. This treatment works best on white, silver, or light stretch marks that are at least 12 months old and fully healed.',
+        answer: 'Not typically. Red/purple stretch marks are still healing and usually respond better to inkless revision first.',
       },
       {
         question: 'How long does stretch mark camouflage last?',
-        answer: 'Stretch mark camouflage tattoo results typically last 3–7 years. Touch-ups may be needed depending on sun exposure, lifestyle, and skin changes over time.',
+        answer: 'Results typically last 3–7 years, depending on skin, lifestyle, and sun exposure. Touch-ups can help maintain the blend over time.',
       },
       {
         question: 'Is stretch mark tattoo camouflage painful?',
-        answer: 'Most clients describe the feeling as a mild vibration or scratching sensation. Numbing cream is available to reduce discomfort during the tattoo stretch mark camouflage procedure.',
+        answer: 'Most people describe it as mild scratching or vibration. Topical numbing is available for comfort.',
       },
       {
         question: 'What should I expect before and after treatment?',
-        answer: 'Immediately after your stretch mark camouflage tattoo, the treated area may appear slightly darker. Over 4–6 weeks, it softens and blends into your skin tone, significantly reducing the visibility of the stretch marks.',
+        answer: 'Before: stable skin tone, no recent tanning, and marks should be fully healed. After: the treated area can look darker initially, then softens as it heals over 4–6 weeks.',
       },
       {
         question: 'How many sessions do I need to camouflage stretch marks?',
-        answer: 'Most clients see best results after 1–3 sessions of stretch mark tattoo camouflage, spaced 8–12 weeks apart. The exact number depends on the size, depth, and color of your stretch marks.',
+        answer: 'Most clients need 1–3 sessions, spaced 8–12 weeks apart.',
       },
       {
         question: 'What is the cost of camouflage stretch marks treatment?',
-        answer: 'The cost of camouflage stretch marks treatment starts at $250 per treatment area per session. Total investment typically ranges from $500–$1,500 for complete treatment, depending on the size and number of areas treated. Call for a free consultation and personalized quote.',
+        answer: 'Pricing starts at $250+ per treatment area per session, with most clients investing $500–$1,500 total depending on the area and number of sessions.',
       },
       {
         question: 'Where can I find stretch mark camouflage near me?',
-        answer: 'Revivelle Ink offers stretch mark camouflage near Sparks, NV, serving clients throughout Reno, Spanish Springs, Carson City, and all of Washoe County. If you\'ve been searching for "stretch mark tattoo camouflage near me," we\'re here to help. Call (707) 660-0921 to schedule your free consultation.',
+        answer: 'If you\'re in Sparks, Reno, or anywhere in Washoe County, Revivelle Ink offers stretch mark camouflage tattoo by appointment with a free consultation. Call (707) 660-0921.',
       },
     ],
 

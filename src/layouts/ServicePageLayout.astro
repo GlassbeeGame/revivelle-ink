@@ -47,6 +47,34 @@ const serviceSchema = {
       "name": "Reno"
     },
     {
+      "@type": "City",
+      "name": "Spanish Springs"
+    },
+    {
+      "@type": "City",
+      "name": "Sun Valley"
+    },
+    {
+      "@type": "City",
+      "name": "South Reno"
+    },
+    {
+      "@type": "City",
+      "name": "North Valleys"
+    },
+    {
+      "@type": "City",
+      "name": "Carson City"
+    },
+    {
+      "@type": "City",
+      "name": "Fernley"
+    },
+    {
+      "@type": "City",
+      "name": "Incline Village"
+    },
+    {
       "@type": "Place",
       "name": "Washoe County"
     }
@@ -127,6 +155,12 @@ const breadcrumbSchema = {
       <div class="service-hero__content">
         <h1 class="service-hero__title">{service.hero.title}</h1>
         <p class="service-hero__subtitle">{service.hero.subtitle}</p>
+        {service.hero.servingArea && (
+          <p class="service-hero__serving">{service.hero.servingArea}</p>
+        )}
+        {service.hero.ctaNote && (
+          <p class="service-hero__cta-note">{service.hero.ctaNote}</p>
+        )}
       </div>
     </div>
   </section>
@@ -144,6 +178,51 @@ const breadcrumbSchema = {
             <h2>{service.intro.heading}</h2>
             <p class="service-intro-text">{service.intro.description}</p>
           </div>
+
+          <!-- What's Included Section -->
+          {service.whatsIncluded && (
+            <div class="service-content-section">
+              <h3>What's Included</h3>
+              <p class="section-intro-text">Everything You Get With {service.shortName} at Revivelle Ink</p>
+              <ul class="whats-included-list">
+                {service.whatsIncluded.map((item: string) => (
+                  <li class="whats-included-item">
+                    <span class="whats-included-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <!-- Common Problems We Solve Section -->
+          {service.problemsSolved && (
+            <div class="service-content-section">
+              <h3>{service.problemsSolved.heading}</h3>
+              <p class="section-intro-text">{service.problemsSolved.subheading}</p>
+              <p class="problems-intro">{service.problemsSolved.intro}</p>
+              <p class="problems-we-solve-label">We commonly work with:</p>
+              <ul class="problems-list">
+                {service.problemsSolved.problems.map((problem: string) => (
+                  <li class="problem-item">
+                    <span class="problem-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </span>
+                    <span>{problem}</span>
+                  </li>
+                ))}
+              </ul>
+              {service.problemsSolved.note && (
+                <p class="problems-note">{service.problemsSolved.note}</p>
+              )}
+            </div>
+          )}
 
           <!-- Benefits Section -->
           <div class="service-content-section">
@@ -187,6 +266,9 @@ const breadcrumbSchema = {
           <!-- Pricing Details Section -->
           <div class="service-content-section">
             <h3>Pricing & Investment</h3>
+            {service.pricing.note && (
+              <p class="pricing-intro-note">{service.pricing.note}</p>
+            )}
             <div class="pricing-card">
               <div class="pricing-card__highlight">
                 <span class="pricing-card__label">Starting At</span>
@@ -202,9 +284,30 @@ const breadcrumbSchema = {
                   </li>
                 ))}
               </ul>
-              <p class="pricing-card__note">{service.pricing.cta}</p>
+              <p class="pricing-card__cta">{service.pricing.cta}</p>
             </div>
           </div>
+
+          <!-- Why Choose Revivelle Ink Section -->
+          {service.whyChoose && (
+            <div class="service-content-section">
+              <h3>{service.whyChoose.heading}</h3>
+              <p class="section-intro-text">{service.whyChoose.subheading}</p>
+              <p class="why-choose-intro">{service.whyChoose.intro}</p>
+              <ul class="why-choose-list">
+                {service.whyChoose.reasons.map((reason: string) => (
+                  <li class="why-choose-item">
+                    <span class="why-choose-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </span>
+                    <span>{reason}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <!-- Ideal Candidate Section -->
           <div class="service-content-section">
@@ -232,6 +335,23 @@ const breadcrumbSchema = {
               </div>
             </div>
           </div>
+
+          <!-- Service Areas Section -->
+          {service.serviceAreas && (
+            <div class="service-content-section">
+              <h3>{service.serviceAreas.heading}</h3>
+              <p class="section-intro-text">{service.serviceAreas.subheading}</p>
+              <p class="service-areas-intro">{service.serviceAreas.intro}</p>
+              <div class="service-areas-grid">
+                {service.serviceAreas.locations.map((location: string) => (
+                  <span class="location-tag">{location}</span>
+                ))}
+              </div>
+              {service.serviceAreas.note && (
+                <p class="service-areas-note">{service.serviceAreas.note}</p>
+              )}
+            </div>
+          )}
 
         </div>
 
@@ -402,6 +522,20 @@ const breadcrumbSchema = {
     margin: 0 auto;
   }
 
+  .service-hero__serving {
+    font-size: 1rem;
+    color: var(--color-gold);
+    font-weight: 500;
+    margin-top: var(--spacing-md);
+  }
+
+  .service-hero__cta-note {
+    font-size: 0.9rem;
+    color: var(--color-taupe);
+    font-style: italic;
+    margin-top: var(--spacing-sm);
+  }
+
   /* Service Main Section */
   .service-main {
     padding: var(--spacing-4xl) 0;
@@ -569,7 +703,14 @@ const breadcrumbSchema = {
     margin-top: 3px;
   }
 
-  .pricing-card__note {
+  .pricing-intro-note {
+    font-size: 1rem;
+    color: var(--color-brown-light);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.7;
+  }
+
+  .pricing-card__cta {
     font-size: 0.9rem;
     color: var(--color-taupe);
     font-style: italic;
@@ -761,6 +902,180 @@ const breadcrumbSchema = {
     gap: var(--spacing-md);
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  /* What's Included Section */
+  .whats-included-list {
+    list-style: none;
+    display: grid;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+  }
+
+  .whats-included-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--color-cream);
+    border-radius: var(--radius-md);
+    border-left: 2px solid var(--color-gold);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .whats-included-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-full);
+    color: var(--color-charcoal);
+  }
+
+  /* Problems We Solve Section */
+  .problems-intro {
+    font-size: 1rem;
+    color: var(--color-brown-light);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.7;
+  }
+
+  .problems-we-solve-label {
+    font-weight: 500;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+  }
+
+  .problems-list {
+    list-style: none;
+    display: grid;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .problem-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--color-cream-dark);
+    border-radius: var(--radius-md);
+    border-left: 2px solid var(--color-gold);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .problem-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-full);
+    color: var(--color-charcoal);
+  }
+
+  .problems-note {
+    font-size: 0.95rem;
+    color: var(--color-taupe);
+    font-style: italic;
+    padding: var(--spacing-md);
+    background: var(--color-cream-dark);
+    border-left: 3px solid var(--color-gold);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  /* Why Choose Section */
+  .why-choose-intro {
+    font-size: 1rem;
+    color: var(--color-brown-light);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.7;
+  }
+
+  .why-choose-list {
+    list-style: none;
+    display: grid;
+    gap: var(--spacing-sm);
+  }
+
+  .why-choose-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--color-cream);
+    border-radius: var(--radius-md);
+    border-left: 2px solid var(--color-gold);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .why-choose-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-full);
+    color: var(--color-charcoal);
+  }
+
+  /* Service Areas Section */
+  .service-areas-intro {
+    font-size: 1rem;
+    color: var(--color-brown-light);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.7;
+  }
+
+  .service-areas-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .location-tag {
+    padding: 0.6rem 1.25rem;
+    background: var(--color-cream);
+    border: 1px solid rgba(201, 168, 108, 0.3);
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    color: var(--color-brown);
+    transition: all var(--transition-fast);
+  }
+
+  .location-tag:hover {
+    background: var(--gradient-gold);
+    color: var(--color-charcoal);
+    border-color: var(--color-gold);
+  }
+
+  .service-areas-note {
+    font-size: 0.95rem;
+    color: var(--color-taupe);
+    font-style: italic;
+    padding: var(--spacing-md);
+    background: var(--color-cream-dark);
+    border-left: 3px solid var(--color-gold);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  .section-intro-text {
+    font-size: 1rem;
+    color: var(--color-brown-light);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.7;
   }
 
   /* Responsive */
