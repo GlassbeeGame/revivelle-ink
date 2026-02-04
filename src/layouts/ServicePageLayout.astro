@@ -17,25 +17,15 @@ const relatedServices = getRelatedServices(service.slug);
 const canonicalUrl = `${Astro.url.origin}/services/${service.slug}`;
 const siteUrl = Astro.url.origin;
 
-// Service Schema for local SEO
+// Service Schema - References canonical business via @id
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
+  "@id": `${canonicalUrl}#service`,
   "name": service.name,
   "description": service.intro.description,
   "provider": {
-    "@type": "LocalBusiness",
-    "name": "Revivelle Ink",
-    "image": `${siteUrl}/images/sammi-about.png`,
-    "telephone": "+17076600921",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "2165 Green Vista Dr 206B",
-      "addressLocality": "Sparks",
-      "addressRegion": "NV",
-      "postalCode": "89431",
-      "addressCountry": "US"
-    }
+    "@id": `${siteUrl}/#business`
   },
   "areaServed": [
     {
@@ -105,6 +95,7 @@ const faqSchema = {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
+  "@id": `${canonicalUrl}#breadcrumb`,
   "itemListElement": [
     {
       "@type": "ListItem",

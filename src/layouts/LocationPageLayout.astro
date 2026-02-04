@@ -17,35 +17,66 @@ const relatedLocations = getRelatedLocations(location.slug);
 const canonicalUrl = `${Astro.url.origin}/locations/${location.slug}`;
 const siteUrl = Astro.url.origin;
 
-// LocalBusiness Schema for local SEO
-const businessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Revivelle Ink",
-  "image": `${siteUrl}/images/sammi-about.png`,
-  "telephone": "+17076600921",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "2165 Green Vista Dr 206B",
-    "addressLocality": "Sparks",
-    "addressRegion": "NV",
-    "postalCode": "89431",
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "39.6006",
-    "longitude": "-119.7264"
-  },
-  "url": siteUrl,
-  "areaServed": {
-    "@type": "City",
-    "name": location.name
-  },
-  "priceRange": "$$",
-  "openingHours": "Mo-Fr 09:00-17:00",
-  "description": location.meta.description
-};
+// Conditional Schema: Only Sparks gets full LocalBusiness, others reference it
+let businessSchema;
+
+if (location.isPrimary) {
+  // PRIMARY LOCATION (Sparks): Full LocalBusiness with stable @id
+  businessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${siteUrl}/#business`,
+    "name": "Revivelle Ink",
+    "image": `${siteUrl}/images/sammi-about.png`,
+    "telephone": "+17076600921",
+    "email": "Revivelleink@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2165 Green Vista Dr 206B",
+      "addressLocality": "Sparks",
+      "addressRegion": "NV",
+      "postalCode": "89431",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "39.6006",
+      "longitude": "-119.7264"
+    },
+    "url": siteUrl,
+    "areaServed": [
+      { "@type": "City", "name": "Sparks" },
+      { "@type": "City", "name": "Reno" },
+      { "@type": "City", "name": "Spanish Springs" },
+      { "@type": "City", "name": "Sun Valley" },
+      { "@type": "Place", "name": "Washoe County" }
+    ],
+    "priceRange": "$$",
+    "openingHours": "Mo-Fr 09:00-17:00",
+    "description": "Boutique paramedical tattoo studio specializing in stretch mark camouflage, inkless scar revision, and cosmetic tattooing."
+  };
+} else {
+  // SERVED AREAS: WebPage + Place schema, no duplicate LocalBusiness
+  businessSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": canonicalUrl,
+    "name": `${location.name} Paramedical Tattoo Services | Revivelle Ink`,
+    "description": location.meta.description,
+    "url": canonicalUrl,
+    "breadcrumb": {
+      "@id": `${canonicalUrl}#breadcrumb`
+    },
+    "about": {
+      "@type": "Place",
+      "name": location.name,
+      "description": `Paramedical tattoo services available for clients in ${location.name}`
+    },
+    "provider": {
+      "@id": `${siteUrl}/#business`
+    }
+  };
+}
 
 // FAQ Schema for rich snippets
 const faqSchema = {
@@ -65,6 +96,7 @@ const faqSchema = {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
+  "@id": `${canonicalUrl}#breadcrumb`,
   "itemListElement": [
     {
       "@type": "ListItem",
