@@ -888,51 +888,71 @@ export const locations = [
     featured: false,
 
     meta: {
-      title: '[Location Name] Paramedical Tattoo | Stretch Mark & Scar Camouflage | Revivelle Ink',
-      description: 'Professional paramedical tattoo services serving [Location]. Stretch mark camouflage, scar revision, inkless treatments. Licensed & insured. Book your free consultation.',
-      keywords: 'paramedical tattoo [location], stretch mark camouflage [location], scar camouflage [location], inkless revision [location], Revivelle Ink [location]',
+      title: 'Paramedical Tattoo Services in Carson City, NV | Revivelle Ink',
+      description: 'Professional paramedical tattoo services serving Carson City residents. Stretch mark camouflage, scar camouflage tattoo, and inkless revision. Approximately 30 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
+      keywords: 'paramedical tattoo Carson City NV, stretch mark camouflage Carson City, scar camouflage Carson City, inkless revision Carson City, Revivelle Ink Carson City',
     },
 
     hero: {
-      title: 'Paramedical Tattoo Services in [Location Name]',
-      subtitle: 'Professional stretch mark and scar camouflage serving [location] residents. Just [X] minutes from our Sparks studio.',
+      title: 'Paramedical Tattoo Services in Carson City, NV',
+      subtitle: 'Professional stretch mark and scar camouflage serving Carson City residents. Approximately 30 minutes from our Sparks studio.',
     },
 
     intro: {
       tagline: 'Serving Your Community',
-      heading: 'Professional Paramedical Tattoo Services for [Location] Residents',
-      description: '[Location-specific intro paragraph]',
+      heading: 'Professional Paramedical Tattoo Services for Carson City Residents',
+      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, serving clients throughout Carson City and Northern Nevada. Many Carson City residents make the short drive to Sparks for specialized care focused on stretch mark camouflage, scar camouflage tattoo, and inkless revision — services that are not widely available locally.',
     },
 
+    // Services Offered (with backlinks to service pages)
+    servicesOffered: [
+      {
+        name: 'Stretch Mark Camouflage',
+        slug: 'stretch-mark-camouflage',
+        description: 'Custom pigment-matching tattoo that blends healed stretch marks into your natural skin tone.',
+      },
+      {
+        name: 'Scar Camouflage & Revision',
+        slug: 'scar-camouflage',
+        description: 'Specialized paramedical tattooing to reduce the appearance of surgical and injury scars.',
+      },
+      {
+        name: 'Inkless Stretch Mark Revision',
+        slug: 'inkless-revision',
+        description: 'Natural, pigment-free treatment that improves texture and tone at every stage.',
+      },
+    ],
+
     benefits: [
-      'Just [X] minutes from [location landmark]',
-      'Easy parking and accessible studio location',
-      'Serving [location] and surrounding areas since [year]',
+      'Approximately 30 minutes from Carson City',
+      'Easy access via US-395 North',
+      'Private, appointment-only studio',
       'Free consultations available by phone or in-person',
-      'Flexible scheduling to accommodate your commute',
-      'All the same professional services as our Sparks location',
+      'Flexible scheduling to accommodate longer commutes',
+      'Same professional services and pricing as our Sparks location',
+      'Licensed, insured, and Washoe County compliant',
     ],
 
     process: [
       {
         step: '01',
         title: 'Easy to Find',
-        description: '[Detailed directions from this location]',
+        description: 'From Carson City, take US-395 North toward Reno/Sparks. Continue through South Reno, then connect to I-580 North or surface roads toward Vista Boulevard. Follow local directions to Green Vista Drive, where our studio is located in a quiet professional building.',
       },
       {
         step: '02',
         title: 'Plan Your Visit',
-        description: '[Drive time and parking info]',
+        description: 'Most Carson City residents can expect a 30–35 minute drive, depending on traffic and time of day. Morning appointments are often ideal for smoother travel. Parking is available near the studio.',
       },
       {
         step: '03',
         title: 'Your Appointment',
-        description: '[What to expect]',
+        description: 'Appointments are scheduled in advance to ensure one-on-one care in a calm, unrushed environment. Many Carson City clients choose to plan longer appointment windows and follow-ups together.',
       },
       {
         step: '04',
         title: 'Follow-Up Care',
-        description: '[Follow-up information]',
+        description: 'If multiple sessions are recommended, follow-ups are scheduled with travel and healing timelines in mind. Aftercare support is provided directly from our Sparks studio between visits.',
       },
     ],
 
@@ -940,67 +960,57 @@ export const locations = [
       display: '$250 per section',
       details: [
         'Starting at $250 per treatment area',
-        'Most clients need 1-3 sessions for best results',
+        'Pricing is the same for all clients, regardless of location',
+        'Most clients need 1–3 sessions for best results',
         'Free initial consultation (phone or in-person)',
-        'Flexible scheduling for [location] residents',
-        'Same professional pricing regardless of location',
+        'Flexible scheduling for Carson City residents',
       ],
-      cta: 'Pricing is the same for all service areas. Call for a personalized quote based on your needs.',
+      cta: 'All services are performed at our Sparks studio, with transparent pricing discussed during consultation.',
     },
 
     idealFor: {
-      heading: 'Why Choose Revivelle Ink from [Location]?',
-      intro: 'Residents of [location] choose Revivelle Ink because:',
+      heading: 'Why Choose Revivelle Ink from Carson City?',
+      intro: 'Residents of Carson City choose Revivelle Ink because:',
       criteria: [
-        '[Location-specific reason 1]',
-        '[Location-specific reason 2]',
-        '[Location-specific reason 3]',
-        '[General reason]',
-        '[General reason]',
-        '[Convenience reason]',
+        'It\'s the closest specialized paramedical tattoo studio for stretch marks and scars',
+        'No need to travel to California or Las Vegas for advanced skin camouflage',
+        'A focused practice dedicated specifically to scars and stretch marks',
+        'Licensed, insured, and professionally trained care',
+        'Custom treatments designed for all skin tones',
+        'Appointment-only scheduling that respects longer travel time',
       ],
-      note: '[Optional note about serving this community]',
+      note: 'Many Carson City clients feel the drive is worthwhile for care that prioritizes quality, privacy, and realistic results.',
     },
 
     commonAreas: [
-      '[Neighborhood 1]',
-      '[Neighborhood 2]',
-      '[Neighborhood 3]',
-      '[Neighborhood 4]',
+      'Downtown Carson City',
+      'North Carson City',
+      'South Carson City',
+      'Indian Hills',
+      'Clear Creek',
+      'Jacks Valley',
     ],
 
     faqs: [
       {
-        question: 'Do you serve [location name]?',
-        answer: '[Answer with details]',
+        question: 'Do you serve Carson City residents?',
+        answer: 'Yes. Many clients visit us from Carson City for paramedical tattoo services.',
       },
       {
-        question: 'How do I get to your studio from [location]?',
-        answer: '[Detailed directions]',
+        question: 'How do I get to your studio from Carson City?',
+        answer: 'Most clients take US-395 North toward Sparks.',
       },
       {
-        question: 'How long does it take to drive from [location] to your studio?',
-        answer: '[Drive time information]',
+        question: 'How long does it take to drive from Carson City to your studio?',
+        answer: 'Typically 30–35 minutes, depending on traffic.',
       },
       {
-        question: 'Do you offer the same services to [location] residents?',
-        answer: '[Confirm all services available]',
+        question: 'Do Carson City residents receive the same services and pricing?',
+        answer: 'Yes. All clients receive the same professional care and pricing.',
       },
       {
         question: 'Is parking available near your studio?',
-        answer: '[Parking information]',
-      },
-      {
-        question: 'Can I schedule a consultation if I live in [location]?',
-        answer: '[Yes, consultation details]',
-      },
-      {
-        question: 'What services do you offer to [location] residents?',
-        answer: '[List all services]',
-      },
-      {
-        question: 'How much does paramedical tattooing cost for [location] residents?',
-        answer: '[Pricing information]',
+        answer: 'Yes. Parking is available near the studio building.',
       },
     ],
 
