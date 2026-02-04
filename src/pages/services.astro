@@ -292,19 +292,21 @@ const faqs = [
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-xl);
-    margin-bottom: var(--spacing-3xl);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
   }
 
   @media (max-width: 900px) {
     .services-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-md);
     }
   }
 
   @media (max-width: 600px) {
     .services-grid {
       grid-template-columns: 1fr;
+      margin-bottom: var(--spacing-xl);
     }
   }
 
@@ -427,10 +429,10 @@ const faqs = [
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
     background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-charcoal-deep) 100%);
     border: 1px solid rgba(201, 168, 108, 0.2);
-    padding: var(--spacing-xl) var(--spacing-2xl);
+    padding: var(--spacing-lg) var(--spacing-xl);
     border-radius: var(--radius-lg);
   }
 
@@ -438,7 +440,8 @@ const faqs = [
     .services-cta-bar {
       flex-direction: column;
       text-align: center;
-      gap: var(--spacing-lg);
+      gap: var(--spacing-md);
+      padding: var(--spacing-lg);
     }
   }
 
@@ -512,14 +515,20 @@ const faqs = [
   .candidate-grid {
     display: grid;
     grid-template-columns: 1.3fr 1fr;
-    gap: var(--spacing-3xl);
+    gap: var(--spacing-2xl);
     align-items: start;
   }
 
   @media (max-width: 900px) {
     .candidate-grid {
       grid-template-columns: 1fr;
-      gap: var(--spacing-2xl);
+      gap: var(--spacing-xl);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .candidate-grid {
+      gap: var(--spacing-lg);
     }
   }
 
@@ -574,13 +583,19 @@ const faqs = [
 
   .areas-content {
     background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-gold-pale) 100%);
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg);
     border-radius: var(--radius-lg);
     border: 1px solid rgba(201, 168, 108, 0.2);
   }
 
+  @media (max-width: 600px) {
+    .areas-content {
+      padding: var(--spacing-md);
+    }
+  }
+
   .areas-content h3 {
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
   }
 
   .areas-grid {
@@ -671,16 +686,19 @@ const faqs = [
     flex-wrap: wrap;
   }
 
-  .section-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: var(--spacing-2xl);
-  }
+  @media (max-width: 600px) {
+    .cta-buttons {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
 
-  .section-subtitle {
-    font-size: 1.1rem;
-    color: var(--color-taupe);
-    margin-top: var(--spacing-sm);
+    .cta-text {
+      font-size: 1.05rem;
+    }
+
+    .service-card__inner {
+      padding: var(--spacing-md);
+      padding-top: calc(var(--spacing-md) + 4px);
+    }
   }
 </style>
