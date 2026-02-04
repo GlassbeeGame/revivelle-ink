@@ -170,7 +170,7 @@
   @media (max-width: 768px) {
     .logo-hero__tagline {
       margin-top: -40px;
-      font-size: clamp(0.75rem, 2vw, 0.9rem);
+      font-size: clamp(0.85rem, 2.5vw, 1rem);
     }
   }
 
@@ -180,14 +180,23 @@
       justify-content: center;
       gap: var(--spacing-xs);
       margin-top: -30px;
+      font-size: 0.9rem;
     }
   }
 
   @media (max-width: 480px) {
     .logo-hero__tagline {
       margin-top: 0;
-      margin-bottom: var(--spacing-md);
-      font-size: 0.7rem;
+      margin-bottom: var(--spacing-lg);
+      font-size: 0.95rem;
+      gap: var(--spacing-sm);
+      padding: 0 var(--spacing-md);
+      line-height: 1.6;
+    }
+
+    .logo-hero__dot {
+      width: 6px;
+      height: 6px;
     }
   }
 </style>

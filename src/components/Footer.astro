@@ -243,17 +243,21 @@ const locations = [
     font-size: 0.95rem;
     color: var(--color-cream);
     transition: all var(--transition-fast);
+    position: relative;
+    padding-left: 0;
   }
 
   .footer__link-arrow {
     color: var(--color-gold);
     opacity: 0;
     transition: opacity var(--transition-fast);
+    position: absolute;
+    left: -1.25rem;
   }
 
   .footer__link:hover {
     color: var(--color-gold);
-    transform: translateX(5px);
+    padding-left: 1.25rem;
   }
 
   .footer__link:hover .footer__link-arrow {
