@@ -43,7 +43,7 @@ const expectations = [
   <!-- Studio Location Section (Featured at Top) -->
   <section class="section studio-featured-section">
     <div class="container container--narrow">
-      <div class="studio-location-card">
+      <a href="/locations/sparks" class="studio-location-card">
         <div class="studio-location-card__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
         </div>
@@ -65,7 +65,7 @@ const expectations = [
             <Button href="tel:17076600921" variant="outline">Call (707) 660-0921</Button>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 
@@ -181,12 +181,18 @@ const expectations = [
     border: 1px solid rgba(201, 168, 108, 0.2);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
-    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   .studio-location-card:hover {
-    border-color: rgba(201, 168, 108, 0.3);
-    box-shadow: 0 4px 12px rgba(201, 168, 108, 0.1);
+    border-color: var(--color-gold);
+    box-shadow:
+      0 8px 24px rgba(201, 168, 108, 0.2),
+      0 0 40px rgba(201, 168, 108, 0.15);
+    transform: translateY(-4px);
   }
 
   .studio-location-card__icon {
