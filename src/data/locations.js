@@ -469,51 +469,71 @@ export const locations = [
     featured: false,
 
     meta: {
-      title: '[Location Name] Paramedical Tattoo | Stretch Mark & Scar Camouflage | Revivelle Ink',
-      description: 'Professional paramedical tattoo services serving [Location]. Stretch mark camouflage, scar revision, inkless treatments. Licensed & insured. Book your free consultation.',
-      keywords: 'paramedical tattoo [location], stretch mark camouflage [location], scar camouflage [location], inkless revision [location], Revivelle Ink [location]',
+      title: 'Paramedical Tattoo Services in Sun Valley, NV | Revivelle Ink',
+      description: 'Professional paramedical tattoo services serving Sun Valley residents. Stretch mark camouflage, scar camouflage tattoo, and inkless revision. Just 15 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
+      keywords: 'paramedical tattoo Sun Valley NV, stretch mark camouflage Sun Valley, scar camouflage Sun Valley, inkless revision Sun Valley, Revivelle Ink Sun Valley',
     },
 
     hero: {
-      title: 'Paramedical Tattoo Services in [Location Name]',
-      subtitle: 'Professional stretch mark and scar camouflage serving [location] residents. Just [X] minutes from our Sparks studio.',
+      title: 'Paramedical Tattoo Services in Sun Valley, NV',
+      subtitle: 'Professional stretch mark and scar camouflage serving Sun Valley residents. Just 15 minutes from our Sparks studio.',
     },
 
     intro: {
       tagline: 'Serving Your Community',
-      heading: 'Professional Paramedical Tattoo Services for [Location] Residents',
-      description: '[Location-specific intro paragraph]',
+      heading: 'Professional Paramedical Tattoo Services for Sun Valley Residents',
+      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, serving clients throughout Sun Valley and the surrounding North Valleys area. Many Sun Valley residents visit our Sparks studio for specialized care focused on stretch mark camouflage, scar camouflage tattoo, and inkless revision.',
     },
 
+    // Services Offered (with backlinks to service pages)
+    servicesOffered: [
+      {
+        name: 'Stretch Mark Camouflage',
+        slug: 'stretch-mark-camouflage',
+        description: 'Custom pigment-matching tattoo that blends healed stretch marks into your natural skin tone.',
+      },
+      {
+        name: 'Scar Camouflage & Revision',
+        slug: 'scar-camouflage',
+        description: 'Specialized paramedical tattooing to reduce the appearance of surgical and injury scars.',
+      },
+      {
+        name: 'Inkless Stretch Mark Revision',
+        slug: 'inkless-revision',
+        description: 'Natural, pigment-free treatment that improves texture and tone at every stage.',
+      },
+    ],
+
     benefits: [
-      'Just [X] minutes from [location landmark]',
-      'Easy parking and accessible studio location',
-      'Serving [location] and surrounding areas since [year]',
+      'Just 15 minutes from Sun Valley',
+      'Easy access via Clear Acre Lane and Vista Boulevard',
+      'Private, appointment-only studio',
       'Free consultations available by phone or in-person',
-      'Flexible scheduling to accommodate your commute',
-      'All the same professional services as our Sparks location',
+      'Flexible scheduling for Sun Valley residents',
+      'Same professional services and pricing as our Sparks location',
+      'Licensed, insured, and Washoe County compliant',
     ],
 
     process: [
       {
         step: '01',
         title: 'Easy to Find',
-        description: '[Detailed directions from this location]',
+        description: 'From Sun Valley, take Clear Acre Lane toward Sparks, then connect to Vista Boulevard. Follow local roads to Green Vista Drive, where our studio is located in a quiet professional building designed for privacy and accessibility.',
       },
       {
         step: '02',
         title: 'Plan Your Visit',
-        description: '[Drive time and parking info]',
+        description: 'Most Sun Valley residents can expect a 15–20 minute drive, depending on traffic and time of day. Parking is available near the studio. Midday appointments often provide the easiest travel conditions.',
       },
       {
         step: '03',
         title: 'Your Appointment',
-        description: '[What to expect]',
+        description: 'Appointments are scheduled intentionally to allow for a calm, one-on-one experience. You\'ll be welcomed into a peaceful studio environment focused on precision, restoration, and comfort.',
       },
       {
         step: '04',
         title: 'Follow-Up Care',
-        description: '[Follow-up information]',
+        description: 'If your treatment plan includes multiple sessions, follow-up appointments are scheduled with commute time and healing timelines in mind. Ongoing aftercare support is provided directly from our Sparks studio.',
       },
     ],
 
@@ -521,67 +541,55 @@ export const locations = [
       display: '$250 per section',
       details: [
         'Starting at $250 per treatment area',
-        'Most clients need 1-3 sessions for best results',
+        'Pricing is the same for all clients, regardless of location',
+        'Most clients need 1–3 sessions for best results',
         'Free initial consultation (phone or in-person)',
-        'Flexible scheduling for [location] residents',
-        'Same professional pricing regardless of location',
+        'Flexible scheduling for Sun Valley residents',
       ],
-      cta: 'Pricing is the same for all service areas. Call for a personalized quote based on your needs.',
+      cta: 'All services are performed at our Sparks studio with transparent pricing discussed during consultation.',
     },
 
     idealFor: {
-      heading: 'Why Choose Revivelle Ink from [Location]?',
-      intro: 'Residents of [location] choose Revivelle Ink because:',
+      heading: 'Why Choose Revivelle Ink from Sun Valley?',
+      intro: 'Residents of Sun Valley choose Revivelle Ink because:',
       criteria: [
-        '[Location-specific reason 1]',
-        '[Location-specific reason 2]',
-        '[Location-specific reason 3]',
-        '[General reason]',
-        '[General reason]',
-        '[Convenience reason]',
+        'It\'s the closest specialized paramedical tattoo studio for stretch marks and scars',
+        'No need to travel to Reno, California, or Las Vegas',
+        'Familiarity with Northern Nevada\'s dry climate and skin considerations',
+        'Licensed, insured, and professionally trained care',
+        'Custom treatments designed for all skin tones',
+        'Appointment-only scheduling that respects your time and commute',
       ],
-      note: '[Optional note about serving this community]',
+      note: 'Many Sun Valley clients value having access to high-level, compassionate care just a short drive away.',
     },
 
     commonAreas: [
-      '[Neighborhood 1]',
-      '[Neighborhood 2]',
-      '[Neighborhood 3]',
-      '[Neighborhood 4]',
+      'Sun Valley Boulevard area',
+      'Clear Acre Lane corridor',
+      'Highland Ranch',
+      'North Valleys adjacent neighborhoods',
     ],
 
     faqs: [
       {
-        question: 'Do you serve [location name]?',
-        answer: '[Answer with details]',
+        question: 'Do you serve Sun Valley residents?',
+        answer: 'Yes. Many clients visit us from Sun Valley for paramedical tattoo services.',
       },
       {
-        question: 'How do I get to your studio from [location]?',
-        answer: '[Detailed directions]',
+        question: 'How long does it take to drive from Sun Valley to your studio?',
+        answer: 'Typically 15–20 minutes, depending on traffic.',
       },
       {
-        question: 'How long does it take to drive from [location] to your studio?',
-        answer: '[Drive time information]',
+        question: 'How do I get to your studio from Sun Valley?',
+        answer: 'Most clients take Clear Acre Lane toward Sparks and connect to Vista Boulevard.',
       },
       {
-        question: 'Do you offer the same services to [location] residents?',
-        answer: '[Confirm all services available]',
+        question: 'Do Sun Valley residents receive the same services and pricing?',
+        answer: 'Yes. All clients receive the same professional care and pricing.',
       },
       {
         question: 'Is parking available near your studio?',
-        answer: '[Parking information]',
-      },
-      {
-        question: 'Can I schedule a consultation if I live in [location]?',
-        answer: '[Yes, consultation details]',
-      },
-      {
-        question: 'What services do you offer to [location] residents?',
-        answer: '[List all services]',
-      },
-      {
-        question: 'How much does paramedical tattooing cost for [location] residents?',
-        answer: '[Pricing information]',
+        answer: 'Yes. Parking is available near the studio building.',
       },
     ],
 
