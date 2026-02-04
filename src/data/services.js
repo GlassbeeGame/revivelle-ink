@@ -211,87 +211,129 @@ export const services = [
 
     // SEO & Meta
     meta: {
-      title: 'Inkless Stretch Mark Revision in Sparks, NV | Revivelle Ink',
-      description: 'Natural, pigment-free inkless stretch mark revision treatment to reduce stretch marks at any stage. Safe for all skin tones. Book your free consultation in Sparks, NV today.',
-      keywords: 'inkless stretch mark revision, inkless stretch mark revision painful, what is inkless stretch mark revision, inkless stretch mark revision near me, inkless stretch mark revision before and after, inkless scar revision',
+      title: 'Inkless Stretch Mark Revision in Sparks, Reno & Washoe County NV | Revivelle Ink',
+      description: 'Natural, pigment-free inkless stretch mark revision treatment that improves texture and tone at every stage. Serving Sparks, Reno & Washoe County. Free consultation. Call (707) 660-0921.',
+      keywords: 'inkless stretch mark revision, inkless stretch mark revision painful, what is inkless stretch mark revision, inkless stretch mark revision near me, inkless stretch mark revision before and after, inkless scar revision, Sparks NV, Reno NV, Washoe County',
     },
 
     // Page Content
     hero: {
       title: 'Inkless Stretch Mark Revision',
       subtitle: 'A natural, pigment-free treatment that helps reduce stretch marks at every stage.',
+      servingArea: 'Serving Sparks, Reno & Washoe County',
+      ctaNote: 'Free consultation • Calling is part of the consultation process',
     },
 
     intro: {
       tagline: 'No Pigment. Just Progress.',
       heading: 'A Gentle, Ink-Free Path to Smoother Skin',
-      description: 'Inkless stretch mark revision is a specialized microneedling treatment that stimulates your body\'s collagen response to improve the tone, texture, and visibility of stretch marks. Unlike camouflage tattooing, no pigment is used. This makes it a powerful, natural solution for red, purple, white, and silver marks alike. Many clients ask, "what is inkless stretch mark revision?"—it\'s a gentle, science-backed approach that works with your skin\'s natural healing ability to create smoother, more even results over time.',
+      description: 'Inkless stretch mark revision is a specialized, pigment-free treatment that works by stimulating your body\'s natural collagen response. Instead of tattooing color into the skin, this technique uses controlled microneedling and healing serums to improve texture, tone, and overall appearance over time. Many clients ask, "What is inkless stretch mark revision?" Simply put, it\'s a science-backed, skin-respecting approach that helps your body repair itself — making it an ideal option for red, purple, white, or silver stretch marks, and for anyone who prefers a more natural path to skin restoration. If you\'ve searched for inkless stretch mark revision near me, you\'re likely looking for improvement without pigment — and that\'s exactly what this service is designed to offer.',
+    },
+
+    whatsIncluded: [
+      'Free consultation (phone or in-person) to assess candidacy and expectations',
+      'Professional skin evaluation (stretch mark stage, texture, tone, and sensitivity)',
+      'Customized treatment plan based on your goals and skin response',
+      'Controlled microneedling session using sterile, single-use equipment',
+      'Infusion of specialized healing serums to support collagen regeneration',
+      'Comfort-first experience with optional topical numbing',
+      'Aftercare instructions & healing support throughout your series',
+      'Session scheduling guidance (most clients benefit from 3–6 sessions)',
+    ],
+
+    problemsSolved: {
+      heading: 'Common Problems We Solve',
+      subheading: 'Why Clients Choose Inkless Stretch Mark Revision',
+      intro: 'Inkless revision is especially powerful for people who want improvement without ink, or whose stretch marks aren\'t ideal candidates for camouflage tattooing yet.',
+      problems: [
+        'Red or purple stretch marks that are still healing',
+        'White or silver stretch marks with textured or crepey skin',
+        'Stretch marks that feel uneven to the touch',
+        'Clients who want a natural, pigment-free solution',
+        'Those planning to do camouflage tattooing later for enhanced results',
+        'Anyone wanting gradual, biologically driven improvement',
+      ],
+      note: 'Unlike pigment camouflage, this approach focuses on skin quality first — texture, elasticity, and tone — rather than color alone.',
     },
 
     benefits: [
       'No tattoo pigment or ink used',
-      'Reduces appearance of stretch marks at any stage',
-      'Improves skin texture and tone naturally',
-      'Boosts collagen production for long-term results',
-      'Safe for red, purple, white, or silver stretch marks',
+      'Safe for red, purple, white, and silver stretch marks',
+      'Improves texture and tone naturally',
+      'Stimulates collagen for long-term skin improvement',
       'Low discomfort with optional numbing cream',
       'Safe for all skin types and tones',
-      'Can be combined with camouflage tattooing',
+      'Gradual, natural-looking progress over time',
+      'Can be combined with stretch mark camouflage for optimal results',
     ],
 
     process: [
       {
         step: '01',
         title: 'Free Consultation',
-        description: 'We evaluate your skin, the stretch mark type, and your goals. You\'ll learn what inkless stretch mark revision is and how it can help your unique situation.',
+        description: 'We evaluate your stretch marks, explain what inkless stretch mark revision is, and determine whether this approach fits your goals.',
       },
       {
         step: '02',
         title: 'Treatment Plan & Prep',
-        description: 'A custom plan is created based on your needs. We cleanse the skin and apply numbing cream for your comfort.',
+        description: 'Your skin is cleansed and prepped. A customized plan is created, and numbing cream is applied if desired.',
       },
       {
         step: '03',
         title: 'Microneedling Session',
-        description: 'Using precise tools, we perform controlled micro-needling and apply healing serums to the treated area to stimulate natural collagen production.',
+        description: 'Using precise tools, controlled microneedling creates micro-channels that trigger collagen production. Healing serums are infused to support regeneration.',
       },
       {
         step: '04',
-        title: 'Aftercare Guidance',
-        description: 'You\'ll receive detailed healing instructions. Most clients experience mild redness and sensitivity for a few days—healing is gentle and manageable.',
+        title: 'Aftercare & Healing',
+        description: 'You\'ll receive detailed aftercare guidance. Mild redness or sensitivity is normal and typically resolves within a few days.',
       },
       {
         step: '05',
         title: 'Ongoing Results & Sessions',
-        description: 'Most clients benefit from 3–6 sessions spaced 6–8 weeks apart. Results improve gradually over several months as your skin regenerates naturally.',
+        description: 'Most clients benefit from 3–6 sessions, spaced 6–8 weeks apart. Improvement continues for months as collagen rebuilds.',
       },
     ],
 
     pricing: {
       display: '$250+ / session',
       details: [
-        'Free consultation included',
-        'Starting at $250 per treatment area',
-        'Most clients need 3–6 sessions',
-        'Sessions spaced 6–8 weeks apart',
+        'Starting at $250+ per treatment area, per session',
+        'Most clients: 3–6 sessions',
+        'Spacing: 6–8 weeks apart',
         'Gradual improvement continues for months',
-        'Total investment typically $750–$1,500',
+        'Typical total investment: $750–$1,500',
       ],
-      cta: 'Schedule a free consultation to learn if inkless stretch mark revision is right for you.',
+      note: 'A free consultation is the best way to receive a personalized estimate.',
+      cta: 'Call (707) 660-0921 (calling is part of the consultation process)',
+    },
+
+    whyChoose: {
+      heading: 'Why Choose Revivelle Ink',
+      subheading: 'Precision, Restoration & Compassionate Care',
+      intro: 'Clients choose Revivelle Ink for inkless stretch mark and scar revision because this work requires skill, restraint, and respect for the skin.',
+      reasons: [
+        'Specialized training in inkless stretch mark & scar revision',
+        'A trauma-informed, judgment-free approach',
+        'High sanitation standards (Washoe County compliant)',
+        'Custom treatment planning — never one-size-fits-all',
+        'A private, peaceful studio in Sparks',
+        'Honest education and realistic expectations',
+      ],
     },
 
     idealFor: {
-      heading: 'Is Inkless Revision Right for You?',
-      intro: 'This treatment is ideal for clients seeking a pigment-free method to address stretch marks naturally.',
+      heading: 'Is Inkless Stretch Mark Revision Right for You?',
+      intro: 'This treatment may be ideal if:',
       criteria: [
         'Your stretch marks are red, purple, white, or silver',
         'You\'re not pregnant or nursing',
-        'You prefer a natural approach without ink',
-        'You want to improve texture and tone',
-        'You\'re committed to multiple sessions and gradual results',
-        'You want a safe and compassionate treatment environment',
+        'You prefer a natural, pigment-free approach',
+        'You want to improve texture and tone, not just color',
+        'You\'re comfortable with gradual, cumulative results',
+        'You want compassionate, trauma-informed care',
       ],
-      note: 'Inkless stretch mark revision can be used on its own or in combination with camouflage tattooing. We\'ll help guide the best choice for your skin.',
+      note: 'Inkless stretch mark revision can be done on its own or combined with camouflage tattooing for enhanced outcomes. We\'ll help guide the best plan for your skin.',
     },
 
     commonAreas: [
@@ -305,38 +347,53 @@ export const services = [
       'Shoulders',
     ],
 
+    serviceAreas: {
+      heading: 'Service Areas',
+      subheading: 'Inkless Stretch Mark Revision in Sparks, Reno & Washoe County',
+      intro: 'Revivelle Ink proudly serves clients throughout Northern Nevada, including:',
+      locations: [
+        'Sparks (primary location)',
+        'Reno',
+        'Spanish Springs',
+        'Sun Valley',
+        'South Reno',
+        'North Valleys',
+        'Carson City',
+        'Fernley',
+        'Incline Village',
+        'All of Washoe County',
+      ],
+      note: 'If you searched inkless stretch mark revision near me and you\'re in Northern Nevada — you\'re in the right place.',
+    },
+
     faqs: [
       {
         question: 'What is inkless stretch mark revision?',
-        answer: 'Inkless stretch mark revision is a microneedling treatment that improves stretch marks without using any tattoo pigment. Specialized healing serums are used to enhance skin recovery and boost natural collagen production, resulting in smoother, more even skin texture.',
+        answer: 'It\'s a pigment-free treatment that uses microneedling and healing serums to stimulate collagen and improve the appearance of stretch marks naturally.',
       },
       {
         question: 'Is inkless stretch mark revision painful?',
-        answer: 'Most clients report mild discomfort described as tingling or light scratching. The treatment is not painful for most people, and we offer numbing cream to keep you comfortable throughout the session.',
+        answer: 'Most clients describe mild scratching or tingling. Topical numbing is available to keep the experience comfortable.',
       },
       {
-        question: 'Can this treat all types of stretch marks?',
-        answer: 'Yes! Inkless stretch mark revision works on red, purple, white, or silver stretch marks—including both early-stage and mature marks. This makes it more versatile than pigment camouflage, which can only treat mature, light-colored marks.',
-      },
-      {
-        question: 'What areas can be treated?',
-        answer: 'Common areas include the stomach, thighs, hips, arms, breasts, lower back, and more. We can treat one or multiple areas per session depending on your goals and treatment plan.',
+        question: 'Can inkless stretch mark revision treat all types of stretch marks?',
+        answer: 'Yes — it can be used on red, purple, white, and silver stretch marks.',
       },
       {
         question: 'How many sessions will I need?',
-        answer: 'Most clients need 3–6 inkless stretch mark revision sessions spaced 6–8 weeks apart. Results develop gradually over several months as your skin produces new collagen and regenerates.',
+        answer: 'Most clients need 3–6 sessions, spaced 6–8 weeks apart, for best results.',
       },
       {
-        question: 'What results can I expect before and after?',
-        answer: 'Inkless stretch mark revision before and after results show smoother, more even skin with reduced visibility of stretch marks. The skin feels more refined and supple, and texture improvements are noticeable. Results vary by individual, but most clients see significant improvement after completing their treatment series.',
+        question: 'What can I expect before and after treatment?',
+        answer: 'Before: stable skin and no active irritation. After: mild redness or sensitivity for a few days, followed by gradual improvement over months.',
       },
       {
-        question: 'Can I combine inkless revision with camouflage tattooing?',
-        answer: 'Absolutely! Many clients start with inkless stretch mark revision to improve texture, then add pigment camouflage for color blending. This combination approach often produces the most comprehensive, natural-looking results.',
+        question: 'Can I combine inkless revision with stretch mark camouflage?',
+        answer: 'Absolutely. Many clients improve texture first with inkless revision, then add pigment camouflage for color blending.',
       },
       {
         question: 'Where can I find inkless stretch mark revision near me?',
-        answer: 'Revivelle Ink offers inkless stretch mark revision near Sparks, NV, serving clients throughout Reno, Spanish Springs, Carson City, and all of Washoe County. Call (707) 660-0921 to schedule your free consultation.',
+        answer: 'Revivelle Ink offers inkless stretch mark revision in Sparks and serves clients across Reno and Washoe County. Call (707) 660-0921 to schedule your free consultation.',
       },
     ],
 
