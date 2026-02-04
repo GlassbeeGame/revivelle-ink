@@ -608,51 +608,71 @@ export const locations = [
     featured: true,
 
     meta: {
-      title: '[Location Name] Paramedical Tattoo | Stretch Mark & Scar Camouflage | Revivelle Ink',
-      description: 'Professional paramedical tattoo services serving [Location]. Stretch mark camouflage, scar revision, inkless treatments. Licensed & insured. Book your free consultation.',
-      keywords: 'paramedical tattoo [location], stretch mark camouflage [location], scar camouflage [location], inkless revision [location], Revivelle Ink [location]',
+      title: 'Paramedical Tattoo Services in South Reno, NV | Revivelle Ink',
+      description: 'Professional paramedical tattoo services serving South Reno residents. Stretch mark camouflage, scar camouflage tattoo, and inkless revision. Just 10 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
+      keywords: 'paramedical tattoo South Reno NV, stretch mark camouflage South Reno, scar camouflage South Reno, inkless revision South Reno, Revivelle Ink South Reno',
     },
 
     hero: {
-      title: 'Paramedical Tattoo Services in [Location Name]',
-      subtitle: 'Professional stretch mark and scar camouflage serving [location] residents. Just [X] minutes from our Sparks studio.',
+      title: 'Paramedical Tattoo Services in South Reno, NV',
+      subtitle: 'Professional stretch mark and scar camouflage serving South Reno residents. Just 10 minutes from our Sparks studio.',
     },
 
     intro: {
       tagline: 'Serving Your Community',
-      heading: 'Professional Paramedical Tattoo Services for [Location] Residents',
-      description: '[Location-specific intro paragraph]',
+      heading: 'Professional Paramedical Tattoo Services for South Reno Residents',
+      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, serving clients throughout South Reno and the greater Washoe County area. Many South Reno residents choose our Sparks studio for specialized care focused on stretch mark camouflage, scar camouflage tattoo, and inkless revision — all performed in a private, calm environment.',
     },
 
+    // Services Offered (with backlinks to service pages)
+    servicesOffered: [
+      {
+        name: 'Stretch Mark Camouflage',
+        slug: 'stretch-mark-camouflage',
+        description: 'Custom pigment-matching tattoo that blends healed stretch marks into your natural skin tone.',
+      },
+      {
+        name: 'Scar Camouflage & Revision',
+        slug: 'scar-camouflage',
+        description: 'Specialized paramedical tattooing to reduce the appearance of surgical and injury scars.',
+      },
+      {
+        name: 'Inkless Stretch Mark Revision',
+        slug: 'inkless-revision',
+        description: 'Natural, pigment-free treatment that improves texture and tone at every stage.',
+      },
+    ],
+
     benefits: [
-      'Just [X] minutes from [location landmark]',
-      'Easy parking and accessible studio location',
-      'Serving [location] and surrounding areas since [year]',
+      'Just 10 minutes from South Reno',
+      'Easy access via I-580 and Veterans Parkway',
+      'Private, appointment-only studio',
       'Free consultations available by phone or in-person',
-      'Flexible scheduling to accommodate your commute',
-      'All the same professional services as our Sparks location',
+      'Flexible scheduling for South Reno residents',
+      'Same professional services and pricing as our Sparks location',
+      'Licensed, insured, and Washoe County compliant',
     ],
 
     process: [
       {
         step: '01',
         title: 'Easy to Find',
-        description: '[Detailed directions from this location]',
+        description: 'From South Reno, take I-580 North toward Sparks or connect via Veterans Parkway. Follow signs toward Vista Boulevard, then local roads to Green Vista Drive. Our studio is located in a quiet professional building designed for privacy and easy access.',
       },
       {
         step: '02',
         title: 'Plan Your Visit',
-        description: '[Drive time and parking info]',
+        description: 'Most South Reno residents can expect a 10–15 minute drive, depending on traffic and time of day. Parking is available near the studio. Mid-morning and early afternoon appointments often provide the smoothest commute.',
       },
       {
         step: '03',
         title: 'Your Appointment',
-        description: '[What to expect]',
+        description: 'Appointments are scheduled intentionally to provide one-on-one care in a calm, unrushed environment. You\'ll be welcomed into a peaceful studio focused on precision, restoration, and comfort.',
       },
       {
         step: '04',
         title: 'Follow-Up Care',
-        description: '[Follow-up information]',
+        description: 'If your treatment plan includes multiple sessions, follow-ups are scheduled with commute time and healing timelines in mind. Aftercare support is always provided directly from our Sparks studio.',
       },
     ],
 
@@ -660,67 +680,56 @@ export const locations = [
       display: '$250 per section',
       details: [
         'Starting at $250 per treatment area',
-        'Most clients need 1-3 sessions for best results',
+        'Pricing is the same for all clients, regardless of location',
+        'Most clients need 1–3 sessions for best results',
         'Free initial consultation (phone or in-person)',
-        'Flexible scheduling for [location] residents',
-        'Same professional pricing regardless of location',
+        'Flexible scheduling for South Reno residents',
       ],
-      cta: 'Pricing is the same for all service areas. Call for a personalized quote based on your needs.',
+      cta: 'All services are performed at our Sparks studio with transparent pricing discussed during consultation.',
     },
 
     idealFor: {
-      heading: 'Why Choose Revivelle Ink from [Location]?',
-      intro: 'Residents of [location] choose Revivelle Ink because:',
+      heading: 'Why Choose Revivelle Ink from South Reno?',
+      intro: 'Residents of South Reno choose Revivelle Ink because:',
       criteria: [
-        '[Location-specific reason 1]',
-        '[Location-specific reason 2]',
-        '[Location-specific reason 3]',
-        '[General reason]',
-        '[General reason]',
-        '[Convenience reason]',
+        'It\'s the closest specialized paramedical tattoo studio for stretch marks and scars',
+        'No need to travel to California or Las Vegas for advanced care',
+        'Familiarity with Northern Nevada\'s dry climate and skin considerations',
+        'Licensed, insured, and professionally trained care',
+        'Custom treatments designed for all skin tones',
+        'Appointment-only scheduling that respects your time and commute',
       ],
-      note: '[Optional note about serving this community]',
+      note: 'Many South Reno clients appreciate having advanced, compassionate care available just minutes away.',
     },
 
     commonAreas: [
-      '[Neighborhood 1]',
-      '[Neighborhood 2]',
-      '[Neighborhood 3]',
-      '[Neighborhood 4]',
+      'Damonte Ranch',
+      'Double Diamond',
+      'South Meadows',
+      'Virginia Foothills',
+      'Mount Rose Highway corridor',
     ],
 
     faqs: [
       {
-        question: 'Do you serve [location name]?',
-        answer: '[Answer with details]',
+        question: 'Do you serve South Reno residents?',
+        answer: 'Yes. Many clients visit us from South Reno for paramedical tattoo services.',
       },
       {
-        question: 'How do I get to your studio from [location]?',
-        answer: '[Detailed directions]',
+        question: 'How do I get to your studio from South Reno?',
+        answer: 'Most clients take I-580 North or Veterans Parkway toward Sparks.',
       },
       {
-        question: 'How long does it take to drive from [location] to your studio?',
-        answer: '[Drive time information]',
+        question: 'How long does it take to drive from South Reno to your studio?',
+        answer: 'Typically 10–15 minutes, depending on traffic.',
       },
       {
-        question: 'Do you offer the same services to [location] residents?',
-        answer: '[Confirm all services available]',
+        question: 'Do South Reno residents receive the same services and pricing?',
+        answer: 'Yes. All clients receive the same professional care and pricing.',
       },
       {
         question: 'Is parking available near your studio?',
-        answer: '[Parking information]',
-      },
-      {
-        question: 'Can I schedule a consultation if I live in [location]?',
-        answer: '[Yes, consultation details]',
-      },
-      {
-        question: 'What services do you offer to [location] residents?',
-        answer: '[List all services]',
-      },
-      {
-        question: 'How much does paramedical tattooing cost for [location] residents?',
-        answer: '[Pricing information]',
+        answer: 'Yes. Parking is available near the studio building.',
       },
     ],
 
