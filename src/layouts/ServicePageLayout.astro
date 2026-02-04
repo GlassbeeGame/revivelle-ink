@@ -466,8 +466,8 @@ const breadcrumbSchema = {
   /* Service Hero */
   .service-hero {
     position: relative;
-    padding: var(--spacing-4xl) 0 var(--spacing-3xl);
-    min-height: 400px;
+    padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+    min-height: 350px;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -538,7 +538,7 @@ const breadcrumbSchema = {
 
   /* Service Main Section */
   .service-main {
-    padding: var(--spacing-4xl) 0;
+    padding: var(--spacing-3xl) 0;
   }
 
   /* Service Content Sections */
@@ -591,7 +591,7 @@ const breadcrumbSchema = {
   .service-process-section {
     margin-left: calc(-1 * var(--spacing-lg));
     margin-right: calc(-1 * var(--spacing-lg));
-    padding: var(--spacing-3xl) var(--spacing-lg);
+    padding: var(--spacing-2xl) var(--spacing-lg);
     border-radius: var(--radius-xl);
   }
 
@@ -603,7 +603,7 @@ const breadcrumbSchema = {
   .process-timeline {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
   }
 
   .process-step {
@@ -652,7 +652,7 @@ const breadcrumbSchema = {
     background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-gold-pale) 100%);
     border: 1px solid rgba(201, 168, 108, 0.3);
     border-radius: var(--radius-lg);
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg);
     margin-top: var(--spacing-lg);
   }
 
@@ -760,8 +760,8 @@ const breadcrumbSchema = {
 
   /* Common Areas */
   .common-areas {
-    margin-top: var(--spacing-2xl);
-    padding-top: var(--spacing-2xl);
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-xl);
     border-top: 1px solid rgba(201, 168, 108, 0.2);
   }
 
@@ -810,7 +810,7 @@ const breadcrumbSchema = {
   .trust-signals {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
   }
 
   @media (max-width: 800px) {
@@ -881,7 +881,7 @@ const breadcrumbSchema = {
 
   .cta-box-simple {
     text-align: center;
-    padding: var(--spacing-3xl) var(--spacing-xl);
+    padding: var(--spacing-2xl) var(--spacing-lg);
   }
 
   .cta-box-simple h2 {
@@ -1079,10 +1079,14 @@ const breadcrumbSchema = {
   }
 
   /* Responsive */
-  @media (max-width: 800px) {
+  @media (max-width: 768px) {
     .service-hero {
       padding: var(--spacing-2xl) 0 var(--spacing-xl);
       min-height: 300px;
+    }
+
+    .service-main {
+      padding: var(--spacing-2xl) 0;
     }
 
     .service-benefits-list {
@@ -1091,7 +1095,61 @@ const breadcrumbSchema = {
 
     .process-timeline {
       grid-template-columns: 1fr;
-      gap: var(--spacing-lg);
+      gap: var(--spacing-md);
+    }
+
+    .service-process-section {
+      padding: var(--spacing-xl) var(--spacing-md);
+      margin-left: calc(-1 * var(--spacing-md));
+      margin-right: calc(-1 * var(--spacing-md));
+    }
+
+    .pricing-card {
+      padding: var(--spacing-md);
+    }
+
+    .cta-box-simple {
+      padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .trust-signals {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .service-hero {
+      padding: var(--spacing-xl) 0;
+      min-height: 250px;
+    }
+
+    .service-hero__title {
+      font-size: clamp(2rem, 5vw, 2.5rem);
+    }
+
+    .service-main {
+      padding: var(--spacing-xl) 0;
+    }
+
+    .cta-box-simple {
+      padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .service-hero__content {
+      padding-top: var(--spacing-md);
+    }
+
+    .process-step__number {
+      width: 50px;
+      height: 50px;
+      font-size: 1.25rem;
     }
   }
 </style>

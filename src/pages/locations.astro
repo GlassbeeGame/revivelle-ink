@@ -185,7 +185,7 @@ const expectations = [
     background: var(--color-cream);
     border: 1px solid rgba(201, 168, 108, 0.2);
     border-radius: var(--radius-lg);
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg);
     transition: all 0.3s ease;
   }
 
@@ -248,10 +248,25 @@ const expectations = [
     flex-wrap: wrap;
   }
 
+  @media (max-width: 768px) {
+    .studio-location-card {
+      padding: var(--spacing-md);
+    }
+
+    .expect-item {
+      padding: var(--spacing-md);
+    }
+
+    .section-header {
+      margin-bottom: var(--spacing-lg);
+    }
+  }
+
   @media (max-width: 600px) {
     .studio-location-card {
       flex-direction: column;
       text-align: center;
+      padding: var(--spacing-md);
     }
 
     .studio-location-card__icon {
@@ -261,6 +276,24 @@ const expectations = [
     .studio-cta-buttons {
       flex-direction: column;
     }
+
+    .expect-item {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: var(--spacing-md);
+      gap: var(--spacing-md);
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .expect-item {
+      padding: var(--spacing-sm) var(--spacing-md);
+    }
   }
 
   /* Location Cards Grid - 2 columns on desktop */
@@ -268,7 +301,7 @@ const expectations = [
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-2xl);
+    margin-bottom: var(--spacing-xl);
   }
 
   @media (max-width: 700px) {
@@ -311,7 +344,7 @@ const expectations = [
   .expect-item {
     display: flex;
     gap: var(--spacing-lg);
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg);
     margin-bottom: var(--spacing-md);
     background: linear-gradient(180deg, var(--color-cream) 0%, #faf8f5 100%);
     border-radius: var(--radius-lg);
@@ -417,7 +450,7 @@ const expectations = [
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: var(--spacing-2xl);
+    margin-bottom: var(--spacing-xl);
   }
 
   .section-subtitle {

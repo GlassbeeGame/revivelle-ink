@@ -114,7 +114,7 @@ import ContactForm from '../components/ContactForm.astro';
     min-height: 100vh;
     display: flex;
     align-items: flex-start;
-    padding: calc(var(--spacing-3xl) + 100px) 0 var(--spacing-4xl);
+    padding: calc(var(--spacing-3xl) + 100px) 0 var(--spacing-3xl);
     overflow: hidden;
   }
 
@@ -226,19 +226,19 @@ import ContactForm from '../components/ContactForm.astro';
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-4xl);
+    gap: var(--spacing-3xl);
     align-items: start;
   }
 
   @media (max-width: 1100px) {
     .contact-grid {
       grid-template-columns: 1fr;
-      gap: var(--spacing-3xl);
+      gap: var(--spacing-2xl);
     }
 
     .contact-page {
       min-height: auto;
-      padding: calc(var(--spacing-3xl) + 100px) 0 var(--spacing-3xl);
+      padding: calc(var(--spacing-3xl) + 100px) 0 var(--spacing-2xl);
     }
   }
 
@@ -345,7 +345,7 @@ import ContactForm from '../components/ContactForm.astro';
   }
 
   .info-list {
-    margin-bottom: var(--spacing-2xl);
+    margin-bottom: var(--spacing-xl);
   }
 
   .info-item {
@@ -435,6 +435,20 @@ import ContactForm from '../components/ContactForm.astro';
     line-height: 1.6;
   }
 
+  @media (max-width: 768px) {
+    .contact-grid {
+      gap: var(--spacing-xl);
+    }
+
+    .contact-page {
+      padding: calc(var(--spacing-2xl) + 100px) 0 var(--spacing-xl);
+    }
+
+    .contact-card {
+      padding: var(--spacing-lg) var(--spacing-md);
+    }
+  }
+
   @media (max-width: 600px) {
     .business-info__title {
       font-size: 2rem;
@@ -446,6 +460,7 @@ import ContactForm from '../components/ContactForm.astro';
 
     .info-heading {
       font-size: 1.25rem;
+      margin-top: var(--spacing-lg);
     }
 
     .business-info__description {
@@ -462,6 +477,24 @@ import ContactForm from '../components/ContactForm.astro';
 
     .contact-card__title {
       font-size: 1.5rem;
+    }
+
+    .contact-grid {
+      gap: var(--spacing-lg);
+    }
+
+    .contact-page {
+      padding: calc(var(--spacing-xl) + 100px) 0 var(--spacing-lg);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .business-info__title {
+      font-size: 1.75rem;
+    }
+
+    .contact-page {
+      padding: calc(var(--spacing-lg) + 100px) 0 var(--spacing-md);
     }
   }
 </style>
