@@ -43,12 +43,14 @@ const expectations = [
   <!-- Studio Location Section (Featured at Top) -->
   <section class="section studio-featured-section">
     <div class="container container--narrow">
-      <a href="/locations/sparks" class="studio-location-card">
+      <div class="studio-location-card">
         <div class="studio-location-card__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
         </div>
         <div class="studio-location-card__content">
-          <h3>Sparks, Nevada</h3>
+          <a href="/locations/sparks" class="studio-location-card__title-link">
+            <h3>Sparks, Nevada</h3>
+          </a>
           <p class="studio-address">
             2165 Green Vista Dr, Suite 206B<br/>
             Sparks, NV 89431
@@ -65,7 +67,7 @@ const expectations = [
             <Button href="tel:17076600921" variant="outline">Call (707) 660-0921</Button>
           </div>
         </div>
-      </a>
+      </div>
     </div>
   </section>
 
@@ -181,9 +183,6 @@ const expectations = [
     border: 1px solid rgba(201, 168, 108, 0.2);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
@@ -193,6 +192,15 @@ const expectations = [
       0 8px 24px rgba(201, 168, 108, 0.2),
       0 0 40px rgba(201, 168, 108, 0.15);
     transform: translateY(-4px);
+  }
+
+  .studio-location-card__title-link {
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .studio-location-card__title-link:hover h3 {
+    color: var(--color-gold);
   }
 
   .studio-location-card__icon {
@@ -220,6 +228,7 @@ const expectations = [
     font-size: 1.5rem;
     color: var(--color-charcoal);
     margin-bottom: var(--spacing-xs);
+    transition: color 0.3s ease;
   }
 
   .studio-address {
