@@ -190,6 +190,14 @@ const navLinks = [
 
   /* Mobile Styles */
   @media (max-width: 1000px) {
+    .nav {
+      height: 100px;
+    }
+
+    .nav__logo-img {
+      height: 90px;
+    }
+
     .nav__toggle {
       display: flex;
     }
@@ -233,6 +241,16 @@ const navLinks = [
     .nav__toggle--open .nav__toggle-line:nth-child(3) {
       transform: rotate(-45deg) translate(5px, -6px);
       background: var(--color-gold);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .nav {
+      height: 80px;
+    }
+
+    .nav__logo-img {
+      height: 70px;
     }
   }
 </style>

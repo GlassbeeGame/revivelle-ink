@@ -162,11 +162,26 @@
   }
 
   /* Responsive */
+  @media (max-width: 768px) {
+    .logo-hero__tagline {
+      margin-top: -40px;
+      font-size: clamp(0.75rem, 2vw, 0.9rem);
+    }
+  }
+
   @media (max-width: 600px) {
     .logo-hero__tagline {
       flex-wrap: wrap;
       justify-content: center;
       gap: var(--spacing-xs);
+      margin-top: -30px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .logo-hero__tagline {
+      margin-top: -20px;
+      font-size: 0.7rem;
     }
   }
 </style>
