@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Button from '../components/Button.astro';
-import mainaboutphoto from '../assets/mainaboutphoto.png';
+import mainaboutphoto from '../assets/mainaboutphoto.jpg';
 
 const credentials = [
   'Certified in Camouflage Tattooing',
@@ -42,14 +42,14 @@ const personSchema = {
   "name": "Sammi",
   "jobTitle": "Paramedical Tattoo Artist",
   "worksFor": { "@type": "Organization", "name": "Revivelle Ink" },
-  "image": new URL("/images/sammi-about.png", Astro.url.origin).href
+  "image": new URL("/images/sammi-about.jpg", Astro.url.origin).href
 };
 ---
 
 <Layout 
   title="About Sammi | Revivelle Ink - Sparks, NV"
   description="Meet Sammi, the artist and heart behind Revivelle Ink. Specializing in paramedical tattooing, stretch mark and scar camouflage in Sparks, Nevada."
-  ogImage="/images/sammi-about.png"
+  ogImage="/images/sammi-about.jpg"
 >
   <!-- Person schema for local SEO -->
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />

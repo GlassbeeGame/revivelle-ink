@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import ShimmerLogo from '../components/ShimmerLogo.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import Button from '../components/Button.astro';
-import trustbuildingphoto from '../assets/trustbuildingphoto1.png';
+import trustbuildingphoto from '../assets/trustbuildingphoto1.jpg';
 
 const services = [
   {
@@ -145,12 +145,13 @@ const serviceAreas = [
         <div class="why-choose__image">
           <div class="why-choose__image-frame">
             <div class="why-choose__image-placeholder">
-              <Image 
-                src={trustbuildingphoto} 
-                alt="Revivelle Ink studio space in Sparks, Nevada" 
+              <Image
+                src={trustbuildingphoto}
+                alt="Revivelle Ink studio space in Sparks, Nevada"
                 width={480}
                 height={600}
                 class="why-choose__img"
+                loading="lazy"
               />
             </div>
           </div>
