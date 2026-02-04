@@ -19,7 +19,7 @@ const {
 
 const canonicalUrl = Astro.url.origin + Astro.url.pathname;
 const siteUrl = Astro.url.origin;
-const defaultOgImage = '/images/sammi-about.png';
+const defaultOgImage = '/images/Sharelink.jpg';
 const ogImageUrl = siteUrl + (ogImage ?? defaultOgImage);
 const siteName = "Revivelle Ink";
 const twitterHandle = "@RevivelleInk"; // Update if you have a Twitter/X account
@@ -41,7 +41,7 @@ const localBusinessSchema = {
   },
   "areaServed": ["Sparks", "Reno", "Spanish Springs", "Sun Valley", "Washoe County"],
   "priceRange": "$$",
-  "image": siteUrl + defaultOgImage
+  "image": ogImageUrl
 };
 ---
 
