@@ -40,7 +40,44 @@ const expectations = [
     size="medium"
   />
 
-  <!-- Service Areas Section (Moved Up) -->
+  <!-- Studio Location Section (Featured at Top) -->
+  <section class="section studio-featured-section">
+    <div class="container container--narrow">
+      <div class="section-header text-center">
+        <span class="section-eyebrow">Our Studio</span>
+        <h2>Where We're Located</h2>
+      </div>
+
+      <div class="studio-featured-card">
+        <div class="studio-featured-card__gold-accent"></div>
+        <div class="studio-featured-card__content">
+          <div class="studio-featured-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <h3>Sparks, Nevada</h3>
+          <div class="studio-featured-card__details">
+            <p class="studio-address">
+              2165 Green Vista Dr, Suite 206B<br/>
+              Sparks, NV 89431
+            </p>
+            <div class="studio-meta">
+              <span>Private Suite</span>
+              <span class="studio-meta-separator">•</span>
+              <span>Free Parking</span>
+              <span class="studio-meta-separator">•</span>
+              <span>By Appointment</span>
+            </div>
+          </div>
+          <div class="studio-cta-buttons">
+            <Button href="/locations/sparks" variant="gold-glow">Learn More</Button>
+            <Button href="tel:17076600921" variant="outline">Call (707) 660-0921</Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Areas Section -->
   <section class="section section--gold-tint service-areas-section">
     <div class="container">
       <div class="section-header text-center">
@@ -52,7 +89,7 @@ const expectations = [
       </div>
 
       <div class="location-cards-grid">
-        {locations.map((location, i) => (
+        {locations.filter(loc => loc.slug !== 'sparks').map((location, i) => (
           <div class="location-cards-grid__item" style={`animation-delay: ${i * 0.08}s`}>
             <LocationCard
               name={location.name}
@@ -72,79 +109,6 @@ const expectations = [
           Don't see your area listed? If you're within reasonable driving distance, I'd still love to help you.
           <a href="/contact">Reach out</a> and let's chat!
         </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Studio Location Section (Moved Down) -->
-  <section class="section location-section">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="section-eyebrow">Our Studio</span>
-        <h2>Where We're Located</h2>
-        <p class="section-subtitle">
-          Visit our private suite in Sparks for your consultation and treatment.
-        </p>
-      </div>
-
-      <div class="location-grid">
-        <!-- Location Card -->
-        <div class="studio-location-card">
-          <div class="studio-location-card__gold-accent"></div>
-          <div class="studio-location-card__header">
-            <div class="studio-location-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            </div>
-            <h3>Sparks, Nevada</h3>
-          </div>
-
-          <div class="studio-location-card__details">
-            <div class="location-detail">
-              <span class="location-detail__label">Address</span>
-              <span class="location-detail__value">
-                2165 Green Vista Dr 206B<br/>Sparks, NV 89431
-              </span>
-            </div>
-
-            <div class="location-detail">
-              <span class="location-detail__label">Studio Type</span>
-              <span class="location-detail__value">Private Suite</span>
-            </div>
-
-            <div class="location-detail">
-              <span class="location-detail__label">Parking</span>
-              <span class="location-detail__value">Free parking available</span>
-            </div>
-          </div>
-
-          <div class="studio-location-card__note">
-            <span class="studio-location-card__note-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-            </span>
-            <p>
-              <strong>Private Studio:</strong> A comfortable, private suite designed for your comfort and privacy.
-            </p>
-          </div>
-
-          <Button href="tel:17076600921" variant="gold-glow" fullWidth>Free Consult</Button>
-        </div>
-
-        <!-- Map Placeholder -->
-        <div class="map-container">
-          <div class="map-placeholder">
-            <div class="map-placeholder__glow"></div>
-            <div class="map-placeholder__content">
-              <div class="map-placeholder__pin">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-              </div>
-              <h3>Sparks, Nevada</h3>
-              <p>Located in the heart of Sparks, easily accessible from Reno and surrounding areas.</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -210,211 +174,99 @@ const expectations = [
     color: var(--color-blush);
   }
 
-  /* Location Grid */
-  .location-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: var(--spacing-xl);
-    align-items: start;
+  /* Studio Featured Section */
+  .studio-featured-section {
+    background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-dark) 100%);
   }
 
-  @media (max-width: 900px) {
-    .location-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  /* Studio Location Card */
-  .studio-location-card {
+  .studio-featured-card {
     position: relative;
-    background: linear-gradient(180deg, var(--color-cream) 0%, #faf8f5 100%);
-    border: 1px solid rgba(201, 168, 108, 0.15);
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--color-cream);
+    border: 1px solid rgba(201, 168, 108, 0.2);
     border-radius: var(--radius-xl);
-    padding: var(--spacing-xl);
-    padding-top: calc(var(--spacing-xl) + 4px);
+    padding: var(--spacing-2xl);
+    padding-top: calc(var(--spacing-2xl) + 4px);
     overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow:
-      0 4px 6px rgba(0, 0, 0, 0.02),
-      0 10px 20px rgba(0, 0, 0, 0.02);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 10px 30px rgba(201, 168, 108, 0.1);
   }
 
-  .studio-location-card:hover {
-    transform: translateY(-8px);
-    box-shadow:
-      0 20px 40px rgba(201, 168, 108, 0.15),
-      0 10px 20px rgba(0, 0, 0, 0.05);
+  .studio-featured-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(201, 168, 108, 0.15);
     border-color: rgba(201, 168, 108, 0.3);
   }
 
-  .studio-location-card__gold-accent {
+  .studio-featured-card__gold-accent {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 4px;
     background: var(--gradient-gold);
-    transform: scaleX(0.3);
-    transform-origin: left;
-    transition: transform 0.5s ease;
   }
 
-  .studio-location-card:hover .studio-location-card__gold-accent {
-    transform: scaleX(1);
+  .studio-featured-card__content {
+    text-align: center;
   }
 
-  .studio-location-card__header {
+  .studio-featured-card__icon {
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
-    gap: var(--spacing-md);
+    justify-content: center;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-lg);
+    margin: 0 auto var(--spacing-md);
+    box-shadow: var(--shadow-gold);
+  }
+
+  .studio-featured-card__content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .studio-featured-card__details {
     margin-bottom: var(--spacing-xl);
   }
 
-  .studio-location-card__icon {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--gradient-gold);
-    border-radius: var(--radius-lg);
-    font-size: 1.5rem;
-    box-shadow: var(--shadow-gold);
-  }
-
-  .studio-location-card__header h3 {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    margin: 0;
-  }
-
-  .studio-location-card__details {
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .location-detail {
-    padding: var(--spacing-md) 0;
-    border-bottom: 1px solid rgba(201, 168, 108, 0.15);
-  }
-
-  .location-detail:last-child {
-    border-bottom: none;
-  }
-
-  .location-detail__label {
-    display: block;
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--color-gold);
-    margin-bottom: 0.25rem;
-  }
-
-  .location-detail__value {
-    font-size: 1rem;
-    color: var(--color-charcoal);
-  }
-
-  .location-detail__value em {
-    font-size: 0.85rem;
-    color: var(--color-taupe);
-  }
-
-  .studio-location-card__note {
-    display: flex;
-    gap: var(--spacing-sm);
-    background: linear-gradient(135deg, rgba(201, 168, 108, 0.08) 0%, transparent 100%);
-    padding: var(--spacing-md);
-    border-radius: var(--radius-md);
-    margin-bottom: var(--spacing-lg);
-    border: 1px solid rgba(201, 168, 108, 0.1);
-  }
-
-  .studio-location-card__note-icon {
-    flex-shrink: 0;
-  }
-
-  .studio-location-card__note p {
-    font-size: 0.9rem;
+  .studio-address {
+    font-size: 1.05rem;
     color: var(--color-brown-light);
-    margin: 0;
-  }
-
-  /* Map Placeholder */
-  .map-container {
-    height: 100%;
-    min-height: 450px;
-  }
-
-  .map-placeholder {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 450px;
-    background: linear-gradient(135deg, var(--color-cream-dark) 0%, var(--color-gold-pale) 50%, var(--color-cream-dark) 100%);
-    border-radius: var(--radius-xl);
-    border: 1px solid rgba(201, 168, 108, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  .map-placeholder__glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    height: 300px;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(201, 168, 108, 0.2) 0%, transparent 70%);
-    animation: glowPulse 4s ease-in-out infinite;
-  }
-
-  @keyframes glowPulse {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
-  }
-
-  .map-placeholder__content {
-    position: relative;
-    text-align: center;
-    color: var(--color-taupe);
-    padding: var(--spacing-xl);
-  }
-
-  .map-placeholder__pin {
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--gradient-gold);
-    border-radius: var(--radius-lg);
-    margin: 0 auto var(--spacing-lg);
-    color: var(--color-charcoal);
-    box-shadow: var(--shadow-gold);
-    animation: float 4s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-
-  .map-placeholder__content h3 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    color: var(--color-charcoal);
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .map-placeholder__content p {
-    font-size: 0.95rem;
-    max-width: 300px;
-    margin: 0;
     line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .studio-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: var(--color-taupe);
+  }
+
+  .studio-meta-separator {
+    color: var(--color-gold);
+  }
+
+  .studio-cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 600px) {
+    .studio-cta-buttons {
+      flex-direction: column;
+    }
   }
 
   /* Location Cards Grid - 2 columns on desktop */

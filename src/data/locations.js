@@ -4,6 +4,159 @@
 
 export const locations = [
   {
+    // Sparks - Primary Studio Location
+    slug: 'sparks',
+    name: 'Sparks',
+    fullName: 'Sparks, Nevada',
+    tagline: 'Our primary studio location',
+    driveTime: 'Studio',
+    distance: '0 miles',
+    direction: 'primary',
+    featured: true,
+    isPrimary: true, // Flag to identify primary location
+
+    // SEO & Meta
+    meta: {
+      title: 'Paramedical Tattoo Studio in Sparks, NV | Revivelle Ink',
+      description: 'Professional paramedical tattoo studio in Sparks, NV specializing in stretch mark camouflage, scar camouflage tattoo, and inkless revision. Private, appointment-only studio. Licensed & insured. Book your free consultation.',
+      keywords: 'paramedical tattoo Sparks NV, stretch mark camouflage Sparks, scar camouflage Sparks, inkless revision Sparks, Revivelle Ink Sparks',
+    },
+
+    // Hero Section
+    hero: {
+      title: 'Paramedical Tattoo Services in Sparks, NV',
+      subtitle: 'Professional stretch mark and scar camouflage serving Sparks residents — from our private Sparks studio.',
+    },
+
+    // Introduction Section
+    intro: {
+      tagline: 'Serving Your Community',
+      heading: 'Professional Paramedical Tattoo Services for Sparks Residents',
+      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, specializing in stretch mark camouflage, scar camouflage tattoo, and inkless revision. This Sparks location is our primary and only studio, serving clients throughout Washoe County and Northern Nevada.',
+    },
+
+    // Services Offered (with backlinks to service pages)
+    servicesOffered: [
+      {
+        name: 'Stretch Mark Camouflage',
+        slug: 'stretch-mark-camouflage',
+        description: 'Custom pigment-matching tattoo that blends healed stretch marks into your natural skin tone.',
+      },
+      {
+        name: 'Scar Camouflage & Revision',
+        slug: 'scar-camouflage',
+        description: 'Specialized paramedical tattooing to reduce the appearance of surgical and injury scars.',
+      },
+      {
+        name: 'Inkless Stretch Mark Revision',
+        slug: 'inkless-revision',
+        description: 'Natural, pigment-free treatment that improves texture and tone at every stage.',
+      },
+    ],
+
+    // Benefits for this location
+    benefits: [
+      'Located directly in Sparks, NV — no commuting required',
+      'Easy access from major roads and nearby neighborhoods',
+      'Private, appointment-only studio environment',
+      'Free consultations available by phone or in-person',
+      'Flexible scheduling for Sparks residents',
+      'All services performed at our Sparks studio',
+      'Licensed, insured, and Washoe County compliant',
+    ],
+
+    // Directions & What to Expect
+    process: [
+      {
+        step: '01',
+        title: 'Easy to Find',
+        description: 'Studio Address: 2165 Green Vista Dr, Suite 206B, Sparks, NV 89431. The studio is located in a professional building designed for privacy and accessibility. It\'s easily reachable from Victorian Square, Sparks Marina, and surrounding neighborhoods.',
+      },
+      {
+        step: '02',
+        title: 'Plan Your Visit',
+        description: 'Most Sparks residents can expect a 5–10 minute drive, depending on neighborhood and time of day. Parking is available near the building. Morning and early afternoon appointments typically offer the lightest traffic.',
+      },
+      {
+        step: '03',
+        title: 'Your Appointment',
+        description: 'Appointments are scheduled in advance to ensure a calm, one-on-one experience. You\'ll be welcomed into a quiet studio environment focused on precision, restoration, and comfort.',
+      },
+      {
+        step: '04',
+        title: 'Follow-Up Care',
+        description: 'If your treatment plan includes multiple sessions, follow-up appointments are scheduled with healing timelines in mind. Ongoing aftercare support is provided directly from the Sparks studio.',
+      },
+    ],
+
+    // Pricing (same as services)
+    pricing: {
+      display: '$250 per section',
+      details: [
+        'Starting at $250 per treatment area',
+        'Pricing is the same for all clients',
+        'Most clients need 1–3 sessions for best results',
+        'Free initial consultation (phone or in-person)',
+        'Flexible scheduling for Sparks residents',
+      ],
+      cta: 'Pricing does not vary by location. All services are performed at the Sparks studio with transparent guidance provided during consultation.',
+    },
+
+    // Who from this area should come
+    idealFor: {
+      heading: 'Why Choose Revivelle Ink from Sparks?',
+      intro: 'Residents of Sparks choose Revivelle Ink because:',
+      criteria: [
+        'It is a local Sparks-based paramedical tattoo studio',
+        'Specialized focus on stretch marks and scars — not general tattooing',
+        'No need to travel to Reno, California, or Las Vegas for advanced care',
+        'Familiarity with Northern Nevada\'s dry climate and skin considerations',
+        'Licensed, insured, and professionally trained care',
+        'Custom treatments designed for all skin tones',
+        'A private, peaceful studio rooted in compassion and precision',
+      ],
+      note: 'Revivelle Ink is proud to serve the Sparks community with restorative care that prioritizes quality over volume.',
+    },
+
+    // Neighborhoods/areas within this location
+    commonAreas: [
+      'Victorian Square',
+      'Sparks Marina District',
+      'Wingfield Springs',
+      'Los Altos Parkway',
+      'Spanish Springs area',
+      'Vista Boulevard corridor',
+    ],
+
+    // Location-specific FAQs
+    faqs: [
+      {
+        question: 'Is this your main location?',
+        answer: 'Yes. Revivelle Ink is located in Sparks, NV, and all services are performed at this studio.',
+      },
+      {
+        question: 'Do you serve areas outside of Sparks?',
+        answer: 'Yes. While the studio is in Sparks, we welcome clients from Reno and surrounding areas.',
+      },
+      {
+        question: 'Is parking available?',
+        answer: 'Yes. Parking is available near the studio building.',
+      },
+      {
+        question: 'Can I book a consultation if I live in Sparks?',
+        answer: 'Absolutely. Free consultations are available by phone or in person.',
+      },
+      {
+        question: 'Do Sparks residents receive the same services and pricing?',
+        answer: 'Yes. All clients receive the same professional services and pricing regardless of where they\'re visiting from.',
+      },
+    ],
+
+    // Related locations for cross-linking
+    relatedLocations: ['reno', 'spanish-springs'],
+  },
+
+  {
     // Basic Info (Used for cards and navigation)
     slug: 'reno',
     name: 'Reno',
