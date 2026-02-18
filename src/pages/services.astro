@@ -18,24 +18,12 @@ const services = [
     href: '/services/stretch-mark-camouflage'
   },
   {
-    title: 'Inkless Stretch Mark Revision',
-    price: '$250 per section per session',
-    description: 'A pigment-free treatment using custom serums and controlled needling to stimulate collagen and soften stretch mark texture. Perfect for those who prefer a natural healing approach.',
-    details: [
-      'No pigment or ink used',
-      'Stimulates natural collagen production',
-      'Improves texture, tone, and appearance',
-      '3-6 sessions typically needed, spaced 6-8 weeks apart'
-    ],
-    href: '/services/inkless-revision'
-  },
-  {
     title: 'Scar Camouflage / Scar Revision',
     price: '$250 per section per session',
-    description: 'Improves the appearance of surgical scars, injury scars, and texture irregularities through specialized paramedical tattooing techniques.',
+    description: 'Improves the appearance of surgical scars, injury scars, self-harm scars, and texture irregularities through specialized paramedical tattooing techniques.',
     details: [
       'Treats C-section, tummy tuck, and surgical scars',
-      'Addresses injury and trauma scars',
+      'Addresses injury, trauma, and self-harm scars with gentle, compassionate care',
       'Not suitable for keloid-prone skin',
       'Scars must be fully healed (12-18 months old)'
     ],
@@ -52,7 +40,7 @@ const processSteps = [
   {
     number: '02',
     title: 'Custom Treatment Plan',
-    description: 'Your treatment is customized for your skin type, tone, and goals. Numbing is available for comfort.'
+    description: 'Your treatment is customized for your skin type, tone, and goals — with a careful, unhurried approach designed around your comfort.'
   },
   {
     number: '03',
@@ -82,34 +70,34 @@ const treatedAreas = [
 const faqs = [
   {
     question: 'What is camouflage tattooing?',
-    answer: 'Camouflage tattooing is a paramedical technique that blends stretch marks or scars into the surrounding skin using pigment or inkless collagen-stimulating serums. It is designed to soften texture, reduce visibility, and create a more even appearance.'
-  },
-  {
-    question: "What's the difference between inkless and pigment camouflage?",
-    answer: 'Inkless camouflage uses serums only — no tattoo pigment. It stimulates collagen to improve texture and color naturally. Pigment camouflage uses custom skin-tone pigments to blend stretch marks or scars visually.'
+    answer: 'Camouflage tattooing is a paramedical technique that blends stretch marks or scars into the surrounding skin using custom-matched pigment. It is designed to soften texture, reduce visibility, and create a more even appearance.'
   },
   {
     question: 'Does camouflage tattooing hurt?',
-    answer: 'Most clients describe the feeling as mild scratching or vibration. A topical numbing agent is available for your comfort.'
+    answer: 'Most clients describe the feeling as mild scratching or vibration. Sammi works at a careful, unhurried pace to keep the experience as comfortable as possible.'
   },
   {
     question: 'How many sessions will I need?',
-    answer: 'Most clients need 3–6 sessions for inkless treatments, and 1–3 sessions for pigment camouflage. Sessions are spaced 6–8 weeks apart to allow for proper healing.'
+    answer: 'Most clients need 1–3 sessions for pigment camouflage, spaced 8–12 weeks apart to allow full healing between sessions.'
   },
   {
     question: 'How long do results last?',
-    answer: 'Inkless results are long-lasting because they rely on collagen remodeling. Pigment camouflage typically lasts 3–7 years depending on your lifestyle and skin type.'
+    answer: 'Pigment camouflage typically lasts 3–7 years depending on your lifestyle and skin type.'
   },
   {
     question: 'Will my stretch marks be completely gone?',
     answer: 'No treatment can fully erase stretch marks, but camouflage can drastically soften their appearance and help them blend beautifully into the surrounding skin.'
+  },
+  {
+    question: 'Do you work with self-harm scars?',
+    answer: 'Yes. Self-harm scar camouflage is a specialty Sammi approaches with particular care and compassion. The studio is completely private, the pace is yours, and there are no questions you don\'t want to answer. Call to discuss — you\'re welcome here.'
   }
 ];
 ---
 
 <Layout 
   title="Stretch Mark & Scar Camouflage Services | Revivelle Ink - Sparks, NV"
-  description="Professional stretch mark camouflage, inkless scar revision, and paramedical tattooing services in Sparks, Nevada. Natural, long-lasting results for all skin tones."
+  description="Professional stretch mark camouflage and scar camouflage tattooing services in Sparks, Nevada. Natural, long-lasting results for all skin tones. Trauma-informed, private studio."
 >
   <Hero 
     title="Services & Pricing"
@@ -291,16 +279,12 @@ const faqs = [
   /* Services Grid */
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-2xl);
-  }
-
-  @media (max-width: 900px) {
-    .services-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--spacing-md);
-    }
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   @media (max-width: 600px) {

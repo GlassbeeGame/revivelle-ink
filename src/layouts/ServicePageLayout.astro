@@ -215,6 +215,31 @@ const breadcrumbSchema = {
             </div>
           )}
 
+          <!-- Self-Harm Specialty Section (optional) -->
+          {service.selfHarmSpecialty && (
+            <div class="service-content-section self-harm-specialty">
+              <div class="specialty-callout">
+                <h3>{service.selfHarmSpecialty.heading}</h3>
+                <p class="specialty-body">{service.selfHarmSpecialty.body}</p>
+                <ul class="specialty-points">
+                  {service.selfHarmSpecialty.points.map((point: string) => (
+                    <li>
+                      <span class="specialty-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+                {service.selfHarmSpecialty.note && (
+                  <p class="specialty-note">{service.selfHarmSpecialty.note}</p>
+                )}
+              </div>
+            </div>
+          )}
+
           <!-- Benefits Section -->
           <div class="service-content-section">
             <h3>Benefits & Results</h3>
@@ -1159,6 +1184,79 @@ const breadcrumbSchema = {
       width: 50px;
       height: 50px;
       font-size: 1.25rem;
+    }
+  }
+
+  /* Self-Harm Specialty Callout */
+  .specialty-callout {
+    background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-charcoal-deep) 100%);
+    border: 1px solid rgba(201, 168, 108, 0.2);
+    border-left: 4px solid var(--color-gold);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    color: var(--color-cream);
+  }
+
+  .specialty-callout h3 {
+    color: var(--color-gold);
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .specialty-body {
+    font-size: 1.05rem;
+    color: var(--color-taupe);
+    line-height: 1.9;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .specialty-points {
+    list-style: none;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .specialty-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid rgba(201, 168, 108, 0.1);
+    font-size: 0.95rem;
+    color: var(--color-cream);
+  }
+
+  .specialty-points li:last-child {
+    border-bottom: none;
+  }
+
+  .specialty-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-full);
+    color: var(--color-charcoal);
+    margin-top: 1px;
+  }
+
+  .specialty-note {
+    font-size: 0.95rem;
+    color: var(--color-blush);
+    font-style: italic;
+    padding: var(--spacing-md);
+    background: rgba(201, 168, 108, 0.08);
+    border-radius: var(--radius-md);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 600px) {
+    .specialty-callout {
+      padding: var(--spacing-lg);
     }
   }
 </style>

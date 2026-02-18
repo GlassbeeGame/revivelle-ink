@@ -35,7 +35,7 @@ export const services = [
       'Professional assessment of stretch mark age, color, texture, and skin tone stability',
       'Custom pigment formulation created specifically for your undertone (not a "stock" pigment)',
       'Treatment session using sterile, single-use equipment (Washoe County compliant)',
-      'Comfort-first experience with topical numbing available',
+      'Comfort-first experience with a careful, unhurried approach',
       'Aftercare guidance + healing support so results heal evenly and predictably',
       'Session planning (most clients need 1–3 sessions, spaced 8–12 weeks apart)',
       'Long-term guidance on maintaining results and when touch-ups may help',
@@ -52,7 +52,7 @@ export const services = [
         'The feeling of always noticing the same area (thighs, hips, stomach, etc.)',
         'Wanting a solution that doesn\'t require daily products or constant covering',
       ],
-      note: 'Important note: Stretch mark camouflage tattoo is not for red/purple stretch marks (those are still healing). If yours are red/purple, inkless revision is typically the better starting point.',
+      note: 'Important note: Stretch mark camouflage tattoo is designed for white, silver, or light stretch marks that are fully healed. Red or purple stretch marks are still in the healing phase and are not candidates for pigment camouflage at this time.',
     },
 
     benefits: [
@@ -61,7 +61,7 @@ export const services = [
       'Long-lasting results (typically 3–7 years)',
       'Reduces visibility of white/light stretch marks',
       'Minimal downtime and straightforward healing',
-      'Numbing available for comfort',
+      'Careful, precise technique designed for client comfort',
       'Natural-looking improvement that still looks like real skin',
     ],
 
@@ -83,8 +83,8 @@ export const services = [
       },
       {
         step: '04',
-        title: 'Healing & Aftercare (4–6 weeks)',
-        description: 'The area may look darker at first, then gradually softens as it heals and settles closer to your skin tone.',
+        title: 'Healing & Aftercare (6–8 weeks)',
+        description: 'The area may look darker at first, then gradually softens as it heals and settles closer to your skin tone. Healing typically takes 6–8 weeks, depending on your body and the healing process.',
       },
       {
         step: '05',
@@ -130,7 +130,7 @@ export const services = [
         'You want a longer-lasting, low-maintenance visual improvement',
         'You want your skin to look more even and smooth',
       ],
-      note: 'Not a fit: red/purple stretch marks. Those usually do best with inkless revision first.',
+      note: 'Not a fit: red/purple stretch marks. Those are still in the healing phase and are not suitable for pigment camouflage at this time.',
     },
 
     commonAreas: [
@@ -170,7 +170,7 @@ export const services = [
       },
       {
         question: 'Can stretch mark camouflage treat red or purple stretch marks?',
-        answer: 'Not typically. Red/purple stretch marks are still healing and usually respond better to inkless revision first.',
+        answer: 'Not typically. Red/purple stretch marks are still in the healing phase and are not suitable candidates for pigment camouflage at this time.',
       },
       {
         question: 'How long does stretch mark camouflage last?',
@@ -178,11 +178,11 @@ export const services = [
       },
       {
         question: 'Is stretch mark tattoo camouflage painful?',
-        answer: 'Most people describe it as mild scratching or vibration. Topical numbing is available for comfort.',
+        answer: 'Most people describe it as mild scratching or vibration. Sammi works carefully and unhurriedly to keep the experience as comfortable as possible.',
       },
       {
         question: 'What should I expect before and after treatment?',
-        answer: 'Before: stable skin tone, no recent tanning, and marks should be fully healed. After: the treated area can look darker initially, then softens as it heals over 4–6 weeks.',
+        answer: 'Before: stable skin tone, no recent tanning, and marks should be fully healed. After: the treated area can look darker initially, then softens as it heals — typically 6–8 weeks, depending on your body and healing process.',
       },
       {
         question: 'How many sessions do I need to camouflage stretch marks?',
@@ -199,7 +199,7 @@ export const services = [
     ],
 
     // Related services for cross-linking
-    relatedServices: ['inkless-revision', 'scar-camouflage'],
+    relatedServices: ['scar-camouflage'],
   },
 
   {
@@ -433,8 +433,7 @@ export const services = [
       'Professional scar evaluation (age, texture, depth, location, skin tone)',
       'Custom pigment formulation tailored to your undertone and surrounding skin',
       'Scar camouflage tattoo session using sterile, single-use equipment',
-      'Optional inkless revision recommendation for textured scars before pigment',
-      'Topical numbing available for comfort',
+      'Comfort-first experience with a careful, gingerly precise approach',
       'Detailed aftercare guidance and healing support',
       'Session planning (most scars require 1–3 sessions)',
     ],
@@ -462,7 +461,7 @@ export const services = [
       'Improves visual cohesion between scar and surrounding skin',
       'Works best on flat, non-keloid scars',
       'Long-lasting results (typically 3–7 years)',
-      'Minimal downtime with numbing available',
+      'Minimal downtime with careful, precise technique',
       'Designed for subtle, believable improvement',
     ],
 
@@ -470,7 +469,7 @@ export const services = [
       {
         step: '01',
         title: 'Scar Assessment & Consultation',
-        description: 'We evaluate your scar\'s age, texture, and healing to determine whether pigment, inkless revision, or a combination is best.',
+        description: 'We evaluate your scar\'s age, texture, and healing to determine whether pigment camouflage is the right approach for your skin.',
       },
       {
         step: '02',
@@ -484,13 +483,13 @@ export const services = [
       },
       {
         step: '04',
-        title: 'Healing & Aftercare (4–6 weeks)',
-        description: 'The area may appear darker initially, then softens as it heals. You\'ll receive detailed aftercare instructions.',
+        title: 'Healing & Aftercare (6–8 weeks)',
+        description: 'The area may appear darker initially, then softens as it heals. Healing typically takes 6–8 weeks, depending on your body and healing process. You\'ll receive detailed aftercare instructions.',
       },
       {
         step: '05',
         title: 'Additional Sessions (If Needed)',
-        description: 'Most clients need 1–3 sessions, spaced 8–12 weeks apart. Textured scars may benefit from inkless revision before pigment.',
+        description: 'Most clients need 1–3 sessions, spaced 8–12 weeks apart to allow full healing between sessions.',
       },
     ],
 
@@ -499,12 +498,24 @@ export const services = [
       details: [
         'Starting at $250+ per scar area, per session',
         'Most clients need 1–3 pigment sessions',
-        'Inkless revision may be recommended first for texture',
-        'Pigment sessions spaced 8–12 weeks apart',
+        'Sessions spaced 8–12 weeks apart for full healing',
         'Typical total investment: $250–$1,000+',
       ],
       note: 'If you\'re comparing scar camouflage tattoo price, remember that scar size, location, and complexity matter. A free consultation provides the most accurate estimate.',
       cta: 'Call (707) 660-0921',
+    },
+
+    selfHarmSpecialty: {
+      heading: 'A Specialty Most Studios Won\'t Name',
+      body: 'Self-harm scar camouflage is a specialty Sammi approaches with particular care. Many clients with self-harm scars have spent years wondering whether there\'s a safe place to address them — and whether the person on the other side of the table would make them feel judged. At Revivelle Ink, the answer is no. Sammi works gingerly, unhurriedly, and without a single question you don\'t want to answer. She has worked with clients carrying scars from some of their hardest chapters, and she holds that trust with the utmost respect.',
+      points: [
+        'Completely private studio — no shared spaces, no other clients present',
+        'You set the pace. Sammi follows your lead.',
+        'Judgment-free from the first call to the last session',
+        'Sammi has worked with self-harm scars before — she won\'t flinch, and she won\'t make you explain yourself',
+        'The goal: softer scars and a little more freedom in what you choose to wear',
+      ],
+      note: 'If you\'re not sure whether you\'re ready or whether you\'re a candidate, a private phone consultation is the best first step. You don\'t have to come in. You just have to call.',
     },
 
     whyChoose: {
@@ -513,8 +524,8 @@ export const services = [
       intro: 'Scar camouflage requires more than tattoo skill — it requires medical awareness, color theory mastery, and emotional intelligence. Clients choose Revivelle Ink because:',
       reasons: [
         'Sammi specializes in paramedical tattooing, not decorative tattoos',
-        'Advanced experience with scar camouflage tattoo on dark skin',
-        'Trauma-informed, judgment-free care',
+        'Specialty in self-harm scar camouflage — gingerly precise, trauma-informed, judgment-free',
+        'Advanced experience with scar camouflage on dark skin',
         'Washoe County compliant sanitation standards',
         'Custom pigment blending for every client',
         'Private, peaceful studio in Sparks',
@@ -589,7 +600,7 @@ export const services = [
       },
       {
         question: 'What does healing look like?',
-        answer: 'Healing takes 4–6 weeks. The area may appear darker initially, then softens as pigment settles.',
+        answer: 'Healing takes 6–8 weeks, depending on your body and the healing process. The area may appear darker initially, then softens as pigment settles.',
       },
       {
         question: 'What should I expect before and after scar camouflage tattoo?',
@@ -600,12 +611,16 @@ export const services = [
         answer: 'Pricing starts at $250+ per session, with total cost depending on scar size and complexity.',
       },
       {
+        question: 'Do you work with self-harm scars?',
+        answer: 'Yes. Self-harm scar camouflage is a specialty Sammi approaches with particular care. The studio is completely private, the pace is yours, and there are no questions you don\'t want to answer. If you\'re unsure whether you\'re ready or whether you\'re a candidate, a private phone consultation is the best first step. You\'re welcome here.',
+      },
+      {
         question: 'Where can I find a scar camouflage tattoo artist near me?',
         answer: 'Revivelle Ink offers scar camouflage tattoo in Sparks and serves Reno and Washoe County. Call (707) 660-0921 to schedule your free consultation.',
       },
     ],
 
-    relatedServices: ['inkless-revision', 'stretch-mark-camouflage'],
+    relatedServices: ['stretch-mark-camouflage'],
   },
 ];
 

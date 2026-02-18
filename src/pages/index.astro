@@ -13,13 +13,8 @@ const services = [
     href: '/services/stretch-mark-camouflage'
   },
   {
-    title: 'Inkless Scar Revision',
-    description: 'A pigment-free treatment using custom serums and controlled needling to stimulate collagen and soften stretch mark and scar texture naturally.',
-    href: '/services/inkless-revision'
-  },
-  {
     title: 'Scar Camouflage',
-    description: 'Improves the appearance of surgical scars, injury scars, and texture irregularities through specialized paramedical tattooing techniques.',
+    description: 'Improves the appearance of surgical scars, injury scars, self-harm scars, and texture irregularities through specialized paramedical tattooing techniques.',
     href: '/services/scar-camouflage'
   }
 ];
@@ -46,7 +41,7 @@ const serviceAreas = [
 
 <Layout 
   title="Stretch Mark & Scar Camouflage Tattoo in Sparks, NV | Revivelle Ink"
-  description="Transform stretch marks and scars with inkless camouflage tattooing at Revivelle Ink in Sparks, NV. Safe, natural, long-lasting results for all skin tones. Book your consultation today."
+  description="Transform stretch marks and scars with paramedical camouflage tattooing at Revivelle Ink in Sparks, NV. Safe, natural, long-lasting results for all skin tones. Book your consultation today."
 >
   <!-- Hero Section - Clean Dark Theme -->
   <section class="hero-home">
@@ -75,7 +70,7 @@ const serviceAreas = [
           Natural, Beautiful <span class="text-gradient-gold">Skin Revision</span>
         </h2>
         <p class="intro__text">
-          Revivelle Ink is a boutique paramedical and cosmetic tattoo studio located in Sparks, Nevada, specializing in stretch mark camouflage and inkless scar revision services designed to restore confidence and enhance your natural beauty.
+          Revivelle Ink is a boutique paramedical and cosmetic tattoo studio located in Sparks, Nevada, specializing in stretch mark camouflage and scar camouflage services designed to restore confidence and enhance your natural beauty.
         </p>
         <p class="intro__text">
           My approach is rooted in precision, softness, and artistry. Whether you're looking to blend stretch marks, soften scars, or restore your skin's appearance, Revivelle Ink provides a safe, private, and welcoming environment where you can feel truly seen and cared for.
@@ -167,7 +162,7 @@ const serviceAreas = [
         <span class="section-eyebrow section-eyebrow--light">Our Reach</span>
         <h2>Serving Sparks, Reno & All of Washoe County</h2>
         <p class="service-areas__subtitle">
-          Revivelle Ink proudly provides camouflage tattooing and inkless scar revision to clients throughout Northern Nevada.
+          Revivelle Ink proudly provides stretch mark and scar camouflage tattooing to clients throughout Northern Nevada.
         </p>
         <div class="service-areas__list">
           {serviceAreas.map((area, index) => (
@@ -350,22 +345,16 @@ const serviceAreas = [
   /* Services Preview */
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
+    max-width: 900px;
+    margin: 0 auto;
   }
 
-  @media (max-width: 1100px) {
-    .services-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--spacing-md);
-    }
-  }
-
-  @media (max-width: 900px) {
+  @media (max-width: 700px) {
     .services-grid {
       grid-template-columns: 1fr;
       max-width: 500px;
-      margin: 0 auto;
     }
   }
 

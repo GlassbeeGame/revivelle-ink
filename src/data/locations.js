@@ -18,8 +18,8 @@ export const locations = [
     // SEO & Meta
     meta: {
       title: 'Paramedical Tattoo Studio in Sparks, NV | Revivelle Ink',
-      description: 'Professional paramedical tattoo studio in Sparks, NV specializing in stretch mark camouflage, scar camouflage tattoo, and inkless revision. Private, appointment-only studio. Licensed & insured. Book your free consultation.',
-      keywords: 'paramedical tattoo Sparks NV, stretch mark camouflage Sparks, scar camouflage Sparks, inkless revision Sparks, Revivelle Ink Sparks',
+      description: 'Professional paramedical tattoo studio in Sparks, NV specializing in stretch mark camouflage and scar camouflage tattoo. Private, appointment-only studio. Licensed & insured. Book your free consultation.',
+      keywords: 'paramedical tattoo Sparks NV, stretch mark camouflage Sparks, scar camouflage Sparks, Revivelle Ink Sparks',
     },
 
     // Hero Section
@@ -32,7 +32,7 @@ export const locations = [
     intro: {
       tagline: 'Serving Your Community',
       heading: 'Professional Paramedical Tattoo Services for Sparks Residents',
-      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, specializing in stretch mark camouflage, scar camouflage tattoo, and inkless revision. This Sparks location is our primary and only studio, serving clients throughout Washoe County and Northern Nevada.',
+      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, specializing in stretch mark camouflage and scar camouflage tattoo. This Sparks location is our primary and only studio, serving clients throughout Washoe County and Northern Nevada.',
     },
 
     // Services Offered (with backlinks to service pages)
@@ -47,12 +47,7 @@ export const locations = [
         slug: 'scar-camouflage',
         description: 'Specialized paramedical tattooing to reduce the appearance of surgical and injury scars.',
       },
-      {
-        name: 'Inkless Stretch Mark Revision',
-        slug: 'inkless-revision',
-        description: 'Natural, pigment-free treatment that improves texture and tone at every stage.',
-      },
-    ],
+],
 
     // Benefits for this location
     benefits: [
@@ -170,8 +165,8 @@ export const locations = [
     // SEO & Meta
     meta: {
       title: 'Paramedical Tattoo Services in Reno, NV | Revivelle Ink',
-      description: 'Professional paramedical tattoo services serving Reno residents. Stretch mark camouflage, scar camouflage tattoo, and inkless revision. Just 5 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
-      keywords: 'paramedical tattoo Reno NV, stretch mark camouflage Reno, scar camouflage Reno, inkless revision Reno, Revivelle Ink Reno',
+      description: 'Professional paramedical tattoo services serving Reno residents. Stretch mark camouflage and scar camouflage tattoo. Just 5 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
+      keywords: 'paramedical tattoo Reno NV, stretch mark camouflage Reno, scar camouflage Reno, Revivelle Ink Reno',
     },
 
     // Hero Section
@@ -184,7 +179,7 @@ export const locations = [
     intro: {
       tagline: 'Serving Your Community',
       heading: 'Professional Paramedical Tattoo Services for Reno Residents',
-      description: 'Revivelle Ink is a boutique paramedical tattoo studio located in Sparks, Nevada, serving clients throughout Reno and the surrounding Washoe County area. Many Reno residents visit us for specialized care that focuses on stretch mark camouflage, scar camouflage tattoo, and inkless revision, all performed in a private, appointment-only setting.',
+      description: 'Revivelle Ink is a boutique paramedical tattoo studio located in Sparks, Nevada, serving clients throughout Reno and the surrounding Washoe County area. Many Reno residents visit us for specialized care that focuses on stretch mark camouflage and scar camouflage tattoo, all performed in a private, appointment-only setting.',
     },
 
     // Services Offered (with backlinks to service pages)
@@ -199,12 +194,7 @@ export const locations = [
         slug: 'scar-camouflage',
         description: 'Specialized paramedical tattooing to reduce the appearance of surgical and injury scars.',
       },
-      {
-        name: 'Inkless Stretch Mark Revision',
-        slug: 'inkless-revision',
-        description: 'Natural, pigment-free treatment that improves texture and tone at every stage.',
-      },
-    ],
+],
 
     // Benefits for this location
     benefits: [
@@ -330,8 +320,8 @@ export const locations = [
 
     meta: {
       title: 'Paramedical Tattoo Services in Spanish Springs, NV | Revivelle Ink',
-      description: 'Professional paramedical tattoo services serving Spanish Springs residents. Stretch mark camouflage, scar camouflage tattoo, and inkless revision. Just 10 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
-      keywords: 'paramedical tattoo Spanish Springs NV, stretch mark camouflage Spanish Springs, scar camouflage Spanish Springs, inkless revision Spanish Springs, Revivelle Ink Spanish Springs',
+      description: 'Professional paramedical tattoo services serving Spanish Springs residents. Stretch mark camouflage and scar camouflage tattoo. Just 10 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
+      keywords: 'paramedical tattoo Spanish Springs NV, stretch mark camouflage Spanish Springs, scar camouflage Spanish Springs, Revivelle Ink Spanish Springs',
     },
 
     hero: {
@@ -342,7 +332,7 @@ export const locations = [
     intro: {
       tagline: 'Serving Your Community',
       heading: 'Professional Paramedical Tattoo Services for Spanish Springs Residents',
-      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, serving clients throughout Spanish Springs and Northern Washoe County. Many Spanish Springs residents visit our Sparks studio for highly specialized care focused on stretch mark camouflage, scar camouflage tattoo, and inkless revision.',
+      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, serving clients throughout Spanish Springs and Northern Washoe County. Many Spanish Springs residents visit our Sparks studio for highly specialized care focused on stretch mark camouflage and scar camouflage tattoo.',
     },
 
     // Services Offered (with backlinks to service pages)
@@ -357,12 +347,7 @@ export const locations = [
         slug: 'scar-camouflage',
         description: 'Specialized paramedical tattooing to reduce the appearance of surgical and injury scars.',
       },
-      {
-        name: 'Inkless Stretch Mark Revision',
-        slug: 'inkless-revision',
-        description: 'Natural, pigment-free treatment that improves texture and tone at every stage.',
-      },
-    ],
+],
 
     benefits: [
       'Just 10 minutes from Spanish Springs',
@@ -470,8 +455,8 @@ export const locations = [
 
     meta: {
       title: 'Paramedical Tattoo Services in Sun Valley, NV | Revivelle Ink',
-      description: 'Professional paramedical tattoo services serving Sun Valley residents. Stretch mark camouflage, scar camouflage tattoo, and inkless revision. Just 15 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
-      keywords: 'paramedical tattoo Sun Valley NV, stretch mark camouflage Sun Valley, scar camouflage Sun Valley, inkless revision Sun Valley, Revivelle Ink Sun Valley',
+      description: 'Professional paramedical tattoo services serving Sun Valley residents. Stretch mark camouflage and scar camouflage tattoo. Just 15 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
+      keywords: 'paramedical tattoo Sun Valley NV, stretch mark camouflage Sun Valley, scar camouflage Sun Valley, Revivelle Ink Sun Valley',
     },
 
     hero: {
@@ -482,7 +467,7 @@ export const locations = [
     intro: {
       tagline: 'Serving Your Community',
       heading: 'Professional Paramedical Tattoo Services for Sun Valley Residents',
-      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, serving clients throughout Sun Valley and the surrounding North Valleys area. Many Sun Valley residents visit our Sparks studio for specialized care focused on stretch mark camouflage, scar camouflage tattoo, and inkless revision.',
+      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, serving clients throughout Sun Valley and the surrounding North Valleys area. Many Sun Valley residents visit our Sparks studio for specialized care focused on stretch mark camouflage and scar camouflage tattoo.',
     },
 
     // Services Offered (with backlinks to service pages)
@@ -497,12 +482,7 @@ export const locations = [
         slug: 'scar-camouflage',
         description: 'Specialized paramedical tattooing to reduce the appearance of surgical and injury scars.',
       },
-      {
-        name: 'Inkless Stretch Mark Revision',
-        slug: 'inkless-revision',
-        description: 'Natural, pigment-free treatment that improves texture and tone at every stage.',
-      },
-    ],
+],
 
     benefits: [
       'Just 15 minutes from Sun Valley',
@@ -609,8 +589,8 @@ export const locations = [
 
     meta: {
       title: 'Paramedical Tattoo Services in South Reno, NV | Revivelle Ink',
-      description: 'Professional paramedical tattoo services serving South Reno residents. Stretch mark camouflage, scar camouflage tattoo, and inkless revision. Just 10 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
-      keywords: 'paramedical tattoo South Reno NV, stretch mark camouflage South Reno, scar camouflage South Reno, inkless revision South Reno, Revivelle Ink South Reno',
+      description: 'Professional paramedical tattoo services serving South Reno residents. Stretch mark camouflage and scar camouflage tattoo. Just 10 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
+      keywords: 'paramedical tattoo South Reno NV, stretch mark camouflage South Reno, scar camouflage South Reno, Revivelle Ink South Reno',
     },
 
     hero: {
@@ -621,7 +601,7 @@ export const locations = [
     intro: {
       tagline: 'Serving Your Community',
       heading: 'Professional Paramedical Tattoo Services for South Reno Residents',
-      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, serving clients throughout South Reno and the greater Washoe County area. Many South Reno residents choose our Sparks studio for specialized care focused on stretch mark camouflage, scar camouflage tattoo, and inkless revision — all performed in a private, calm environment.',
+      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, serving clients throughout South Reno and the greater Washoe County area. Many South Reno residents choose our Sparks studio for specialized care focused on stretch mark camouflage and scar camouflage tattoo — all performed in a private, calm environment.',
     },
 
     // Services Offered (with backlinks to service pages)
@@ -636,12 +616,7 @@ export const locations = [
         slug: 'scar-camouflage',
         description: 'Specialized paramedical tattooing to reduce the appearance of surgical and injury scars.',
       },
-      {
-        name: 'Inkless Stretch Mark Revision',
-        slug: 'inkless-revision',
-        description: 'Natural, pigment-free treatment that improves texture and tone at every stage.',
-      },
-    ],
+],
 
     benefits: [
       'Just 10 minutes from South Reno',
@@ -749,8 +724,8 @@ export const locations = [
 
     meta: {
       title: 'Paramedical Tattoo Services in North Valleys, NV | Revivelle Ink',
-      description: 'Professional paramedical tattoo services serving North Valleys residents. Stretch mark camouflage, scar camouflage tattoo, and inkless revision. Just 12 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
-      keywords: 'paramedical tattoo North Valleys NV, stretch mark camouflage North Valleys, scar camouflage North Valleys, inkless revision North Valleys, Revivelle Ink North Valleys',
+      description: 'Professional paramedical tattoo services serving North Valleys residents. Stretch mark camouflage and scar camouflage tattoo. Just 12 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
+      keywords: 'paramedical tattoo North Valleys NV, stretch mark camouflage North Valleys, scar camouflage North Valleys, Revivelle Ink North Valleys',
     },
 
     hero: {
@@ -761,7 +736,7 @@ export const locations = [
     intro: {
       tagline: 'Serving Your Community',
       heading: 'Professional Paramedical Tattoo Services for North Valleys Residents',
-      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, serving clients throughout the North Valleys and greater Washoe County area. Many North Valleys residents visit our Sparks studio for specialized care focused on stretch mark camouflage, scar camouflage tattoo, and inkless revision — all performed in a calm, private environment.',
+      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, serving clients throughout the North Valleys and greater Washoe County area. Many North Valleys residents visit our Sparks studio for specialized care focused on stretch mark camouflage and scar camouflage tattoo — all performed in a calm, private environment.',
     },
 
     // Services Offered (with backlinks to service pages)
@@ -776,12 +751,7 @@ export const locations = [
         slug: 'scar-camouflage',
         description: 'Specialized paramedical tattooing to reduce the appearance of surgical and injury scars.',
       },
-      {
-        name: 'Inkless Stretch Mark Revision',
-        slug: 'inkless-revision',
-        description: 'Natural, pigment-free treatment that improves texture and tone at every stage.',
-      },
-    ],
+],
 
     benefits: [
       'Just 12–15 minutes from North Valleys',
@@ -889,8 +859,8 @@ export const locations = [
 
     meta: {
       title: 'Paramedical Tattoo Services in Carson City, NV | Revivelle Ink',
-      description: 'Professional paramedical tattoo services serving Carson City residents. Stretch mark camouflage, scar camouflage tattoo, and inkless revision. Approximately 30 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
-      keywords: 'paramedical tattoo Carson City NV, stretch mark camouflage Carson City, scar camouflage Carson City, inkless revision Carson City, Revivelle Ink Carson City',
+      description: 'Professional paramedical tattoo services serving Carson City residents. Stretch mark camouflage and scar camouflage tattoo. Approximately 30 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
+      keywords: 'paramedical tattoo Carson City NV, stretch mark camouflage Carson City, scar camouflage Carson City, Revivelle Ink Carson City',
     },
 
     hero: {
@@ -901,7 +871,7 @@ export const locations = [
     intro: {
       tagline: 'Serving Your Community',
       heading: 'Professional Paramedical Tattoo Services for Carson City Residents',
-      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, serving clients throughout Carson City and Northern Nevada. Many Carson City residents make the short drive to Sparks for specialized care focused on stretch mark camouflage, scar camouflage tattoo, and inkless revision — services that are not widely available locally.',
+      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, serving clients throughout Carson City and Northern Nevada. Many Carson City residents make the short drive to Sparks for specialized care focused on stretch mark camouflage and scar camouflage tattoo — services that are not widely available locally.',
     },
 
     // Services Offered (with backlinks to service pages)
@@ -916,12 +886,7 @@ export const locations = [
         slug: 'scar-camouflage',
         description: 'Specialized paramedical tattooing to reduce the appearance of surgical and injury scars.',
       },
-      {
-        name: 'Inkless Stretch Mark Revision',
-        slug: 'inkless-revision',
-        description: 'Natural, pigment-free treatment that improves texture and tone at every stage.',
-      },
-    ],
+],
 
     benefits: [
       'Approximately 30 minutes from Carson City',
@@ -1030,8 +995,8 @@ export const locations = [
 
     meta: {
       title: 'Paramedical Tattoo Services in Fernley, NV | Revivelle Ink',
-      description: 'Professional paramedical tattoo services serving Fernley residents. Stretch mark camouflage, scar camouflage tattoo, and inkless revision. Approximately 25 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
-      keywords: 'paramedical tattoo Fernley NV, stretch mark camouflage Fernley, scar camouflage Fernley, inkless revision Fernley, Revivelle Ink Fernley',
+      description: 'Professional paramedical tattoo services serving Fernley residents. Stretch mark camouflage and scar camouflage tattoo. Approximately 25 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
+      keywords: 'paramedical tattoo Fernley NV, stretch mark camouflage Fernley, scar camouflage Fernley, Revivelle Ink Fernley',
     },
 
     hero: {
@@ -1042,7 +1007,7 @@ export const locations = [
     intro: {
       tagline: 'Serving Your Community',
       heading: 'Professional Paramedical Tattoo Services for Fernley Residents',
-      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, serving clients throughout Fernley and the greater Northern Nevada region. Many Fernley residents choose to visit our Sparks studio for specialized care focused on stretch mark camouflage, scar camouflage tattoo, and inkless revision — services that are limited or unavailable locally.',
+      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, serving clients throughout Fernley and the greater Northern Nevada region. Many Fernley residents choose to visit our Sparks studio for specialized care focused on stretch mark camouflage and scar camouflage tattoo — services that are limited or unavailable locally.',
     },
 
     // Services Offered (with backlinks to service pages)
@@ -1057,12 +1022,7 @@ export const locations = [
         slug: 'scar-camouflage',
         description: 'Specialized paramedical tattooing to reduce the appearance of surgical and injury scars.',
       },
-      {
-        name: 'Inkless Stretch Mark Revision',
-        slug: 'inkless-revision',
-        description: 'Natural, pigment-free treatment that improves texture and tone at every stage.',
-      },
-    ],
+],
 
     benefits: [
       'Approximately 25 minutes from Fernley',
@@ -1170,8 +1130,8 @@ export const locations = [
 
     meta: {
       title: 'Paramedical Tattoo Services in Incline Village, NV | Revivelle Ink',
-      description: 'Professional paramedical tattoo services serving Incline Village residents. Stretch mark camouflage, scar camouflage tattoo, and inkless revision. Approximately 35 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
-      keywords: 'paramedical tattoo Incline Village NV, stretch mark camouflage Incline Village, scar camouflage Incline Village, inkless revision Incline Village, Revivelle Ink Lake Tahoe',
+      description: 'Professional paramedical tattoo services serving Incline Village residents. Stretch mark camouflage and scar camouflage tattoo. Approximately 35 minutes from our Sparks studio. Licensed & insured. Book your free consultation.',
+      keywords: 'paramedical tattoo Incline Village NV, stretch mark camouflage Incline Village, scar camouflage Incline Village, Revivelle Ink Lake Tahoe',
     },
 
     hero: {
@@ -1182,7 +1142,7 @@ export const locations = [
     intro: {
       tagline: 'Serving Your Community',
       heading: 'Professional Paramedical Tattoo Services for Incline Village Residents',
-      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, serving clients throughout Incline Village and the Lake Tahoe region. Many Incline Village residents choose to visit our Sparks studio for specialized care focused on stretch mark camouflage, scar camouflage tattoo, and inkless revision — services that require advanced training and are not widely available in resort areas.',
+      description: 'Revivelle Ink is a boutique, appointment-only paramedical tattoo studio located in Sparks, Nevada, serving clients throughout Incline Village and the Lake Tahoe region. Many Incline Village residents choose to visit our Sparks studio for specialized care focused on stretch mark camouflage and scar camouflage tattoo — services that require advanced training and are not widely available in resort areas.',
     },
 
     // Services Offered (with backlinks to service pages)
@@ -1197,12 +1157,7 @@ export const locations = [
         slug: 'scar-camouflage',
         description: 'Specialized paramedical tattooing to reduce the appearance of surgical and injury scars.',
       },
-      {
-        name: 'Inkless Stretch Mark Revision',
-        slug: 'inkless-revision',
-        description: 'Natural, pigment-free treatment that improves texture and tone at every stage.',
-      },
-    ],
+],
 
     benefits: [
       'Approximately 35 minutes from Incline Village',
